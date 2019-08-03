@@ -1,6 +1,7 @@
 # php learn [（全称：PHP：Hypertext Preprocessor，即“PHP：超文本预处理器”）](https://zh.wikipedia.org/wiki/PHP)
 
 > php 是面向对象的语言，学完PHP的面向对象能让我更好理解面向对象。
+为了防止php输出的中文乱码，需要在php前面添加``` header("Content-Type: text/html;charset=utf-8");```
 
 1. php 和 js 不同，所有的代码后面的分号必须要有，注释和js相同，流程语句的写法也与js相同
 
@@ -211,4 +212,4 @@ echo $_REQUEST['name'];  // get/post 方式传递的数据都能接收
 
 ```
 
-7. mysql
+7.[ mysql]('./php-mysql/basic.md')
