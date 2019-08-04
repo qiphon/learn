@@ -18,6 +18,52 @@ SELECT * FROM `news` WHERE newsid=0
 // 按条件查找
 SELECT `newsid`, `title`, `img`, `content`, `addtime` FROM `news` WHERE 1
 
+// 计算数量 count
+ select count(*) from phplesson.phpcreatetable where lastname = 'Lee';
+                      数据库名. 表名
+
+// min() 求最小值
+ select min(reg_date), phpcreatetable.* from phplesson.phpcreatetable;
+                      查询表中所有的字段
+// max() 求最小值
+ select max(reg_date), phpcreatetable.* from phplesson.phpcreatetable;
+                      查询表中所有的字段
+
+// 其他方法 https://www.runoob.com/sql/sql-function.html
+sum() 求和
+sqrt()  求平方根
+rand()  得到一个随机数
+concat()  拼接字符串
+select concat(id, ' ', firstname) from phpcreatetable;
+
+now()  当前时间
+
+// 稍复杂的查询
+// 区间查询
+select * from phpcreatetable where reg_date >= '2019-05-01' and reg_date <= '2019-08-05';
+select * from phpcreatetable where reg_date  between '2019-05-01' and '2019-08-05';
+
+sql 中的注释  -- 加空格 
+
+// like 模糊查询， % 代表通配符，匹配任何字符
+select * from phpcreatetable where firstname like 'q%';  // 找到以q开头的
+select * from phpcreatetable where firstname like '%q%';  // 找到含有q的
+select * from phpcreatetable where firstname like '%q';  // 找到以q结尾的
+
+// 排序 order by ,
+// desc 倒序，asc 正序
+select * from phpcreatetable where firstname like '%i%' order by id desc;
+
+// 2个表一起查
+select * from phpcreatetable, t_study where phpcreatetable.id = t_study.id;
+// 拿出指定字段
+select phpcreatetable.id, phpcreatetable.firstname, t_study.gender from phpcreatetable, t_study where phpcreatetable.id = t_study.id;
+
+//left/right join on 语句查出上面同样的字段(这个结果显示会不一样，这个会根据是left还是right，将左边表中的数据或右边表中的数据全部查一遍，最后输出左边表（right右边表）最后的匹配结果)
+select phpcreatetable.id, phpcreatetable.firstname, t_study.gender from phpcreatetable LEFT JOIN t_study ON phpcreatetable.id = t_study.id;
+
+select phpcreatetable.id, phpcreatetable.firstname, t_study.gender from phpcreatetable LEFT JOIN t_study ON phpcreatetable.id = t_study.id;
+
 // 插入
 INSERT INTO `news`(`newsid`, `title`, `img`, `content`, `addtime`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5])
 // 主索引一般不给值
@@ -41,7 +87,7 @@ DELETE FROM `news` WHERE newsid=1
 |---\ 1. phpandmysql.md   php链接MySQL 
 |
 |
-|
+|---\ mysql        mysql常用命令
 |
 |
 |

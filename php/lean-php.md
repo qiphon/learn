@@ -241,7 +241,7 @@ echo $_REQUEST['name'];  // get/post 方式传递的数据都能接收
 
 ```
 
-- 1.1 成员属性
+- 8.1.1 成员属性
 
 格式： 修饰符 $变量名 【=默认值】; 如 ： ``` public $name = "qiphon"; ``` 
 
@@ -268,7 +268,7 @@ public $var4 = array(true,false);
 
 ```
 
-- 1.2 成员方法 
+- 8.1.2 成员方法 
 
 ```
 [修饰符] function 方法名（参数 ...）{
@@ -282,7 +282,7 @@ public function say(){
 
 ```
 
-- 1.3 类的基本使用
+- 8.1.3 类的基本使用
 
 ```
 $变量名 = new 要实例化的类名([参数,...])
@@ -295,7 +295,7 @@ $变量名 ->  成员方法（【参数】）;  // 调用对象的方法
 
 ```
 
-- 1.4 ```$this```
+- 8.1.4 ```$this```
 
 ```php
 // $this 与js 中的 this 差不多，都是对于当前类的指向
@@ -309,7 +309,7 @@ public function say(){
 
 ```
 
-- 2.1 构造方法和析构方法
+- 8.2.1 构造方法和析构方法
 
 ```
 // 构造方法格式
@@ -325,7 +325,7 @@ public function say(){
 
 ```
 
-- 3.1 封装
+- 8.3.1 封装
 
 > 封装性，是面向对象编程中的三大特性之一，封装就是把对象中的成员属性和成员方法上加上访问修饰符，使其尽可能隐藏对象内部细节，
 以达到对成员的访问控制（不是拒绝访问）
@@ -339,6 +339,7 @@ public function say(){
 // 魔术方法__unset()  // 释放属性的时候调用。
 
 <?php
+header('content-type: text/html; charset=utf-8');
 class Persion{
     private $name;
     protected $age;
@@ -351,24 +352,49 @@ class Persion{
     {
         return 'name->' . $this-> name . '  ---age->' . $this->age;
     }
+    // 魔术方法
+    public function __set($key, $val)
+    {
+        $this-> $key = $val;
+    }
     public function __get($key)
     {
-        if($key == 'name' || $key == 'age'){
-            return $this->$key;
+        // if($key == 'name' || $key == 'age'){
+        //     return $this->$key;
+        // }
+        if(isset($this->$key)){
+            return $this->key;
         }
+        else{
+            return '没有这个值哦';
+        }
+    }
+    public function __isset($key)
+    {
+        return $this-> $key;
+    }
+    public function __unset($key)
+    {
+        // echo $key;
+        unset($this->age);
     }
 }
 
 $qiphon = new Persion('qiphon', 20);
 
-echo $qiphon ->say();
+// var_dump(isset($qiphon->age)); // bool(false) , 如果有魔术方法这里就不会报错 bool(true)
+unset($qiphon->age);  // 这里会报错，如果有魔术方法这里就不会报错
+// echo $qiphon-> age;  // Notice: Undefined property: Persion::$age // unset之后会报错
+
+// 如果被unset掉这个，之后取每个属性的值的时候都会报错
+// $qiphon ->age = 25;   // 这里会报错，如果有魔术方法这里就不会报错
+// echo $qiphon ->say();
 echo '<br>';
 echo $qiphon -> name; //这里会报错,如果有魔术方法这里就不会报错
 echo '<br>';
-echo $qiphon -> age; //这里会报错,如果有魔术方法这里就不会报错
+// echo $qiphon -> age; //这里会报错,如果有魔术方法这里就不会报错
 
 ?>
-
 
 // 修饰符
 public  (公有的，默认)
@@ -423,3 +449,241 @@ echo $qiphon ->say();
 --|--|--|--
 同一类中|  可以  |   可以  |  可以
 在类的外部 | 不可以  | 不可以  |  可以
+
+
+- 8.4.1 继承和多态
+
+> 对象的多态性 : 是指在父类中定义的属性或行为被子类继承后可以具有不同的数据类型或表现出不同的行为.这使得同一个属性或行为在父类及其各子类中具有不同的语义.
+
+9. 抽象方法和抽象类
+
+- 9.1. 抽象类
+> 当类中有一个方法,他没有方法体(就是没有花括号),直接分号结束,这种方法我们叫抽象方法, 必须使用关键字 abstract 定义
+如 ``` public abstract function fun(); ```
+> 包含这种方法的类必须是抽象类,也要使用关键字 abstract 加以声明.(即使用关键字 abstract 修饰的类为抽象类)
+
+抽象类的特点:
+
+- 不能实例化,也就是不能new 成对象
+- 若想使用抽象类,就必须定义一个类去继承这个抽象类,并定义覆盖父类的抽象方法(实现抽象方法).
+
+
+- 9.2 接口 
+
+> PHP与大多数面向对象编程语言一样,不支持多重继承,也就是说每个类只能继承一个父类.
+为解决这个问题,PHP引入了接口,接口的思想是指定了,一个实现了该接口的类必须实现一系列函数
+
+```
+// 定义格式 
+
+interface 接口名 {
+    // 常量成员  (使用const 关键字定义)
+    // 抽象方法  (不需要使用abstract 关键字)
+}
+
+使用格式: class 类名 implements 接口1,接口2... {...}
+
+
+```
+
+- 9.3 抽象类 和 接口的区别
+
+> 在高级语言上,一个类一个类只能继承一个类(抽象类),正如人不可能同时是生物和非生物,但是可以实现多个接口(吃饭/走路等).
+
+|接口| 抽象类|
+--|--|--
+当你关注事物本质的时候,用抽象类; | 当你关注一个操作的时候,使用接口
+接口是对动作的抽象,表示这个对象能做什么,对类的局部行为进行抽象. | 抽象类是对根源的抽象,表示这个类是什么,对类的整体进行抽象,对一类事物的抽象描述
+人可以吃东西,狗也可以吃东西,我们就可以把"吃东西"定义成一个接口| 男人和女人可以是2个类,他们的抽象类是人
+接口是抽象类的变体,接口中所有的方法都是抽象的.| 抽象类是声明方法的存在而不去实现他的类
+接口可以多继承| 抽象类只能继承一个
+接口定义方法,不能实现 | 抽象类可以实现部分方法
+接口中基本的数据类型为static | 抽象类不是这样的
+接口中不能含有静态代码块以及静态方法| 抽象类可以含有静态方法和静态代码块
+
+```
+// 抽象类
+<?php
+
+header("content-type: text/html; charset=utf-8");
+/**
+ *  1. 含抽象方法的类,必须是抽象类
+ *  2. 抽象类不一定非要含有抽象方法
+ *  3. 抽象类可以存在普通的方法
+ *  4. 抽象类不能被实例化,必须由一个子类去继承,并且把抽象类的抽象方法都实现了
+ */
+abstract class Man {
+    public function eat()
+    {
+        echo 'eat';
+    }
+    // 抽象方法可以没有方法体
+    public abstract function say();
+}
+
+// $qiphon = new Man();  // Fatal error: Cannot instantiate abstract class Man
+
+class Male extends Man {
+    public function say($say='')
+    {
+        echo $say ?: 'say nothing';
+    }
+}
+
+$qiphon = new Male();
+$qiphon ->say();
+echo '<br>';
+$qiphon -> eat();
+
+?>
+
+// 接口
+
+<?php
+header("content-type: text/html; charset=utf-8;");
+/**
+ *   interface
+ *   1. 接口的关键字是interface
+ *   2. 接口可以声明常量,也可以抽象方法
+ *   3. 接口中的方法都是抽象方法,不需要abstract 去定义
+ *   4. 接口不能被实例化,需要一个类去实现它
+ *   5. 一个类可以有多个接口
+ */
+interface Man {
+  const fromInter = "man interface";
+  public function run();
+  public function eat();
+}
+
+interface Study {
+  public function study();
+}
+
+class Student implements Man, Study {
+    private $name ;
+    const pie = 3.14;
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+    public function eat($eat='eat nothing')
+    {
+        echo $this->name . ' is eating' . $eat;
+    }
+    public function run($run = 'in grass')
+    {
+        echo $this->name . 'running in ' . $run;
+    }
+    public function study($book='nothing')
+    {
+        echo $this->name . ' is reading ' . $book;
+    }
+    static function test()
+    {
+        return self::fromInter;
+    }
+    public function selfConst()
+    {
+        return self::pie;
+    }
+}
+
+$qiphon = new Student('qiphon');
+
+// $qiphon -> eat("🍎");
+// $qiphon -> study('php');
+
+// interface 中的常量
+echo $qiphon::fromInter . ' qiphon::fromInter';
+echo '<hr />';
+// 从类上找
+echo Student::fromInter . ' student::fromInter';
+echo '<hr />';
+echo $qiphon-> test() . ' qiphon->test()';
+echo '<hr />';
+echo Student::test() . ' student::test()';
+echo '<hr />';
+echo Student::selfConst() . ' student::selfConst()';
+echo '<hr />';
+echo $qiphon-> selfConst() . 'qiphon-> selfConst()';
+
+```
+
+10. 常见关键字
+
+
+- final
+
+> php5中新增关键字,它只能用来修饰类和方法.不能修饰成员属性
+- 1. 使用final关键字标识的类不能被继承
+- 2. 使用final关键字标识的方法不能被子类覆盖(重写),是最终版本
+
+目的 : 1. 为了安全; 2. 没有必要被继承或重写
+
+- static
+
+> static 表示静态的意思,用于修饰类的成员属性和成员方法(即静态属性和静态方法)
+静态方法中不可以使用非静态的内容.就是不让使用this
+静态属性是共享的,也就是new 很多对象也是公用一个属性;
+
+```
+// 类中的静态属性和方法不用实例化(new ) 就可以使用类名访问
+类::静态属性
+类::静态方法
+
+在类的方法中,不能用this来引用静态变量或静态方法,需要使用self
+
+public function test(){
+    return self::静态属性;
+    return self::静态方法;
+}
+
+```
+
+- 单例设计模式
+
+> 单例模式的主要作用是保证在面向对象编程设计中,一个类只能有一个实例对象存在
+
+- const 关键字
+
+> const 是一个在类中定义常量的关键字,我们都知道在php中定义常量使用的是 "define()" 这个函数,但是在类里面定义常量使用的是"const" 
+
+```
+const con = 'const value';  // 定义
+
+echo self::con;   // 类内部访问
+
+echo className::con; // 类外面访问
+
+```
+
+- instanceof
+
+> 用于检测当前对象示例是否属于某一个类或这个类的子类
+
+
+11. 异常处理
+
+- 11.1 系统自带的异常处理
+
+```
+class Exception {
+    protected $message = 'Unknown exception';  // 异常信息
+    protected $code = 0;      // 用户自定义异常代码
+    protected $file;         // 发生异常的文件名
+    protected $line; 
+    function __construct($message = null, $code=0);
+    final function getMessage();        // 返回异常信息
+    final function getCode();           // 返回异常代码
+    final function getFile();           // 返回发生异常的文件名
+    final function getLine();           // 返回发生异常代码的行号
+    final function getTrace();          // backtrace() 数组
+    final function getTraceAsString();  // 字符串化 getTrace()信息
+    function __toString();              // 可输出的字符串
+}
+
+```
+
+- 11.2 字定义异常处理
+
+- 11.3 捕捉多个异常处理

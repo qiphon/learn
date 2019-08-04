@@ -9,3 +9,5 @@
 2. mac-mySQL apache 中添加 mysql
 
 3. learn-php  php 的基础笔记
+
+4. php-js    php 与 js 的区别
