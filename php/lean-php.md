@@ -212,7 +212,7 @@ echo $_REQUEST['name'];  // get/post 方式传递的数据都能接收
 
 ```
 
-7. [ mysql]('./php-mysql/basic.md')
+7. [ mysql](./php-mysql/basic.md)
 
 8. php 面向对象 OOP（Object-Oriented Programming）
 
@@ -331,11 +331,44 @@ public function say(){
 以达到对成员的访问控制（不是拒绝访问）
 
 ```php
-// 魔术方法 只能对protected 成员属性生效
+// 魔术方法 只能对protected/private 成员属性生效，
+// 魔术方法 必须是public
 // 魔术方法__set()   // 外面对成员赋值时调用
 // 魔术方法__get()   // 取值的时候调用
 // 魔术方法__isset()  // 判断的时候调用
 // 魔术方法__unset()  // 释放属性的时候调用。
+
+<?php
+class Persion{
+    private $name;
+    protected $age;
+    public function __construct($name='noName', $age='0')
+    {
+        $this->name = $name;
+        $this->age = $age;
+    }
+    public function say()
+    {
+        return 'name->' . $this-> name . '  ---age->' . $this->age;
+    }
+    public function __get($key)
+    {
+        if($key == 'name' || $key == 'age'){
+            return $this->$key;
+        }
+    }
+}
+
+$qiphon = new Persion('qiphon', 20);
+
+echo $qiphon ->say();
+echo '<br>';
+echo $qiphon -> name; //这里会报错,如果有魔术方法这里就不会报错
+echo '<br>';
+echo $qiphon -> age; //这里会报错,如果有魔术方法这里就不会报错
+
+?>
+
 
 // 修饰符
 public  (公有的，默认)
@@ -387,6 +420,6 @@ echo $qiphon ->say();
 ```
 
 访问权限 |  private |  protected | public
---|--|--
+--|--|--|--
 同一类中|  可以  |   可以  |  可以
 在类的外部 | 不可以  | 不可以  |  可以
