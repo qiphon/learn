@@ -212,4 +212,181 @@ echo $_REQUEST['name'];  // get/post 方式传递的数据都能接收
 
 ```
 
-7.[ mysql]('./php-mysql/basic.md')
+7. [ mysql]('./php-mysql/basic.md')
+
+8. php 面向对象 OOP（Object-Oriented Programming）
+
+> 软件危机：落后的软件生产方式无法满足迅速增长的软件需求，从而导致软件开发与维护过程中出现一系列严重问题的现象。 泛指在计算机软件的开发和维护的过程中所遇到的一系列严重问题
+
+> 软件工程学：是一门研究用工程方法构建和维护有效的、实用的和高质量的软件学科。它涉及到程序语言设计、数据库、软件开发工具、系统平台、标准、设计模式等方面。
+>分为结构化方法（按软件的周期分为三个阶段，分析、设计、编程）和面向对象。
+> 面向对象编程（OOP）使其编程的代码更简洁、更易于维护，并且具有更强的可重用性。
+> oop 达到了软件工程的三个目标： 重用性、灵活性、扩展性
+> oop 面向对象编程的特点：封装、继承、多态
+
+> 类，有成员属性和成员方法。类的格式如下
+
+```
+// 简单格式
+【修饰符】 class 类名 { // 使用class 关键字加类名
+    【成员属性】 // 也叫成员变量
+    【成员方法】 // 也叫成员函数
+}
+
+// 完整格式
+【修饰符】 class 类名 【extends 父类】 【implements 接口【，接口2 ...】】{
+    【成员属性】 // 也叫成员变量
+    【成员方法】 // 也叫成员函数
+}
+
+```
+
+- 1.1 成员属性
+
+格式： 修饰符 $变量名 【=默认值】; 如 ： ``` public $name = "qiphon"; ``` 
+
+注意： 成员属性不可以是带运算符的表达式、变量、方法或函数调用
+
+```
+//  // 错误格式
+public $var1 = 1+2; 
+
+public $var2 = self::myStaticMethod();
+
+public $var3 = $myVar;
+
+
+// 正确写法
+
+public $var1 = 100;
+
+public $var2 = myConstant; // 常量
+
+public $var3 = self::classConstant; // 静态属性
+
+public $var4 = array(true,false);  
+
+```
+
+- 1.2 成员方法 
+
+```
+[修饰符] function 方法名（参数 ...）{
+    [方法体]
+    [return 返回值]
+}
+
+public function say(){
+    echo "saying"; // 方法体
+}
+
+```
+
+- 1.3 类的基本使用
+
+```
+$变量名 = new 要实例化的类名([参数,...])
+
+$变量名 -> 成员属性 = 赋值；  // 对象的属性赋值
+
+echo $变量名 -> 成员属性 ;   // 输出对象的成员属性
+
+$变量名 ->  成员方法（【参数】）;  // 调用对象的方法
+
+```
+
+- 1.4 ```$this```
+
+```php
+// $this 与js 中的 this 差不多，都是对于当前类的指向
+
+public function play(){
+    echo 'playinng';
+}
+public function say(){
+    return $this -> play();
+}
+
+```
+
+- 2.1 构造方法和析构方法
+
+```
+// 构造方法格式
+【修饰符】 function __construct([参数]){
+    程序体
+}
+
+// 析构方法
+【修饰符】 function __destruct([参数]){
+    程序体
+}
+
+
+```
+
+- 3.1 封装
+
+> 封装性，是面向对象编程中的三大特性之一，封装就是把对象中的成员属性和成员方法上加上访问修饰符，使其尽可能隐藏对象内部细节，
+以达到对成员的访问控制（不是拒绝访问）
+
+```php
+// 魔术方法 只能对protected 成员属性生效
+// 魔术方法__set()   // 外面对成员赋值时调用
+// 魔术方法__get()   // 取值的时候调用
+// 魔术方法__isset()  // 判断的时候调用
+// 魔术方法__unset()  // 释放属性的时候调用。
+
+// 修饰符
+public  (公有的，默认)
+
+private  （私有的） // 私有成员 在对象的外部不能访问， 只能在对象的内部方法中使用$this 访问
+
+<?php
+class Persion{
+    private $name;
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+    public function say()
+    {
+        return $this-> name;
+    }
+}
+
+$qiphon = new Persion('qiphon');
+
+echo $qiphon ->say();
+// echo $qiphon -> name; //这里会报错
+
+?>
+
+protected  （受保护的）
+
+<?php
+class Persion{
+    protected $name;
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+    public function say()
+    {
+        return $this-> name;
+    }
+}
+
+$qiphon = new Persion('qiphon');
+
+echo $qiphon ->say();
+// echo $qiphon -> name; //这里会报错
+
+?>
+
+```
+
+访问权限 |  private |  protected | public
+--|--|--
+同一类中|  可以  |   可以  |  可以
+在类的外部 | 不可以  | 不可以  |  可以
