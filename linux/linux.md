@@ -5,3 +5,15 @@
 [linux内核](www.kernel.org)
 
 1. 下载虚拟机 推荐VMware(win --> workstation Pro; mac --> Fusion) 
+
+2. 常用命令
+
+```
+|---\  basic   基础命令
+|
+|
+|
+|
+|
+
+```
