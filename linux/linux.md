@@ -11,7 +11,7 @@
 ```
 |---\  basic   基础命令
 |
-|
+|---\  windows  windows 命令
 |
 |
 |
