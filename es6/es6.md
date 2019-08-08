@@ -244,14 +244,165 @@ c.next()
 
 ### class
 
-```
+```js
 class P {
     constructor(age){
         this.age = age
     }
+    say(){
+        return `
+            i'm ${this.age} years old; 
+        `
+    }
 }
-const q = new P(23)
-q.age
+//const q = new P(23)
+// q.age
+// q.say()
+class child extends P {
+    constructor(age){
+        super(age)
+        this.zoe = 'aaa'
+    }
+    say(){
+        console.log(super.say())
+        console.log(`${this.zoe}`) 
+    }
+    set menu(key){
+        console.log(key)
+        this.zoe= key
+    }
+    get menu(){
+        return this.zoe
+    }
+    static init(){
+        console.log('init')
+    }
+}
+let ch = new child(23)
+// ch.say()
+// ch.menu   // 'aaa'
+// ch.menu='123'
+// ch.menu   // 123
+child.init()
 
+```
+
+
+### set
+
+> 可以用来去重
+
+```js
+var arr = new Set("123")   // {"1", "2", "3"}
+
+var arr = new Set("123333")  // {"1", "2", "3"}
+
+// 添加2次
+arr.add(33)  
+arr.add(33)  // {"1", "2", "3", 33}
+
+arr.delete('1')  // return true   arr-> { "2", "3", 33}
+
+arr.has('2')  // true 
+
+arr.entries()  // {"2" => "2", "3" => "3", 33 => 33}
+
+arr.keys()  // {"2", "3", 33}
+
+arr.size  // 3
+
+arr.values()  // {"2", "3", 33}
+
+for(let v of arr){console.log(v)}   // 2,3,33
+
+arr.clear()  // Set(0) {}
+
+
+// 数组去重
+var arr = [1,1,1,23,23,14,14,23]
+
+result = [...new Set(arr)]   // [1, 23, 14]
+
+
+```
+
+
+### map
+
+```js
+
+var food = new Map();
+
+var fruit = {},
+cook = function(){};
+
+food.set(fruit, '🌽')
+food.set(cook, '🍔')
+// Map(2) {{…} => "🌽", ƒ => "🍔"}
+// size: 2
+// __proto__: Map
+// [[Entries]]: Array(2)
+// 0: {Object => "🌽"}
+// 1: {function(){} => "🍔"}
+// length: 2
+food.get(fruit)  // "🌽"
+
+food.has(fruit)  // true
+
+food.size  // 2
+
+food.delete(fruit)  // return true  
+food.delete(fruit)  // return false
+
+food //Map(1) {ƒ => "🍔"}
+
+
+food.clear()  // 没有返回值
+
+```
+
+### import
+
+```
+// 导出和导入
+
+export const aa = function aa(){}
+
+import {aa } from './aa'
+
+// 或者
+const aa = ()=>{}
+const bb = ()=>{}
+export  {
+    aa, bb
+}
+
+
+import {aa, bb } from './aa'
+
+import * as cc from './aa'
+
+cc // {aa, bb }
+
+// 或者 
+
+export default {
+    aa, bb
+}
+
+
+import c from './aa'
+
+c  // {aa, bb}
+
+// 别名
+export default {
+    aa, bb as cc
+}
+
+
+import c from './aa'
+
+c  // {aa, cc}
 
 ```
