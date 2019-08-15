@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一个div绘制多个内容</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        div {
+            background: chartreuse;
+            margin: 180px auto;
+            width: 80px;
+            height: 80px;
+            position: relative;
+            /**
+                其他盒子用shadow绘制
+            */
+            box-shadow:
+                inset -13px -13px 0px 32px blueviolet, -164px 0 0 -1px blueviolet, -244px 0 0 14px blueviolet, 82px 0 0 -1px royalblue, 164px 0 0 -1px royalblue, 244px 0 0 -1px blueviolet, 0 -82px 0 -1px goldenrod, 0 82px 0 -1px goldenrod, 0 164px 0 -1px goldenrod, 0 244px 0 -1px goldenrod, 0 -164px 0 -1px goldenrod;
+        }
+
+        div:after,
+        div:before {
+            content: 'after';
+            display: block;
+            width: 80px;
+            height: 20px;
+            background: chocolate;
+            position: absolute;
+            right: -320px;
+            top: 0;
+        }
+
+        div:before {
+            content: 'before';
+            top: 22px;
+            box-shadow:
+                -82px 0 0 -1px blueviolet,
+                -164px 0 0 -1px blueviolet,
+                -244px 0 0 -1px blueviolet,
+                82px 0 0 -1px royalblue,
+                164px 0 0 -1px royalblue,
+                244px 0 0 -1px blueviolet,
+                0 -82px 0 -1px goldenrod,
+                0 82px 0 -1px goldenrod,
+                0 164px 0 -1px goldenrod,
+                0 244px 0 -1px goldenrod,
+                0 -164px 0 -1px goldenrod;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        div
+    </div>
+</body>
+
+</html>

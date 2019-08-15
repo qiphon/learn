@@ -145,3 +145,42 @@ function deviceMotion(ev){
 
 解决：父级设置 position：relative
 
+### css 高级技巧
+
+border && border-radius 造就千万种可能
+
+box-shadow \ :after \ :before  减少dom 数
+
+> 矩形的四条border，不一定永远是长方形，他们在正常情况下是一个梯形的形状，在我们改变这条边相邻的另外2条边的参数时，他的形状会相应的改变。
+
+当我们在2条边的顶点加一些border-radius 圆角值的时候，这个形状会有更奇异不可预知的形变。
+
+我们可以通过这2个性质，探索出很多意想不到的形状
+
+### BFC 、 IFC 、 GFC  、FFC
+
+1. BFC
+
+- BOX ： css 布局的基本单位
+BOX 是css 布局的对象和基本单位，直观点来说，就是一个页面是由很多的BOX组成的。 元素的类型和display 属性决定了这个box的类型。 不同类型的box 会参与不同的Formatting Context （一个决定如何渲染文档的容器）。因此box 内的元素会以不同的方式渲染。
+
+- block-level （display：block/list-item/table的元素）并参与 block formatting context
+
+- inline-level （display：inline/inline-block/inline-table的元素）并参与inline formatting context
+
+- Formatting context 是 W3C css2.1 规范中的一个概念。他是页面中的一块渲染区域，并有一套渲染规则，他决定其子元素如何定位，以及和其他元素的关系和相互作用。最常见的Formatting context 有 block formatting context （简称BFC）和 inline formatting context （简称IFC）
+
+flex formatting context （FFC flex盒布局）
+grid formatting context （GFC 格栅布局）
+
+BFC 是最常见的问题
+
+> BFC 最关键的一点就是形成隔离，没有别的盒子会对其产生影响
+
+下面是会生成BFC 的元素应该有的
+
+1. 根元素
+2. float 属性不为none
+3. position 为 absolute/fixed
+4. display 为 inline-block / table-cell / table-caption / flex / inline-flex
+5. overflow不为visible
