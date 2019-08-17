@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>clip-path</title>
+    <style>
+        *{
+            margin: 0 ;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: palegoldenrod;
+            overflow: hidden;
+            margin: 20px auto;
+            transition: clip-path linear .5s;
+            clip-path: polygon(50% 0, 100% 4 0%, 80% 100%,0 80%);
+        }
+        div:hover {
+            clip-path:  polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        div> img{
+            display: block;
+            width:100%;
+            /* 这里的scale是怎么算的？ */
+            transform: rotate(45deg) scale(1.42);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./dog.jpg" alt="">
+    </div>
+</body>
+</html>
