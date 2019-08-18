@@ -339,7 +339,7 @@ cook = function(){};
 
 food.set(fruit, '🌽')
 food.set(cook, '🍔')
-//{{  // Map(2) {{…} => "🌽", ƒ => "🍔"}  }}
+// Map(2) // {{} => "🌽", ƒ => "🍔"}
 // size: 2
 // __proto__: Map
 // [[Entries]]: Array(2)
