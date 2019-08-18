@@ -200,3 +200,19 @@ function f(a){
 
 构建工具 grunt, gulp , webpack , fis
 
+
+#### 练习题
+
+```js
+
+;(function(){
+    console.log(a)  // function a(){}
+    var a = 1;
+    function a(){
+
+    }
+    console.log(a)   // 1
+})()
+
+
+```
