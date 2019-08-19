@@ -6,7 +6,7 @@ node_js:
 env:
   global:
 before_install:
-  - npm install 
+  - yarn install 
 script:
   - npx vuepress build .
 deploy:
