@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>php 与 js 在面向对象中的区别 | 齐枫的博客</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.616a884d.css" as="style"><link rel="preload" href="/assets/js/app.03bcd083.js" as="script"><link rel="preload" href="/assets/js/2.f7c0d1b9.js" as="script"><link rel="preload" href="/assets/js/25.04fef87b.js" as="script"><link rel="prefetch" href="/assets/js/10.93ba8069.js"><link rel="prefetch" href="/assets/js/11.86291fd6.js"><link rel="prefetch" href="/assets/js/12.0642a2e4.js"><link rel="prefetch" href="/assets/js/13.b6578e7e.js"><link rel="prefetch" href="/assets/js/14.48493830.js"><link rel="prefetch" href="/assets/js/15.ee032f08.js"><link rel="prefetch" href="/assets/js/16.d7ac86ad.js"><link rel="prefetch" href="/assets/js/17.f834c3f4.js"><link rel="prefetch" href="/assets/js/18.66a13760.js"><link rel="prefetch" href="/assets/js/19.0be756e8.js"><link rel="prefetch" href="/assets/js/20.ef76b9ac.js"><link rel="prefetch" href="/assets/js/21.419e53f3.js"><link rel="prefetch" href="/assets/js/22.d571cea4.js"><link rel="prefetch" href="/assets/js/23.216dc707.js"><link rel="prefetch" href="/assets/js/24.34af2fd1.js"><link rel="prefetch" href="/assets/js/26.6d0dc13e.js"><link rel="prefetch" href="/assets/js/27.e6aa4212.js"><link rel="prefetch" href="/assets/js/28.52801119.js"><link rel="prefetch" href="/assets/js/29.39ad1ebc.js"><link rel="prefetch" href="/assets/js/3.64c99559.js"><link rel="prefetch" href="/assets/js/30.af003ffd.js"><link rel="prefetch" href="/assets/js/31.549b1b52.js"><link rel="prefetch" href="/assets/js/4.9b6535ba.js"><link rel="prefetch" href="/assets/js/5.2437d2c2.js"><link rel="prefetch" href="/assets/js/6.8b1e2b34.js"><link rel="prefetch" href="/assets/js/7.6a185fba.js"><link rel="prefetch" href="/assets/js/8.916d6ae7.js"><link rel="prefetch" href="/assets/js/9.2e91bd41.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.616a884d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">齐枫的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>php 与 js 在面向对象中的区别</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="php-与-js-在面向对象中的区别"><a href="#php-与-js-在面向对象中的区别" aria-hidden="true" class="header-anchor">#</a> php 与 js 在面向对象中的区别</h1> <ol><li>construct</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>// php 中的class有construct；es5中的类是用function实现的，并没有见到construct。
+
+function Car(){
+    console.log('在实例化的时候我就被执行了');
+}
+var a = new Car();
+
+// __construct 在实例化的时候会被执行，其他代码没有被执行
+
+&lt;?php
+header(&quot;content-type: text/html; charset=utf-8;&quot;);
+class Car {
+    public function __construct($name)
+    {
+        echo '实例化的时候，我被执行';
+        echo '&lt;br&gt;';
+        $this-&gt;name = $name;
+    }
+    public function test()
+    {
+        echo '我没有被执行';
+        echo '&lt;br&gt;';
+    }
+    public function __destruct()
+    {   // 这个函数每当触发这个类都会被执行
+        echo '__destruct 最后被执行';
+        echo '&lt;br&gt;';
+    }
+}
+
+$c = new Car('c');
+
+// js 的function 在实例化的时候,里面所有的代码就会被执行一遍
+function Car(name){
+    this.name = name;
+    document.querySelector('body').style.backgroundColor = 'red'
+}
+var c = new Car('c')
+
+// 我们会在控制台看到如下信息
+
+Car {name: &quot;c&quot;}
+name: &quot;c&quot;
+__proto__:
+constructor: ƒ Car(name)
+__proto__: Object   // js 的继承是原型链继承，所有方法和类的根 __proto__ 都指向object
+
+// 还用上面的例子， js中所有的方法都挂载在原型链上
+function Car(name){
+    this.name = name;
+}
+Car.prototype.run = function(){
+    console.log(this.name + ' is run')
+}
+var c = new Car('c')
+
+
+// js中继承的实现
+function Car(name){
+    this.name = name;
+}
+Car.prototype.run = function(){
+    console.log(this.name + ' is run')
+}
+// var c = new Car('c')
+function B(name){
+    Car.call(this, name);  // 这样属性就会被复制过来了
+}
+
+var __proto = Object.create(Car.prototype) // 这样就能拿到 car的所有方法，但是我们不能直接将他赋值给B，因为它的constructor 还是Car
+__proto.constructor = B;  // 手动改变构造器，这样就能为我们所用了,只有构造器是自己了，方法中的this才能转过来
+B.prototype = __proto;
+B.prototype.action = function(){
+    console.log(this.name + ' action')
+}
+var b = new B('b')
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">8/19/2019, 12:28:22 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.03bcd083.js" defer></script><script src="/assets/js/2.f7c0d1b9.js" defer></script><script src="/assets/js/25.04fef87b.js" defer></script>
+  </body>
+</html>
