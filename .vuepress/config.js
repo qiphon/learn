@@ -1,7 +1,7 @@
 module.exports = {
     title: '齐枫的博客',
     descript: '我的学习笔记',
-    base: '/',
+    base: '/yd-learn/',
     markdown: {
         lineNumbers: true
     },
