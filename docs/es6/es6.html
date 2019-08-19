@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>es 6 | 齐枫的博客</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.616a884d.css" as="style"><link rel="preload" href="/assets/js/app.d9940243.js" as="script"><link rel="preload" href="/assets/js/2.f7c0d1b9.js" as="script"><link rel="preload" href="/assets/js/8.916d6ae7.js" as="script"><link rel="prefetch" href="/assets/js/10.93ba8069.js"><link rel="prefetch" href="/assets/js/11.86291fd6.js"><link rel="prefetch" href="/assets/js/12.0642a2e4.js"><link rel="prefetch" href="/assets/js/13.b6578e7e.js"><link rel="prefetch" href="/assets/js/14.48493830.js"><link rel="prefetch" href="/assets/js/15.ee032f08.js"><link rel="prefetch" href="/assets/js/16.d7ac86ad.js"><link rel="prefetch" href="/assets/js/17.f834c3f4.js"><link rel="prefetch" href="/assets/js/18.66a13760.js"><link rel="prefetch" href="/assets/js/19.0be756e8.js"><link rel="prefetch" href="/assets/js/20.ef76b9ac.js"><link rel="prefetch" href="/assets/js/21.419e53f3.js"><link rel="prefetch" href="/assets/js/22.d571cea4.js"><link rel="prefetch" href="/assets/js/23.216dc707.js"><link rel="prefetch" href="/assets/js/24.34af2fd1.js"><link rel="prefetch" href="/assets/js/25.04fef87b.js"><link rel="prefetch" href="/assets/js/26.6d0dc13e.js"><link rel="prefetch" href="/assets/js/27.e6aa4212.js"><link rel="prefetch" href="/assets/js/28.52801119.js"><link rel="prefetch" href="/assets/js/29.39ad1ebc.js"><link rel="prefetch" href="/assets/js/3.64c99559.js"><link rel="prefetch" href="/assets/js/30.af003ffd.js"><link rel="prefetch" href="/assets/js/31.549b1b52.js"><link rel="prefetch" href="/assets/js/4.9b6535ba.js"><link rel="prefetch" href="/assets/js/5.2437d2c2.js"><link rel="prefetch" href="/assets/js/6.8b1e2b34.js"><link rel="prefetch" href="/assets/js/7.6a185fba.js"><link rel="prefetch" href="/assets/js/9.2e91bd41.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.616a884d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">齐枫的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>es 6</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="es-6"><a href="#es-6" aria-hidden="true" class="header-anchor">#</a> es 6</h1> <blockquote><p>ECMAScript6 学习推荐地址 http://es6.ruanyifeng.com/
+es6 的支持情况查看  http://kangax.github.io/compat-table/es6/</p></blockquote> <p>一下是必会的前端知识哦</p> <h4 id="es-6-转码"><a href="#es-6-转码" aria-hidden="true" class="header-anchor">#</a> es 6 转码</h4> <ol><li>babel</li> <li>traceur</li></ol> <h4 id="shim-polyfill"><a href="#shim-polyfill" aria-hidden="true" class="header-anchor">#</a> shim &amp; polyfill</h4> <blockquote><p>shim 它是一个库，它将一个新的API引入到一个旧的环境中去，而且仅靠旧环境中已有的手段实现</p></blockquote> <blockquote><p>polyfill 是一段代码或插件，提供了那些开发者们希望浏览器原生提供支持的功能。</p></blockquote> <p>接下来我们就开始学习新语法吧</p> <h4 id="let-const"><a href="#let-const" aria-hidden="true" class="header-anchor">#</a> let / const</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>const  // 定义一个常量，这个值不能被修改
+       // const 没有返回值
+
+
+let  // 块级作用域的命名
+     // let 也没有返回值
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h4 id="对象的解构"><a href="#对象的解构" aria-hidden="true" class="header-anchor">#</a> 对象的解构</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>const a = [1,2,3]
+
+const [c,d,e] = a;  // c 1; d 2; e 3;
+
+// 对象解构
+
+let test= {a: 12,b: 24}
+
+let {a,b} = test;   // a: 12  ; b 24;
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h4 id="字符串模板"><a href="#字符串模板" aria-hidden="true" class="header-anchor">#</a> 字符串模板</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>const a = 'string'
+
+const c = `foo ${a} bar`;
+
+c.startsWidth('foo')   // true
+
+c.endsWidth('bar')    // true
+
+c.includes('string')   // true
+
+
+// 还有个有趣的东西
+
+function test(strs, ...values){
+    console.log(strs, values)
+}
+
+const a = 'aaa'
+const b = 'bbb'
+test`foo ${a} --- ${b} bar`;
+
+// (3) [&quot;foo &quot;, &quot; --- &quot;, &quot; bar&quot;, raw: Array(3)] (2) [&quot;aaa&quot;, &quot;bbb&quot;]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h4 id="数组"><a href="#数组" aria-hidden="true" class="header-anchor">#</a> 数组</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 解构
+const a = [1,2,3]
+
+const [c,d,e] = a;  // c 1; d 2; e 3;
+
+// 另一种方式
+
+const b = '6789'
+
+const test = ['a','b', ...b]   // [&quot;a&quot;, &quot;b&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;]
+
+const res = {
+    k: 1, 
+    b,
+    test,
+    [b+1]:23,
+    c(){
+        console.log('res')
+    }
+}   //  {67891: 23, k: 1, b: &quot;6789&quot;, test: Array(6), c: ƒ}
+
+// Array.from  把一个类数组转成数组
+
+const  a  = '1234'
+
+Array.from(a)   // (4) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;]
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><h3 id="对象"><a href="#对象" aria-hidden="true" class="header-anchor">#</a> 对象</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+NaN === NaN  // false
+
+Object.is(NaN, NaN)  // true
+
+
+// 一些关于原项链的东西
+
+const eat = {
+    lunch(){
+        return 'rice'
+    }
+}
+const drink = {
+    lunch(){
+        return 'beer'
+    }
+}
+
+let sunday = Object.create(eat);  
+
+// {}__proto__: lunch: ƒ lunch()__proto__: Object
+sunday.lunch() //  &quot;rice&quot;
+
+Object.getPrototypeOf(sunday)  // {lunch: ƒ}  -&gt; eat
+Object.setPrototypeOf(sunday, drink)
+sunday.lunch()   // &quot;beer&quot;
+
+
+// 另一种方式
+const eat = {
+    lunch(){
+        return 'rice'
+    }
+}
+const drink = {
+    lunch(){
+        return 'beer'
+    }
+}
+
+let sun = { __proto__: eat}
+
+sun.lunch()   // &quot;rice&quot;
+
+sun.__proto__ = drink // {lunch: ƒ}
+sun.lunch() // &quot;beer&quot;
+
+// 
+let sun2 = { 
+    __proto__: eat, 
+    lunch(){ 
+        return super.lunch() + '  aaaa' 
+    }
+}
+ 
+sun2.lunch()  // &quot;rice  aaaa&quot;
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br></div></div><h3 id="函数"><a href="#函数" aria-hidden="true" class="header-anchor">#</a> 函数</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>const fn = function pp(arg){}
+
+fn.name   // pp
+
+ // map
+
+let c = [1,2].map(it=&gt;it*2) // [2,4]
+
+
+// this
+
+window.a = 50
+const s ={
+    a: 40,
+    p:()=&gt;{
+        console.log(this.a)
+    }
+}
+s.p()  // 50
+
+
+// 函数默认值
+function test(a=1,{options = true}={}){
+    console.log(options)
+}
+test(3, {options: 222})  // 222
+
+function t(...arg){
+    console.log(arg)  
+}
+
+t(1,2)  // [1, 2]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h3 id="iterator（遍历器）的概念"><a href="#iterator（遍历器）的概念" aria-hidden="true" class="header-anchor">#</a> Iterator（遍历器）的概念</h3> <blockquote><p>它是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署 Iterator 接口，就可以完成遍历操作（即依次处理该数据结构的所有成员）。</p></blockquote> <blockquote><p>Iterator 的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是 ES6 创造了一种新的遍历命令for...of循环，Iterator 接口主要供for...of消费。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+let cc = function*(){
+    yield '111';
+    yield* [1,2,3];
+    yield '222';
+}
+var c = cc()
+
+c.next()
+// {value: &quot;111&quot;, done: false}
+c.next()
+// {value: 1, done: false}
+c.next()
+// {value: 2, done: false}
+c.next()
+// {value: 3, done: false}
+c.next()
+// {value: &quot;222&quot;, done: false}
+c.next()
+// {value: undefined, done: true}
+c.next()
+// {value: undefined, done: true}
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="class"><a href="#class" aria-hidden="true" class="header-anchor">#</a> class</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">P</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">age</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age
+    <span class="token punctuation">}</span>
+    <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+            i'm </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> years old; 
+        </span><span class="token template-punctuation string">`</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//const q = new P(23)</span>
+<span class="token comment">// q.age</span>
+<span class="token comment">// q.say()</span>
+<span class="token keyword">class</span> <span class="token class-name">child</span> <span class="token keyword">extends</span> <span class="token class-name">P</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">age</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>zoe <span class="token operator">=</span> <span class="token string">'aaa'</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>zoe<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> 
+    <span class="token punctuation">}</span>
+    <span class="token keyword">set</span> <span class="token function">menu</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>zoe<span class="token operator">=</span> key
+    <span class="token punctuation">}</span>
+    <span class="token keyword">get</span> <span class="token function">menu</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>zoe
+    <span class="token punctuation">}</span>
+    <span class="token keyword">static</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'init'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> ch <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">child</span><span class="token punctuation">(</span><span class="token number">23</span><span class="token punctuation">)</span>
+<span class="token comment">// ch.say()</span>
+<span class="token comment">// ch.menu   // 'aaa'</span>
+<span class="token comment">// ch.menu='123'</span>
+<span class="token comment">// ch.menu   // 123</span>
+child<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><h3 id="set"><a href="#set" aria-hidden="true" class="header-anchor">#</a> set</h3> <blockquote><p>可以用来去重</p></blockquote> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token string">&quot;123&quot;</span><span class="token punctuation">)</span>   <span class="token comment">// {&quot;1&quot;, &quot;2&quot;, &quot;3&quot;}</span>
+
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token string">&quot;123333&quot;</span><span class="token punctuation">)</span>  <span class="token comment">// {&quot;1&quot;, &quot;2&quot;, &quot;3&quot;}</span>
+
+<span class="token comment">// 添加2次</span>
+arr<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">)</span>  
+arr<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">)</span>  <span class="token comment">// {&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, 33}</span>
+
+arr<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span>  <span class="token comment">// return true   arr-&gt; { &quot;2&quot;, &quot;3&quot;, 33}</span>
+
+arr<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">)</span>  <span class="token comment">// true </span>
+
+arr<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// {&quot;2&quot; =&gt; &quot;2&quot;, &quot;3&quot; =&gt; &quot;3&quot;, 33 =&gt; 33}</span>
+
+arr<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// {&quot;2&quot;, &quot;3&quot;, 33}</span>
+
+arr<span class="token punctuation">.</span>size  <span class="token comment">// 3</span>
+
+arr<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// {&quot;2&quot;, &quot;3&quot;, 33}</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> v <span class="token keyword">of</span> arr<span class="token punctuation">)</span><span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">}</span>   <span class="token comment">// 2,3,33</span>
+
+arr<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// Set(0) {}</span>
+
+
+<span class="token comment">// 数组去重</span>
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">]</span>
+
+result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>new <span class="token class-name">Set</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">]</span>   <span class="token comment">// [1, 23, 14]</span>
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><h3 id="map"><a href="#map" aria-hidden="true" class="header-anchor">#</a> map</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token keyword">var</span> food <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> fruit <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token function-variable function">cook</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+food<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>fruit<span class="token punctuation">,</span> <span class="token string">'🌽'</span><span class="token punctuation">)</span>
+food<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>cook<span class="token punctuation">,</span> <span class="token string">'🍔'</span><span class="token punctuation">)</span>
+<span class="token comment">// Map(2) // {\{\} =&gt; &quot;🌽&quot;, ƒ =&gt; &quot;🍔&quot;}</span>
+<span class="token comment">// size: 2</span>
+<span class="token comment">// __proto__: Map</span>
+<span class="token comment">// [[Entries]]: Array(2)</span>
+<span class="token comment">// 0: {Object =&gt; &quot;🌽&quot;}</span>
+<span class="token comment">// 1: {function(){} =&gt; &quot;🍔&quot;}</span>
+<span class="token comment">// length: 2</span>
+food<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>fruit<span class="token punctuation">)</span>  <span class="token comment">// &quot;🌽&quot;</span>
+
+food<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>fruit<span class="token punctuation">)</span>  <span class="token comment">// true</span>
+
+food<span class="token punctuation">.</span>size  <span class="token comment">// 2</span>
+
+food<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>fruit<span class="token punctuation">)</span>  <span class="token comment">// return true  </span>
+food<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>fruit<span class="token punctuation">)</span>  <span class="token comment">// return false</span>
+
+food <span class="token comment">//Map(1) {ƒ =&gt; &quot;🍔&quot;}</span>
+
+
+food<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// 没有返回值</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><h3 id="import"><a href="#import" aria-hidden="true" class="header-anchor">#</a> import</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 导出和导入
+
+export const aa = function aa(){}
+
+import {aa } from './aa'
+
+// 或者
+const aa = ()=&gt;{}
+const bb = ()=&gt;{}
+export  {
+    aa, bb
+}
+
+
+import {aa, bb } from './aa'
+
+import * as cc from './aa'
+
+cc // {aa, bb }
+
+// 或者 
+
+export default {
+    aa, bb
+}
+
+
+import c from './aa'
+
+c  // {aa, bb}
+
+// 别名
+export default {
+    aa, bb as cc
+}
+
+
+import c from './aa'
+
+c  // {aa, cc}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><h3 id="async-await"><a href="#async-await" aria-hidden="true" class="header-anchor">#</a> async &amp; await</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 创建异步</span>
+<span class="token keyword">const</span> <span class="token function-variable function">readFile</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">fileName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>fileName<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">resolve</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 异步函数内部是同步</span>
+<span class="token keyword">const</span> <span class="token function-variable function">asyncReadFile</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> f1 <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'/etc/fstab'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> f2 <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'/etc/shells'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f1<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f2<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h3 id="修饰器"><a href="#修饰器" aria-hidden="true" class="header-anchor">#</a> 修饰器</h3> <blockquote><p>装饰器（Decorator）是一种与类（class）相关的语法，用来注释或修改类和类方法。许多面向对象的语言都有这项功能，目前有一个提案将其引入了 ECMAScript。</p></blockquote> <p>装饰器是一种函数，写成@ + 函数名。它可以放在类和类方法的定义前面。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@testable
+class MyTestableClass {
+  // ...
+}
+
+function testable(target) {
+  target.isTestable = true;
+}
+
+MyTestableClass.isTestable // true
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="symbol"><a href="#symbol" aria-hidden="true" class="header-anchor">#</a> Symbol</h3> <blockquote><p>ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6 引入Symbol的原因。</p></blockquote> <blockquote><p>Symbol 值通过Symbol函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。</p></blockquote> <p>注意，Symbol函数前不能使用new命令，否则会报错。这是因为生成的 Symbol 是一个原始类型的值，不是对象。也就是说，由于 Symbol 值不是对象，所以不能添加属性。基本上，它是一种类似于字符串的数据类型。</p> <p>Symbol函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+// 没有参数的情况
+let s1 = Symbol();
+let s2 = Symbol();
+
+s1 === s2 // false
+
+// 有参数的情况
+let s1 = Symbol('foo');
+let s2 = Symbol('foo');
+
+s1 === s2 // false
+
+// Symbol 值也可以转为布尔值，但是不能转为数值。
+
+Boolean(s1)  // true
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>symbol 常用的就是防止对象覆盖相同的键名</p> <blockquote><p>由于每一个 Symbol 值都是不相等的，这意味着 Symbol 值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性。这对于一个对象由多个模块构成的情况非常有用，能防止某一个键被不小心改写或覆盖。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>let mySymbol = Symbol();
+
+// 第一种写法
+let a = {};
+a[mySymbol] = 'Hello!';
+
+// 第二种写法
+let a = {
+  [mySymbol]: 'Hello!'
+};
+
+// 第三种写法
+let a = {};
+Object.defineProperty(a, mySymbol, { value: 'Hello!' });
+
+// 以上写法都得到同样结果
+a[mySymbol] // &quot;Hello!&quot;
+
+
+
+
+// ！！！ 注意，Symbol 值作为对象属性名时，不能用点运算符。
+
+const mySymbol = Symbol();
+const a = {};
+
+a.mySymbol = 'Hello!';
+a[mySymbol] // undefined
+a['mySymbol'] // &quot;Hello!&quot;
+
+// Symbol.for()不会每次调用就返回一个新的 Symbol 类型的值，而是会先检查给定的key是否已经存在，如果不存在才会新建一个值。
+Symbol.for(&quot;bar&quot;) === Symbol.for(&quot;bar&quot;)
+// true
+
+Symbol(&quot;bar&quot;) === Symbol(&quot;bar&quot;)
+
+// Symbol.keyFor方法返回一个已登记的 Symbol 类型值的key。
+
+let s1 = Symbol.for(&quot;foo&quot;);
+Symbol.keyFor(s1) // &quot;foo&quot;
+
+let s2 = Symbol(&quot;foo&quot;);
+Symbol.keyFor(s2) // undefined
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">8/19/2019, 7:25:08 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.d9940243.js" defer></script><script src="/assets/js/2.f7c0d1b9.js" defer></script><script src="/assets/js/8.916d6ae7.js" defer></script>
+  </body>
+</html>
