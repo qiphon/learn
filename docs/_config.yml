@@ -1,3 +1,1 @@
-baseurl: /README.md
-timezone: Asia/Shanghai 
-permalink: /posts/:title.html 
+theme: jekyll-theme-cayman
