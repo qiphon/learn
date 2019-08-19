@@ -1,4 +1,8 @@
-# test title
+---
+layout: default
+title: test title
+---
+# {{ page.title }}
 
 > test quote
 
