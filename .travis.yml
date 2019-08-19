@@ -5,6 +5,8 @@ node_js:
   - '10'
 env:
   global:
+cache: 
+  yarn: true
 before_install:
   - yarn install 
 script:
