@@ -1,5 +1,7 @@
-baseurl: /docs
+# baseurl: /docs
 timezone: Asia/Shanghai 
 permalink: /docs/posts/:title.html 
 markdown: rdiscount
 pygments: true
+source: DIR
+eccoding: utf-8
