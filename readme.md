@@ -51,3 +51,9 @@ c \ c# \ c++ \ java \ .net
 4. 委托、泛型、反射、集合（动态数组（ArrayList/Hashtable/SortedList/Stack/Queue））、匿名方法、拆箱
 
 5. 多线程
+
+```java
+
+$a = 12;
+
+```
