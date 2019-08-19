@@ -15,7 +15,7 @@ deploy:
   skip-cleanup: true
   local-dir: .vuepress/dist
   repo: qiphon/yd-learn
-  github-token: $REPO_TOKEN
+  github-token: $GITHUB_TOKEN
   keep-history: true
   on:
     branch: master
