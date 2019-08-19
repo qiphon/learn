@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>mySQL 基础 | 齐枫的博客</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a0ada997.css" as="style"><link rel="preload" href="/assets/js/app.333448fe.js" as="script"><link rel="preload" href="/assets/js/2.b33e986d.js" as="script"><link rel="preload" href="/assets/js/27.021824ae.js" as="script"><link rel="prefetch" href="/assets/js/10.2186bd1b.js"><link rel="prefetch" href="/assets/js/11.e126805c.js"><link rel="prefetch" href="/assets/js/12.9524273b.js"><link rel="prefetch" href="/assets/js/13.13ba2ded.js"><link rel="prefetch" href="/assets/js/14.d01099ad.js"><link rel="prefetch" href="/assets/js/15.9ef99a5a.js"><link rel="prefetch" href="/assets/js/16.27206667.js"><link rel="prefetch" href="/assets/js/17.3babc315.js"><link rel="prefetch" href="/assets/js/18.a53bd390.js"><link rel="prefetch" href="/assets/js/19.22bc2239.js"><link rel="prefetch" href="/assets/js/20.48f7b838.js"><link rel="prefetch" href="/assets/js/21.d825ac19.js"><link rel="prefetch" href="/assets/js/22.fb43d2e6.js"><link rel="prefetch" href="/assets/js/23.8c5c73c7.js"><link rel="prefetch" href="/assets/js/24.201dc6a3.js"><link rel="prefetch" href="/assets/js/25.4a2a77d2.js"><link rel="prefetch" href="/assets/js/26.f946af99.js"><link rel="prefetch" href="/assets/js/28.440b1a03.js"><link rel="prefetch" href="/assets/js/29.59ec67c4.js"><link rel="prefetch" href="/assets/js/3.2d104806.js"><link rel="prefetch" href="/assets/js/30.6161bc5b.js"><link rel="prefetch" href="/assets/js/31.549b1b52.js"><link rel="prefetch" href="/assets/js/4.16d9c06e.js"><link rel="prefetch" href="/assets/js/5.63a7c45e.js"><link rel="prefetch" href="/assets/js/6.03a111bb.js"><link rel="prefetch" href="/assets/js/7.0dc397fe.js"><link rel="prefetch" href="/assets/js/8.55103588.js"><link rel="prefetch" href="/assets/js/9.876bafea.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a0ada997.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">齐枫的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>mySQL 基础</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="mysql-基础"><a href="#mysql-基础" aria-hidden="true" class="header-anchor">#</a> mySQL 基础</h1> <blockquote><p>mySql (关系型数据库)</p></blockquote> <ol><li><p>创建表， 创建表的时候一定要给表设置编码格式（utf8_general_ci）,防止写入的内容出现乱码现象</p></li> <li><p>PRIMARY 表的主索引</p></li></ol> <p>char（0-255） / varchar（0-65535） 作为表的字段的时候要设置字符的长度</p> <ol start="3"><li>基本的sql 语句</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 查找所有
+SELECT * FROM `news` WHERE 1
+// where条件可以没有
+SELECT * FROM `news` WHERE newsid=0
+
+// 按条件查找
+SELECT `newsid`, `title`, `img`, `content`, `addtime` FROM `news` WHERE 1
+
+// 计算数量 count
+ select count(*) from phplesson.phpcreatetable where lastname = 'Lee';
+                      数据库名. 表名
+
+// min() 求最小值
+ select min(reg_date), phpcreatetable.* from phplesson.phpcreatetable;
+                      查询表中所有的字段
+// max() 求最小值
+ select max(reg_date), phpcreatetable.* from phplesson.phpcreatetable;
+                      查询表中所有的字段
+
+// 其他方法 https://www.runoob.com/sql/sql-function.html
+sum() 求和
+sqrt()  求平方根
+rand()  得到一个随机数
+concat()  拼接字符串
+select concat(id, ' ', firstname) from phpcreatetable;
+
+now()  当前时间
+
+// 稍复杂的查询
+// 区间查询
+select * from phpcreatetable where reg_date &gt;= '2019-05-01' and reg_date &lt;= '2019-08-05';
+select * from phpcreatetable where reg_date  between '2019-05-01' and '2019-08-05';
+
+sql 中的注释  -- 加空格 
+
+// like 模糊查询， % 代表通配符，匹配任何字符
+select * from phpcreatetable where firstname like 'q%';  // 找到以q开头的
+select * from phpcreatetable where firstname like '%q%';  // 找到含有q的
+select * from phpcreatetable where firstname like '%q';  // 找到以q结尾的
+
+// 排序 order by ,
+// desc 倒序，asc 正序
+select * from phpcreatetable where firstname like '%i%' order by id desc;
+
+// 2个表一起查
+select * from phpcreatetable, t_study where phpcreatetable.id = t_study.id;
+// 拿出指定字段
+select phpcreatetable.id, phpcreatetable.firstname, t_study.gender from phpcreatetable, t_study where phpcreatetable.id = t_study.id;
+
+//left/right join on 语句查出上面同样的字段(这个结果显示会不一样，这个会根据是left还是right，将左边表中的数据或右边表中的数据全部查一遍，最后输出左边表（right右边表）最后的匹配结果)
+select phpcreatetable.id, phpcreatetable.firstname, t_study.gender from phpcreatetable LEFT JOIN t_study ON phpcreatetable.id = t_study.id;
+
+select phpcreatetable.id, phpcreatetable.firstname, t_study.gender from phpcreatetable LEFT JOIN t_study ON phpcreatetable.id = t_study.id;
+
+// 插入
+INSERT INTO `news`(`newsid`, `title`, `img`, `content`, `addtime`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5])
+// 主索引一般不给值
+INSERT INTO `news`( `title`, `img`, `content`, `addtime`) VALUES ( '山东投毒案嫌疑人被释放 这不是冤案昭雪而是疑罪从无','http://5b0988e595225.cdn.sohucs.com/images/20190802/375e0632480e40d7b3fdd6df04c7bcf3.jpeg' ,'在这个前提之下，任艳红在看守所的8年时间，很难用“冤案”一词来简单概括，只能说是复杂现实的一个侧面——尽管这么说，会有人感到强烈不适，但这也不是偏','2019-8-3')
+
+// 更新
+UPDATE `news` SET `newsid`=[value-1],`title`=[value-2],`img`=[value-3],`content`=[value-4],`addtime`=[value-5] WHERE 1
+
+UPDATE `news` SET `title`='修改',`content`='我是JFK洛杉矶的法律' WHERE newsid=1
+
+// 删除
+DELETE FROM `news` WHERE 1
+
+DELETE FROM `news` WHERE newsid=1
+
+</code></pre></div><h3 id="本文件夹中的文件目录"><a href="#本文件夹中的文件目录" aria-hidden="true" class="header-anchor">#</a> 本文件夹中的文件目录</h3> <div class="language- extra-class"><pre class="language-text"><code>|---\ 1. phpandmysql.md   php链接MySQL 
+|
+|
+|---\ mysql        mysql常用命令
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|---\ relation-files   相关的代码片段
+
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">8/19/2019, 3:25:08 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.333448fe.js" defer></script><script src="/assets/js/2.b33e986d.js" defer></script><script src="/assets/js/27.021824ae.js" defer></script>
+  </body>
+</html>

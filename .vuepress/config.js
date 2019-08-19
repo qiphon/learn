@@ -3,6 +3,11 @@ module.exports = {
     descript: '我的学习笔记',
     base: '/',
     themeConfig: {
+        repo: 'qiphon/yd-learn',
+        repoLabel: '查看源码',
+        docsDir: '/',
+        // 假如文档放在一个特定的分支下：
+        docsBranch: 'master',
         nav: [
             {
                 text: "首页",
@@ -12,14 +17,14 @@ module.exports = {
                 text: "关于我",
                 link: "/about/aboutme"
             },
-            {
-                text: "github",
-                link: "https://github.com/qiphon/yd-learn"
-            },
-        ]
+        ],
+        search: true,
+        searchMaxSuggestions: 10,
+        // 默认情况下，侧边栏只会显示由当前活动页面的标题（headers）组成的链接，你可以将 themeConfig.displayAllHeaders 设置为 true 来显示所有页面的标题链接
+        displayAllHeaders: true,
+        activeHeaderLinks: true, // 默认值：true
+        // 侧边栏  
+        sidebar: "auto",
+        lastUpdated: 'Last Updated', // string | boolean
     },
-    // 侧边栏
-    sidebar: [
-        "/",
-    ]
 }
