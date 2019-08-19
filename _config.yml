@@ -1,6 +1,6 @@
 # baseurl: /docs
 timezone: Asia/Shanghai 
-permalink: /docs/posts/:title.html 
+permalink: posts/:title.html 
 markdown: rdiscount
 pygments: true
 source: DIR
