@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3d盒子</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .view {
+            width: 200px;
+            height: 200px;
+            margin: 80px auto;
+        }
+        .box {
+            transform-style: preserve-3d;
+            font-size: 60px;
+            transform: perspective(850px);
+            animation: rotateBox 3s linear infinite;
+            transform-origin: 10px 40px;
+        }
+        .box div {
+            position: absolute;
+            height: 160px;
+            width: 160px;
+            border: 3px solid #333;
+            background: rgba(255,200, 99, .7);
+        }
+        .box .one {
+            transform: translateZ(80px);
+        }
+        .box .two {
+            transform: rotateX(-90deg)  translateZ(80px);
+        }
+        .box .four {
+            transform: rotateX(-90deg)  translateZ(-80px);
+        }
+        .box .three {
+            transform: rotateX(90deg) rotateY(90deg) translateZ(80px);
+        }
+        .box .five {
+            transform: rotateX(90deg) rotateY(90deg) translateZ(-80px);
+        }
+        .box .six{
+            transform: translateZ(-80px);
+        }
+        @keyframes rotateBox {
+            from {
+               transform: rotate3d(0,0,0,0); 
+            }
+            to {
+                transform: rotate3d(1, 1, 1,300deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="view">
+        <div class="box">
+            <div class="one">a</div>
+            <div class="two">b</div>
+            <div class="three">c</div>
+            <div class="four">d</div>
+            <div class="five">e</div>
+            <div class="six">f</div>
+        </div>
+    </div>
+</body>
+</html>
