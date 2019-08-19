@@ -1,3 +1,4 @@
 name: Qiphon
 markdown: kramdown
-permalink: /blog/:title
+timezone: Asia/Shanghai 
+permalink: /posts/:title.md 
