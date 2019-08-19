@@ -1,10 +1,13 @@
 module.exports = {
     title: '齐枫的博客',
     descript: '我的学习笔记',
-    base: '/yd-learn/',
+    base: '/',
     markdown: {
         lineNumbers: true
     },
+    head: [
+        ['link', { rel: 'icon', href: '/favorite.ico' }]
+    ],
     themeConfig: {
         repo: 'qiphon/yd-learn',
         repoLabel: '查看源码',
