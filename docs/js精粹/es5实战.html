@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ES 5 在企业中的应用 | 齐枫的博客</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.616a884d.css" as="style"><link rel="preload" href="/assets/js/app.d9940243.js" as="script"><link rel="preload" href="/assets/js/2.f7c0d1b9.js" as="script"><link rel="preload" href="/assets/js/14.48493830.js" as="script"><link rel="prefetch" href="/assets/js/10.93ba8069.js"><link rel="prefetch" href="/assets/js/11.86291fd6.js"><link rel="prefetch" href="/assets/js/12.0642a2e4.js"><link rel="prefetch" href="/assets/js/13.b6578e7e.js"><link rel="prefetch" href="/assets/js/15.ee032f08.js"><link rel="prefetch" href="/assets/js/16.d7ac86ad.js"><link rel="prefetch" href="/assets/js/17.f834c3f4.js"><link rel="prefetch" href="/assets/js/18.66a13760.js"><link rel="prefetch" href="/assets/js/19.0be756e8.js"><link rel="prefetch" href="/assets/js/20.ef76b9ac.js"><link rel="prefetch" href="/assets/js/21.419e53f3.js"><link rel="prefetch" href="/assets/js/22.d571cea4.js"><link rel="prefetch" href="/assets/js/23.216dc707.js"><link rel="prefetch" href="/assets/js/24.34af2fd1.js"><link rel="prefetch" href="/assets/js/25.04fef87b.js"><link rel="prefetch" href="/assets/js/26.6d0dc13e.js"><link rel="prefetch" href="/assets/js/27.e6aa4212.js"><link rel="prefetch" href="/assets/js/28.52801119.js"><link rel="prefetch" href="/assets/js/29.39ad1ebc.js"><link rel="prefetch" href="/assets/js/3.64c99559.js"><link rel="prefetch" href="/assets/js/30.af003ffd.js"><link rel="prefetch" href="/assets/js/31.549b1b52.js"><link rel="prefetch" href="/assets/js/4.9b6535ba.js"><link rel="prefetch" href="/assets/js/5.2437d2c2.js"><link rel="prefetch" href="/assets/js/6.8b1e2b34.js"><link rel="prefetch" href="/assets/js/7.6a185fba.js"><link rel="prefetch" href="/assets/js/8.916d6ae7.js"><link rel="prefetch" href="/assets/js/9.2e91bd41.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.616a884d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">齐枫的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>ES 5 在企业中的应用</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/docs/js%E7%B2%BE%E7%B2%B9/es5%E5%AE%9E%E6%88%98.html#实战" class="sidebar-link">实战</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="es-5-在企业中的应用"><a href="#es-5-在企业中的应用" aria-hidden="true" class="header-anchor">#</a> ES 5 在企业中的应用</h1> <p>会员贡献 -(TC39的会议上通过审议)--&gt; strawman 初稿 --（带头人（会员）详细文字，实例）--&gt; proposal 建议（正式建议文档） -（语义语法说明）---&gt; Draft （规范的第一个版本，与最终版差别不大，后续只接受增量调整） --(完整文档，评审和编辑签字)-&gt; Candidate 候选  --(Test 262 的验收测试，两个通过测试的实现，实践经验 ，ES规范的编辑签字)---&gt; Finish （1. 准备就绪 2. 可以添加到标准中）</p> <h3 id="模块化"><a href="#模块化" aria-hidden="true" class="header-anchor">#</a> 模块化</h3> <blockquote><p>AMD CMD commonjs UMD</p></blockquote> <p>模块特点：</p> <ul><li><p>静态模块（模块名不能是变量）</p></li> <li><p>声明式语法</p></li></ul> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">//es 6</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span>$<span class="token punctuation">}</span>
+<span class="token keyword">import</span> $ <span class="token keyword">from</span> <span class="token string">'jquery'</span>  
+
+
+<span class="token comment">// amd</span>
+<span class="token keyword">export</span><span class="token punctuation">.</span>$ <span class="token operator">=</span> $
+<span class="token keyword">var</span> $ <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'jquery'</span><span class="token punctuation">)</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>import 和 amd 的区别</p> <ul><li><p>按需引入  VS  全局引入</p></li> <li><p>多点暴露  VS  全局暴露</p></li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 代码对比实例
+
+import {a,b, ...} from 'c'
+
+var all = require('c')  
+
+
+export { a, b, .... }
+
+module.exports = all
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><blockquote><p>浏览器目前不支持ES6 ，所以我们只能依靠编译工具</p></blockquote> <h3 id="模板字符串"><a href="#模板字符串" aria-hidden="true" class="header-anchor">#</a> 模板字符串</h3> <ul><li>多行字符串</li> <li>字符串插值</li> <li>Unicode 支持（nodejs）</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 字符串中可以写变量
+
+var bb = 123
+
+`aaaa ${bb}`
+
+// 模板字符串可以换行写
+
+`
+woshi 第一行
+
+    第二行
+`
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="解构"><a href="#解构" aria-hidden="true" class="header-anchor">#</a> 解构</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
+
+<span class="token keyword">var</span> <span class="token punctuation">[</span>first<span class="token punctuation">,</span> sec<span class="token punctuation">]</span> <span class="token operator">=</span> arr  
+
+<span class="token comment">// 函数中的解构</span>
+
+<span class="token keyword">function</span> <span class="token function">add</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span></span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">+</span> b
+<span class="token punctuation">}</span>
+
+<span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">// obj</span>
+
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> 
+    b<span class="token punctuation">:</span> <span class="token number">2</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> a<span class="token punctuation">,</span> b<span class="token punctuation">}</span> <span class="token operator">=</span> obj
+
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="object"><a href="#object" aria-hidden="true" class="header-anchor">#</a> object</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">,</span>  <span class="token comment">// 如果变量名一样可以不写后面的</span>
+    <span class="token punctuation">[</span>a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>  <span class="token comment">// 方便声明计算后的键</span>
+    <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>     <span class="token comment">// 快速声明一个函数</span>
+<span class="token punctuation">}</span>
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="array"><a href="#array" aria-hidden="true" class="header-anchor">#</a> array</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token operator">...</span>arr<span class="token punctuation">]</span>  <span class="token comment">// es6 浅拷贝</span>
+
+<span class="token comment">// es5 的写法</span>
+<span class="token keyword">var</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> arr2 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="函数"><a href="#函数" aria-hidden="true" class="header-anchor">#</a> 函数</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 箭头函数
+[1,2].map(item=&gt;item* 2)  // [2,4]
+
+//es5
+
+[1,2].map(function(it){
+    return it*2
+})
+
+// rest参数
+function a(...arg){
+    return arg.join(,)
+}
+
+function a(a,b, ...arg){
+    console.log(a,b,arg)
+}
+
+//es5
+function a(){
+    return [].slice.call(arguments, 0).join(',')
+}
+
+// 默认值
+function f(a=1){
+
+}
+// es5
+
+function f(a){
+    var a = a === 'undefined' ? 1: a;
+}
+
+
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><h3 id="class"><a href="#class" aria-hidden="true" class="header-anchor">#</a> class</h3> <ul><li><p>new 构造函数</p></li> <li><p>公有共享属性方法</p></li> <li><p>公有静态属性方法</p></li> <li><p>公有特权方法（访问私有成员）</p></li> <li><p>公有成员</p></li> <li><p>私有静态成员/方法</p></li> <li><p>私有成员/方法</p></li></ul> <h3 id="promise"><a href="#promise" aria-hidden="true" class="header-anchor">#</a> promise</h3> <h2 id="实战"><a href="#实战" aria-hidden="true" class="header-anchor">#</a> 实战</h2> <blockquote><p>es5 目前兼容非常的好，但是es6的兼容很差</p></blockquote> <p>编译器 Babel 、 Traceur（Google）</p> <p>构建工具 grunt, gulp , webpack , fis</p> <h4 id="练习题"><a href="#练习题" aria-hidden="true" class="header-anchor">#</a> 练习题</h4> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>  <span class="token comment">// function a(){}</span>
+    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>   <span class="token comment">// 1</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">8/19/2019, 7:25:08 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.d9940243.js" defer></script><script src="/assets/js/2.f7c0d1b9.js" defer></script><script src="/assets/js/14.48493830.js" defer></script>
+  </body>
+</html>

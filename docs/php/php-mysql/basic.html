@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>mySQL 基础 | 齐枫的博客</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.616a884d.css" as="style"><link rel="preload" href="/assets/js/app.d9940243.js" as="script"><link rel="preload" href="/assets/js/2.f7c0d1b9.js" as="script"><link rel="preload" href="/assets/js/27.e6aa4212.js" as="script"><link rel="prefetch" href="/assets/js/10.93ba8069.js"><link rel="prefetch" href="/assets/js/11.86291fd6.js"><link rel="prefetch" href="/assets/js/12.0642a2e4.js"><link rel="prefetch" href="/assets/js/13.b6578e7e.js"><link rel="prefetch" href="/assets/js/14.48493830.js"><link rel="prefetch" href="/assets/js/15.ee032f08.js"><link rel="prefetch" href="/assets/js/16.d7ac86ad.js"><link rel="prefetch" href="/assets/js/17.f834c3f4.js"><link rel="prefetch" href="/assets/js/18.66a13760.js"><link rel="prefetch" href="/assets/js/19.0be756e8.js"><link rel="prefetch" href="/assets/js/20.ef76b9ac.js"><link rel="prefetch" href="/assets/js/21.419e53f3.js"><link rel="prefetch" href="/assets/js/22.d571cea4.js"><link rel="prefetch" href="/assets/js/23.216dc707.js"><link rel="prefetch" href="/assets/js/24.34af2fd1.js"><link rel="prefetch" href="/assets/js/25.04fef87b.js"><link rel="prefetch" href="/assets/js/26.6d0dc13e.js"><link rel="prefetch" href="/assets/js/28.52801119.js"><link rel="prefetch" href="/assets/js/29.39ad1ebc.js"><link rel="prefetch" href="/assets/js/3.64c99559.js"><link rel="prefetch" href="/assets/js/30.af003ffd.js"><link rel="prefetch" href="/assets/js/31.549b1b52.js"><link rel="prefetch" href="/assets/js/4.9b6535ba.js"><link rel="prefetch" href="/assets/js/5.2437d2c2.js"><link rel="prefetch" href="/assets/js/6.8b1e2b34.js"><link rel="prefetch" href="/assets/js/7.6a185fba.js"><link rel="prefetch" href="/assets/js/8.916d6ae7.js"><link rel="prefetch" href="/assets/js/9.2e91bd41.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.616a884d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">齐枫的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>mySQL 基础</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="mysql-基础"><a href="#mysql-基础" aria-hidden="true" class="header-anchor">#</a> mySQL 基础</h1> <blockquote><p>mySql (关系型数据库)</p></blockquote> <ol><li><p>创建表， 创建表的时候一定要给表设置编码格式（utf8_general_ci）,防止写入的内容出现乱码现象</p></li> <li><p>PRIMARY 表的主索引</p></li></ol> <p>char（0-255） / varchar（0-65535） 作为表的字段的时候要设置字符的长度</p> <ol start="3"><li>基本的sql 语句</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 查找所有
+SELECT * FROM `news` WHERE 1
+// where条件可以没有
+SELECT * FROM `news` WHERE newsid=0
+
+// 按条件查找
+SELECT `newsid`, `title`, `img`, `content`, `addtime` FROM `news` WHERE 1
+
+// 计算数量 count
+ select count(*) from phplesson.phpcreatetable where lastname = 'Lee';
+                      数据库名. 表名
+
+// min() 求最小值
+ select min(reg_date), phpcreatetable.* from phplesson.phpcreatetable;
+                      查询表中所有的字段
+// max() 求最小值
+ select max(reg_date), phpcreatetable.* from phplesson.phpcreatetable;
+                      查询表中所有的字段
+
+// 其他方法 https://www.runoob.com/sql/sql-function.html
+sum() 求和
+sqrt()  求平方根
+rand()  得到一个随机数
+concat()  拼接字符串
+select concat(id, ' ', firstname) from phpcreatetable;
+
+now()  当前时间
+
+// 稍复杂的查询
+// 区间查询
+select * from phpcreatetable where reg_date &gt;= '2019-05-01' and reg_date &lt;= '2019-08-05';
+select * from phpcreatetable where reg_date  between '2019-05-01' and '2019-08-05';
+
+sql 中的注释  -- 加空格 
+
+// like 模糊查询， % 代表通配符，匹配任何字符
+select * from phpcreatetable where firstname like 'q%';  // 找到以q开头的
+select * from phpcreatetable where firstname like '%q%';  // 找到含有q的
+select * from phpcreatetable where firstname like '%q';  // 找到以q结尾的
+
+// 排序 order by ,
+// desc 倒序，asc 正序
+select * from phpcreatetable where firstname like '%i%' order by id desc;
+
+// 2个表一起查
+select * from phpcreatetable, t_study where phpcreatetable.id = t_study.id;
+// 拿出指定字段
+select phpcreatetable.id, phpcreatetable.firstname, t_study.gender from phpcreatetable, t_study where phpcreatetable.id = t_study.id;
+
+//left/right join on 语句查出上面同样的字段(这个结果显示会不一样，这个会根据是left还是right，将左边表中的数据或右边表中的数据全部查一遍，最后输出左边表（right右边表）最后的匹配结果)
+select phpcreatetable.id, phpcreatetable.firstname, t_study.gender from phpcreatetable LEFT JOIN t_study ON phpcreatetable.id = t_study.id;
+
+select phpcreatetable.id, phpcreatetable.firstname, t_study.gender from phpcreatetable LEFT JOIN t_study ON phpcreatetable.id = t_study.id;
+
+// 插入
+INSERT INTO `news`(`newsid`, `title`, `img`, `content`, `addtime`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5])
+// 主索引一般不给值
+INSERT INTO `news`( `title`, `img`, `content`, `addtime`) VALUES ( '山东投毒案嫌疑人被释放 这不是冤案昭雪而是疑罪从无','http://5b0988e595225.cdn.sohucs.com/images/20190802/375e0632480e40d7b3fdd6df04c7bcf3.jpeg' ,'在这个前提之下，任艳红在看守所的8年时间，很难用“冤案”一词来简单概括，只能说是复杂现实的一个侧面——尽管这么说，会有人感到强烈不适，但这也不是偏','2019-8-3')
+
+// 更新
+UPDATE `news` SET `newsid`=[value-1],`title`=[value-2],`img`=[value-3],`content`=[value-4],`addtime`=[value-5] WHERE 1
+
+UPDATE `news` SET `title`='修改',`content`='我是JFK洛杉矶的法律' WHERE newsid=1
+
+// 删除
+DELETE FROM `news` WHERE 1
+
+DELETE FROM `news` WHERE newsid=1
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br></div></div><h3 id="本文件夹中的文件目录"><a href="#本文件夹中的文件目录" aria-hidden="true" class="header-anchor">#</a> 本文件夹中的文件目录</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>|---\ 1. phpandmysql.md   php链接MySQL 
+|
+|
+|---\ mysql        mysql常用命令
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|---\ relation-files   相关的代码片段
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">8/19/2019, 7:25:08 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.d9940243.js" defer></script><script src="/assets/js/2.f7c0d1b9.js" defer></script><script src="/assets/js/27.e6aa4212.js" defer></script>
+  </body>
+</html>
