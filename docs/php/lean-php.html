@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>php learn （全称：PHP：Hypertext Preprocessor，即“PHP：超文本预处理器”） | 齐枫的博客</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.616a884d.css" as="style"><link rel="preload" href="/assets/js/app.b2d833d3.js" as="script"><link rel="preload" href="/assets/js/2.f7c0d1b9.js" as="script"><link rel="preload" href="/assets/js/22.d571cea4.js" as="script"><link rel="prefetch" href="/assets/js/10.93ba8069.js"><link rel="prefetch" href="/assets/js/11.86291fd6.js"><link rel="prefetch" href="/assets/js/12.0642a2e4.js"><link rel="prefetch" href="/assets/js/13.b6578e7e.js"><link rel="prefetch" href="/assets/js/14.48493830.js"><link rel="prefetch" href="/assets/js/15.ee032f08.js"><link rel="prefetch" href="/assets/js/16.d7ac86ad.js"><link rel="prefetch" href="/assets/js/17.f834c3f4.js"><link rel="prefetch" href="/assets/js/18.66a13760.js"><link rel="prefetch" href="/assets/js/19.0be756e8.js"><link rel="prefetch" href="/assets/js/20.ef76b9ac.js"><link rel="prefetch" href="/assets/js/21.419e53f3.js"><link rel="prefetch" href="/assets/js/23.216dc707.js"><link rel="prefetch" href="/assets/js/24.34af2fd1.js"><link rel="prefetch" href="/assets/js/25.04fef87b.js"><link rel="prefetch" href="/assets/js/26.6d0dc13e.js"><link rel="prefetch" href="/assets/js/27.e6aa4212.js"><link rel="prefetch" href="/assets/js/28.52801119.js"><link rel="prefetch" href="/assets/js/29.39ad1ebc.js"><link rel="prefetch" href="/assets/js/3.64c99559.js"><link rel="prefetch" href="/assets/js/30.af003ffd.js"><link rel="prefetch" href="/assets/js/31.549b1b52.js"><link rel="prefetch" href="/assets/js/4.9b6535ba.js"><link rel="prefetch" href="/assets/js/5.2437d2c2.js"><link rel="prefetch" href="/assets/js/6.8b1e2b34.js"><link rel="prefetch" href="/assets/js/7.6a185fba.js"><link rel="prefetch" href="/assets/js/8.916d6ae7.js"><link rel="prefetch" href="/assets/js/9.2e91bd41.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.616a884d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">齐枫的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>php learn （全称：PHP：Hypertext Preprocessor，即“PHP：超文本预处理器”）</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="php-learn-（全称：php：hypertext-preprocessor，即“php：超文本预处理器”）"><a href="#php-learn-（全称：php：hypertext-preprocessor，即“php：超文本预处理器”）" aria-hidden="true" class="header-anchor">#</a> php learn <a href="https://zh.wikipedia.org/wiki/PHP" target="_blank" rel="noopener noreferrer">（全称：PHP：Hypertext Preprocessor，即“PHP：超文本预处理器”）<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></h1> <blockquote><p>php 是面向对象的语言，学完PHP的面向对象能让我更好理解面向对象。
+为了防止php输出的中文乱码，需要在php前面添加<code>header(&quot;Content-Type: text/html;charset=utf-8&quot;);</code></p></blockquote> <ol><li>php 和 js 不同，所有的代码后面的分号必须要有，注释和js相同，流程语句的写法也与js相同</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;?php
+ /* 多行註解的第一行
+ 多行註解的另一行 */
+
+ // 單行註解
+
+ # 單行註解
+ ?&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><ol start="2"><li>变量命名</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 变量命名以 $ 开头
+$abc = 'hello';
+echo $abc;
+
+ // 作用域
+if($abc){
+    $abc = 12;
+}
+echo $abc . 123;  // $abc 在这里获取不到，所以只能打印出 123
+
+// isset() 用于判断变量是否被声明
+echo '&lt;br&gt;'. (isset($abc) ? 'abc被声明了' : 'abc没有被声明');
+
+// 作用域
+if($abc){
+    $abc = 12;  // 修改值
+}
+// 函数读取全局变量的方法
+function show(){
+    
+    echo $abc;  // 这里不能输出任何值
+
+    global $abc; // 必须使用global 关键字
+    echo $abc;
+    // 或者也可以这么写
+    echo $GLOBALS['abc'];
+}
+show();
+
+
+// 另一个有趣的例子
+// 作用域
+if($abc){
+    $abc = '我是 a.php';
+}
+// 函数读取全局变量的方法
+function show(){
+    $abc = 'i am in show &lt;br/&gt;';
+    echo $abc;  // 如果没有局部变量 $abc ,这里不能输出任何值
+
+    global $abc; // 必须使用global 关键字
+    echo $abc . '&lt;br&gt;';
+    echo $GLOBALS['abc']; // 局部变量和全局变量虽然同名，但是可以显示2种结果
+}
+show();
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><ol start="3"><li>include 和 require</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 引用错误的文件 
+// include_once('./11.php');
+require_once('./11.php');
+function show2() // 函数名不能相同
+{
+    echo '我是2.php中的 show2';
+};
+
+// 如果是include 引用的文件，这里的echo 能输出，
+// 如果是require 引用的文件，这里的echo 不能显示
+show2();  
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><ol start="4"><li>array</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;?php
+    $arr = array(
+        &quot;runoob&quot;=&gt;array( // 指定下标数组
+            &quot;菜鸟教程&quot;,   // 默认下标数组
+            &quot;http://www.runoob.com&quot;
+        ),
+        &quot;google&quot;=&gt;array(
+            &quot;Google 搜索&quot;,
+            &quot;http://www.google.com&quot;
+        ),
+        &quot;taobao&quot;=&gt;array(
+            &quot;淘宝&quot;,
+            &quot;http://www.taobao.com&quot;
+        )
+    );
+
+    echo json_encode($arr);  // arr =》 json
+?&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><ol start="5"><li>session</li></ol> <blockquote><p>您在计算机上操作某个应用程序时，您打开它，做些更改，然后关闭它。这很像一次对话（Session）。计算机知道您是谁。它清楚您在何时打开和关闭应用程序。然而，在因特网上问题出现了：由于 HTTP 地址无法保持状态，Web 服务器并不知道您是谁以及您做了什么。</p></blockquote> <p>PHP session 解决了这个问题，它通过在服务器上存储用户信息以便随后使用（比如用户名称、购买商品等）。然而，会话信息是临时的，在用户离开网站后将被删除。如果您需要永久存储信息，可以把数据存储在数据库中。</p> <p>Session 的工作机制是：为每个访客创建一个唯一的 id (UID)，并基于这个 UID 来存储变量。UID 存储在 cookie 中，或者通过 URL 进行传导。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 第一个页面写入session
+&lt;?php
+    // session_start 函数一定要放置在页面的顶部
+    session_start();
+    // 存储 session 数据
+    $_SESSION['views']=123555;
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;session&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;?php
+        if (isset($_SESSION['views'])) {
+            $_SESSION['views']=$_SESSION['views']+1;
+        } else {
+            $_SESSION['views']=1;
+        }
+        echo $_SESSION['views'];
+        echo '&lt;br&gt;';
+        // echo session_id();
+        // phpinfo();
+        // 销毁 Session
+        // if (isset($_SESSION['views'])) {
+        //     unset($_SESSION['views']);
+        // }
+        // 
+        // 销毁 Session 第二种
+        // session_destroy();
+   ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+// 第二个页面读取session
+
+&lt;?php
+    // 必须要有session_start
+    session_start();
+    // echo session_id();
+    // echo $_SESSION['views'];
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;array&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;?php
+        // 4.php 内容
+        // session_start();
+        echo '&lt;br&gt;'.( isset($_SESSION['views'])? '1': 2);
+        echo '&lt;br&gt;';
+        print_r($_SESSION) ;
+        echo '&lt;br&gt;';
+        echo $_SESSION['views'];
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br></div></div><ol start="6"><li>form 的 get / post 请求</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>// get / post 表单
+ &lt;h2&gt;get&lt;/h2&gt;
+&lt;form action=&quot;./6.1.php&quot; method='get'&gt;
+    &lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt;&lt;hr&gt;
+    &lt;input type=&quot;password&quot; name=&quot;pwd&quot; /&gt;&lt;hr&gt;
+    &lt;button&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+&lt;h2&gt;post&lt;/h2&gt;
+&lt;form action=&quot;./6.1.php&quot; method='post' enctype=&quot;multipart/from-data&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt;&lt;hr&gt;
+    &lt;input type=&quot;password&quot; name=&quot;pwd&quot; /&gt;&lt;hr&gt;
+    &lt;button&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+
+// PHP 接受数据的方式
+
+print_r($_GET);   // get 方式接收数据
+print_r($_POST);  // post 方式接收数据
+echo $_REQUEST['name'];  // get/post 方式传递的数据都能接收
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><ol start="7"><li><p><a href="/docs/php/php-mysql/basic.html"> mysql</a></p></li> <li><p>php 面向对象 OOP（Object-Oriented Programming）</p></li></ol> <blockquote><p>软件危机：落后的软件生产方式无法满足迅速增长的软件需求，从而导致软件开发与维护过程中出现一系列严重问题的现象。 泛指在计算机软件的开发和维护的过程中所遇到的一系列严重问题</p></blockquote> <blockquote><p>软件工程学：是一门研究用工程方法构建和维护有效的、实用的和高质量的软件学科。它涉及到程序语言设计、数据库、软件开发工具、系统平台、标准、设计模式等方面。
+分为结构化方法（按软件的周期分为三个阶段，分析、设计、编程）和面向对象。
+面向对象编程（OOP）使其编程的代码更简洁、更易于维护，并且具有更强的可重用性。
+oop 达到了软件工程的三个目标： 重用性、灵活性、扩展性
+oop 面向对象编程的特点：封装、继承、多态</p></blockquote> <blockquote><p>类，有成员属性和成员方法。类的格式如下</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 简单格式
+【修饰符】 class 类名 { // 使用class 关键字加类名
+    【成员属性】 // 也叫成员变量
+    【成员方法】 // 也叫成员函数
+}
+
+// 完整格式
+【修饰符】 class 类名 【extends 父类】 【implements 接口【，接口2 ...】】{
+    【成员属性】 // 也叫成员变量
+    【成员方法】 // 也叫成员函数
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><ul><li>8.1.1 成员属性</li></ul> <p>格式： 修饰符 $变量名 【=默认值】; 如 ： <code>public $name = &quot;qiphon&quot;;</code></p> <p>注意： 成员属性不可以是带运算符的表达式、变量、方法或函数调用</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//  // 错误格式
+public $var1 = 1+2; 
+
+public $var2 = self::myStaticMethod();
+
+public $var3 = $myVar;
+
+
+// 正确写法
+
+public $var1 = 100;
+
+public $var2 = myConstant; // 常量
+
+public $var3 = self::classConstant; // 静态属性
+
+public $var4 = array(true,false);  
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><ul><li>8.1.2 成员方法</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>[修饰符] function 方法名（参数 ...）{
+    [方法体]
+    [return 返回值]
+}
+
+public function say(){
+    echo &quot;saying&quot;; // 方法体
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><ul><li>8.1.3 类的基本使用</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>$变量名 = new 要实例化的类名([参数,...])
+
+$变量名 -&gt; 成员属性 = 赋值；  // 对象的属性赋值
+
+echo $变量名 -&gt; 成员属性 ;   // 输出对象的成员属性
+
+$变量名 -&gt;  成员方法（【参数】）;  // 调用对象的方法
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><ul><li>8.1.4 <code>$this</code></li></ul> <div class="language-php line-numbers-mode"><pre class="language-php"><code><span class="token comment">// $this 与js 中的 this 差不多，都是对于当前类的指向</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token single-quoted-string string">'playinng'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><ul><li>8.2.1 构造方法和析构方法</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 构造方法格式
+【修饰符】 function __construct([参数]){
+    程序体
+}
+
+// 析构方法
+【修饰符】 function __destruct([参数]){
+    程序体
+}
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><ul><li>8.3.1 封装</li></ul> <blockquote><p>封装性，是面向对象编程中的三大特性之一，封装就是把对象中的成员属性和成员方法上加上访问修饰符，使其尽可能隐藏对象内部细节，
+以达到对成员的访问控制（不是拒绝访问）</p></blockquote> <div class="language-php line-numbers-mode"><pre class="language-php"><code>// 魔术方法 只能对protected/private 成员属性生效，
+// 魔术方法 必须是public
+// 魔术方法__set()   // 外面对成员赋值时调用
+// 魔术方法__get()   // 取值的时候调用
+// 魔术方法__isset()  // 判断的时候调用
+// 魔术方法__unset()  // 释放属性的时候调用。
+
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'content-type: text/html; charset=utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Persion</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token operator">=</span><span class="token single-quoted-string string">'noName'</span><span class="token punctuation">,</span> <span class="token variable">$age</span><span class="token operator">=</span><span class="token single-quoted-string string">'0'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span> <span class="token operator">=</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">age</span> <span class="token operator">=</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token single-quoted-string string">'name-&gt;'</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span> name <span class="token punctuation">.</span> <span class="token single-quoted-string string">'  ---age-&gt;'</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">age</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 魔术方法</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__set</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">,</span> <span class="token variable">$val</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token variable">$key</span> <span class="token operator">=</span> <span class="token variable">$val</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__get</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// if($key == 'name' || $key == 'age'){</span>
+        <span class="token comment">//     return $this-&gt;$key;</span>
+        <span class="token comment">// }</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token variable">$key</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">key</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token single-quoted-string string">'没有这个值哦'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__isset</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token variable">$key</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__unset</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// echo $key;</span>
+        <span class="token keyword">unset</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">age</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$qiphon</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Persion</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'qiphon'</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// var_dump(isset($qiphon-&gt;age)); // bool(false) , 如果有魔术方法这里就不会报错 bool(true)</span>
+<span class="token keyword">unset</span><span class="token punctuation">(</span><span class="token variable">$qiphon</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">age</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 这里会报错，如果有魔术方法这里就不会报错</span>
+<span class="token comment">// echo $qiphon-&gt; age;  // Notice: Undefined property: Persion::$age // unset之后会报错</span>
+
+<span class="token comment">// 如果被unset掉这个，之后取每个属性的值的时候都会报错</span>
+<span class="token comment">// $qiphon -&gt;age = 25;   // 这里会报错，如果有魔术方法这里就不会报错</span>
+<span class="token comment">// echo $qiphon -&gt;say();</span>
+<span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$qiphon</span> <span class="token operator">-</span><span class="token operator">&gt;</span> name<span class="token punctuation">;</span> <span class="token comment">//这里会报错,如果有魔术方法这里就不会报错</span>
+<span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+<span class="token comment">// echo $qiphon -&gt; age; //这里会报错,如果有魔术方法这里就不会报错</span>
+
+<span class="token delimiter important">?&gt;</span></span>
+
+// 修饰符
+public  (公有的，默认)
+
+private  （私有的） // 私有成员 在对象的外部不能访问， 只能在对象的内部方法中使用$this 访问
+
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">Persion</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span> <span class="token operator">=</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$qiphon</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Persion</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'qiphon'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token variable">$qiphon</span> <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// echo $qiphon -&gt; name; //这里会报错</span>
+
+<span class="token delimiter important">?&gt;</span></span>
+
+protected  （受保护的）
+
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">Persion</span><span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span> <span class="token operator">=</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$qiphon</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Persion</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'qiphon'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token variable">$qiphon</span> <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// echo $qiphon -&gt; name; //这里会报错</span>
+
+<span class="token delimiter important">?&gt;</span></span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br></div></div><table><thead><tr><th>访问权限</th> <th>private</th> <th>protected</th> <th>public</th></tr></thead> <tbody><tr><td>同一类中</td> <td>可以</td> <td>可以</td> <td>可以</td></tr> <tr><td>在子类中</td> <td>不可以</td> <td>可以</td> <td>可以</td></tr> <tr><td>在类的外部</td> <td>不可以</td> <td>不可以</td> <td>可以</td></tr></tbody></table> <ul><li>8.4.1 继承和多态</li></ul> <blockquote><p>对象的多态性 : 是指在父类中定义的属性或行为被子类继承后可以具有不同的数据类型或表现出不同的行为.这使得同一个属性或行为在父类及其各子类中具有不同的语义.</p></blockquote> <blockquote><p>在子类里面允许重写（覆盖）父类中的方法
+在子类中，使用parent 访问父类中被覆盖的属性和方法
+parent::construct()
+parent::fun()</p></blockquote> <div class="language-php line-numbers-mode"><pre class="language-php"><code>
+
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;content-type: text/html; charset=utf-8;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Persion</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token variable">$money</span><span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token variable">$money</span><span class="token punctuation">,</span> <span class="token variable">$age</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>       
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span> <span class="token operator">=</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">money</span> <span class="token operator">=</span> <span class="token variable">$money</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">age</span> <span class="token operator">=</span> <span class="token variable">$age</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">info</span><span class="token punctuation">(</span><span class="token variable">$ab</span><span class="token operator">=</span><span class="token single-quoted-string string">''</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span> <span class="token punctuation">.</span> <span class="token single-quoted-string string">' say i\'m '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">age</span> <span class="token punctuation">.</span> <span class="token single-quoted-string string">' and money only '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">money</span> <span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;hr&gt;'</span><span class="token punctuation">.</span> <span class="token variable">$ab</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$M</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Persion</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'qiphon'</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// echo $M -&gt;name; // qiphon</span>
+<span class="token comment">// 下面2个都不能输出</span>
+<span class="token comment">// echo $M -&gt;money;</span>
+<span class="token comment">// echo $M -&gt;age;</span>
+
+<span class="token comment">// $M-&gt;info();   // qiphon say i'm 25 and money only 10</span>
+
+<span class="token comment">// 这样就实现了继承</span>
+<span class="token keyword">class</span> <span class="token class-name">Male</span> <span class="token keyword">extends</span> <span class="token class-name">Persion</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token variable">$male</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Male</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'male'</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// $male-&gt;info(); // male say i'm 26 and money only 11</span>
+
+<span class="token comment">// echo $male-&gt;name;  // male  同样的，这里也能获取到</span>
+
+<span class="token comment">// Notice: Undefined property: Male::$money in D:\xampp\htdocs\8.4.php on line 38</span>
+<span class="token comment">// 这个报错证明 male 没有 money 这个属性 ，证明父级的private 属性子级无法拿到</span>
+<span class="token comment">// echo $male-&gt;money;  </span>
+<span class="token comment">// Fatal error: Cannot access protected property Male::$age in D:\xampp\htdocs\8.4.php on line 39</span>
+<span class="token comment">// 这个报错证明 male 有 age 这个属性</span>
+<span class="token comment">// echo $male-&gt;age;  </span>
+
+
+<span class="token comment">// 再写一个类</span>
+<span class="token keyword">class</span> <span class="token class-name">Female</span> <span class="token keyword">extends</span> <span class="token class-name">Persion</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 当在这里再次写__construct 函数的时候相当于重写父级的方法，</span>
+    <span class="token comment">// 如果这里什么都不写，我们可以看到下面连name都打印不出来</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token variable">$money</span><span class="token punctuation">,</span> <span class="token variable">$age</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token variable">$female</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Female</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'zoe'</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// echo $female-&gt;name;</span>
+<span class="token comment">// echo $female-&gt;age;</span>
+<span class="token comment">// echo $female-&gt;money;</span>
+
+
+<span class="token comment">// 重复上一个类</span>
+<span class="token keyword">class</span> <span class="token class-name">Female2</span> <span class="token keyword">extends</span> <span class="token class-name">Persion</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Fatal error: Access level to Female2::$age must be protected (as in class Persion) or weaker </span>
+    <span class="token comment">// 属性的类型必须和父级一样，不然会报错 , 所以我们定义相同的属性是没有意义的</span>
+    <span class="token comment">// private $age;   </span>
+    <span class="token comment">// public $name;</span>
+    <span class="token comment">// private $money;</span>
+    <span class="token comment">// protected $age;   </span>
+    <span class="token comment">// 重写父级的方法</span>
+    <span class="token keyword">public</span> <span class="token variable">$desc</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token variable">$money</span><span class="token punctuation">,</span> <span class="token variable">$age</span><span class="token punctuation">,</span> <span class="token variable">$desc</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 继承父级的方法  参数还要再注入进去</span>
+        <span class="token keyword">parent</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token variable">$money</span><span class="token punctuation">,</span> <span class="token variable">$age</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">desc</span> <span class="token operator">=</span> <span class="token variable">$desc</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 方法也是一样的写法 重写这个方法</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">info</span><span class="token punctuation">(</span><span class="token variable">$ab</span><span class="token punctuation">,</span> <span class="token variable">$more</span><span class="token operator">=</span><span class="token single-quoted-string string">''</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 如果有参数一定要传进去</span>
+        <span class="token keyword">parent</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token variable">$ab</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span>  <span class="token single-quoted-string string">'&lt;hr&gt;'</span><span class="token punctuation">.</span> <span class="token variable">$more</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Notice: Undefined property: Female2::$money</span>
+        <span class="token comment">// 取不到money 会报错</span>
+        <span class="token comment">// echo '&lt;hr&gt;'. '我能取到age，但是取不到money'. $this-&gt;age . ' money-&gt; ' . $this-&gt; money;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__get</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token variable">$key</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$female2</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Female2</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'zoe'</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'nothing'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// echo $female2-&gt;name;  // zoe</span>
+<span class="token comment">// 下面的还是一样的效果</span>
+<span class="token comment">// echo $female2-&gt;money;</span>
+<span class="token keyword">echo</span> <span class="token variable">$female2</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">age</span><span class="token punctuation">;</span>   <span class="token comment">// 有get 方法就能取的到</span>
+
+<span class="token comment">// 重新定义的属性可以输出</span>
+<span class="token comment">// echo '&lt;hr&gt;'. $female2-&gt;desc;   // nothing</span>
+
+<span class="token comment">// $female2-&gt;info('ccccc','bbbb');</span>
+
+<span class="token delimiter important">?&gt;</span></span>
+
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br></div></div><ol start="9"><li>抽象方法和抽象类</li></ol> <ul><li>9.1. 抽象类</li></ul> <blockquote><p>当类中有一个方法,他没有方法体(就是没有花括号),直接分号结束,这种方法我们叫抽象方法, 必须使用关键字 abstract 定义
+如 <code>public abstract function fun();</code>
+包含这种方法的类必须是抽象类,也要使用关键字 abstract 加以声明.(即使用关键字 abstract 修饰的类为抽象类)</p></blockquote> <p>抽象类的特点:</p> <ul><li><p>不能实例化,也就是不能new 成对象</p></li> <li><p>若想使用抽象类,就必须定义一个类去继承这个抽象类,并定义覆盖父类的抽象方法(实现抽象方法).</p></li> <li><p>9.2 接口</p></li></ul> <blockquote><p>PHP与大多数面向对象编程语言一样,不支持多重继承,也就是说每个类只能继承一个父类.
+为解决这个问题,PHP引入了接口,接口的思想是指定了,一个实现了该接口的类必须实现一系列函数</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 定义格式 
+
+interface 接口名 {
+    // 常量成员  (使用const 关键字定义)
+    // 抽象方法  (不需要使用abstract 关键字)
+}
+
+使用格式: class 类名 implements 接口1,接口2... {...}
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><ul><li>9.3 抽象类 和 接口的区别</li></ul> <blockquote><p>在高级语言上,一个类一个类只能继承一个类(抽象类),正如人不可能同时是生物和非生物,但是可以实现多个接口(吃饭/走路等).</p></blockquote> <table><thead><tr><th>接口</th> <th>抽象类</th></tr></thead> <tbody><tr><td>当你关注事物本质的时候,用抽象类;</td> <td>当你关注一个操作的时候,使用接口</td></tr> <tr><td>接口是对动作的抽象,表示这个对象能做什么,对类的局部行为进行抽象.</td> <td>抽象类是对根源的抽象,表示这个类是什么,对类的整体进行抽象,对一类事物的抽象描述</td></tr> <tr><td>人可以吃东西,狗也可以吃东西,我们就可以把&quot;吃东西&quot;定义成一个接口</td> <td>男人和女人可以是2个类,他们的抽象类是人</td></tr> <tr><td>接口是抽象类的变体,接口中所有的方法都是抽象的.</td> <td>抽象类是声明方法的存在而不去实现他的类</td></tr> <tr><td>接口可以多继承</td> <td>抽象类只能继承一个</td></tr> <tr><td>接口定义方法,不能实现</td> <td>抽象类可以实现部分方法</td></tr> <tr><td>接口中基本的数据类型为static</td> <td>抽象类不是这样的</td></tr> <tr><td>接口中不能含有静态代码块以及静态方法</td> <td>抽象类可以含有静态方法和静态代码块</td></tr></tbody></table> <div class="language-php line-numbers-mode"><pre class="language-php"><code>// 抽象类
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;content-type: text/html; charset=utf-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/**
+ *  1. 含抽象方法的类,必须是抽象类
+ *  2. 抽象类不一定非要含有抽象方法
+ *  3. 抽象类可以存在普通的方法
+ *  4. 抽象类不能被实例化,必须由一个子类去继承,并且把抽象类的抽象方法都实现了
+ */</span>
+<span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Man</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token single-quoted-string string">'eat'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 抽象方法可以没有方法体</span>
+    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">function</span> <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// $qiphon = new Man();  // Fatal error: Cannot instantiate abstract class Man</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Male</span> <span class="token keyword">extends</span> <span class="token class-name">Man</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">say</span><span class="token punctuation">(</span><span class="token variable">$say</span><span class="token operator">=</span><span class="token single-quoted-string string">''</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token variable">$say</span> <span class="token operator">?</span><span class="token punctuation">:</span> <span class="token single-quoted-string string">'say nothing'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$qiphon</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Male</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$qiphon</span> <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+<span class="token variable">$qiphon</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token delimiter important">?&gt;</span></span>
+
+// 接口
+
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;content-type: text/html; charset=utf-8;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/**
+ *   interface
+ *   1. 接口的关键字是interface
+ *   2. 接口可以声明常量,也可以抽象方法
+ *   3. 接口中的方法都是抽象方法,不需要abstract 去定义
+ *   4. 接口不能被实例化,需要一个类去实现它
+ *   5. 一个类可以有多个接口
+ */</span>
+<span class="token keyword">interface</span> <span class="token class-name">Man</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fromInter <span class="token operator">=</span> <span class="token double-quoted-string string">&quot;man interface&quot;</span><span class="token punctuation">;</span>
+  <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">Study</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">study</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token keyword">implements</span> <span class="token class-name">Man</span><span class="token punctuation">,</span> Study <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token variable">$name</span> <span class="token punctuation">;</span>
+    <span class="token keyword">const</span> pie <span class="token operator">=</span> <span class="token number">3.14</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span> <span class="token operator">=</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token variable">$eat</span><span class="token operator">=</span><span class="token single-quoted-string string">'eat nothing'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span> <span class="token punctuation">.</span> <span class="token single-quoted-string string">' is eating'</span> <span class="token punctuation">.</span> <span class="token variable">$eat</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token variable">$run</span> <span class="token operator">=</span> <span class="token single-quoted-string string">'in grass'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span> <span class="token punctuation">.</span> <span class="token single-quoted-string string">'running in '</span> <span class="token punctuation">.</span> <span class="token variable">$run</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">study</span><span class="token punctuation">(</span><span class="token variable">$book</span><span class="token operator">=</span><span class="token single-quoted-string string">'nothing'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span> <span class="token punctuation">.</span> <span class="token single-quoted-string string">' is reading '</span> <span class="token punctuation">.</span> <span class="token variable">$book</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">:</span><span class="token punctuation">:</span>fromInter<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">selfConst</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">:</span><span class="token punctuation">:</span>pie<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$qiphon</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'qiphon'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// $qiphon -&gt; eat(&quot;🍎&quot;);</span>
+<span class="token comment">// $qiphon -&gt; study('php');</span>
+
+<span class="token comment">// interface 中的常量</span>
+<span class="token keyword">echo</span> <span class="token variable">$qiphon</span><span class="token punctuation">:</span><span class="token punctuation">:</span>fromInter <span class="token punctuation">.</span> <span class="token single-quoted-string string">' qiphon::fromInter'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;hr /&gt;'</span><span class="token punctuation">;</span>
+<span class="token comment">// 从类上找</span>
+<span class="token keyword">echo</span> Student<span class="token punctuation">:</span><span class="token punctuation">:</span>fromInter <span class="token punctuation">.</span> <span class="token single-quoted-string string">' student::fromInter'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;hr /&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$qiphon</span><span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token single-quoted-string string">' qiphon-&gt;test()'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;hr /&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> Student<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token single-quoted-string string">' student::test()'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;hr /&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> Student<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">selfConst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token single-quoted-string string">' student::selfConst()'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;hr /&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$qiphon</span><span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">selfConst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token single-quoted-string string">'qiphon-&gt; selfConst()'</span><span class="token punctuation">;</span>
+
+</span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br></div></div><ol start="10"><li>常见关键字</li></ol> <ul><li>final</li></ul> <blockquote><p>php5中新增关键字,它只能用来修饰类和方法.不能修饰成员属性</p></blockquote> <ul><li><ol><li>使用final关键字标识的类不能被继承</li></ol></li> <li><ol start="2"><li>使用final关键字标识的方法不能被子类覆盖(重写),是最终版本</li></ol></li></ul> <p>目的 : 1. 为了安全; 2. 没有必要被继承或重写</p> <ul><li>static</li></ul> <blockquote><p>static 表示静态的意思,用于修饰类的成员属性和成员方法(即静态属性和静态方法)
+静态方法中不可以使用非静态的内容.就是不让使用this
+静态属性是共享的,也就是new 很多对象也是公用一个属性;</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 类中的静态属性和方法不用实例化(new ) 就可以使用类名访问
+类::静态属性
+类::静态方法
+
+在类的方法中,不能用this来引用静态变量或静态方法,需要使用self
+
+public function test(){
+    return self::静态属性;
+    return self::静态方法;
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><ul><li>单例设计模式</li></ul> <blockquote><p>单例模式的主要作用是保证在面向对象编程设计中,一个类只能有一个实例对象存在</p></blockquote> <ul><li>const 关键字</li></ul> <blockquote><p>const 是一个在类中定义常量的关键字,我们都知道在php中定义常量使用的是 &quot;define()&quot; 这个函数,但是在类里面定义常量使用的是&quot;const&quot;</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>const con = 'const value';  // 定义
+
+echo self::con;   // 类内部访问
+
+echo className::con; // 类外面访问
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><ul><li>instanceof</li></ul> <blockquote><p>用于检测当前对象示例是否属于某一个类或这个类的子类</p></blockquote> <ol start="11"><li>异常处理</li></ol> <ul><li>11.1 系统自带的异常处理</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Exception {
+    protected $message = 'Unknown exception';  // 异常信息
+    protected $code = 0;      // 用户自定义异常代码
+    protected $file;         // 发生异常的文件名
+    protected $line; 
+    function __construct($message = null, $code=0);
+    final function getMessage();        // 返回异常信息
+    final function getCode();           // 返回异常代码
+    final function getFile();           // 返回发生异常的文件名
+    final function getLine();           // 返回发生异常代码的行号
+    final function getTrace();          // backtrace() 数组
+    final function getTraceAsString();  // 字符串化 getTrace()信息
+    function __toString();              // 可输出的字符串
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><ul><li><p>11.2 字定义异常处理</p></li> <li><p>11.3 捕捉多个异常处理</p></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">8/19/2019, 11:25:30 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b2d833d3.js" defer></script><script src="/assets/js/2.f7c0d1b9.js" defer></script><script src="/assets/js/22.d571cea4.js" defer></script>
+  </body>
+</html>
