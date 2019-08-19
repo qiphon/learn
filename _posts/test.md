@@ -2,7 +2,7 @@
 layout: default
 title: test title
 ---
-# {{ page.title }}
+# page.title 
 
 > test quote
 
