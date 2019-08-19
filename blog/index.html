@@ -5,6 +5,8 @@ layout: default
 <ul class="posts">
 
   {% for post in site.posts %}
+    <li>{{post}}</li>
+    <li>{{posts}}</li>
     <li> <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
   {% endfor %}
     
