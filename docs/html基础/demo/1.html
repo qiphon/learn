@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>img 的好用处</title>
+</head>
+<body>
+    <img src="1.png" crossorigin="anonymous" alt="">
+    <script>
+        // 测试网速
+        var s = new Date();
+        var img = new Image()
+        img.crossOrigin = 'anonymous'
+        img.src = "http://www.qiphon.site/qiphon.png";   //1*1 3kb
+        img.onload = function(){
+            var e = Date.now()
+            var w = 4 /( e - s)  
+        }
+
+        // 上报数据
+        var img = new Image()
+        img.crossOrigin = 'anonymous'
+        img.src = "http://www.qiphon.site/qiphon.png";   //1*1 3kb
+    </script>
+</body>
+</html>

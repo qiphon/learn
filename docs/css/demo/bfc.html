@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bfc</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        body{
+            width:500px;
+            background:pink;
+        }
+        div {
+            height: 300px;
+        }
+        .aside{
+            float: left;
+            width: 200px;
+            background:powderblue;
+        }
+        .main{
+            background:purple;
+            width: 300px;
+            /* 添加下面的代码即可让2个盒子分离
+            */
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="aside"></div>
+    <div class="main"></div>
+</body>
+</html>
