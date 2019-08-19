@@ -1,7 +1,10 @@
 module.exports = {
     title: '齐枫的博客',
     descript: '我的学习笔记',
-    base: '/.vuepress/dist',
+    base: '/',
+    markdown: {
+        lineNumbers: true
+    },
     themeConfig: {
         repo: 'qiphon/yd-learn',
         repoLabel: '查看源码',
