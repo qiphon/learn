@@ -132,3 +132,247 @@ __proto__ 的设置器(setter)允许对象的 [[Prototype]]被变更。前提是
 
 
 ### object.prototype.constructor  特定的函数，用于创建一个对象的原型
+
+
+所有对象都会从他的原型上继承一个 `constructor` 属性
+
+```js
+var o = {};
+o.constructor === Object; // true
+
+var o = new Object;
+o.constructor === Object; // true
+
+var a = [];
+a.constructor === Array; // true
+
+var a = new Array;
+a.constructor === Array // true
+
+var n = new Number(3);
+n.constructor === Number; // true
+
+
+function Tree(name) {  // 这个就是构造函数
+   this.name = name;
+}
+
+var theTree = new Tree("Redwood");
+theTree.constructor // function Tree
+
+```
+
+#### 改变对象的 constructor
+
+下面的例子展示了如何修改基本类型对象的 constructor 属性的值。只有 true, 1 和 "test" 的不受影响，因为创建他们的是只读的原生构造函数（native constructors）。这个例子也说明了依赖一个对象的 constructor 属性并不安全。
+
+```js
+
+function Type() { };
+
+var	types = [
+	new Array,
+    [],
+	new Boolean,
+    true,        // remains unchanged
+	new Date,
+	new Error,
+	new Function,
+	function(){},
+	Math,	
+	new Number,
+	1,           // remains unchanged
+	new Object,
+	{},
+	new RegExp,
+	/(?:)/,
+	new String,
+	"test"       // remains unchanged
+];
+
+for(var i = 0; i < types.length; i++) {
+	types[i].constructor = Type;
+	types[i] = [ types[i].constructor, types[i] instanceof Type, types[i].toString() ];
+};
+
+console.log( types.join("\n") );
+
+
+// 继承的实现方法
+
+function ParentWithStatic() {}
+
+ParentWithStatic.startPosition = { x: 0, y:0 };
+ParentWithStatic.getStartPosition = function getStartPosition() {
+  return this.startPosition;
+} 
+
+function Child(x, y) {
+  this.position = {
+    x: x,
+    y: y
+  };
+}
+
+Child.prototype = Object.create(ParentWithStatic.prototype); 
+Child.prototype.constructor = Child;
+
+Child.prototype.getOffsetByInitialPosition = function getOffsetByInitialPosition() {
+  var position = this.position;
+  var startPosition = this.constructor.getStartPosition(); // error undefined is not a function, since the constructor is Child
+
+  return {
+    offsetX: startPosition.x - position.x,
+    offsetY: startPosition.y - position.y
+  }
+};
+
+```
+
+
+## 方法
+
+### ` object.assign() ` 
+
+> 用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+如果目标对象中的属性具有相同的键，则属性将被源对象中的属性覆盖。后面的源对象的属性将类似地覆盖前面的源对象的属性。
+
+```js
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target);
+// expected output: Object { a: 1, b: 4, c: 5 }
+
+console.log(returnedTarget);
+// expected output: Object { a: 1, b: 4, c: 5 }
+
+```
+
+| 语法
+
+` Object.assign(target, ...sources) `
+
+| 参数
+
+`target` 目标对象
+`sources` 源对象
+
+| 返回值 
+
+目标对象
+
+```js
+
+// 复制一个对象
+const obj = { a: 1 };
+const copy = Object.assign({}, obj);
+console.log(copy); // { a: 1 }
+
+// 针对深拷贝，需要使用其他办法，因为 Object.assign()拷贝的是属性值。假如源对象的属性值是一个对象的引用，那么它也只指向那个引用。
+let obj1 = { a: 0 , b: { c: 0}}; 
+let obj2 = Object.assign({}, obj1); 
+console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}} 
+
+obj1.a = 1; 
+console.log(JSON.stringify(obj1)); // { a: 1, b: { c: 0}} 
+console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}} 
+
+obj2.a = 2; 
+console.log(JSON.stringify(obj1)); // { a: 1, b: { c: 0}} 
+console.log(JSON.stringify(obj2)); // { a: 2, b: { c: 0}}
+ 
+obj2.b.c = 3; 
+console.log(JSON.stringify(obj1)); // { a: 1, b: { c: 3}} 
+console.log(JSON.stringify(obj2)); // { a: 2, b: { c: 3}} 
+
+// Deep Clone 
+obj1 = { a: 0 , b: { c: 0}}; 
+let obj3 = JSON.parse(JSON.stringify(obj1)); 
+obj1.a = 4; 
+obj1.b.c = 4; 
+console.log(JSON.stringify(obj3)); // { a: 0, b: { c: 0}}
+
+// 继承属性和不可枚举属性是不能拷贝的
+const obj = Object.create({foo: 1}, { // foo 是个继承属性。
+    bar: {
+        value: 2  // bar 是个不可枚举属性。
+    },
+    baz: {
+        value: 3,
+        enumerable: true  // baz 是个自身可枚举属性。
+    }
+});
+
+const copy = Object.assign({}, obj);
+console.log(copy); // { baz: 3 }
+
+// 原始类型会被包装为对象
+
+const v1 = "abc";
+const v2 = true;
+const v3 = 10;
+const v4 = Symbol("foo")
+
+const obj = Object.assign({}, v1, null, v2, undefined, v3, v4); 
+// 原始类型会被包装，null 和 undefined 会被忽略。
+// 注意，只有字符串的包装对象才可能有自身可枚举属性。
+console.log(obj); // { "0": "a", "1": "b", "2": "c" }
+
+// 异常会打断后续拷贝任务
+const target = Object.defineProperty({}, "foo", {
+    value: 1,
+    writable: false
+}); // target 的 foo 属性是个只读属性。
+
+Object.assign(target, {bar: 2}, {foo2: 3, foo: 3, foo3: 3}, {baz: 4});
+// TypeError: "foo" is read-only
+// 注意这个异常是在拷贝第二个源对象的第二个属性时发生的。
+
+console.log(target.bar);  // 2，说明第一个源对象拷贝成功了。
+console.log(target.foo2); // 3，说明第二个源对象的第一个属性也拷贝成功了。
+console.log(target.foo);  // 1，只读属性不能被覆盖，所以第二个源对象的第二个属性拷贝失败了。
+console.log(target.foo3); // undefined，异常之后 assign 方法就退出了，第三个属性是不会被拷贝到的。
+console.log(target.baz);  // undefined，第三个源对象更是不会被拷贝到的。
+
+
+// 拷贝访问器
+
+const obj = {
+  foo: 1,
+  get bar() {
+    return 2;
+  }
+};
+
+let copy = Object.assign({}, obj); 
+console.log(copy); // { foo: 1, bar: 2 } copy.bar的值来自obj.bar的getter函数的返回值
+
+// 下面这个函数会拷贝所有自有属性的属性描述符
+function completeAssign(target, ...sources) {
+  sources.forEach(source => {
+    let descriptors = Object.keys(source).reduce((descriptors, key) => {
+      descriptors[key] = Object.getOwnPropertyDescriptor(source, key);
+      return descriptors;
+    }, {});
+
+    // Object.assign 默认也会拷贝可枚举的Symbols
+    Object.getOwnPropertySymbols(source).forEach(sym => {
+      let descriptor = Object.getOwnPropertyDescriptor(source, sym);
+      if (descriptor.enumerable) {
+        descriptors[sym] = descriptor;
+      }
+    });
+    Object.defineProperties(target, descriptors);
+  });
+  return target;
+}
+
+copy = completeAssign({}, obj);
+console.log(copy);
+// { foo:1, get bar() { return 2 } }
+
+
+```
