@@ -376,3 +376,46 @@ console.log(copy);
 
 
 ```
+
+
+### Object.create
+
+
+```js
+
+// es 5 继承的实现
+function P(name){
+    this.name = name
+}
+P.prototype.getName = function(){
+    return this.name
+}
+function Child(name, age){
+    P.apply(this, arguments)
+    this.age = age
+}
+Child.prototype = Object.create(P.prototype, {
+    constructor: {
+        value: Child
+    }
+})
+
+var c = new Child('qiphon',123)
+
+// Child {name: "qiphon", age: 123}
+  // age: 123
+  // name: "qiphon"
+  // __proto__: P
+    // constructor: ƒ Child(name, age)
+      // arguments: null
+      // caller: null
+      // length: 2
+      // name: "Child"
+      // prototype: P {constructor: ƒ}
+      // __proto__: ƒ ()
+      // [[FunctionLocation]]: VM67924:8
+      // [[Scopes]]: Scopes[1]
+    // __proto__: Object
+
+
+```
