@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-hans" version="HTML+RDFa 1.0" dir="ltr" 
+  xmlns:og="http://ogp.me/ns#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <title>驱动程序 | GeForce</title>  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="https://www.geforce.cn/sites/all/themes/geforce/favicon.ico" type="image/vnd.microsoft.icon" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  <link type="text/css" rel="stylesheet" href="https://www.geforce.cn/sites/default/files-world/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.geforce.cn/sites/default/files-world/css/css__r408iefJFDp7tkJY64xde0BtyLdHU1-GytpTja6H4w.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.geforce.cn/sites/default/files-world/css/css_SDD85OtFCaiszJdEWfZC5NrBrQj7_FWqDyr2DbiSHbg.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.geforce.cn/sites/all/themes/geforce/css/style.zh-hans.css?ps5ux3" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.geforce.cn/sites/all/themes/geforce/css/games.css?ps5ux3" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.geforce.cn/sites/all/themes/geforce/css/hardware.css?ps5ux3" media="all" />
+
+<!--[if lte IE 6]>
+<link type="text/css" rel="stylesheet" href="https://www.geforce.cn/sites/all/themes/geforce/css/ie6.css?ps5ux3" media="all" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link type="text/css" rel="stylesheet" href="https://www.geforce.cn/sites/all/themes/geforce/css/ie7.css?ps5ux3" media="all" />
+<![endif]-->
+
+<!--[if IE 8]>
+<link type="text/css" rel="stylesheet" href="https://www.geforce.cn/sites/all/themes/geforce/css/ie8.css?ps5ux3" media="all" />
+<![endif]-->
+
+<!--[if IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.geforce.cn/sites/all/themes/geforce/css/ie9.css?ps5ux3" media="all" />
+<![endif]-->
+
+           <script src="https://assets.adobedtm.com/b92787824f2e0e9b68dc2e993f9bd995339fe417/satelliteLib-f5e6896bceda788f02e36771464a3bcbb5ae094b.js"></script>
+      
+  <script type="text/javascript" src="https://www.geforce.cn/sites/default/files-world/js/js_D5AQPeNvA8hmvU4x_Bh1PQ9LHlJpIjaOfXliQWWl_lY.js"></script>
+<script type="text/javascript" data-main="//images.nvidia.com/nvFrame/1.0/p/config_geforce.js?v=1570546380" src="//images.nvidia.com/nvFrame/1.0/p/js/_libs/require.js?ps5ux3"></script>
+<script type="text/javascript" src="https://www.geforce.cn/sites/default/files-world/js/js_Cyc-lC6ixML6RkS4RmBegmTl-vUp8PtXmSZmSGOtAFQ.js"></script>
+<script type="text/javascript" src="https://www.geforce.cn/sites/default/files-world/js/js_vpbC-JV-OXaZD7i6xvKdABSsZElAMKgDur-9ofSRfkY.js"></script>
+<script type="text/javascript" src="https://www.geforce.cn/sites/default/files-world/js/js_FJ02GUkyFzJjFK9g3MLmUqRZQDpjj1FtYZsWVrTo8ME.js"></script>
+<script type="text/javascript" src="https://www.geforce.cn/sites/default/files-world/js/js_VULDN7vogHp4CTQJvAmGqfHzMTESfl8dqHuVlbcldVo.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?a1708091cc1bdbec88e3d9cf9b7ab88c";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _smq = _smq || [];_smq.push(['_setAccount', '4bf8378', new Date()]);_smq.push(['pageview']);(function() {var sm = document.createElement('script'); sm.type = 'text/javascript'; sm.async = true;sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdnmaster.com/sitemaster/collect.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sm, s);})();
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"geforce","theme_token":"OGdLxZhfz6Dsa4zvKxhVjZg-cT-ENXcW6MTniL04apM","js":{"https:\/\/images.nvidia.com\/js\/cn\/jquery.ba-replacetext.min.js":1,"https:\/\/images.nvidia.com\/js\/cn\/keywords_cleanup.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"sites\/all\/libraries\/jwplayer\/jwplayer.js":1,"sites\/all\/themes\/geforce\/js\/jquery-migrate-1.2.1.min.js":1,"\/\/www.nvidia.com\/content\/websidestory\/gtm\/nv-gtm.js":1,"misc\/jquery.once.js":1,"\/\/images.nvidia.com\/nvFrame\/1.0\/p\/js\/_libs\/require.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/custom\/gfcore\/js\/deployJava.js":1,"sites\/all\/modules\/features\/drivers_feature\/js\/geforce.com.js":1,"public:\/\/languages\/zh-hans_QCohHU4tH2fW2ZY4Ow_wAJajGfbog8mM3jVRx2sc1yA.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/features\/games_feature\/js\/games_feature.js":1,"sites\/all\/modules\/custom\/gfproxy\/js\/gfproxy.js":1,"sites\/all\/modules\/contrib\/viewsextras\/viewsextras.js":1,"sites\/all\/modules\/contrib\/views_slideshow\/js\/views_slideshow.js":1,"sites\/all\/modules\/custom\/gfcore\/js\/jquery.json-2.2.min.js":1,"sites\/all\/modules\/custom\/gfcore\/js\/jquery.cookie.js":1,"sites\/all\/modules\/custom\/gfcore\/js\/globalVariables.js":1,"sites\/all\/modules\/custom\/gfcore\/js\/globalVariables.zh-hans.js":1,"sites\/all\/modules\/custom\/gfcore\/js\/header.js":1,"sites\/all\/modules\/custom\/gfcore\/js\/cookiejar.js":1,"sites\/all\/modules\/features\/drivers_feature\/js\/drivers_results.js":1,"sites\/all\/modules\/features\/drivers_feature\/js\/feature-map.js":1,"sites\/all\/modules\/features\/drivers_feature\/js\/SystemScanner.js":1,"sites\/all\/modules\/features\/drivers_feature\/js\/drivers.js":1,"sites\/all\/themes\/geforce\/js\/modernizr.js":1,"sites\/all\/themes\/geforce\/js\/jquery.formalize.min.js":1,"sites\/all\/themes\/geforce\/js\/plugins.js":1,"sites\/all\/themes\/geforce\/js\/script.js":1,"0":1,"1":1},"css":{"modules\/system\/system.base.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/viewsextras\/viewsextras.css":1,"sites\/all\/modules\/contrib\/views_slideshow\/views_slideshow.css":1,"sites\/all\/modules\/custom\/gfcore\/gfcore.css":1,"sites\/all\/themes\/geforce\/css\/style.zh-hans.css":1,"sites\/all\/themes\/geforce\/css\/games.css":1,"sites\/all\/themes\/geforce\/css\/hardware.css":1,"sites\/all\/themes\/geforce\/css\/ie6.css":1,"sites\/all\/themes\/geforce\/css\/ie7.css":1,"sites\/all\/themes\/geforce\/css\/ie8.css":1,"sites\/all\/themes\/geforce\/css\/ie9.css":1}},"colorbox":{"opacity":"0.85","current":"{current} \/{total}","previous":"\u00ab \u5411\u524d","next":"\u5f80\u540e \u00bb","close":"\u5173\u95ed","maxWidth":"100%","maxHeight":"100%","fixed":true},"geforcecom":{"dd3Location":"drivers","countryCode":"zh_CN","countryID":2052},"nv_services_url":"\/\/gfwsl.geforce.com\/nvidia_web_services","services_toolkit_url":"\/\/gfwsl.geforce.com\/services_toolkit","app_emailpref_services_url":"https:\/\/app.nvidia.com\/","base_url":"https:\/\/www.geforce.cn","jwplayer_library_path":"sites\/all\/libraries\/jwplayer","gfcore_path":"sites\/all\/modules\/custom\/gfcore","theme_path":"sites\/all\/themes\/geforce","language":"zh-hans"});
+//--><!]]>
+</script>
+  
+  <noscript><link rel="stylesheet" type="text/css" href="//images.nvidia.com/nvFrame/1.0/p/styles/nvidia/main.no-js.css?v=1570546380"/></noscript>
+  </head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-drivers page-drivers-results page-drivers-results- page-drivers-results-149314 i18n-zh-hans"  style="background: #282b30 url(https://www.geforce.cn/sites/default/files-world/background.jpg) center top no-repeat !important;">
+
+
+      
+	              
+      
+     
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">跳转到主要内容</a>
+  </div>
+      <div id="modalWindow"><div id="mask" style="display:none;"></div>  <div class="region region-modal-content">
+    <div id="block-gfcore-gfcore-modal-video" class="block block-gfcore">
+
+    
+  <div class="content">
+    <!-- VIDEO PLAYER MODAL BEGIN -->
+			<div class="window" id="video-player-modal" style="display: none; max-width: 650px;">
+				<div class="content">
+					<div class="modal-title">
+					<span>&nbsp;</span>
+					<span class="close">x</span>
+					</div>
+					<div class="video-holder"></div>
+					<div id="videoBoxModal">
+						<h2 style="display:none"></h2>
+						<div><div id="videoContainerModal">... 下载电影 ...</div></div>
+						<p id="videoDescModal"></p>
+						<div class="clearspace">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+			<!-- VIDEO PLAYER MODAL END -->   </div>
+</div>
+  </div>
+</div>
+<!-- <link href="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_base.min.css" rel="stylesheet" type="text/css"> -->
+<link media="screen" rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons"/>
+<script type="text/javascript" src="//www.nvidia.com/etc.clientlibs/clientlibs/granite/jquery.min.772fb04d4ce536dfb06c17e789ad4dbd.js"></script>
+<script type="text/javascript" src="//www.nvidia.com/content/includes/redesign2010/masthead/2012/global-nav.js"></script>
+<style>
+#page *, #page *:before, #page *:after {
+	-webkit-box-sizing: content-box !important;
+	-moz-box-sizing: content-box !important;
+	box-sizing: content-box !important;
+}
+#main-header {
+	margin-bottom: 120px;
+}
+body.logged-in #main-header {
+	margin-bottom: 90px;
+}
+span.nvArrow {
+	width: 0 !important;
+	height: 0;
+	content: '';
+	display: inline-block;
+	position: absolute;
+	border-color: transparent;
+	border-bottom-color: transparent;
+	border-bottom-color: transparent;
+	border-style: solid;
+	-webkit-transform: rotate(360deg);
+	border-width: 0 12px 12px;
+	border-bottom-color: #ccc;
+	border-bottom-color: #fff;
+	top: -11px;
+	right: 30px;
+}
+#nav li ul.nav.first::before {
+	display: none !important;
+}
+#navbar-2012 {
+	/*   margin-top: 5px !important; */
+	margin-left: 30px !important;
+}
+#nav li.top {
+	margin-top: 2px !important;
+}
+#nav li ul.nav li {
+	box-shadow: none !important;
+}
+
+@media screen and (max-width: 1280px) {
+#navbar-2012 {
+	float: none !important;
+	margin-left: 0px !important;
+	display: inline-block;
+}
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+.navigation .global-nav .sub-brand-nav .sub-brand-nav-container {
+	padding: 0 30px 0 15px !important;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+.navigation .global-nav .sub-brand-nav .sub-brand-nav-container {
+	padding: 0 30px 0 15px !important;
+}
+#navbar-2012 #nav li ul.nav li {
+	border: 1px solid #fff;
+	background: none !important;
+	background-color: #fff !important;
+}
+}
+
+@media screen and (max-width: 767px) {
+.navigation .global-nav .sub-brand-nav .sub-brand-nav-container {
+	padding: 0 30px 0 10px !important;
+}
+}
+</style>
+<link media="screen" href="//www.nvidia.com/content/includes/redesign2010/masthead/2012/global-nav.css" type="text/css" rel="stylesheet"/>
+<link media="screen" href="//www.nvidia.com/content/includes/redesign2010/masthead/2012/masthead-oldtemplate.css" rel="stylesheet" type="text/css"/>
+<link href="//www.nvidia.com/content/geforce/clientlibs-all-geforce.min.css" rel="stylesheet" type="text/css">
+<header id="main-header">
+  <div class="navigation">
+    <nav class="global-nav" id="navigation51d33f0e_2cf5_4a9d_9446_1ab359a298b4">
+      <div class="nav-header">
+        <div class="nav-header-container" style="display: block;">
+          <div class="brand-container">
+            <a class="brand-link" href="https://www.nvidia.cn"></a>
+            <a href="#" class="dropdown-arrow"></a>
+          </div>
+          <div class="nav-tools-container">
+            <ul class="nav-header-list">
+              <!-- <li class="nav-header-item ">
+                <div id="block-search-form" class="block block-search">
+                  <form action="/search/search-results" method="get" id="search-block-form" accept-charset="UTF-8" class="searchbox">
+                    <div>
+                      <div class="container-inline">
+                        <div class="element-invisible">Search form</div>
+                        <div class="form-item form-type-textfield form-item-search-block-form-geforce">
+                          <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+                          <input placeholder="Search NVIDIA" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if (this.value == 'Search') {this.value = '';}" id="edit-search-block-form--2" name="search_block_form" value="Search" size="25" maxlength="128" class="form-text searchbox-input" type="text">
+                          <span class="btn-search-clear"></span>
+						  <span class="searchbox-icon">
+<i class="">search</i>
+</span>
+
+</div>
+                        <div class="form-actions form-wrapper" id="edit-actions">
+                          <input id="edit-submit" name="op" value="Search" class="form-submit" type="submit">
+                        </div>
+                        <input name="form_build_id" value="form-a1qxEpG53U5r7Kw-q4lleWUNevM0XOsmTTmjU_gBtwE" type="hidden">
+                        <input name="form_id" value="search_block_form" type="hidden">
+                      </div>
+                    </div>
+                  </form>
+				  
+				 
+				  
+				  
+                </div>
+              </li>
+              <li class="nav-header-item "> 
+                
+                <a id="nv-login" class="nav-profile-link" href="//www.nvidia.com/en-us/account"> <span class="nav-profile-logo pull-left" title="My Account"></span> 
+                
+                </a> </li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown-overlay hide">
+        <div class="container">
+          <div class="left-container">
+            <h2>平台</h2>
+            <!-- <div class="num1">
+<a href="//www.nvidia.com/en-us/deep-learning-ai/">
+<img src="//www.nvidia.com/content/includes/images/nv-nav/ai-deeplearning.png" alt="">
+</a>
+<div class="thumb-desc">
+<a href="//www.nvidia.com/en-us/deep-learning-ai/">AI AND DEEP LEARNING</a>
+</div>
+</div> -->
+            
+            <div class="num1">
+              <a href="https://www.nvidia.cn/autonomous-machines/">
+              <img src="https://www.nvidia.cn/content/dam/en-zz/Solutions/navigation/intelligent-machines.png" alt="">
+              <div class="thumb-desc"> 智能机器 </div>
+              </a>
+            </div>
+            <div class="num2">
+              <a href="https://www.nvidia.cn/data-center/">
+              <img src="https://www.nvidia.cn/content/dam/en-zz/Solutions/navigation/data-center.png" alt="">
+              <div class="thumb-desc">云与数据中心 </div>
+              </a>
+            </div>
+            <div class="num2">
+              <a class="visual-link" href="https://www.nvidia.cn/deep-learning-ai/">
+              <img src="https://www.nvidia.cn/content/dam/en-zz/Solutions/navigation/ai-deeplearning.png" alt="">
+              <div class="thumb-desc"> 深度学习和人工智能 </div>
+              </a>
+            </div>
+            <div class="clear visible-tab">&nbsp;</div>
+            <div class="num2">
+              <a href="https://www.nvidia.cn/design-visualization/">
+              <img src="https://www.nvidia.cn/content/dam/en-zz/Solutions/navigation/design-visualization.png" alt="">
+              <div class="thumb-desc"> 设计和专业视觉化 </div>
+              </a>
+            </div>
+            <div class="num1">
+              <a href="https://www.nvidia.cn/healthcare/">
+              <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/navigation/healthcare.jpg" alt="">
+              <div class="thumb-desc"> 医疗 </div>
+              </a>
+            </div>
+            <div class="num2">
+              <a href="https://www.nvidia.com/en-us/high-performance-computing/">
+              <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/navigation/hpc-nvidia-mega-menu-image-hpc-188x106.jpg" alt="">
+              <div class="thumb-desc">高性能计算 </div>
+              </a>
+            </div>
+            <div class="num2">
+              <a href="https://www.nvidia.cn/self-driving-cars/">
+              <img src="//www.nvidia.com/content/includes/images/nv-nav/self-driving-cars.png" alt="">
+              <div class="thumb-desc"> 自动驾驶 </div>
+              </a>
+            </div>
+            <div class="clear visible-tab">&nbsp;</div>
+            <div class="num2">
+              <a target="_blank" href="https://www.nvidia.cn/geforce/">
+              <img src="//www.nvidia.com/content/includes/images/nv-nav/geforce.png" alt="">
+              <div class="thumb-desc">游戏和娱乐 </div>
+              </a>
+            </div>
+          </div>
+          <div class="divider">&nbsp;</div>
+          <div class="right-container">
+            <h2>其他链接</h2>
+            <ul class="left-list">
+              <li><a href="https://www.nvidia.cn/developer/" class="global-nav-link">开发者</a></li>
+              <li><a href="https://www.nvidia.cn/Download/index.aspx?lang=cn"  class="global-nav-link">驱动程序</a></li>
+              <li><a href="http://www.nvidia.com/page/support.html" target="_blank" class="global-nav-link">支持</a></li>
+              <li><a href="http://www.nvidia.cn/object/about-nvidia-cn.html" class="global-nav-link">关于 NVIDIA</a></li>
+            </ul>
+            <ul class="right-list">
+              <li><a href="https://www.nvidia.cn/" class="global-nav-link">查看所有产品</a></li>
+              <li><a href="https://www.nvidia.cn/gtc/" class="global-nav-link">GPU 技术大会</a></li>
+              <li><a href="https://blogs.nvidia.cn/" target="_blank" class="global-nav-link">NVIDIA 博客</a></li>
+              <li><a href="https://www.nvidia.com/en-us/about-nvidia/careers/" class="global-nav-link">人才招聘</a></li>
+			  <li><a href="https://www.nvidia.cn/technologies/" class="global-nav-link">技术</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sub-brand-nav">
+        <div class="sub-brand-nav-container">
+          <div class="sub-brand-nav">
+            <div class="sub-brand-nav-container">
+              <div class="brand-nav-left fade in">
+                <div id="sub-brand">
+                  <a class="sub-brand-name" href="https://www.nvidia.cn/geforce/">
+                  <img id="sub-brand-logo" src="//www.nvidia.com/content/geforce/GEFORCE-Logo.svg" title="" atl="">
+                  </a>
+                </div>
+                <div id="navbar-2012">
+                  <ul id="nav">
+                    <li class="top" aria-haspopup="true">
+              <div class="title whitemenu parent">产品</div>
+              <div class="arrow"></div>
+              <ul class="nav first">
+                <li aria-haspopup="true"> <a id="">
+                  <div class="title">显卡</div>
+                  <div class="arrow"></div>
+                  </a>
+				  
+				  <ul class="nav sub">
+                          <li><a href="https://www.nvidia.cn/geforce/20-series/" >RTX 20 系列</a>
+						</li>
+						  <li><a href="https://www.nvidia.cn/geforce/graphics-cards/rtx-2080-ti/" >RTX 2080 T<i style="text-transform:none; font-style: inherit;">i</i></a>
+						</li>
+					  <li><a href="https://www.nvidia.cn/geforce/graphics-cards/rtx-2080-super/" >RTX 2080 SUPER</a>
+						</li>
+						  <li><a href="https://www.nvidia.cn/geforce/graphics-cards/rtx-2080/" >RTX 2080</a>
+						</li>
+					  <li><a href="https://www.nvidia.cn/geforce/graphics-cards/rtx-2070-super/" >RTX 2070 SUPER</a>
+						</li>
+						  <li><a href="https://www.nvidia.cn/geforce/graphics-cards/rtx-2070/" >RTX 2070</a>
+						</li>
+					  <li><a href="https://www.nvidia.cn/geforce/graphics-cards/rtx-2060-super/" >RTX 2060 SUPER</a>
+						</li>
+						  <li><a href="https://www.nvidia.cn/geforce/graphics-cards/rtx-2060/" >RTX 2060</a>
+						</li>
+						  <li><a href="https://www.nvidia.cn/geforce/graphics-cards/16-series/" >GTX 16 系列</a>
+						</li>
+						  <li><a href="https://www.nvidia.cn/geforce/graphics-cards/gtx-1660-ti/" >GTX 1660 T<i style="text-transform:none; font-style: inherit;">i</i> + 1660</a>
+						</li>
+						  <li><a href="https://www.nvidia.cn/geforce/graphics-cards/gtx-1650/" >GTX 1650</a>
+						</li>
+						  <li><a href="https://www.nvidia.cn/geforce/products/" >GTX 10 系列</a>
+						</li>
+                      </ul>
+					  
+					</li> 
+					
+					<li aria-haspopup="true"> <a id="">
+					<div class="title">游戏笔记本电脑</div>
+					<div class="arrow"></div>
+					</a> 
+					
+					<ul class="nav sub">
+                        
+                    <li><a href="https://www.nvidia.cn/geforce/gaming-laptops/20-series/">RTX 20 系列</a>
+					</li>
+					  <li><a href="https://www.nvidia.cn/geforce/gaming-laptops/max-q/">MAX-Q 笔记本电脑</a>
+					</li>
+					  <li><a href="https://www.nvidia.cn/geforce/gaming-laptops/gtx-1660-ti/">GTX 1660 T<i style="text-transform:none; font-style: inherit;">i</i>
+					  </a>
+					</li>
+					  <li><a href="https://www.nvidia.cn/geforce/gaming-laptops/gtx-1650/">GTX 1650</a>
+					</li>
+					  <li><a href="https://www.nvidia.cn/geforce/products/10series/laptops/">GTX 10 系列</a>
+					</li> 
+                      </ul>
+					</li>
+				  
+					<li aria-haspopup="true"> <a id="">
+					<div class="title">G-SYNC 显示器</div>
+					<div class="arrow"></div>
+					</a>
+					<ul class="nav sub">
+                        <li> <a href="https://www.nvidia.cn/geforce/products/g-sync-monitors/" id="">显示器</a> </li>
+                        <li> <a href="https://www.nvidia.cn/geforce/products/big-format-gaming-displays/" id="">大尺寸游戏显示器 (BFGD)</a> </li>
+                    </ul>
+					</li>
+					
+ 				<span class="nvArrow"></span>
+               
+              </ul>
+            </li>
+                    <li class="top" > <a href="https://www.nvidia.cn/geforce/geforce-experience/">
+              <div class="title">GeForce Experience</div>
+              
+              </a>
+              
+            </li>
+                    <li class="top"> <a href="//www.geforce.cn/drivers">
+              <div class="title">驱动程序</div>
+             
+              </a>
+              
+            </li>
+                    <li class="top" aria-haspopup="true"> <a>
+              <div class="title parent">游戏</div>
+              <div class="arrow"></div>
+              </a>
+              <ul class="nav first">
+                <li> <a href="https://www.nvidia.cn/geforce/20-series/rtx/" id="">
+                  <div class="title">RTX 游戏</div>
+                  </a> </li>
+                
+                <li> <a href="https://www.nvidia.cn/geforce/campaigns/game-ready/" id="">
+                  <div class="title">GAME READY</div>
+                  </a> </li>
+				  <li> <a href="https://www.nvidia.cn/geforce/campaigns/frames-win-games/" id="">
+                  <div class="title">“帧”能赢</div>
+                  </a> </li>
+                <li> <a href="https://www.nvidia.cn/geforce/games/latest-pc-games/" id="">
+                  <div class="title">新游戏</div>
+                  </a> </li>
+				  
+				<span class="nvArrow"></span>
+                
+              </ul>
+            </li>
+                    <li class="top"> <a href="https://www.nvidia.cn/geforce/news/">
+              <div class="title">新闻</div>
+             
+              </a>
+              
+            </li>
+                    <li class="top" aria-haspopup="true"> <a>
+              <div class="title parent">社区</div>
+              <div class="arrow"></div>
+              </a>
+              <ul class="nav first">
+                <li> <a href="//www.geforce.cn/community" id="">
+                  <div class="title">Overview</div>
+                  </a> </li>
+                				  <li> <a href="//www.geforce.cn/hardware/geforce-garage" id="">
+                  <div class="title">GEFORCE GARAGE</div>
+                  </a> </li>
+
+                <li> <a href="https://www.nvidia.cn/geforce/shot-with-geforce/" id="">
+                  <div class="title">#SHOTWITHGEFORCE</div>
+                  </a> </li>
+				<span class="nvArrow"></span> 
+                
+              </ul>
+            </li>
+                    <li class="top"> <a href="//www.geforce.cn/support">
+              <div class="title">支持</div>
+              </a> 
+</li>
+                  </ul>
+                </div>
+                <!--[if IE 7]>
+        <script type="text/javascript" src="//www.nvidia.com/content/includes/redesign2010/masthead/2012/global-nav.js">/*ie7 navfix*/</script>     <![endif]-->
+                <script src="//www.nvidia.com/content/includes/redesign2010/js/mobile-menu-patch.js" type="text/javascript">/**/ </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <noscript>
+      <div class="no-js-warning">This site requires Javascript in order to view all its content. Please enable Javascript in order to access all the functionality of this web site. Here are the <a href="//www.enable-javascript.com/" target="_blank">instructions how to enable JavaScript in your web browser.</a>
+      </div>
+      </noscript>
+    </nav>
+  </div>
+</header>
+<script src="//www.nvidia.com/content/geforce/main.js" type="text/javascript">/**/</script>
+<script>  
+ 
+var jQuery_1_12_2 = $.noConflict(true);
+
+jQuery_1_12_2(document).ready(function(){
+        jQuery_1_12_2(".top").each(function () {
+            var subLink = jQuery_1_12_2(this).find(".parent").width();
+       //console.log(subLink);
+            var nvArrowLt = subLink + 7;
+            var nvwidth = subLink + 65;
+            jQuery_1_12_2(this).find(".nvArrow").css("left", nvArrowLt);
+            jQuery_1_12_2(this).find(".nav").css("min-width", nvwidth);
+        });
+    });
+	
+	
+ </script>
+  <div id="page">
+    <div id="main-wrapper"><div id="navigation"><div id="navigation-bottom-cap"></div></div>
+      <div id="main-container" class="clearfix">
+        <div id="main" class="clearfix">
+
+          
+                      <div id="breadcrumb" itemprop="breadcrumb"><div class="breadcrumb" itemprop="breadcrumb"><a href="https://www.geforce.cn/" class="">GeForce</a></div></div>
+          
+            <div class="region region-social-top-content">
+    <div id="block-gfsocial-gfsocial-buttons-sitewide-non-en" class="block block-gfsocial">
+
+    
+  <div class="content">
+    <div class="sendFeedback">
+	<a href="/support/feedback/"> 意见交流</a>
+</div>
+<div class="newsletter">
+	<a href="/information/newsletter" title="订阅 GeForce 电子报">&nbsp;订阅</a>
+</div>
+<!--<div class="share">
+	<span class="shareExpand"><img src="/sites/all/themes/geforce/images/button_plus.png" alt="分享此网页" title="分享此网页" class="button"/>分享此网页</span>
+	<div class="shareExpanded">
+		<a class="bshareDiv" href="http://www.bshare.cn/share">åˆ†äº«</a><script language="javascript" type="text/javascript" src="https://www.bshare.cn/button.js#bp=renren,sinaminiblog,blogsina,douban,email,evernote,funp,itieba,kaixin001,qqmb,qqshuqian,sohuminiblog&style=2&ssc=false"></script>
+		<img alt="X" class="closeShare" src="/sites/all/themes/geforce/images/button_X.png">
+	</div>
+</div>-->
+  </div>
+</div>
+  </div>
+
+                                    <div id="title-container"><h1 class="title" id="page-title">驱动程序</h1></div>
+                      
+          <div id="content-area">
+
+                          <div id="sidebar-first">
+                  <div class="region region-sidebar-first">
+    <div id="block-menu-block-gfcore-3" class="block block-menu-block">
+
+    
+  <div class="content">
+    <div class="menu-block-wrapper menu-block-gfcore-3 menu-name-main-menu parent-mlid-0 menu-level-2">
+  <ul class="menu"><li class="first last leaf active-trail menu-mlid-27395"><a href="https://www.geforce.cn/drivers" class="active-trail">驱动程序下载<span></span></a></li>
+</ul></div>
+  </div>
+</div>
+<div id="block-gfcore-gfcore-callback-extra-leftnav" class="block block-gfcore">
+
+    
+  <div class="content">
+    <ul class="menu"><li class="leaf active-trail active ">
+        <a class="active-trail active" href="/drivers/results/149314">下载驱动程序<span></span></a>
+        </li></ul>  </div>
+</div>
+<div id="block-views-924b499ea9f384b8bc0941584b559f3b" class="block block-views">
+
+    
+  <div class="content">
+    <div class="view view-nodelist-leftrail-drivers-results view-id-nodelist_leftrail_drivers_results view-display-id-block view-dom-id-ba18bec576122a55a38f0f15676580cd">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field views-field-field-ref-list-items">        <div class="field-content"><div class="ds-two-rows node node-promo view-mode-sidebar_teaser clearfix no-row-1">
+
+  
+  
+      <div class="ds-row ds-row-2 ">
+      <div class="container-padding">
+        <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p></p><div id="block-ops-feature-gfops-about-gpu" class="block block-ops-feature">
+
+    
+  <div class="content">
+    <div class="contentBox"> 		 
+    <h2>关于您的GPU</h2> 		 
+    <div class="top"></div> 		 
+    <div class="main"> 		 
+    <div id="gpuFeatureScan"> 		 
+    <img id="gpuFeatureScanButton" class="activeButton" style="text-align:center; padding-bottom:10px; cursor:pointer;" alt="自动侦测您的GPU(AUTO DETECT YOUR GPU)" src="//www.geforce.cn/sites/all/themes/geforce/images/buttons/zh-hans/button_scanYourGPU.png" /><p id="autoScanText" style="text-align:center;">点击此按键获得有关您的GPU的资讯</p><br /><p style="text-align: center"><a href="//www.geforce.cn/drivers/faq">这是如何运作的？</a></p> 		 
+    </div> 		 
+    <div style="display:none;" id="gpuFeatureScanLoader">	 
+    <img alt="" src="//www.geforce.cn/sites/all/themes/geforce/images/animated_bar_small.gif" /></div> 		 
+    <div style="display:none;" id="gpuFeatureList"> 		 
+    <div class="innerTop"></div> 		 
+    <div id="deviceInformation" style="overflow:hidden;" class="innerMiddle"></div> 		 
+
+    <div id="gpuFeatureRescanButton" alt="">Rescan Your GPU</div> 		 
+    <div class="innerBottom"></div> 		 
+    </div> 		 
+    </div> 		 
+    <div class="end"></div> 		 
+    <div style="display:block;" id="scannerbox"></div> 		 
+    </div>  </div>
+</div>
+</div></div></div>      </div>
+    </div>
+  
+</div>
+</div>  </div>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field views-field-field-ref-list-items">        <div class="field-content"><div class="ds-two-rows node node-promo view-mode-sidebar_teaser clearfix no-row-1">
+
+  
+  
+      <div class="ds-row ds-row-2 ">
+      <div class="container-padding">
+        <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><div id="block-drivers-feature-gfdrivers-rss-feed" class="block block-drivers-feature">
+
+    
+  <div class="content">
+    <div class="contentBox">&#13;
+    <h2>GeForce RSS</h2>&#13;
+    <div class="top"></div>&#13;
+    <div class="main">&#13;
+      <div class="innerTop"></div>&#13;
+      <div class="innerMiddle">&#13;
+        <img alt="GeForce RSS" class="imageOnLeft" src="//www.geforce.cn/sites/all/themes/geforce/images/small-icons/icon_RSS.png" /><p>利用最新版本的 GeForce 驱动程序，始终处于技术的最新发展水平。</p>&#13;
+        <p><a href="//www.geforce.cn/information/rss-feeds">访问我们的RSS部分</a></p>&#13;
+      </div>&#13;
+      <div class="innerBottom"></div>&#13;
+&#13;
+    </div>&#13;
+    <div class="end"></div>&#13;
+  </div>  </div>
+</div>
+</div></div></div>      </div>
+    </div>
+  
+</div>
+</div>  </div>  </div>
+  <div class="views-row views-row-3 views-row-odd views-row-last">
+      
+  <div class="views-field views-field-field-ref-list-items">        <div class="field-content"><div class="ds-two-rows node node-promo view-mode-sidebar_teaser clearfix no-row-1">
+
+  
+  
+      <div class="ds-row ds-row-2 ">
+      <div class="container-padding">
+        <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><a onclick="_hmt.push(['_trackEvent', 'HP-promo-leftnavBannerDriver', 'click', 'HP-promo'])" href="https://www.nvidia.com/zh-cn/geforce/community/esports/?nvid=nv-int-c8-47376"><img src="//www.geforce.cn/sites/default/files-world/attachments/2-esport-2018-icafe-p3-team-new-content-driver-page-220x200-cn.png" width="220" height="200" alt="" /></a></div></div></div>      </div>
+    </div>
+  
+</div>
+</div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+</div>
+  </div>
+              </div> <!-- /#sidebar-first -->
+            
+            
+            <div id="content">
+                            <a id="main-content"></a>
+              <div class="tabs"></div>                                            <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div class="middle">
+                <div class="driverBox" id="driverBox-149314">
+                  <h2>Linux x64 (AMD64/EM64T) Display Driver</h2>
+                    <div class="contentTop"></div>
+                    <div class="contentMiddle">
+                    <div class="contentMiddleContent">
+
+                      <div class="driverDetails">
+                        <table>
+                          <tbody><tr>
+                            <td valign="top">版本</td>
+                            <td>430.40</td> 
+                          </tr>
+
+                          <tr>
+                            <td valign="top">发行日期</td>
+                            <td>Mon Jul 29, 2019</td>
+                          </tr>	
+
+                          <tr>
+                            <td valign="top">操作系统</td>
+                            <td>Linux 64-bit</td>
+                          </tr>
+
+                          <tr>
+                            <td valign="top">语言</td>
+                            <td>Chinese (Simplified)</td>
+                          </tr>
+
+                                          <tr>
+                            <td valign="top">文件大小</td>
+                            <td>106.1 MB</td>
+                          </tr>
+                                        </tbody></table>
+                      </div>
+                      <div class="driverDownloadButtons">
+                        <div class="innerBox">
+                          <div class="innerTop"></div>
+                          <div class="innerMiddle">
+							<span class="center1 downloadOnly">
+                              <span class="center2">
+                                <span class="center3">
+                                  <a id="agreeDownload-149314" class="agreeDownload" href="http://cn.download.nvidia.com/XFree86/Linux-x86_64/430.40/NVIDIA-Linux-x86_64-430.40.run">
+                                    <span class="btn-green">下载</span>
+                                  </a>
+                                </span>
+                              </span>
+                            </span>
+                          </div>
+                          <div class="innerBottom"></div>
+                        </div>
+                      </div>
+                      <div class="clear">&nbsp;</div>
+					  <p>*本次下载内容包括 NVIDIA 显示驱动程序和 GeForce Experience 应用程序。 有关使用该 NVIDIA 软件的更多详情，请参阅   <a class="driverLicense" href="//www.nvidia.cn/content/DriverDownload-March2009/licence.php?lang=cn&type=Geforce" target="_blank">NVIDIA 最终用户许可协议</a>. </p>
+					  
+                      <div class="hr"></div>
+
+                      <div class="driverInfo" id="driverInfo-149314">
+                        <div class="coloredTable">
+                          <div class="start"></div>
+                                            <h3>发布重点</h3>
+                            <div class="nocolor">
+                              <div class="hr"></div>
+                              <ul type="disc"><li>Added support for the following GPUs: <ul>GeForce RTX 2080 SUPER<br />Quadro RTX 3000 with Max-Q Design<br /></ul></li><li>Fixed a driver installation failure in Linux kernel configurations with CONFIG_HOTPLUG_CPU. </li><li>Updated nvidia-bug-report.sh to search the systemd journal for gdm-x-session logs. </li><li>Added support to nvidia-installer for systems which provide ncurses libraries supporting the ncurses widechar ABI only. </li></ul></div>
+                            <div class="gap"></div><h3>产品支持列表</h3>
+                            <div class="nocolor">
+                              <div class="hr"></div>
+                              <h4>NVIDIA TITAN Series</h4>NVIDIA TITAN RTX, NVIDIA TITAN V, NVIDIA TITAN Xp, NVIDIA TITAN X (Pascal), GeForce GTX TITAN, GeForce GTX TITAN X, GeForce GTX TITAN Black, GeForce GTX TITAN Z<h4>GeForce RTX 20 Series (Notebooks)</h4>GeForce RTX 2080, GeForce RTX 2070, GeForce RTX 2060<h4>GeForce RTX 20 Series</h4>GeForce RTX 2080 Ti, GeForce RTX 2080 SUPER, GeForce RTX 2080, GeForce RTX 2070 SUPER, GeForce RTX 2070, GeForce RTX 2060 SUPER, GeForce RTX 2060<h4>GeForce MX200 Series (Notebooks)</h4>GeForce MX250, GeForce MX230<h4>GeForce MX100 Series (Notebook)</h4>GeForce MX150, GeForce MX130, GeForce MX110<h4>GeForce 16 Series</h4>GeForce GTX 1660 Ti, GeForce GTX 1660, GeForce GTX 1650<h4>GeForce 10 Series</h4>GeForce GTX 1080 Ti, GeForce GTX 1080, GeForce GTX 1070 Ti, GeForce GTX 1070, GeForce GTX 1060, GeForce GTX 1050 Ti, GeForce GTX 1050, GeForce GT 1030<h4>GeForce 10 Series (Notebooks)</h4>GeForce GTX 1080, GeForce GTX 1070, GeForce GTX 1060, GeForce GTX 1050 Ti, GeForce GTX 1050<h4>GeForce 900 Series</h4>GeForce GTX 980 Ti, GeForce GTX 980, GeForce GTX 970, GeForce GTX 960, GeForce GTX 950<h4>GeForce 900M Series (Notebooks)</h4>GeForce GTX 980, GeForce GTX 980M, GeForce GTX 970M, GeForce GTX 965M, GeForce GTX 960M, GeForce GTX 950M, GeForce 945M, GeForce 940MX, GeForce 930MX, GeForce 920MX, GeForce 940M, GeForce 930M, GeForce 920M, GeForce 910M<h4>GeForce 800M Series (Notebooks)</h4>GeForce GTX 860M, GeForce GTX 850M, GeForce 845M, GeForce 840M, GeForce 830M, GeForce 825M, GeForce 820M, GeForce 810M<h4>GeForce 700 Series</h4>GeForce GTX 780 Ti, GeForce GTX 780, GeForce GTX 770, GeForce GTX 760, GeForce GTX 760 Ti (OEM), GeForce GTX 750 Ti, GeForce GTX 750, GeForce GTX 745, GeForce GT 740, GeForce GT 730, GeForce GT 720, GeForce GT 710<h4>GeForce 700M Series (Notebooks)</h4>GeForce 710M<h4>GeForce 600 Series</h4>GeForce GTX 690, GeForce GTX 680, GeForce GTX 670, GeForce GTX 660 Ti, GeForce GTX 660, GeForce GTX 650 Ti BOOST, GeForce GTX 650 Ti, GeForce GTX 650, GeForce GTX 645, GeForce GT 640, GeForce GT 635, GeForce GT 630<h4>GeForce 600M Series (Notebooks)</h4>GeForce GT 640M, GeForce GT 640M LE<h4>Quadro RTX Series</h4>Quadro RTX 8000, Quadro RTX 6000, Quadro RTX 5000, Quadro RTX 4000<h4>Quadro Series</h4>Quadro GV100, Quadro GP100, Quadro P6000, Quadro P5200, Quadro P5000, Quadro P4000, Quadro P2200, Quadro P2000, Quadro P1000, Quadro P620, Quadro P600, Quadro P400, Quadro M6000 24GB, Quadro M6000, Quadro M5000, Quadro M4000, Quadro M2000, Quadro K6000, Quadro K5200, Quadro K5000, Quadro K4000, Quadro K4200, Quadro K2200, Quadro K2000, Quadro K2000D, Quadro K1200, Quadro K620, Quadro K600, Quadro K420, Quadro 410<h4>Quadro Series (Notebooks)</h4>Quadro P5200, Quadro P5000, Quadro P4200, Quadro P3200, Quadro P4000, Quadro P3000, Quadro P2000, Quadro P1000, Quadro P600, Quadro P520, Quadro P500, Quadro M2200, Quadro M1200, Quadro M620, Quadro M520, Quadro M5500, Quadro M5000M, Quadro M4000M, Quadro M3000M, Quadro M2000M, Quadro M1000M, Quadro M600M, Quadro M500M, Quadro K2200M, Quadro K620M<h4>Quadro Blade/Embedded Series</h4>Quadro P5000, Quadro M5000 SE, Quadro P3000, Quadro M3000 SE, Quadro K3100M<h4>Quadro NVS Series</h4>NVS 810, NVS 510<h4>Quadro Sync Series</h4>Quadro Sync II, Quadro Sync, Quadro G-Sync II<h4>Quadro SDI</h4>Quadro SDI<h4>GRID Series</h4>GRID K520<h4>NVS Series</h4>NVS 810, NVS 510<h4>M-Class</h4>M40 24GB, M40</div>
+                            <div class="gap"></div><h3>其他信息</h3>
+                            <div class="nocolor">
+                              <div class="hr"></div>
+                               Known issue:<br />
+<br />
+Vulkan with  flipping enabled on Quadro cards can lead to graphic corruption.<br>
+If you think  you have run into it you can do either of the following as a workaround:<br />
+<br />
+- Disable  flipping in nvidia-settings (uncheck &quot;Allow Flipping&quot; in the  &quot;OpenGL Settings&quot; panel)<br>
+- Disable UBB  (run 'nvidia-xconfig --no-ubb')<br>
+- Use a  composited desktop<br>
+<br>
+Note that many Linux distributions provide their own packages of the NVIDIA Linux Graphics Driver in the distribution's native package management format. This may interact better with the rest of your distribution's framework, and you may want to use this rather than NVIDIA's official package.<br>
+<br>
+Also note that SuSE  users should read the SuSE NVIDIA Installer <a href="http://users.suse.com/~sndirsch/nvidia-installer-HOWTO.html" target="_new">HOWTO</a> before downloading the driver.<br>
+<br>
+Installation  instructions: Once you have downloaded the driver, change to the directory  containing the driver package and install the driver by running, as root, sh ./NVIDIA-Linux-x86_64-430.40.run<br>
+<br>
+One of the last  installation steps will offer to update your X configuration file. Either  accept that offer, edit your X configuration file manually so that the NVIDIA X  driver will be used, or run nvidia-xconfig<br>
+<br>
+Note that the list of  supported GPU products is provided to indicate which GPUs are supported by a  particular driver version. Some designs incorporating supported GPUs may not be  compatible with the NVIDIA Linux driver: in particular, notebook and all-in-one  desktop designs with switchable (hybrid) or Optimus graphics will not work if  means to disable the integrated graphics in hardware are not available.  Hardware designs will vary from manufacturer to manufacturer, so please consult  with a system's manufacturer to determine whether that particular system is  compatible.<br />
+<br />
+See the <A href="https://us.download.nvidia.com/XFree86/Linux-x86_64/430.40/README/index.html" title="README">README</A> for more detailed instructions.<br />
+<br />
+For further information please visit our forum, <A href="https://devtalk.nvidia.com/default/board/98/linux/" target="_blank" >https://devtalk.nvidia.com/default/board/98/linux/</A>. </div>
+                                            <div class="end"></div>
+                        </div>
+                      </div>
+                      <div class="contentBottom"></div>
+                    </div>
+                  </div>	
+                  <div class="clear"></div><br>
+                </div>
+
+
+                <div class="driverAgreed" id="driverAgree-149314" style="display: none">
+                  <h2>Linux x64 (AMD64/EM64T) Display Driver</h2>
+                  <div class="contentTop"></div>
+                  <div class="contentMiddle">
+                    <div class="contentMiddleContent">
+                      <span class="driverThankYouMsg">
+                        <p>谢谢!您的驱动程式下载即将完成。</p>
+                        <p><a id="returnToDriver-149314" class="returnToDriver" href="#">点击返回至驱动程式详细资讯页面</a></p>
+                      </span>
+                      <div class="clearFloats">&nbsp;</div>
+                      <div class="discoverFeaturesText"><!--<img alt="" src="/sites/all/themes/geforce/images/animated_bar_small.gif">--><br><span></span></div>
+                      <div class="coloredTable">
+                        <div class="deviceFeatureBox"></div>
+                      </div>
+                      <div class="coloredTable">
+                        <div class="deviceFeatureBox"></div>
+                      </div>
+                    </div>
+                  <div class="contentBottom"></div>
+                  
+<!-- RVC BEGIN eMail harvest --> 
+    <script type="text/javascript" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_preload/js/global.js"></script>
+    <script type="text/javascript" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_accountMgmt_privateStore/js/config.js"></script>
+    <script type="text/javascript" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_accountMgmt_emailPreferences/js/config.js"></script>                 		
+    <script type="text/javascript">
+    $("html").prop("lang","en-US");
+  	var preferencesType = ""; 
+    //console.log("drivers/results/136673 preferencesType:"+preferencesType);
+  	</script>
+<script type="text/javascript" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_accountMgmt/js/i18next-1.7.4.js"></script>
+<script type="text/javascript" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_accountMgmt_login/js/localize.js"></script>
+<script type="text/javascript" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_accountMgmt_billing/js/jarvis-api.js"></script>
+<script type="text/javascript" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_accountMgmt_emailPreferences/js/preferences-helper.js"></script>
+<script type="text/javascript" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_accountMgmt_emailPreferences/js/voltron-api.js"></script>
+<script type="text/javascript">
+    // VM530:1 Drupal.settings.app_emailpref_services_url https://appdev.nvidia.com/
+    NVIDIAGDC.Accounts.voltronApiHost = (Drupal.settings.app_emailpref_services_url) ? Drupal.settings.app_emailpref_services_url : "https://app.nvidia.com/";
+    //console.log("drivers/results/136673 NVIDIAGDC.Accounts.voltronApiHost:"+ NVIDIAGDC.Accounts.voltronApiHost);
+    </script>
+    <!--script type="text/javascript" src="//gfwsl-dev.nvidia.com/tmp/gf.com_emailoptin/www.geforce.com/js_lcl/preferences-app.min.js"></script-->
+    <script type="text/javascript" src="/sites/all/modules/features/drivers_feature/js/preferences-app.js"></script>
+                        		
+                  <div class="clear"></div>
+                  </div><div class="driverAgreed" id="driverAgreeOptIn" style="display: block;">
+                  <!--h2>Sign up for GeForce News</h2-->
+                  <h2>订阅 GeForce 最新消息</h2>
+                  <div class="contentTop"></div>
+                  <div class="contentMiddle">
+                  
+                  <div class="contentMiddleContent">
+                      
+        
+        <!-- <div>Please correct the highlighted fields and try again.</div>-->
+        <div style="font-size:11px; color:#999; text-align:rightX; padding-bottom:10px;">我愿意接收来自 GeForce 和 NVIDIA 的游戏和娱乐优惠、公告及更多内容。</div>
+        <!-- div style="font-size:11px; color:#999; text-align:rightX; padding-bottom:10px;">Send me the latest enterprise news, announcements, and more from NVIDIA. I can unsubscribe at any time.</div -->
+                
+        <div class="email-field">
+          <input name="Email Address" value="emailId@domain.com" id="emailId" onfocus="if (this.value=='emailId@domain.com') this.value='';" onblur="if (this.value=='') this.value='emailId@domain.com';"  class="input-control" data-required="true" type="email" size="35" title="请填写邮箱">
+          <div style="display:none;font-size:12px; color: #ff0000;" class="emailInvalidError help-text">邮箱错误</div>
+          <div style="display:none;font-size:12px; color: #ff0000;" class="emailFormatError help-text">邮箱格式错误</div>
+          <div style="display:none;font-size:12px; color: #ff0000;" class="noInformationError">请填写邮箱</div> 
+        </div>
+        <div></br></div>
+        <div >
+          <input name="Email Address Age" value="年龄" id="eMailAge" onfocus="if (this.value=='年龄') this.value='';" onblur="if (this.value=='') this.value='年龄';" maxlength="2" size="3" class="input-control" data-required="true"  type="email" title="请填写年龄">
+          <div style="display:none;font-size:12px; color: #ff0000;" class="ageFormatError help-text">年龄必须为数字<br>请查看 <a href="//www.nvidia.com/zh-cn/about-nvidia/privacy-policy/" target="_blank">NVIDIA 隐私权政策</a> 以了解更多信息。</div>
+          <div style="display:none;font-size:12px; color: #ff0000;" class="ageToLowError help-text">抱歉，您的年龄小于我们的要求<br>请查看 <a href="//www.nvidia.com/zh-cn/about-nvidia/privacy-policy/" target="_blank">NVIDIA 隐私权政策</a> 以了解更多信息。</div>
+          <div style="display:none;font-size:12px; color: #ff0000;" class="noInformationError">本字段必填</div>
+        </div>
+        <div class="mssg-section">
+          </br><div style="display:none;font-size:12px; color:#FFF;" id="apiFailedError">Unexpected error when attemtping to Sign-Up, try again later.</div>
+        </div>
+        <!--div class="mssg-section">
+          <div style="display:none;font-size:12px; color: #ff0000;" class="noInformationError">An email address is required, Age is required.</div>
+        </div-->
+        <div align="rightX">
+          <!-- br><button name="SignIn_Button" value="Submit" type="submit" class="nv-btn-green1" id="eMail_signup_submit_btn-orig">Sign Up</button -->
+          <br><a id="eMail_signup_submit_btn" href="#"><span class="btn-green">提交</span></a>
+        </div>
+        <!-- div style="font-size:11px; color:#999; text-align:rightX; padding-bottom:10px;">Have an account? <a href="#" style="color:#76b900; text-decoration:none;" id="eMail_register_have_account_lnk">Log in</a> Here to stimulate consideration for user that already has an account?</div -->
+        <!--div style="font-size:11px; color:#999;">All data collection is subject to the <a href="http://www.nvidia.com/object/privacy_policy.html" style="color:#76b900; text-decoration:none;">NVIDIA Privacy Policy</a> and <a href="//www.nvidia.com/en-us/about-nvidia/eula-agreement/" style="color:#76b900; text-decoration:none;">GeForce Experience License Agreement.</a></div-->
+        <div align="right"><p><a href="//www.nvidia.com/zh-cn/about-nvidia/privacy-policy/" target="_blank" alt="Privacy">隐私权政策</a></p></div>
+      </div>       
+</div></div>           		
+      <div class="clear"></div>
+          <!-- RVC BEGIN success signup -->
+          <div id="signupEmailSuccess" class="driverAgreed" style="display: none;" >
+             <!--h2>Sign up for GeForce News</h2-->
+             <h2>订阅 GeForce 最新消息</h2>
+             <div class="contentTop"></div>
+               <div class="contentMiddle">
+                 <div></br><h3>感谢您的订阅。</h3></br>
+                 <p align="right"><a href="//www.nvidia.com/zh-cn/about-nvidia/privacy-policy/" target="_blank" alt="Privacy">隐私权政策</a></p></div>
+                 <!--div style="font-size:11px; color:#999;"><h3>Get gaming and entertainment news, amazing deals, promotions, and more from GeForce and NVIDIA.</h3></div-->
+                 <!--div style="font-size:11px; color:#999;"><p>Thank you for signing up for the latest news, updates, and more from NVIDIA.</p>
+                    <p>You have subscribed to following areas: GAMING & ENTERTAINMENT</p>
+                    <p><a href="https://www.nvidia.com/en-us/preference-center/have-account/">Manage your preferences</a> or <a href="https://www.nvidia.com/en-us/preference-center/have-account/">Unsubscribe</a> at any time.</p>
+                 </div-->
+               </div>
+            </div>
+        </div> <!-- RVC END success signup -->
+<!-- RVC END eMail harvest --> 
+         <div class="clear"></div>
+         </div></div></div>  </div>
+</div>
+  </div>
+                          </div> <!-- /#content -->
+          </div> <!-- /#content-area -->
+
+        </div> <!-- /#main -->
+		
+     </div> <!-- /#main-container -->
+    </div> <!-- /#main-wrapper -->
+
+  </div> <!-- /#page -->
+
+
+<div class="footer">
+
+
+
+
+
+
+                      
+
+<!-- Footer -->
+    
+	<div class="page-footer-wrapper" id="brandFooter">
+	
+	    <div class="page-footer">
+	        
+	        <!-- Links -->
+	        <div class="page-footer__links">
+	
+	            <div class="page-footer-link-set">
+	
+	                <div class="page-footer-link-set__title">产品</div>
+	
+	                <ul class="page-footer-link-set__links">
+					
+					<li>
+	                			<a href="https://www.nvidia.com/zh-cn/geforce/20-series/">20 系列显卡</a>
+	            			</li>
+							
+							<li>
+	                			<a href="https://www.nvidia.cn/geforce/graphics-cards/16-series/">16 系列显卡</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="https://www.nvidia.com/zh-cn/geforce/products/">10 系列显卡</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="https://www.nvidia.com/zh-cn/geforce/gaming-laptops/20-series/">笔记本电脑</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="https://www.nvidia.com/zh-cn/geforce/products/g-sync-monitors/">显示器</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="https://www.nvidia.com/zh-cn/geforce/turing/">Turing 架构</a>
+	            			</li>
+	                	
+	            		
+	            			<!--<li>
+	                			<a href="http://www.nvidia.com/zh-cn/geforce/products/">显卡</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="http://www.geforce.cn/graphics-cards/geforce/pascal/cn/notebook">笔记本</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="http://www.geforce.cn/hardware/technology/g-sync">显示器</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="http://www.geforce.cn/graphics-cards/geforce/pascal/cn/compare">规格相比</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="http://www.geforce.cn/graphics-cards/geforce/pascal/cn">Pascal 架构</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="http://www.geforce.cn/hardware/technology">技术</a>
+	            			</li>
+							 <li><a href="https://www.nvidia.com/zh-cn/geforce/products/10series/compare-graphics-cards/">显卡比较</a></li> -->
+	        			
+	                </ul>
+	
+	            </div>
+	
+	            <div class="page-footer-link-set">
+	
+	                <div class="page-footer-link-set__title">社区</div>
+	
+	                <ul class="page-footer-link-set__links">
+	                    
+	            		
+	            			<!-- <li>
+	                			<a href="https://forums.geforce.com/">Forums</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="http://www.geforce.com/whats-new/tag/contests">Contests</a>
+	            			</li>
+	        			-->
+	            		
+	            			<li>
+	                			<a href="https://www.nvidia.com/zh-cn/geforce/shot-with-geforce/">#SHOTWITHGEFORCE</a>
+	            			</li>
+	        			 
+	            		
+	            			<li>
+	                			<a href="http://www.geforce.cn/hardware/geforce-garage">GeForce Garage</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="http://www.geforce.cn/whats-new/guides">技術指南</a>
+	            			</li>
+							
+							<li>
+	                			<a href="https://www.nvidia.com/en-us/geforce/contests/winners/" target="_blank">活动获胜者</a>
+	            			</li>
+	        			
+	                </ul>
+	
+	            </div>
+	
+	            <div class="page-footer-link-set">
+	
+	                <div class="page-footer-link-set__title">支持</div>
+	
+	                <ul class="page-footer-link-set__links">
+	                    
+	            		
+	            			<li>
+	                			<a href="http://www.geforce.cn/drivers">驱动程序</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="https://www.nvidia.com/object/support.html">知识库</a>
+	            			</li>
+	        			
+	            		
+	            			<li>
+	                			<a href="https://www.nvidia.com/object/hardware_support.html">硬件支持</a>
+	            			</li>
+	        			
+	            		
+	            			<!-- <li>
+	                			<a href="https://store.nvidia.com/store?Action=DisplayHelpPage&amp;Locale=en_US&amp;SiteID=nvidia#_ga=2.232262751.1782299177.1494890478-1012991241.1472682828">Purchase Support</a>
+	            			</li> -->
+	        			
+	            		
+	            			<li>
+	                			<a href="https://www.nvidia.com/page/support_product_registration.html">产品注册</a>
+	            			</li>
+	        			
+	            		
+	            			 <li>
+	                			<a href="http://www.geforce.cn/support/feedback">网站反馈</a>
+	            			</li> 
+ 	        			
+	                </ul>
+	
+	            </div>
+	
+	        </div>
+	        <!-- /Links -->
+	
+	
+	        
+	        <div class="page-footer__subscribe">
+				<div class="par-common-content reference parbase">
+</div>
+
+	        </div>
+	        <!-- /Subscribe -->
+	
+	        <!-- Social -->
+	        <div class="page-footer__social">
+	
+	            <div class="page-footer__social__label">关注 GeForce</div>
+				
+				<a href="http://weibo.com/nvidiachina" class="page-footer__social__link" target="_blank">
+						<img class="socialIcon" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_base/images/social/Weibo-icon.svg" title="Weibo">
+					</a>
+					
+	            
+		           <!--  <a href="http://www.facebook.com/NVIDIAGeForce" class="page-footer__social__link facebook" target="_blank">
+		                <img class="socialIcon" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_base/images/social/Facebook-icon.svg" title="Facebook">
+		            </a>
+	            
+				 
+		            <a href="http://www.twitter.com/NVIDIAGeForce" class="page-footer__social__link" target="_blank">
+		                 <img class="socialIcon" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_base/images/social/Twitter-icon.svg" title="Twitter">
+		            </a>
+	            
+	            
+				
+		            <a href="https://www.instagram.com/nvidiageforce/" class="page-footer__social__link" target="_blank">
+						<img class="socialIcon" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_base/images/social/Instagram-icon.svg" title="Instagram">
+					</a>
+				
+				  
+				
+				
+				
+		            <a href="https://www.youtube.com/channel/UCL-g3eGJi1omSDSz48AML-g" class="page-footer__social__link" target="_blank">
+						<img class="socialIcon" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_base/images/social/You-Tube-icon.svg" title="You Tube">
+					</a>
+				
+				
+		            <a href="https://www.twitch.tv/nvidia" class="page-footer__social__link" target="_blank">
+						<img class="socialIcon" src="//www.nvidia.com/etc/designs/nvidiaGDC/clientlibs_base/images/social/Twitch-icon.svg" title="Twitch TV">
+					</a> -->
+				
+	        </div>
+	        <!-- /Social -->
+	
+	    </div>
+
+	</div>
+	
+<!-- /Footer -->
+
+<!-- Global footer -->
+<div class="global-footer-container">
+	<div class="global-footer" id="globalFooter">
+	
+	    <svg class="global-footer__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 407.8 1000 184.4" enable-background="new 0 407.8 1000 184.4" xml:space="preserve">
+	    	<title>NVIDIA</title>
+	    	<g id="nvidia-logo">
+	    		<path d="M987.1 555.7v-2.8h1.7c0.9 0 2.3 0.1 2.3 1.2 0 1.2-0.7 1.5-1.8 1.5H987.1M987.1 557.6h1.2l2.8 4.8h3l-3.1-5c1.5-0.1 2.9-0.8 2.9-3 0-2.7-1.8-3.5-4.9-3.5h-4.4v11.5h2.6L987.1 557.6M1000 556.7c0-6.8-5.2-10.7-11.1-10.7 -5.8 0-11.1 3.9-11.1 10.7 0 6.8 5.2 10.7 11.1 10.7S1000 563.5 1000 556.7M996.8 556.7c0 4.9-3.6 8.2-7.9 8.2l0 0c-4.4 0-7.9-3.3-7.9-8.2 0-4.9 3.6-8.2 7.9-8.2C993.2 548.6 996.8 551.9 996.8 556.7z"></path>
+	    		<path d="M593.2 442.7v121.1h34.2V442.7H593.2zM324.4 442.5v121.2h34.5v-94.1l26.9 0.1c8.8 0 15 2.2 19.2 6.7 5.4 5.7 7.6 15.1 7.6 32v55.3H446v-66.9c0-47.8-30.5-54.3-60.2-54.3C385.8 442.5 324.4 442.5 324.4 442.5zM648.3 442.7v121.1h55.4c29.5 0 39.2-4.9 49.6-15.9 7.4-7.7 12.1-24.7 12.1-43.3 0-17-4-32.2-11.1-41.7 -12.5-16.9-30.8-20.2-58.1-20.2H648.3zM682.2 469h14.7c21.3 0 35.1 9.5 35.1 34.4 0 24.8-13.7 34.4-35.1 34.4h-14.7V469zM544 442.7l-28.5 95.9 -27.3-95.9h-36.9l39 121.1h49.2l39.3-121.1H544zM781.4 563.7h34.2v-121h-34.2V563.7zM877.2 442.7l-47.7 121h33.7l7.6-21.3h56.5l7.2 21.3h36.6l-48.2-121H877.2zM899.4 464.8l20.7 56.6H878L899.4 464.8z"></path>
+	    		<path d="M103.9 462.8v-16.6c1.6-0.1 3.3-0.2 4.9-0.2 45.6-1.4 75.4 39.1 75.4 39.1s-32.2 44.8-66.8 44.8c-5 0-9.4-0.8-13.4-2.2v-50.5c17.7 2.2 21.3 10 32 27.7l23.7-20c0 0-17.3-22.7-46.5-22.7C110 462.3 106.9 462.5 103.9 462.8M103.9 407.8v24.8c1.6-0.1 3.3-0.2 4.9-0.3 63.3-2.2 104.6 51.9 104.6 51.9s-47.4 57.7-96.7 57.7c-4.5 0-8.7-0.4-12.7-1.1v15.4c3.4 0.4 7 0.7 10.6 0.7 46 0 79.2-23.5 111.4-51.2 5.3 4.3 27.2 14.7 31.7 19.2 -30.6 25.6-101.9 46.3-142.3 46.3 -3.9 0-7.6-0.2-11.3-0.6v21.6h174.7V407.8H103.9zM103.9 527.8v13.1c-42.5-7.6-54.3-51.8-54.3-51.8s20.4-22.6 54.3-26.3v14.4c0 0 0 0-0.1 0 -17.7-2.2-31.7 14.5-31.7 14.5S80 519.6 103.9 527.8M28.4 487.2c0 0 25.2-37.1 75.5-41v-13.5C48.2 437.2 0 484.4 0 484.4s27.3 79 103.9 86.3v-14.4C47.7 549.2 28.4 487.2 28.4 487.2z"></path>
+	    	</g>
+	    	<image src="images/nvidia-logo.png" alt="NVIDIA" title="NVIDIA" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=""></image>
+	    </svg>
+	
+	    <div class="global-footer__region">
+	     		
+		        
+		
+		        <span class="global-footer__region__label">
+		           <a href="http://www.geforce.cn/country-selector">CHN - 中国</a>
+		        </span>
+		  			
+	    </div>
+	
+	    <ul class="global-footer__links">
+	        
+	        
+	        	<li>
+	           		<a href="https://www.nvidia.cn/object/privacy_policy_cn.html">隐私声明</a>
+	        	</li>
+	  		
+	        
+	        	<li>
+	           		<a href="https://www.nvidia.cn/object/legal_info_cn.html">法律事宜</a>
+	        	</li>
+	  		
+	        
+	        	<li>
+	           		<a href="https://www.nvidia.cn/object/contact-information-asia-cn.html">联系我们</a>
+	        	</li>
+	  		
+	    </ul>
+	
+	    <div class="global-footer__copyright">Copyright © 2019 NVIDIA Corporation</div>
+	    
+	</div>
+</div>
+<!-- /Global footer --></div>
+  <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+  <![endif]-->
+  <script type="text/javascript" src="https://images.nvidia.com/js/cn/jquery.ba-replacetext.min.js"></script>
+<script type="text/javascript" src="https://images.nvidia.com/js/cn/keywords_cleanup.js"></script>
+<!--[if IE 9]>
+  <script type="text/javascript">
+    jQuery(document).ready(function($){
+
+      $(function(){
+        $('.search-form input#edit-keys').keydown(function(e){
+          if (e.keyCode == 13) {
+            $(this).parents('form').submit();
+            return false;
+          }
+        });
+      });
+      
+    });
+  </script>
+<![endif]-->
+
+<script type="text/javascript">_satellite.pageBottom();</script>
+</body>
+
+</html>
