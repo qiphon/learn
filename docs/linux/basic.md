@@ -365,7 +365,7 @@ find . -inum 312323 -exec grep -i 's' {} \;
 
 ##### 关键字搜索
 
-> man -k mkdi
+> man -K mkdir
 
 ##### shell 内部帮助
 
@@ -383,18 +383,96 @@ find . -inum 312323 -exec grep -i 's' {} \;
 
 - 压缩文件 zip 压缩文件名 源文件
 
-#### logout  注销用户
+- 压缩目录 zip -r 压缩文件名 源目录
 
-#### shutdown -h now 立刻关机
+- 解压 unzip 压缩文件名
 
-#### shutdown -r now (或者是 reboot) 立刻重启计算机
+```sh
 
+mkdir book 
+
+touch book/1.md
+
+zip ../新文件名 book
+
+unzip ../新文件名.zip
+
+```
+
+#### gzip
+
+命令 | 示例 | 含义
+--|--|--|
+gzip 源文件    |  gzip a.text                      |  压缩为 .gz 格式的压缩文件，源文件会消失
+gzip -k 源文件    |  gzip -k a.text                |  压缩为 .gz 格式的压缩文件，保留源文件
+gzip -c 源文件 > 压缩文件 | gzip -c a.txt > b.txt.gz  |  压缩为 .gz 格式，源文件不消失
+gzip -r 目录  |  gzip -r ddd                       |  压缩目录下的所有文件，不保留源文件
+gzip -d 压缩文件名  |  gzip -d ddd.gz                | 解压
+gunzip 压缩文件名  |  gunzip ddd.gz                 | 解压
+gunzip -r 压缩文件名  |  gunzip -r ddd               | 解压该目录下的所有 .gz 文件
+
+> 压缩目录是压缩目录下的文件
+
+#### .bz2 格式压缩
+
+命令 | 示例 | 含义
+--|--|--|
+bzip2 源文件        |  bzip2 aa.txt    | 压缩文件，不保留源文件
+bzip2 -k 源文件     |  bzip2 -k aa.txt | 压缩文件，保留源文件
+bzip2 -d 压缩文件名  |  bzip2 -d dd.txt.bz2 | 解压
+bunzip2 压缩文件名  |  bunzip2 dd.txt.bz2 | 解压
+
+> bzip2 不能压缩目录
+
+#### tar 打包命令
+
+```
+-c  打包
+-v  显示过程
+-f  指定打包后的文件名
+-x  解包
+-z  打包同时压缩/解压缩 （如果有-c就是压缩，如果有-x就是解压缩）gzip格式
+-j  打包同时压缩/解压缩 （如果有-c就是压缩，如果有-x就是解压缩）bzip2格式
+
+```
+
+命令 | 示例 | 含义
+--|--|--|
+tar -cvf 打包文件名 源文件   |   tar -cvf  aa.tar aa.txt   |  打包文件
+tar -xvf 压缩的包名   |   tar -cvf  aa.tar                |  解包文件
+
+- 压缩后文件大小比较
+
+![alt](../imgs/压缩后的文件大小比较.png)
+
+> 不管用什么格式压缩的打包文件，都可以直接使用 tar -xf  这种方式解压
+ 
+### 关机和重启命令
+
+#### shutdown 
+
+```
+-c  // 取消前一个关机命令
+
+-h  // 关机
+
+-r  // 重启
+
+shutdown -h now // 立刻关机
+
+shutdown -r 07:00  // 7点关机
+
+shutdown -r now // (或者是 reboot) 立刻重启计算机
+
+shutdown -c  // 取消关机命令
+
+```
 
 #### init 命令
 
 > 0: 关机
 1:单用户
-2: 多用户没有网络服务
+2: 不完全多用户，没有NFS （网络文件系统） 服务
 3: 多用户有网络服务
 4: 系统未使用保留给用户
 5: 图形界面
@@ -402,4 +480,58 @@ find . -inum 312323 -exec grep -i 's' {} \;
 
 执行方式：  init 6    ——》这样就是重启系统
 
-#### who am i   // 查看当前用户
+
+#### logout  注销用户
+
+### 查看用户信息
+
+#### w 命令
+
+- USER  登录的用户名
+
+- TTY  登录的终端 tty 本地终端， pts/0 远程终端
+
+- FROM 登录的IP
+
+- LOGIN 登录时间
+
+- IDEL  用户闲置时间
+
+- JCPU  该终端所有进程占用的时间
+
+- PCPU  当前进程所占用的时间
+
+- WHAT  正在执行的命令 
+
+![w命令](../imgs/linux-w命令.png)
+
+#### who 
+
+- USER  登录的用户名
+
+- TTY  登录的终端 tty 本地终端， pts/0 远程终端
+
+- LOGIN 登录时间
+
+![who命令](../imgs/linux-who命令.png)
+
+#### whoami    查看当前用户
+
+#### last 查看当前登录和过去登录的用户信息 （默认读取 /var/log/wtmp 文件）
+
+依次是  用户名 - 登录终端 - 【登录IP】 - 登录时间 - 退出时间
+
+![last 命令](../imgs/linux-last命令.png)
+
+#### lastlog  查看所有用户最后的登录时间
+
+依次是  - 用户名 - 登录终端 - 登录IP - 最后一次登录时间
+
+![lastlog](../imgs/linux-lastlog命令.png)
+
+## shell
+
+- shell 是一个命令行解释器，它为用户提供了一个向Linux 内核发送请求以便以便运行程序的界面系统级程序
+- 用户可以用shell来启动、挂起、停止或者编写一些程序
+- shell 还是一个功能相当强大的编程语言，易编写、易调试、灵活性较强
+- shell 是解释执行的脚本语言，在shell中可以直接调用 Linux 系统命令
