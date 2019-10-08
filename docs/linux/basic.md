@@ -5,8 +5,10 @@
 ![linux 目录结构](../imgs/Linux-root-tree.png)
 
 
-  目录   |   解释   |
+ | 目录   |   解释   |
+
 --|--|--|--
+
 bin      |  存放二进制可执行文件（ls, cat, mkdir, cp, chmod, chown, date, mv, bash等），常用命令一般都在这里。bin 放置的是单人维护模式下还能够被操作的指令。 在bin底下的指令可以被root 与一般账号所使用。
 usr/bin  |  众多的应用程序， /bin -> /usr/bin
 sbin     |  存放二进制可执行文件，只有root 才能访问。这里存放的是系统管理员使用的系统级别的 管理命令和 程序，如 ifconfig等. Linux有非常多的指令是用来设定系统环境的，这些指令只有root 才能够利用来设定系统，其他使用者只能用来查询而已。放在 /sbin 底下的为开机过程所需要的，里面包括了开机、修复、还原系统所需要的指令。至于某些伺服器软体程式，一般则放在 /usr/sbin/ 当中。至于本机的自行安装的软件所产生的系统执行档（ system binary ），则放到 /usr/local/sbin 当中了，常见的指令包括: fdisk, fsck, ifconfig, init, mkfs 等
