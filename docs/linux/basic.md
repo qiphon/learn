@@ -4,8 +4,9 @@
 
 ![linux 目录结构](../imgs/Linux-root-tree.png)
 
+目录结构说明
 
- | 目录   |   解释   |
+| 目录   |   解释   |
 |--|--|--|--|
 bin      |  存放二进制可执行文件（ls, cat, mkdir, cp, chmod, chown, date, mv, bash等），常用命令一般都在这里。bin 放置的是单人维护模式下还能够被操作的指令。 在bin底下的指令可以被root 与一般账号所使用。
 usr/bin  |  众多的应用程序，``` /bin -> /usr/bin ```
