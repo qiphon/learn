@@ -10,8 +10,6 @@
 |--|--|--|--|
 bin      |  存放二进制可执行文件（ls, cat, mkdir, cp, chmod, chown, date, mv, bash等），常用命令一般都在这里。bin 放置的是单人维护模式下还能够被操作的指令。 在bin底下的指令可以被root 与一般账号所使用。
 usr/bin  |  众多的应用程序，``` /bin -> /usr/bin ```
-
-
 sbin     |  存放二进制可执行文件，只有root 才能访问。这里存放的是系统管理员使用的系统级别的 管理命令和 程序，如 ifconfig等. Linux有非常多的指令是用来设定系统环境的，这些指令只有root 才能够利用来设定系统，其他使用者只能用来查询而已。放在 /sbin 底下的为开机过程所需要的，里面包括了开机、修复、还原系统所需要的指令。至于某些伺服器软体程式，一般则放在 /usr/sbin/ 当中。至于本机的自行安装的软件所产生的系统执行档（ system binary ），则放到 /usr/local/sbin 当中了，常见的指令包括: fdisk, fsck, ifconfig, init, mkfs 等
 usr/sbin |  root用户的一些管理程序， /sbin -> /usr/sbin
 boot     |  用于存放系统引导时使用的各种文件。开机会使用这个文档，包括Linux 核心档案以及开机选单与开机所需设定档等等。Linux kernel常用的文档名为：vmlinuz, 如果使用的是 grub这个开机管理程式，则还会存在 /boot/grub/ 这个目录
@@ -714,3 +712,102 @@ $       |  用于调用变量的值
 
 ### 用户组
 
+#### ``` /etc/group ```
+
+- /etc/group 存储当前系统中所有用户组信息
+
+- group:x:123:abc,def
+
+- 组名称:组密码占位符：组编号：组中用户名列表
+
+- root 组编号为 0
+
+- 1-499 系统预留的编号，预留给安装的软件和服务的
+
+- 用户手动创建的组从500 开始
+
+- 组密码的占位符都是 x
+
+#### ```  /etc/gshadow  ```
+
+- 存放当前系统中用户组的密码信息
+
+- 和group 中的记录 一一对应
+
+- ``` Group:*::abc ```
+
+- 组名 组密码 组管理者 组中用户名
+
+#### ``` /etc/passwd ```
+
+- 存储当前系统中所有用户的信息
+
+- ``` root:x:0:0:root:/root:/bin/bash ```
+
+- 用户名 ：密码占位符：用户编号：用户注释信息：用户目录：shell 类型
+
+
+#### ``` /etc/shadow ```
+
+- 存放当前系统中所有用户的密码信息
+
+- ```  root:x:0:  ```
+
+- 用户名：密码占位符：用户编号
+
+### 用户操作
+
+```sh
+
+# 添加组
+
+groupadd qiphon
+
+# 修改组名
+
+groupmod -n qifeng qiphon
+
+# 修改组编号
+
+groupmod -g 555 qiphon
+
+# 添加分组并指定编号
+
+groupadd -g 333 teacher
+
+# 删除分组
+
+groupdel 333
+
+# 添加用户并指定分组
+
+useradd -g teacher zhangsan
+
+# 修改用户分组
+
+usermod -g stu zhangsan
+
+# 为用户指定工作目录
+
+useradd -d /home/zhangsan zhangsan
+
+# 修改用户名
+
+usermod -l zhangsan zhangsan2
+
+# 指定注释
+
+uermod -c iamateacher zhangsan
+
+# 删除用户
+
+userdel zhangsan2
+
+# 删除所属文件夹
+
+userdel -r lisi
+
+
+```
+
+### 用户命令
