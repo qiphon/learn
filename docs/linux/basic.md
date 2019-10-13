@@ -505,7 +505,7 @@ shutdown -c  // 取消关机命令
 
 - WHAT  正在执行的命令 
 
-![w命令](../imgs/linux-w命令.png)
+<img src='../imgs/linux-w命令.png' />
 
 #### who 
 
@@ -515,7 +515,7 @@ shutdown -c  // 取消关机命令
 
 - LOGIN 登录时间
 
-![who命令](../imgs/linux-who命令.png)
+<img src='../imgs/linux-who命令.png' />
 
 #### whoami    查看当前用户
 
@@ -523,13 +523,13 @@ shutdown -c  // 取消关机命令
 
 依次是  用户名 - 登录终端 - 【登录IP】 - 登录时间 - 退出时间
 
-![last 命令](../imgs/linux-last命令.png)
+<img src='../imgs/linux-last命令.png' />
 
 #### lastlog  查看所有用户最后的登录时间
 
 依次是  - 用户名 - 登录终端 - 登录IP - 最后一次登录时间
 
-![lastlog](../imgs/linux-lastlog命令.png)
+<img src='../imgs/linux-lastlog命令.png' />
 
 ## shell
 
