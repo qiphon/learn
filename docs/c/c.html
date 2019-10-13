@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>c 语言的基本知识 | 齐枫的博客</title>
+    <meta name="description" content="">
+    <link rel="icon" href="/favorite.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.616a884d.css" as="style"><link rel="preload" href="/assets/js/app.78323bc6.js" as="script"><link rel="preload" href="/assets/js/2.1912c149.js" as="script"><link rel="preload" href="/assets/js/8.06e44207.js" as="script"><link rel="prefetch" href="/assets/js/10.4ff041db.js"><link rel="prefetch" href="/assets/js/11.8fb4a47f.js"><link rel="prefetch" href="/assets/js/12.01a279d3.js"><link rel="prefetch" href="/assets/js/13.57d0dbfb.js"><link rel="prefetch" href="/assets/js/14.038a7a8a.js"><link rel="prefetch" href="/assets/js/15.ad58a653.js"><link rel="prefetch" href="/assets/js/16.c05ae24d.js"><link rel="prefetch" href="/assets/js/17.7f6480d2.js"><link rel="prefetch" href="/assets/js/18.bd8b9248.js"><link rel="prefetch" href="/assets/js/19.43117a7b.js"><link rel="prefetch" href="/assets/js/20.0805792b.js"><link rel="prefetch" href="/assets/js/21.06b9e042.js"><link rel="prefetch" href="/assets/js/22.3ae54880.js"><link rel="prefetch" href="/assets/js/23.76232155.js"><link rel="prefetch" href="/assets/js/24.6a1ac1b5.js"><link rel="prefetch" href="/assets/js/25.3da5c52a.js"><link rel="prefetch" href="/assets/js/26.4a88c120.js"><link rel="prefetch" href="/assets/js/27.3bd19637.js"><link rel="prefetch" href="/assets/js/28.81f05eb3.js"><link rel="prefetch" href="/assets/js/29.9f486d99.js"><link rel="prefetch" href="/assets/js/3.a35587a2.js"><link rel="prefetch" href="/assets/js/30.0a730c28.js"><link rel="prefetch" href="/assets/js/31.b955216f.js"><link rel="prefetch" href="/assets/js/32.748275e3.js"><link rel="prefetch" href="/assets/js/33.503ba17c.js"><link rel="prefetch" href="/assets/js/34.64a0eb3e.js"><link rel="prefetch" href="/assets/js/35.f9c5edf5.js"><link rel="prefetch" href="/assets/js/36.01e8b3e4.js"><link rel="prefetch" href="/assets/js/37.88fb077b.js"><link rel="prefetch" href="/assets/js/38.01b2a6f2.js"><link rel="prefetch" href="/assets/js/39.24042d2a.js"><link rel="prefetch" href="/assets/js/4.4465aee6.js"><link rel="prefetch" href="/assets/js/40.c62e01eb.js"><link rel="prefetch" href="/assets/js/41.946ab49a.js"><link rel="prefetch" href="/assets/js/5.85e4d099.js"><link rel="prefetch" href="/assets/js/6.71d703ba.js"><link rel="prefetch" href="/assets/js/7.27038a92.js"><link rel="prefetch" href="/assets/js/9.a902e01f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.616a884d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">齐枫的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>c 语言的基本知识</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="c-语言的基本知识"><a href="#c-语言的基本知识" aria-hidden="true" class="header-anchor">#</a> c 语言的基本知识</h1> <ul><li>要学习写什么？</li></ul> <blockquote><p>c 用指针管理内存，内存管理和数据解构算法都离不开指针</p></blockquote> <ol><li><p>内存管理</p></li> <li><p>算法/数据结构</p></li></ol> <h4 id="语言发展"><a href="#语言发展" aria-hidden="true" class="header-anchor">#</a> 语言发展</h4> <p>机器语言 -》 汇编语言 -》 FORTRAN 语言、Pascal语言（Delphi）、Basic语言（Visual Basic）、 C语言（C++ 、Java）</p> <blockquote><p>c 最早始是编写Unix内核的，现在主要用于做底层开发和嵌入式等</p></blockquote> <h4 id="c-与-javascript-的异同"><a href="#c-与-javascript-的异同" aria-hidden="true" class="header-anchor">#</a> c 与 JavaScript 的异同</h4> <table><thead><tr><th>c</th> <th>js</th></tr></thead> <tbody><tr><td>c语言是编译型语言</td> <td>js 是解释性语言</td></tr> <tr><td>c语言要借助编译器转换成可执行程序</td> <td>js需要借助解释引擎运行</td></tr></tbody></table> <h4 id="配置环境"><a href="#配置环境" aria-hidden="true" class="header-anchor">#</a> 配置环境</h4> <table><thead><tr><th>Windows</th> <th>Linux/unix</th> <th>Mac</th></tr></thead> <tbody><tr><td>visual C++/MingWin</td> <td>gcc/g++</td> <td>Xcode/gcc</td></tr></tbody></table> <h3 id="编译软件"><a href="#编译软件" aria-hidden="true" class="header-anchor">#</a> 编译软件</h3> <p><a href="https://nginx.org/en/download.html" target="_blank" rel="noopener noreferrer">nginx 为例<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>,复制下载链接(pgp格式)</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>
+<span class="token function">mkdir</span> temp
+
+<span class="token builtin class-name">cd</span> temp  
+
+<span class="token function">wget</span> -c https://nginx.org/download/nginx-1.16.1.tar.gz
+
+<span class="token function">tar</span> -zvxf nginx-1.16.1.tar.gz
+
+<span class="token builtin class-name">cd</span> nginx-1.16.1   // 源代码都在这里的 src
+
+// 当前目录下有configure
+
+./configure    // 执行这个检查系统配置是否完善
+
+// 如果执行之后当前目录出现 Makefile 这个文件，就可以执行编译了
+<span class="token function">make</span>       // 开始编译
+
+// 如果编译出错，需要重新编译 执行 <span class="token variable"><span class="token variable">`</span> <span class="token function">make</span> clean <span class="token variable">`</span></span>, 删除之前的编译文件
+
+// 编译后会在当前目录生成一个objs 文件夹，最终的可执行文件就在这个文件夹下的 nginx
+<span class="token function">make</span> <span class="token function">install</span>    // 执行安装，之后文件就会被安装到指定位置了
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="敲一个hello-world"><a href="#敲一个hello-world" aria-hidden="true" class="header-anchor">#</a> 敲一个hello world</h3> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>
+// 安装 gcc， 如果没有  ， centOs下
+
+yum <span class="token function">install</span> gcc
+
+// 编译c++ 需要
+yum <span class="token function">install</span> gcc-c++
+
+// ubuntu 下安装
+<span class="token function">apt-get</span> <span class="token function">install</span> gcc
+
+// 编译c++ 安装
+<span class="token function">apt-get</span> <span class="token function">install</span> g++
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>写一个c文件 hello.c</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>
+
+<span class="token comment">/* 
+    引入头文件，头文件里定义了一些必要的库  
+    stdio   输入（标准输入--键盘）输出（标准输出--终端）库  
+*/</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span> </span>
+
+<span class="token comment">/**
+    main 入口函数,程序在这开始执行，必须是main
+
+    也可以写成 
+    void main(){}
+
+    int main(int argc, char const *argv[] ){
+    int argc  // 参数的个数
+    char const *argv[]  字符串数组
+
+    \n  换行
+    \r  回车
+
+*/</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;hello world! \n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><p>执行编译</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>
+gcc hello.c -o hello   // -o 后面接输出文件的名字
+
+// 执行,即可打印
+./hello    
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">8/21/2019, 4:38:08 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.78323bc6.js" defer></script><script src="/assets/js/2.1912c149.js" defer></script><script src="/assets/js/8.06e44207.js" defer></script>
+  </body>
+</html>
