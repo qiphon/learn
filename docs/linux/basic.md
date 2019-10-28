@@ -888,3 +888,12 @@ finger qiphon
 - 以linux 系统为例，先载入 /boot 目录下面的 kernel 。内核加载成功后。第一个运行程序是 /sbin/init 。它根据配置文件（Debian 系统是 /etc/initab）产生 init 进程。这是linux 启动后的第一个进程，pid 进程编号为 1，其他进程都是他的后代
 
 - 然后， init线程加载系统的各个模块，如 窗口程序、网络程序，直到执行 /bin/login 程序，跳出登陆界面，等待用户输入用户名和密码
+
+## 软件相关
+
+- 列出所有软件包 
+
+```sh
+rpm -qa
+
+```
