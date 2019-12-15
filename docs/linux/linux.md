@@ -13,7 +13,7 @@
 |
 |---\  windows  windows 命令
 |
-|
+|---\  appsInstall  软件安装
 |
 
 ```

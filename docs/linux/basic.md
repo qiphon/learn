@@ -897,3 +897,45 @@ finger qiphon
 rpm -qa
 
 ```
+
+### 连接到远程服务器
+
+```sh
+
+# ssh user@ip
+
+ssh qiphon@192.168.1.2
+
+```
+
+### 上传文件到服务器
+
+```sh
+
+# 把当前文件夹下的 readme.me 上传到 远程服务器的root 目录下，
+# 注意：ip地址后面有逗号
+scp ./readme.md root@192.168.1.12:/root
+
+```
+
+## 问题处理
+
+1. 网卡ip没有找到处理
+
+查看网卡ip ： 
+
+```sh
+ip addr 
+
+```
+![ip addr](./imgs/ip-addr.jpg)
+
+网卡配置文件路径 /etc/sysconfig/network-scripts/ifcfg-eth0
+
+使用 vi 打开这个文件，把 onboot 后面的值改为 yes
+
+之后， 断开网卡  ifdown eth0(这个是网卡名字，不同机器可能不一样)
+
+之后再启动网卡   ifup eth0
+
+再次查看 ip 地址  ip addr  就能看到网卡的ip 地址了
