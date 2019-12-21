@@ -15,5 +15,6 @@
 |
 |---\  appsInstall  软件安装
 |
+|---\  linux-start  按下开机键，Linux 做了什么？
 
 ```
