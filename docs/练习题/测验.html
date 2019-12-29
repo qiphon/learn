@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测验使用</title>
+</head>
+
+<body>
+    <script>
+        if (!Function.prototype.bind) (function () {
+            var slice = Array.prototype.slice
+            Function.prototype.bind = function () {
+                var fToBind = this,
+                    othis = arguments[0],
+                    aArgs = slice.call(arguments, 1);
+                if (typeof fToBind !== 'function') {
+                    throw new TypeError('Function.prototype.bind - ' +
+                        'what is trying to be bound is not callable');
+                }
+                var fBound = function () {
+                    var funcArgs = aArgs.concat(slice.call(arguments))
+                    return fToBind.apply(othis, funcArgs)
+                }
+                if (fToBind.prototype) {
+                    fNop.prototype = fToBind.prototype
+                }
+                fBound.prototype = new fNop();
+                return fBound
+            }
+        })();
+        function test(data, data2) {
+            console.log(data, data2)
+            this.data = data2
+        }
+        test.prototype.say = function () {
+            console.log(this.data, 'say')
+        }
+        var obj = {
+            a: 30
+        }
+        var result = test.bind(obj, '1111')
+        console.dir(result)
+        var res = new result('2222', '333')
+        res.say()
+    </script>
+</body>
+
+</html>
