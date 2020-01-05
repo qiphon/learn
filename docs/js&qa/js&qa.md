@@ -1,4 +1,4 @@
-# js & QA
+# js & QA 工程师
 
 1. 单元测试
 
@@ -20,6 +20,8 @@
 - better-assert(TDD 断言库)
 
 - should.js，expect.js(BDD 断言库)
+
+- expect.js (BDD断言库)
 
 - chai.js (TDD, BDD 双模)
 
