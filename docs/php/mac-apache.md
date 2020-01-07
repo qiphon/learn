@@ -18,6 +18,13 @@
 
 ```
 
+## 查看 Apache 进程
+
+```sh
+ps aux | grep httpd
+
+```
+
 修改 apache2/httpd.conf 文件
 
 ```
