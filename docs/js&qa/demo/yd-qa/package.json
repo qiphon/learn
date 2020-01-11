@@ -7,30 +7,33 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "unit": "karma start",
     "e2e": "node ./tests/e2e/baidu.spec.js",
-    "react-test": "react-scripts test --env=jsdom"
+    "e2e-rize": "node ./tests/e2e/git.spec.js",
+    "ui-test": "backstop test",
+    "req-test": "node ./tests/service/mochaRunner.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-env": "^7.7.7",
-    "@testing-library/react": "^9.4.0",
     "babel-loader": "^8.0.6",
+    "backstopjs": "^4.4.2",
     "jasmine-core": "^3.5.0",
-    "jest": "^24.9.0",
-    "jest-dom": "^4.0.0",
     "karma": "^4.4.1",
     "karma-coverage": "^2.0.1",
     "karma-firefox-launcher": "^1.3.0",
     "karma-jasmine": "^2.0.1",
     "karma-phantomjs-launcher": "^1.0.4",
+    "karma-puppeteer-launcher": "^1.0.4",
     "karma-webpack": "^4.0.2",
-    "react-scripts": "^3.3.0",
+    "mocha": "^7.0.0",
+    "mochawesome": "^4.1.0",
+    "puppeteer": "^2.0.0",
+    "rize": "^0.8.0",
     "selenium-webdriver": "^4.0.0-alpha.5",
     "webpack": "^4.41.5"
   },
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "axios": "^0.19.1"
   }
 }
