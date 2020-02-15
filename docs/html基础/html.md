@@ -8,10 +8,10 @@
 var s = new Date();
 var img = new Image()
 img.crossOrigin = 'anonymous'
-img.src = "http://www.qiphon.site/qiphon.png";   //1*1 3kb
+img.src = "http://www.qiphon.site/qiphon.png";   // 1kb
 img.onload = function(){
     var e = Date.now()
-    var w = 4 /( e - s)  
+    var w = 1 /( e - s) 
 }
 
 // 上报数据

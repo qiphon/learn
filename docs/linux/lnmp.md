@@ -61,7 +61,10 @@ server {
 - 安装 php 
 
 ```sh
-yum install php
+yum install php 
+
+# 有的会附带 php-fpm ,如果没有就单独下载 
+yum install php-fpm
 
 # 修改 /etc/php-fpm.d/www.conf
 # 添加 

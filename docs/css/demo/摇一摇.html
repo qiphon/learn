@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>摇一摇</title>
+</head>
+
+<body>
+    <div id="aa"></div>
+    <script>
+        document.querySelector('#aa').innerHTML = new Date()
+        // var SHAKE_THRESHOLD = 3000;
+        var last_update = 0;
+        var x = y = z = last_x = last_y = last_z = 0;
+        var num = 0;
+        var isprint = false;
+        if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion', deviceMotionHandler, true);
+        } else {
+            alert('not support mobile event');
+        }
+        function deviceMotionHandler(eventData) {
+            var acceleration = eventData.accelerationIncludingGravity;
+            var curTime = new Date().getTime();
+            var diffTime = curTime - last_update;
+            if (diffTime > 100) {
+                last_update = curTime;
+                x = acceleration.x;
+                y = acceleration.y;
+                z = acceleration.z;
+                // var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+
+                /*if (speed < SHAKE_THRESHOLD) {
+					num++;
+                    var node = document.getElementById("text");
+					node.innerHTML=num+"times";
+                   
+					num==0;
+                }
+				*/
+                var x1 = Math.abs(x - last_x);
+                var y1 = Math.abs(y - last_y);
+                var z1 = Math.abs(z - last_z);
+                var max = 0;
+                if (x1 > y1) {
+                    if (x1 > z1) {
+                        max = x1;
+                    } else {
+                        max = z1;
+                    }
+                } else {
+                    if (y1 > z1) {
+                        max = y1;
+                    } else {
+                        max = z1;
+                    }
+                }
+                if (max > 40) {
+                    isprint = true;
+                    num++;
+                } else if (max < 5 && isprint) {
+                    var node = document.getElementById("aa");
+                    var li = document.createElement("li");
+                    li.innerText = num;
+                    node.appendChild(li);
+                    num = 0;
+                    isprint = false;
+                }
+                last_x = x;
+                last_y = y;
+                last_z = z;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

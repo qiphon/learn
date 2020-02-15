@@ -1,8 +1,3 @@
----
-layout: default
-title: css
-
----
 # css 
 
 css3d 模型

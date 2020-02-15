@@ -2,7 +2,7 @@
 
 1. construct
 
-```
+```php
 // php 中的class有construct；es5中的类是用function实现的，并没有见到construct。
 
 function Car(){
