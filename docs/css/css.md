@@ -1,85 +1,54 @@
 # css 
 
-css3d 模型
-
-```
-transform-style: preserve-3d;
-transform: perspective(850px);
-
-```
-
-##### 陀螺仪
-
-度计的，他的测量物理量是偏转、倾斜时转动角度。在手机上，仅用加速度计没办法测量或重构出完整的3D动作，只能检测轴向的线性动作。但陀螺仪可以对转动、偏转的动作做很好的测量，这样就能很好的分析使用者的实际动作。
-
-1. deviceorientation 设备的物理方向信息，表示为一系列本地坐标系的旋角
-
-2. devicemotion 提供设备的加速信息
-
-3. compassneedscalibration 用于通知web站点使用罗盘信息校准上述事件
-
-```js
-
-window.addEventListener('deviceorientation', function(ev){
-    // 处理 ev.alpha (Y) \  ev.beta （X）  \ ev.gamma （Z）
-},true)
-
-
-// z 轴为轴，alpha 的作用域为 0-360
-// x 为轴， beta 作用域为 -180 -- 180
-// y 为轴， gamma 的作用域为 -90 -- 90
-
-// 罗盘校准
-
-window.addEventListener('compassneedscalibration', function(ev){
-    console.log("罗盘需要校准")
-    ev.preventDefault()
-},true)
-
-// 获取重力加速度
-window.addEventListener('devicemotion', function(ev){
-    // 处理 ev.acceleration
-
-    // x(y,z): 设备在x（y，z）方向上的移动加速度值
-    // ev.accelerationIncludingGravity
-    // 考虑了重力加速度后设备在x、y、z
-    // ev.rotationRate
-    // alpha,bate,gamma: 设备绕x，y，z轴旋转的角度
-
-
-
-},true)
-
-
-
-// 摇一摇代码
-
-var speed = 40
-var x=y=z=lastx=lasty=lastz = 0
-
-function deviceMotion(ev){
-    var acceleration = ev.accelerationIncludingGravity;
-    x = acceleration.x
-    y = acceleration.y
-    z = acceleration.z
-    if(Math.abs(x-lastx) > speed || Math.abs(y-lasty) > speed || Math.abs(z-lastz) > speed ){
-        // 触发摇一摇
-    }
-}
-
-
-
-
-```
-
-### css 高级技巧
+- css 高级技巧
 
 1. 双飞翼布局
 
-> 
+>  最早在国外使用起来的一种布局（圣杯布局），这种布局有限渲染版心的HTML内容，让2侧的辅助内容后置显示，后台淘宝经过修改，修改HTML 结构实现了另一种写法，改名双飞翼布局
 
+- css 重置
 
-### IE 6 经典 bug
+> 由于浏览器之间的差异性，各个浏览器给每个元素都添加了不同的样式，为了能让我们的代码在多端都有统一的表现，css重置由此而生。
+
+常见的css重置有 
+
+```css
+/* 1. 不推荐使用的写法 */
+× {
+    margin： 0;
+    padding: 0;
+    /* ... */
+}
+/* 2. reset.css */
+/* 3. normalize.css */
+/* 4. neat.css */
+
+/* 
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+*/
+
+```
+- [css 图片](https://cssicon.space/#/) css 实现的图标显示的最快
+
+- [css HINT](https://webhint.io/)
+
+1. 不要使用多个 class 选择器， 如 a.foo.boo ， 这在IE6 及以下不能正常解析
+2. 移除空的css 规则或者没有用到的 css规则
+3. 正确使用css属性， 如 display: inline 不要和 height, float, margin, padding同时使用，display: inline-block 不要和 float 同时使用
+4. 避免过多的浮动，当浮动超过10次时会显示警告
+5. 避免过多使用字号，当字号超过10种的时候显示警告
+6. 避免使用id 作为样式选择器
+7. 避免使用过多web字体，字体超过 5种显示警告
+8. 标题元素只定义一次
+9. 使用width： 100% 时要小心
+10. 属性值为 0 时，不要使用单位
+11. 各个浏览器专属的 css 属性要有规范
+12. 避免使用看起来像正则表达式的 css 选择器
+13. 遵守盒模型规则
+
+- IE 6 经典 bug
 
 1. ie6 怪异解析之，padding与 border 算入宽高
 

@@ -12,14 +12,14 @@
             box-sizing: border-box;
         }
         :root{
-            --w: 800px;
+            --w: 200px;
         }
         .box{
             width: var(--w);
             height: 200px;
             background: tan;
-            border-radius: 1em;
-            outline: 1em solid yellowgreen;
+            border-radius: 50%;
+            outline: 10px solid yellowgreen;
             margin: 80px;
             position: relative;
             /*
@@ -29,19 +29,12 @@
 
                 扩展的最大值是outline的宽度，所以可以写1em 
             */
-            box-shadow: 0 0 0 1em yellowgreen;
-        }
-        .circular {
-            width: 2em;
-            height: 2em;
-            border:1px solid red;
-            border-radius: 50%;
+            box-shadow: 0 0 0 10px yellowgreen;
         }
     </style>
 </head>
 <body>
     <div class="box">
-        <div class="circular"></div>
     </div>
 </body>
 </html>

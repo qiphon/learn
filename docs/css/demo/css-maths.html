@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>css与数学</title>
+    <style media="screen">
+      .test {
+        height: 400px;
+        width: 400px;
+        background: #ccc;
+        margin: 150px;
+        transform: rotate(45deg);
+        overflow:hidden;
+      }
+      .test > img {
+        transform: rotate(-45deg) scale(1.414);
+        display: block;
+        width: 400px;
+        height: 400px;
+      }
+      /* 另一种实现方法 */
+      .clip-path {
+        display: block;
+        width: 400px;
+        height: 400px;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        /* 额外的 */
+        transition: .5s ease-in-out clip-path;
+      }
+      .clip-path:hover{
+        clip-path: polygon(0 0 , 100% 0, 100% 100%, 0 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test">
+      <img src="./dog.jpg" alt="">
+    </div>
+    <img class="clip-path" src="./dog.jpg" alt="">
+  </body>
+</html>

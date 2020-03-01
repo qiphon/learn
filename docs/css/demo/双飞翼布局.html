@@ -1,71 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>双飞翼布局.html</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body{
+
+        body {
             min-width: 550px;
         }
-        main{
+
+        /* 双飞翼布局代码 */
+        main.sfy {
             overflow: hidden;
             position: relative;
         }
-        main > div{
+
+        main.sfy>div {
             float: left;
-            border: 1px solid;
+            /* 实现三个块等高 */
+            margin-bottom: -9999px;
+            padding-bottom: 9999px;
+            /* 文字居中 */
+            text-align: center;
         }
-        .left{
+
+        main.sfy .left {
             width: 200px;
             margin-left: -100%;
-            /* position: relative;
-            left: -200px; */
             background: red;
         }
-        .right {
+
+        main.sfy .right {
             width: 150px;
             margin-left: -150px;
+            background-color: blueviolet;
         }
-        .center{
+
+        main.sfy .center {
             width: 100%;
-            padding: 0 150px 0 200px;
             background: yellowgreen;
         }
-        .center div{
-            background:powderblue;
-            width: 100%;
+
+        main.sfy .center div {
+            /* 实际的中间内容部分 */
+            margin: 0 150px 0 200px;
+            background: powderblue;
         }
+
+
+        /* 圣杯布局代码========================= */
+        .grail {
+            overflow: hidden;
+            padding: 0 150px 0 200px;
+        }
+
+        .grail .left,
+        .grail .center,
+        .grail .right {
+            float: left;
+            text-align: center;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
+        }
+
+        .grail .left {
+            background: red;
+            width: 200px;
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+        }
+
+        .grail .right {
+            width: 150px;
+            background: blue;
+            float: left;
+            margin-left: -150px;
+            position: relative;
+            right: -150px;
+        }
+
+        .grail .center {
+            width: 100%;
+            background: cyan;
+        }
+
+        /* flex 布局 */
+        .flex {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flex .left,
+        .flex .right,
+        .flex .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flex .left {
+            width: 200px;
+            background-color: yellow;
+            order: 1;
+        }
+
+        .flex .right {
+            width: 150px;
+            background-color: cyan;
+            order: 3;
+        }
+
+        .flex .center {
+            flex-grow: 1;
+            background: #ccc;
+            order: 2;
+        }
+
+        /* 非核心代码 */
+        header,
         footer {
-            clear: both;
-            background: plum;
+            border: 1px solid #ccc;
+            padding: 10px;
         }
     </style>
 </head>
+
 <body>
-    <header>woshi header</header>
-    <main>
+    <header>i am header</header>
+    <main class="sfy">
         <div class="center">
             <div>center</div>
         </div>
         <div class="left">
-            <div>圣杯布局</div>
-            <div>圣杯布局</div>
-            <div>圣杯布局</div>
-            <div>圣杯布局</div>
-            <div>圣杯布局</div>
-            <div>圣杯布局</div>
-            <div>圣杯布局</div>
-            <div>圣杯布局</div>
+            <div>双飞翼布局</div>
+            <div>双飞翼布局</div>
+            <div>双飞翼布局</div>
+            <div>双飞翼布局</div>
+            <div>双飞翼布局</div>
+            <div>双飞翼布局</div>
+            <div>双飞翼布局</div>
+            <div>双飞翼布局</div>
         </div>
-        <div class="right">right</div>
+        <div class="right">
+            <p>right</p>
+            <p>right</p>
+        </div>
     </main>
-    <footer>woshi footer</footer>
+    <footer>i am footer</footer>
+    <main class="grail">
+        <section class="center">
+            <p>center</p>
+            <p>center</p>
+            <p>center</p>
+            <p>圣杯布局</p>
+            <p>圣杯布局</p>
+            <p>圣杯布局</p>
+            <p>圣杯布局</p>
+        </section>
+        <section class="left">left</section>
+        <section class="right">right</section>
+    </main>
+    <p>分界线</p>
+    <main class="flex">
+        <section class="center">
+            <div>
+                <p>center</p>
+                <p>flex布局</p>
+                <p>flex布局</p>
+                <p>flex布局</p>
+                <p>flex布局</p>
+            </div>
+        </section>
+        <section class="left">
+            <div>
+                left
+            </div>
+        </section>
+        <section class="right">
+            <div>right</div>
+        </section>
+
+    </main>
 </body>
+
 </html>
