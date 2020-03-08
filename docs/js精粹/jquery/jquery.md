@@ -17,7 +17,7 @@ var jquery = (function(window, undefined){
         // fn 是 prototype 的简写，由下面定义
         // jquery.fn == jquery.prototype == jquery.fn.init.prototype
         // jquery.fn.init == jquery
-        // 这样就可以在使用jQuery的时候不使用 new 方法就能拿到 jQuery的构造函数
+        // 这样就可以在使用jQuery的时候不使用 new 方法就能拿到 jQuery原型链上的所有方法
         return new jquery.fn.init(selector, context, rootjQuery);  // jQuery
     }
     // 在这里重写自己的原型链
@@ -81,8 +81,39 @@ var obj = {
 
 obj.a().b()
 
-// 位运算
+// on / live 实现方法
+function live(targetObj, type, fn){
+    document.onclick = function(event){
+        var e = event || window.event
+        // 解决浏览器兼容问题 IE e.sreElement   FF/chrome  e.target
+        var target = e.srcElement || e.target
+        if(e.type == type && target.tagName.toLocaleLowerCase() == targetObj){
+            // 如果元素类型和事件类型同事匹配则执行函数
+            fn()
+        }
+    }
+}
+$('.test').append('<div class="tt">tttt</div>')
+live("div", 'click', function(){
+    console.log(1111, 'hello tt')
+})
 
+// 短路表达式(快，方便)
+var c = a && b
+var c = a || b 
+
+// 字符串的妙用
+core_version='1.9.11'
+core_trim = core_version.trim
+jquery = {
+    trim: function(data){
+        // return String.prototype.trim.call(data)
+        return core_trim.call(data)
+    }
+}
+
+
+// 位运算
 var a = [1, 3, 5]
 
 var len = a.length >>> 0 ;  // 位运算，加快运算速度
@@ -98,28 +129,55 @@ var obj = {  // 这种完全能替代 switch
 obj[s] && obj[s]()
 
 
-// ready
+// ready 的实现方式
 
 $.ready(function(){
 
 })
 
 // 实现
-document.addEventListener('DOMContentloaded')
-
-// IE 6 里面
-
-(function(){
-    function IEContentLoaded(){
+var $.ready = window.ready = function(fn){
+    if(document.addEventListener){ // 兼容 IE
+        document.addEventListener("DOMContentLoaded", function(){
+            // 销毁事件避免重复触发
+            document.removeEventListener("DOMContentLoaded", arguments.callee, fase)
+            fn()
+        }, false)
+    }
+    else if(document.attachEvent) {
+        IEContentLoaded(window, fn)
+    }
+    // IE 6 里面
+    function IEContentLoaded(w, fn){
+        var d = w.document,
+            done = false,
+            init = function(){
+                if(!done){
+                    done = true
+                    fn()
+                }
+            }
+        // polling for no errors
         (function(){
             try{
-                document.documentElement.doScoll('left')
+                // 如果没有加载完成会报错
+                d.documentElement.doScoll('left')
             }catch(err){
-                setTimeout(arguments.callee, 50)
+                setTimeout(arguments.callee, 50);
+                return;
             }
-        })
+            init()
+        })();
+        d.onreadstatechange = function(){
+            if(d.readyState == 'complete'){
+                d.onreadystatechange = null
+                init()
+            }
+        }
     }
-})
+}
+
+
 
 
 ```

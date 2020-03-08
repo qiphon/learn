@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery方法举例</title>
+</head>
+
+<body>
+    <div class="test"></div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        // jquery.extend 和 jquery.fn.extend
+        $.fn.extend({
+            test: function () {
+                // 这里的this 指的是jQuery选中的元素
+                console.log(this, 'hello test')
+            }
+        })
+        // $('.test').test()
+
+        $.extend({
+            test: function () {
+                console.log('test fn')
+            }
+        })
+        // $.test()
+
+        // live方法
+        function live(targetObj, type, fn) {
+            document.onclick = function (event) {
+                var e = event || window.event
+                // 解决浏览器兼容问题 IE e.sreElement   FF/chrome  e.target
+                var target = e.srcElement || e.target
+                if (e.type == type && target.tagName.toLocaleLowerCase() == targetObj) {
+                    // 如果元素类型和事件类型同事匹配则执行函数
+                    fn()
+                }
+            }
+        }
+        $('.test').append('<div class="tt">tttt</div>')
+        // live("div", 'click', function(){
+        //     console.log(1111, 'hello tt')
+        // })
+
+        // jQuery中函数的重写
+        function addMethod(obj, name, fn) {
+            var old = obj[name];  // 上一次的函数值
+            obj[name] = function () {
+                // fn.length  函数参数的个数
+                if (fn.length === arguments.length) {
+                    return fn.apply(this, arguments)
+                }
+                else if (typeof old === 'function') {
+                    return old.apply(this, arguments)
+                }
+            }
+        }
+        var people = ['a', 'b', 'c']
+
+        addMethod(people, 'find', function () {
+            return this
+        })
+        addMethod(people, 'find', function (first, sec) {
+            return 2
+        })
+        addMethod(people, 'find', function (first) {
+            return 1
+        })
+
+        console.log(people.find('aaa'))
+
+
+    </script>
+</body>
+
+</html>

@@ -25,5 +25,6 @@
   "devDependencies": {
     "vuepress": "^1.0.3"
   },
-  "dependencies": {}
+  "dependencies": {
+  }
 }
