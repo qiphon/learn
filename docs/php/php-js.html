@@ -5,17 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>php 与 js 在面向对象中的区别 | 齐枫的博客</title>
     <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
     <link rel="icon" href="/favorite.ico">
     
-    <link rel="preload" href="/assets/css/0.styles.616a884d.css" as="style"><link rel="preload" href="/assets/js/app.78323bc6.js" as="script"><link rel="preload" href="/assets/js/2.1912c149.js" as="script"><link rel="preload" href="/assets/js/33.503ba17c.js" as="script"><link rel="prefetch" href="/assets/js/10.4ff041db.js"><link rel="prefetch" href="/assets/js/11.8fb4a47f.js"><link rel="prefetch" href="/assets/js/12.01a279d3.js"><link rel="prefetch" href="/assets/js/13.57d0dbfb.js"><link rel="prefetch" href="/assets/js/14.038a7a8a.js"><link rel="prefetch" href="/assets/js/15.ad58a653.js"><link rel="prefetch" href="/assets/js/16.c05ae24d.js"><link rel="prefetch" href="/assets/js/17.7f6480d2.js"><link rel="prefetch" href="/assets/js/18.bd8b9248.js"><link rel="prefetch" href="/assets/js/19.43117a7b.js"><link rel="prefetch" href="/assets/js/20.0805792b.js"><link rel="prefetch" href="/assets/js/21.06b9e042.js"><link rel="prefetch" href="/assets/js/22.3ae54880.js"><link rel="prefetch" href="/assets/js/23.76232155.js"><link rel="prefetch" href="/assets/js/24.6a1ac1b5.js"><link rel="prefetch" href="/assets/js/25.3da5c52a.js"><link rel="prefetch" href="/assets/js/26.4a88c120.js"><link rel="prefetch" href="/assets/js/27.3bd19637.js"><link rel="prefetch" href="/assets/js/28.81f05eb3.js"><link rel="prefetch" href="/assets/js/29.9f486d99.js"><link rel="prefetch" href="/assets/js/3.a35587a2.js"><link rel="prefetch" href="/assets/js/30.0a730c28.js"><link rel="prefetch" href="/assets/js/31.b955216f.js"><link rel="prefetch" href="/assets/js/32.748275e3.js"><link rel="prefetch" href="/assets/js/34.64a0eb3e.js"><link rel="prefetch" href="/assets/js/35.f9c5edf5.js"><link rel="prefetch" href="/assets/js/36.01e8b3e4.js"><link rel="prefetch" href="/assets/js/37.88fb077b.js"><link rel="prefetch" href="/assets/js/38.01b2a6f2.js"><link rel="prefetch" href="/assets/js/39.24042d2a.js"><link rel="prefetch" href="/assets/js/4.4465aee6.js"><link rel="prefetch" href="/assets/js/40.c62e01eb.js"><link rel="prefetch" href="/assets/js/41.946ab49a.js"><link rel="prefetch" href="/assets/js/5.85e4d099.js"><link rel="prefetch" href="/assets/js/6.71d703ba.js"><link rel="prefetch" href="/assets/js/7.27038a92.js"><link rel="prefetch" href="/assets/js/8.06e44207.js"><link rel="prefetch" href="/assets/js/9.a902e01f.js">
-    <link rel="stylesheet" href="/assets/css/0.styles.616a884d.css">
+    <link rel="preload" href="/assets/css/0.styles.24d7f512.css" as="style"><link rel="preload" href="/assets/js/app.b0eb3964.js" as="script"><link rel="preload" href="/assets/js/2.5b4fc981.js" as="script"><link rel="preload" href="/assets/js/56.3d92c7de.js" as="script"><link rel="prefetch" href="/assets/js/10.7c58a177.js"><link rel="prefetch" href="/assets/js/11.12268607.js"><link rel="prefetch" href="/assets/js/12.4d732aae.js"><link rel="prefetch" href="/assets/js/13.118326bf.js"><link rel="prefetch" href="/assets/js/14.71ec3c19.js"><link rel="prefetch" href="/assets/js/15.d5256998.js"><link rel="prefetch" href="/assets/js/16.4cbc4b9a.js"><link rel="prefetch" href="/assets/js/17.5bbca35c.js"><link rel="prefetch" href="/assets/js/18.691cb3d5.js"><link rel="prefetch" href="/assets/js/19.30616c77.js"><link rel="prefetch" href="/assets/js/20.5e7a6d5f.js"><link rel="prefetch" href="/assets/js/21.3746192c.js"><link rel="prefetch" href="/assets/js/22.b4fcd892.js"><link rel="prefetch" href="/assets/js/23.b0a13b51.js"><link rel="prefetch" href="/assets/js/24.3fb416ae.js"><link rel="prefetch" href="/assets/js/25.9acec76c.js"><link rel="prefetch" href="/assets/js/26.a2815f7a.js"><link rel="prefetch" href="/assets/js/27.99c47862.js"><link rel="prefetch" href="/assets/js/28.9df86ca9.js"><link rel="prefetch" href="/assets/js/29.bc43458b.js"><link rel="prefetch" href="/assets/js/3.91063671.js"><link rel="prefetch" href="/assets/js/30.bb4c4f8e.js"><link rel="prefetch" href="/assets/js/31.5b64a58e.js"><link rel="prefetch" href="/assets/js/32.ab1afdfc.js"><link rel="prefetch" href="/assets/js/33.8490fb7d.js"><link rel="prefetch" href="/assets/js/34.a412950c.js"><link rel="prefetch" href="/assets/js/35.977c3095.js"><link rel="prefetch" href="/assets/js/36.d64e67ac.js"><link rel="prefetch" href="/assets/js/37.fe5a26b0.js"><link rel="prefetch" href="/assets/js/38.8bf5c8d4.js"><link rel="prefetch" href="/assets/js/39.1fe9a851.js"><link rel="prefetch" href="/assets/js/4.8d973372.js"><link rel="prefetch" href="/assets/js/40.612a0cf6.js"><link rel="prefetch" href="/assets/js/41.58657c09.js"><link rel="prefetch" href="/assets/js/42.2dd712cb.js"><link rel="prefetch" href="/assets/js/43.e7a9595d.js"><link rel="prefetch" href="/assets/js/44.7c599225.js"><link rel="prefetch" href="/assets/js/45.f1aec321.js"><link rel="prefetch" href="/assets/js/46.987ae21f.js"><link rel="prefetch" href="/assets/js/47.df2fef60.js"><link rel="prefetch" href="/assets/js/48.4b66aa3e.js"><link rel="prefetch" href="/assets/js/49.19adbf71.js"><link rel="prefetch" href="/assets/js/5.59c0e76d.js"><link rel="prefetch" href="/assets/js/50.e7e209f5.js"><link rel="prefetch" href="/assets/js/51.af8ed83e.js"><link rel="prefetch" href="/assets/js/52.8f03c559.js"><link rel="prefetch" href="/assets/js/53.fce1f8b2.js"><link rel="prefetch" href="/assets/js/54.9ca1f099.js"><link rel="prefetch" href="/assets/js/55.b4f7197d.js"><link rel="prefetch" href="/assets/js/57.ba6fa10f.js"><link rel="prefetch" href="/assets/js/58.2cfbb2cb.js"><link rel="prefetch" href="/assets/js/59.ec26468a.js"><link rel="prefetch" href="/assets/js/6.fce19313.js"><link rel="prefetch" href="/assets/js/60.9753e691.js"><link rel="prefetch" href="/assets/js/61.a3bc1a16.js"><link rel="prefetch" href="/assets/js/62.783e5a7f.js"><link rel="prefetch" href="/assets/js/63.11a96236.js"><link rel="prefetch" href="/assets/js/64.8e9a47d0.js"><link rel="prefetch" href="/assets/js/65.11696e34.js"><link rel="prefetch" href="/assets/js/66.fc8ad32b.js"><link rel="prefetch" href="/assets/js/67.f21c4e19.js"><link rel="prefetch" href="/assets/js/7.4189b601.js"><link rel="prefetch" href="/assets/js/8.b3d7054f.js"><link rel="prefetch" href="/assets/js/9.a6047eaa.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.24d7f512.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">齐枫的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">齐枫的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于我
+</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
     查看源码
-    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">关于我</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于我
+</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
     查看源码
-    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>php 与 js 在面向对象中的区别</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="php-与-js-在面向对象中的区别"><a href="#php-与-js-在面向对象中的区别" aria-hidden="true" class="header-anchor">#</a> php 与 js 在面向对象中的区别</h1> <ol><li>construct</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>// php 中的class有construct；es5中的类是用function实现的，并没有见到construct。
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>php 与 js 在面向对象中的区别</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="php-与-js-在面向对象中的区别"><a href="#php-与-js-在面向对象中的区别" class="header-anchor">#</a> php 与 js 在面向对象中的区别</h1> <ol><li>construct</li></ol> <div class="language-php line-numbers-mode"><pre class="language-php"><code>// php 中的class有construct；es5中的类是用function实现的，并没有见到construct。
 
 function Car(){
     console.log('在实例化的时候我就被执行了');
@@ -24,75 +33,75 @@ var a = new Car();
 
 // __construct 在实例化的时候会被执行，其他代码没有被执行
 
-&lt;?php
-header(&quot;content-type: text/html; charset=utf-8;&quot;);
-class Car {
-    public function __construct($name)
-    {
-        echo '实例化的时候，我被执行';
-        echo '&lt;br&gt;';
-        $this-&gt;name = $name;
-    }
-    public function test()
-    {
-        echo '我没有被执行';
-        echo '&lt;br&gt;';
-    }
-    public function __destruct()
-    {   // 这个函数每当触发这个类都会被执行
-        echo '__destruct 最后被执行';
-        echo '&lt;br&gt;';
-    }
-}
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;content-type: text/html; charset=utf-8;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token single-quoted-string string">'实例化的时候，我被执行'</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span> <span class="token operator">=</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token single-quoted-string string">'我没有被执行'</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>   <span class="token comment">// 这个函数每当触发这个类都会被执行</span>
+        <span class="token keyword">echo</span> <span class="token single-quoted-string string">'__destruct 最后被执行'</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;br&gt;'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-$c = new Car('c');
+<span class="token variable">$c</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-// js 的function 在实例化的时候,里面所有的代码就会被执行一遍
-function Car(name){
-    this.name = name;
-    document.querySelector('body').style.backgroundColor = 'red'
-}
-var c = new Car('c')
+<span class="token comment">// js 的function 在实例化的时候,里面所有的代码就会被执行一遍</span>
+<span class="token keyword">function</span> <span class="token function">Car</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    this<span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token single-quoted-string string">'red'</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'c'</span><span class="token punctuation">)</span>
 
-// 我们会在控制台看到如下信息
+<span class="token comment">// 我们会在控制台看到如下信息</span>
 
-Car {name: &quot;c&quot;}
-name: &quot;c&quot;
-__proto__:
-constructor: ƒ Car(name)
-__proto__: Object   // js 的继承是原型链继承，所有方法和类的根 __proto__ 都指向object
+Car <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token double-quoted-string string">&quot;c&quot;</span><span class="token punctuation">}</span>
+name<span class="token punctuation">:</span> <span class="token double-quoted-string string">&quot;c&quot;</span>
+__proto__<span class="token punctuation">:</span>
+constructor<span class="token punctuation">:</span> ƒ <span class="token function">Car</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+__proto__<span class="token punctuation">:</span> Object   <span class="token comment">// js 的继承是原型链继承，所有方法和类的根 __proto__ 都指向object</span>
 
-// 还用上面的例子， js中所有的方法都挂载在原型链上
-function Car(name){
-    this.name = name;
-}
-Car.prototype.run = function(){
-    console.log(this.name + ' is run')
-}
-var c = new Car('c')
+<span class="token comment">// 还用上面的例子， js中所有的方法都挂载在原型链上</span>
+<span class="token keyword">function</span> <span class="token function">Car</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    this<span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+Car<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>run <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>this<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token single-quoted-string string">' is run'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'c'</span><span class="token punctuation">)</span>
 
 
-// js中继承的实现
-function Car(name){
-    this.name = name;
-}
-Car.prototype.run = function(){
-    console.log(this.name + ' is run')
-}
-// var c = new Car('c')
-function B(name){
-    Car.call(this, name);  // 这样属性就会被复制过来了
-}
+<span class="token comment">// js中继承的实现</span>
+<span class="token keyword">function</span> <span class="token function">Car</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    this<span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+Car<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>run <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>this<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token single-quoted-string string">' is run'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// var c = new Car('c')</span>
+<span class="token keyword">function</span> <span class="token function">B</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    Car<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>this<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 这样属性就会被复制过来了</span>
+<span class="token punctuation">}</span>
 
-var __proto = Object.create(Car.prototype) // 这样就能拿到 car的所有方法，但是我们不能直接将他赋值给B，因为它的constructor 还是Car
-__proto.constructor = B;  // 手动改变构造器，这样就能为我们所用了,只有构造器是自己了，方法中的this才能转过来
-B.prototype = __proto;
-B.prototype.action = function(){
-    console.log(this.name + ' action')
-}
-var b = new B('b')
+<span class="token keyword">var</span> __proto <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>Car<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span> <span class="token comment">// 这样就能拿到 car的所有方法，但是我们不能直接将他赋值给B，因为它的constructor 还是Car</span>
+__proto<span class="token punctuation">.</span>constructor <span class="token operator">=</span> <span class="token constant">B</span><span class="token punctuation">;</span>  <span class="token comment">// 手动改变构造器，这样就能为我们所用了,只有构造器是自己了，方法中的this才能转过来</span>
+<span class="token constant">B</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> __proto<span class="token punctuation">;</span>
+<span class="token constant">B</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>action <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>this<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token single-quoted-string string">' action'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'b'</span><span class="token punctuation">)</span>
 
-</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">8/19/2019, 12:28:22 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.78323bc6.js" defer></script><script src="/assets/js/2.1912c149.js" defer></script><script src="/assets/js/33.503ba17c.js" defer></script>
+</span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2/15/2020, 3:36:17 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b0eb3964.js" defer></script><script src="/assets/js/2.5b4fc981.js" defer></script><script src="/assets/js/56.3d92c7de.js" defer></script>
   </body>
 </html>

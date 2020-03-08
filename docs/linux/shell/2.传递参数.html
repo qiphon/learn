@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>shell 传递参数 | 齐枫的博客</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="icon" href="/favorite.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.24d7f512.css" as="style"><link rel="preload" href="/assets/js/app.b0eb3964.js" as="script"><link rel="preload" href="/assets/js/2.5b4fc981.js" as="script"><link rel="preload" href="/assets/js/49.19adbf71.js" as="script"><link rel="prefetch" href="/assets/js/10.7c58a177.js"><link rel="prefetch" href="/assets/js/11.12268607.js"><link rel="prefetch" href="/assets/js/12.4d732aae.js"><link rel="prefetch" href="/assets/js/13.118326bf.js"><link rel="prefetch" href="/assets/js/14.71ec3c19.js"><link rel="prefetch" href="/assets/js/15.d5256998.js"><link rel="prefetch" href="/assets/js/16.4cbc4b9a.js"><link rel="prefetch" href="/assets/js/17.5bbca35c.js"><link rel="prefetch" href="/assets/js/18.691cb3d5.js"><link rel="prefetch" href="/assets/js/19.30616c77.js"><link rel="prefetch" href="/assets/js/20.5e7a6d5f.js"><link rel="prefetch" href="/assets/js/21.3746192c.js"><link rel="prefetch" href="/assets/js/22.b4fcd892.js"><link rel="prefetch" href="/assets/js/23.b0a13b51.js"><link rel="prefetch" href="/assets/js/24.3fb416ae.js"><link rel="prefetch" href="/assets/js/25.9acec76c.js"><link rel="prefetch" href="/assets/js/26.a2815f7a.js"><link rel="prefetch" href="/assets/js/27.99c47862.js"><link rel="prefetch" href="/assets/js/28.9df86ca9.js"><link rel="prefetch" href="/assets/js/29.bc43458b.js"><link rel="prefetch" href="/assets/js/3.91063671.js"><link rel="prefetch" href="/assets/js/30.bb4c4f8e.js"><link rel="prefetch" href="/assets/js/31.5b64a58e.js"><link rel="prefetch" href="/assets/js/32.ab1afdfc.js"><link rel="prefetch" href="/assets/js/33.8490fb7d.js"><link rel="prefetch" href="/assets/js/34.a412950c.js"><link rel="prefetch" href="/assets/js/35.977c3095.js"><link rel="prefetch" href="/assets/js/36.d64e67ac.js"><link rel="prefetch" href="/assets/js/37.fe5a26b0.js"><link rel="prefetch" href="/assets/js/38.8bf5c8d4.js"><link rel="prefetch" href="/assets/js/39.1fe9a851.js"><link rel="prefetch" href="/assets/js/4.8d973372.js"><link rel="prefetch" href="/assets/js/40.612a0cf6.js"><link rel="prefetch" href="/assets/js/41.58657c09.js"><link rel="prefetch" href="/assets/js/42.2dd712cb.js"><link rel="prefetch" href="/assets/js/43.e7a9595d.js"><link rel="prefetch" href="/assets/js/44.7c599225.js"><link rel="prefetch" href="/assets/js/45.f1aec321.js"><link rel="prefetch" href="/assets/js/46.987ae21f.js"><link rel="prefetch" href="/assets/js/47.df2fef60.js"><link rel="prefetch" href="/assets/js/48.4b66aa3e.js"><link rel="prefetch" href="/assets/js/5.59c0e76d.js"><link rel="prefetch" href="/assets/js/50.e7e209f5.js"><link rel="prefetch" href="/assets/js/51.af8ed83e.js"><link rel="prefetch" href="/assets/js/52.8f03c559.js"><link rel="prefetch" href="/assets/js/53.fce1f8b2.js"><link rel="prefetch" href="/assets/js/54.9ca1f099.js"><link rel="prefetch" href="/assets/js/55.b4f7197d.js"><link rel="prefetch" href="/assets/js/56.3d92c7de.js"><link rel="prefetch" href="/assets/js/57.ba6fa10f.js"><link rel="prefetch" href="/assets/js/58.2cfbb2cb.js"><link rel="prefetch" href="/assets/js/59.ec26468a.js"><link rel="prefetch" href="/assets/js/6.fce19313.js"><link rel="prefetch" href="/assets/js/60.9753e691.js"><link rel="prefetch" href="/assets/js/61.a3bc1a16.js"><link rel="prefetch" href="/assets/js/62.783e5a7f.js"><link rel="prefetch" href="/assets/js/63.11a96236.js"><link rel="prefetch" href="/assets/js/64.8e9a47d0.js"><link rel="prefetch" href="/assets/js/65.11696e34.js"><link rel="prefetch" href="/assets/js/66.fc8ad32b.js"><link rel="prefetch" href="/assets/js/67.f21c4e19.js"><link rel="prefetch" href="/assets/js/7.4189b601.js"><link rel="prefetch" href="/assets/js/8.b3d7054f.js"><link rel="prefetch" href="/assets/js/9.a6047eaa.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.24d7f512.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">齐枫的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于我
+</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于我
+</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>shell 传递参数</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="shell-传递参数"><a href="#shell-传递参数" class="header-anchor">#</a> shell 传递参数</h1> <p>当我们在执行命令的时候，总是想在命令后添加自己要的参数，然后根据参数做不同的操作，这也为我们的开发变得更顺畅</p> <table><thead><tr><th>参数</th> <th>说明</th></tr></thead> <tbody><tr><td>$0</td> <td>运行的命令</td></tr> <tr><td>$1</td> <td>第一个传递的参数</td></tr> <tr><td>$#</td> <td>传递参数个数</td></tr> <tr><td>$$</td> <td>脚本运行的当前进程的 id</td></tr> <tr><td>$!</td> <td>后台运行的最后一个进程的ID号         Mac 不支持</td></tr> <tr><td>$*</td> <td>以一个单字符串显示所有向脚本传递的参数</td></tr> <tr><td>$@</td> <td>与$*相同，但是使用时加引号，并在引号中返回每个参数。</td></tr> <tr><td>$-</td> <td>显示Shell使用的当前选项，与set命令功能相同</td></tr> <tr><td>$?</td> <td>显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</td></tr></tbody></table> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token comment"># test.sh</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$0</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$1</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$2</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$3</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$#</span>  <span class="token comment"># 传递参数个数</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$$</span>  <span class="token comment"># 脚本运行的当前进程的 id</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$!</span>  <span class="token comment"># 后台运行的最后一个进程的ID号         Mac 不支持</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$*</span>  <span class="token comment"># 以一个单字符串显示所有向脚本传递的参数</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$@</span>  <span class="token comment"># 与$*相同，但是使用时加引号，并在引号中返回每个参数。</span>
+<span class="token builtin class-name">echo</span> $-  <span class="token comment"># 显示Shell使用的当前选项，与set命令功能相同</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$?</span>  <span class="token comment"># 显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</span>
+
+<span class="token comment"># 输出结果如下</span>
+<span class="token comment"># ./bash/dev.sh  第0个参数   </span>
+<span class="token comment"># 1</span>
+<span class="token comment"># 2</span>
+<span class="token comment"># 3</span>
+<span class="token comment"># 3            传递的参数个数</span>
+<span class="token comment"># 65789              </span>
+
+<span class="token comment"># 1 2 3</span>
+<span class="token comment"># 1 2 3</span>
+<span class="token comment"># hB</span>
+<span class="token comment"># 0</span>
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p>$* 与 $@ 的区别：</p> <ul><li>相同点：都是引用所有参数</li> <li>不同点：只有在双引号中体现出来。假设在脚本运行时写了三个参数 1、2、3，，则 &quot; * &quot; 等价于 &quot;1 2 3&quot;（传递了一个参数），而 &quot;@&quot; 等价于 &quot;1&quot; &quot;2&quot; &quot;3&quot;（传递了三个参数）。</li></ul> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;-- \<span class="token variable">$*</span> 演示 ---&quot;</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token string">&quot;<span class="token variable">$*</span>&quot;</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token keyword">done</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;-- \<span class="token variable">$@</span> 演示 ---&quot;</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token string">&quot;<span class="token variable">$@</span>&quot;</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token keyword">done</span>
+
+<span class="token comment"># -- $* 演示 ---</span>
+<span class="token comment"># 1 2 3</span>
+<span class="token comment"># -- $@ 演示 ---</span>
+<span class="token comment"># 1</span>
+<span class="token comment"># 2</span>
+<span class="token comment"># 3</span>
+<span class="token comment">#</span>
+
+<span class="token comment"># 当参数中含有空格的时候要用引号将参数包裹起来</span>
+<span class="token comment"># ./bash/dev.sh '1 2 3'</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h3 id="shell-中的中括号用法总结"><a href="#shell-中的中括号用法总结" class="header-anchor">#</a> shell <a href="https://www.runoob.com/w3cnote/shell-summary-brackets.html" target="_blank" rel="noopener noreferrer">中的中括号用法总结<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></h3> <table><thead><tr><th>操作符</th> <th>说明</th></tr></thead> <tbody><tr><td>-gt</td> <td>大于</td></tr> <tr><td>-lt</td> <td>小于</td></tr> <tr><td>-ge</td> <td>大于或等于</td></tr> <tr><td>-le</td> <td>小于或等于</td></tr> <tr><td>-eq</td> <td>等于</td></tr> <tr><td>-ne</td> <td>返回 布尔值</td></tr> <tr><td>[ -f $file_var ]</td> <td>变量 $file_var 是一个正常的文件路径或文件名 (file)，则返回真</td></tr> <tr><td>[ -x $var ]</td> <td>变量 $var 包含的文件可执行 (execute)，则返回真</td></tr> <tr><td>[ -d $var ]</td> <td>变量 $var 包含的文件是目录 (directory)，则返回真</td></tr> <tr><td>[ -e $var ]</td> <td>变量 $var 包含的文件存在 (exist)，则返回真</td></tr> <tr><td>[ -c $var ]</td> <td>变量 $var 包含的文件是一个字符设备文件的路径 (character)，则返回真</td></tr> <tr><td>[ -b $var ]</td> <td>变量 $var 包含的文件是一个块设备文件的路径 (block)，则返回真</td></tr> <tr><td>[ -w $var ]</td> <td>变量 $var 包含的文件可写(write)，则返回真</td></tr> <tr><td>[ -r $var ]</td> <td>变量 $var 包含的文件可读 (read)，则返回真</td></tr> <tr><td>[ -L $var ]</td> <td>变量 $var 包含是一个符号链接 (link)，则返回真</td></tr></tbody></table> <ul><li>算术比较, 比如一个变量是否为0, [ $var -eq 0 ]。</li> <li>文件属性测试，比如一个文件是否存在，[ -e $var ], 是否是目录，[ -d $var ]。</li> <li>字符串比较, 比如两个字符串是否相同， [[ $var1 = $var2 ]]。</li></ul> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>
+<span class="token assign-left variable">ss</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">c</span><span class="token operator">=</span>aa
+<span class="token assign-left variable">d</span><span class="token operator">=</span>bb
+<span class="token assign-left variable">e</span><span class="token operator">=</span>aa
+<span class="token builtin class-name">echo</span> --<span class="token variable">$ss</span> <span class="token operator">==</span> <span class="token number">0</span>---
+<span class="token keyword">if</span> <span class="token variable"><span class="token variable">`</span><span class="token punctuation">[</span> $ss -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token variable">`</span></span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token builtin class-name">echo</span> <span class="token number">111</span>
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">echo</span> --<span class="token variable">$a</span> <span class="token operator">==</span> <span class="token number">0</span>---
+<span class="token keyword">if</span> <span class="token variable"><span class="token variable">`</span><span class="token punctuation">[</span> $a -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token variable">`</span></span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token builtin class-name">echo</span> <span class="token number">222</span>
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">echo</span> --<span class="token variable">$c</span> <span class="token operator">==</span> <span class="token variable">$e</span>---
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$c</span> <span class="token operator">=</span> <span class="token variable">$e</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token builtin class-name">echo</span> <span class="token assign-left variable">c</span><span class="token operator">=</span>e
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">echo</span> --<span class="token variable">$c</span> <span class="token operator">==</span> <span class="token variable">$d</span>---
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$c</span> <span class="token operator">=</span> <span class="token variable">$d</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+<span class="token builtin class-name">echo</span> <span class="token assign-left variable">c</span><span class="token operator">=</span>d
+<span class="token keyword">fi</span>
+
+<span class="token comment"># 结果如下</span>
+
+<span class="token comment"># --0 == 0---</span>
+<span class="token comment"># 111</span>
+<span class="token comment"># --1 == 0---</span>
+<span class="token comment"># --aa == aa---</span>
+<span class="token comment"># c=e</span>
+<span class="token comment"># --aa == bb---</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">11/18/2019, 11:58:40 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b0eb3964.js" defer></script><script src="/assets/js/2.5b4fc981.js" defer></script><script src="/assets/js/49.19adbf71.js" defer></script>
+  </body>
+</html>

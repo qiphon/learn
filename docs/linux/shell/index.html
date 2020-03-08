@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>shell 基础知识 | 齐枫的博客</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="icon" href="/favorite.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.24d7f512.css" as="style"><link rel="preload" href="/assets/js/app.b0eb3964.js" as="script"><link rel="preload" href="/assets/js/2.5b4fc981.js" as="script"><link rel="preload" href="/assets/js/53.fce1f8b2.js" as="script"><link rel="prefetch" href="/assets/js/10.7c58a177.js"><link rel="prefetch" href="/assets/js/11.12268607.js"><link rel="prefetch" href="/assets/js/12.4d732aae.js"><link rel="prefetch" href="/assets/js/13.118326bf.js"><link rel="prefetch" href="/assets/js/14.71ec3c19.js"><link rel="prefetch" href="/assets/js/15.d5256998.js"><link rel="prefetch" href="/assets/js/16.4cbc4b9a.js"><link rel="prefetch" href="/assets/js/17.5bbca35c.js"><link rel="prefetch" href="/assets/js/18.691cb3d5.js"><link rel="prefetch" href="/assets/js/19.30616c77.js"><link rel="prefetch" href="/assets/js/20.5e7a6d5f.js"><link rel="prefetch" href="/assets/js/21.3746192c.js"><link rel="prefetch" href="/assets/js/22.b4fcd892.js"><link rel="prefetch" href="/assets/js/23.b0a13b51.js"><link rel="prefetch" href="/assets/js/24.3fb416ae.js"><link rel="prefetch" href="/assets/js/25.9acec76c.js"><link rel="prefetch" href="/assets/js/26.a2815f7a.js"><link rel="prefetch" href="/assets/js/27.99c47862.js"><link rel="prefetch" href="/assets/js/28.9df86ca9.js"><link rel="prefetch" href="/assets/js/29.bc43458b.js"><link rel="prefetch" href="/assets/js/3.91063671.js"><link rel="prefetch" href="/assets/js/30.bb4c4f8e.js"><link rel="prefetch" href="/assets/js/31.5b64a58e.js"><link rel="prefetch" href="/assets/js/32.ab1afdfc.js"><link rel="prefetch" href="/assets/js/33.8490fb7d.js"><link rel="prefetch" href="/assets/js/34.a412950c.js"><link rel="prefetch" href="/assets/js/35.977c3095.js"><link rel="prefetch" href="/assets/js/36.d64e67ac.js"><link rel="prefetch" href="/assets/js/37.fe5a26b0.js"><link rel="prefetch" href="/assets/js/38.8bf5c8d4.js"><link rel="prefetch" href="/assets/js/39.1fe9a851.js"><link rel="prefetch" href="/assets/js/4.8d973372.js"><link rel="prefetch" href="/assets/js/40.612a0cf6.js"><link rel="prefetch" href="/assets/js/41.58657c09.js"><link rel="prefetch" href="/assets/js/42.2dd712cb.js"><link rel="prefetch" href="/assets/js/43.e7a9595d.js"><link rel="prefetch" href="/assets/js/44.7c599225.js"><link rel="prefetch" href="/assets/js/45.f1aec321.js"><link rel="prefetch" href="/assets/js/46.987ae21f.js"><link rel="prefetch" href="/assets/js/47.df2fef60.js"><link rel="prefetch" href="/assets/js/48.4b66aa3e.js"><link rel="prefetch" href="/assets/js/49.19adbf71.js"><link rel="prefetch" href="/assets/js/5.59c0e76d.js"><link rel="prefetch" href="/assets/js/50.e7e209f5.js"><link rel="prefetch" href="/assets/js/51.af8ed83e.js"><link rel="prefetch" href="/assets/js/52.8f03c559.js"><link rel="prefetch" href="/assets/js/54.9ca1f099.js"><link rel="prefetch" href="/assets/js/55.b4f7197d.js"><link rel="prefetch" href="/assets/js/56.3d92c7de.js"><link rel="prefetch" href="/assets/js/57.ba6fa10f.js"><link rel="prefetch" href="/assets/js/58.2cfbb2cb.js"><link rel="prefetch" href="/assets/js/59.ec26468a.js"><link rel="prefetch" href="/assets/js/6.fce19313.js"><link rel="prefetch" href="/assets/js/60.9753e691.js"><link rel="prefetch" href="/assets/js/61.a3bc1a16.js"><link rel="prefetch" href="/assets/js/62.783e5a7f.js"><link rel="prefetch" href="/assets/js/63.11a96236.js"><link rel="prefetch" href="/assets/js/64.8e9a47d0.js"><link rel="prefetch" href="/assets/js/65.11696e34.js"><link rel="prefetch" href="/assets/js/66.fc8ad32b.js"><link rel="prefetch" href="/assets/js/67.f21c4e19.js"><link rel="prefetch" href="/assets/js/7.4189b601.js"><link rel="prefetch" href="/assets/js/8.b3d7054f.js"><link rel="prefetch" href="/assets/js/9.a6047eaa.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.24d7f512.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">齐枫的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于我
+</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于我
+</a></div> <a href="https://github.com/qiphon/yd-learn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>shell 基础知识</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/docs/linux/shell/#shell-类型" class="sidebar-link">shell 类型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/linux/shell/#shell-文件在不同文件系统下的区别" class="sidebar-link">shell 文件在不同文件系统下的区别</a></li><li class="sidebar-sub-header"><a href="/docs/linux/shell/#运行-shell-的方法" class="sidebar-link">运行 shell 的方法</a></li></ul></li><li><a href="/docs/linux/shell/#shell-注释" class="sidebar-link">shell 注释</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="shell-基础知识"><a href="#shell-基础知识" class="header-anchor">#</a> shell 基础知识</h1> <h1 id="目录结构"><a href="#目录结构" class="header-anchor">#</a> 目录结构</h1> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>---
+<span class="token operator">|</span>
+<span class="token operator">|</span>---  <span class="token number">1</span>. 变量
+<span class="token operator">|</span>
+<span class="token operator">|</span>---  <span class="token number">2</span>. 传递参数
+<span class="token operator">|</span>
+<span class="token operator">|</span>---  <span class="token number">3</span>. 数组
+<span class="token operator">|</span>
+<span class="token operator">|</span>---  <span class="token number">4</span>. 运算符
+<span class="token operator">|</span>
+<span class="token operator">|</span>---  <span class="token number">5</span>. echo命令
+<span class="token operator">|</span>
+<span class="token operator">|</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><blockquote><p>shell 是 C 语言编写的程序，是用户操作 Linux 的桥梁。shell 既是一种命令语言，又是一种程序设计语言。
+为了避免同一套命令反复的认为操作的耗时，我们就可以使用 shell 编写好文件，每次执行指定文件即可，非常有利于我们的开发。</p></blockquote> <h2 id="shell-类型"><a href="#shell-类型" class="header-anchor">#</a> shell 类型</h2> <p>Linux下常见的 shell 有：</p> <ul><li><p>Bourne shell （/usr/bin 或 /bin/sh）</p></li> <li><p>Bourne Again Shell （/bin/bash）</p></li> <li><p>C Shell  (/usr/bin/csh)</p></li> <li><p>K Shell  (/usr/bin/ksh)</p></li> <li><p>Shell for Root  (/sbin/sh)</p></li></ul> <p>......</p> <p>由于易用和免费，Bash在日常生活中被广泛使用。同时，Bash 也是大多数Linux 默认的 shell。</p> <h3 id="shell-文件在不同文件系统下的区别"><a href="#shell-文件在不同文件系统下的区别" class="header-anchor">#</a> shell 文件在不同文件系统下的区别</h3> <p>windows 下以 .bat 结尾， Mac os 或 Linux 下面一般为 .sh 结尾</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>
+windows  shell.bat
+
+linux/mac os  shell.sh
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>第一个 shell 脚本</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># #号表示注释， #! 是一个约定标记，它告诉系统这个脚本需要什么来执行，即使用的是哪种类型的shell</span>
+<span class="token comment"># echo 用于向窗口输出 文本 内容</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;hello world&quot;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="运行-shell-的方法"><a href="#运行-shell-的方法" class="header-anchor">#</a> 运行 shell 的方法</h3> <ol><li>作为可执行程序</li></ol> <p>将 shell 代码保存为 .sh 结尾的文件，然后给这个文件添加执行权限 ，然后 shell 中输入 ./test.sh 就能执行这个文件了</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>
+<span class="token function">chmod</span> +x test.sh  <span class="token comment"># 给脚本执行权限</span>
+
+./test.sh  <span class="token comment"># 执行脚本</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><blockquote><p>注意，这里一定要写成 ./test.sh ,而不是 test.sh 。运行其他二进制的程序也一样 ，如果直接写 test.sh ,linux 系统会去 path 里面找有没有交 test.sh 的，只有 在 /bin, /sbin, /usr/bin, /usr/sbin等在 path 里，才能执行。</p></blockquote> <ol start="2"><li>作为解释器参数</li></ol> <p>这种方式运行的脚本，不需要在第一行指定解释器信息, 写了也没用用</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>
+/bin/sh test.sh
+
+/bin/php test.php
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="shell-注释"><a href="#shell-注释" class="header-anchor">#</a> shell 注释</h2> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token comment"># 单行注释，在每一行前面加 # 号</span>
+
+:<span class="token operator">&lt;&lt;</span><span class="token string">EOF
+这个是多行注释
+EOF</span> 是一个标志符号，可以用任何东西代替
+EOF
+
+:<span class="token operator">&lt;&lt;</span><span class="token string">qiphon
+    这个表示是我写的注释
+qiphon</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">11/20/2019, 9:04:35 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b0eb3964.js" defer></script><script src="/assets/js/2.5b4fc981.js" defer></script><script src="/assets/js/53.fce1f8b2.js" defer></script>
+  </body>
+</html>
