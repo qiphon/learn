@@ -9,17 +9,21 @@ jquery 现在依然是快速型页面中的王者
 // 为什么传入2个参数呢，因为在老的IE浏览器中 undefined 是可以被赋值的
 // 这样会干扰闭包内对undefined 的判定或使用，
 // 如果我们传入一个参数但是不传入第二个，那么这个参数肯定是undefined
+// window，减少window在作用域中的查找时间
 
 var jquery = (function(window, undefined){
-    var jquery = function () {
+    var jquery = function (selector, context) {
         // 把构造函数交给 jquery.fn.init
         // fn 是 prototype 的简写，由下面定义
-        return new jquery.fn.init();  // jQuery
+        // jquery.fn == jquery.prototype == jquery.fn.init.prototype
+        // jquery.fn.init == jquery
+        // 这样就可以在使用jQuery的时候不使用 new 方法就能拿到 jQuery的构造函数
+        return new jquery.fn.init(selector, context, rootjQuery);  // jQuery
     }
     // 在这里重写自己的原型链
     jquery.fn = jquery.prototype = {
-        init: function (){},
-        extend: function(){}
+        constructor: jquery,
+        init: function (selector, context, rootjQuery){}
     };
     // jquery 的 init 方法 指向 jQuery 自己，保证this指向正确
     // 把构造函数指定给init
