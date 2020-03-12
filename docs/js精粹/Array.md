@@ -12,6 +12,86 @@ Array.prototype.filter
 Array.prototype.reduce
 Array.prototype.reduceRight
 
+
+// forEach(js v1.6) 遍历数组中的每一项
+[1,2,3,4].forEach(function(item, index, array){
+    console.log('数组项', item, '索引')
+})
+// map(js v1.6) 处理数组中的所有值，并返回处理后的值，不影响原数组，返回的结果为新数组
+var users = [
+    {name: 'qiphon', email: '123@qq.com'},
+    {name: 'qiphon2', email: '1234@qq.com'},
+    {name: 'qiphon3', email: '1235@qq.com'},
+]
+users.map(function(user, index){
+    return user.email
+})
+
+// filter(js v1.6) 过滤数组中的元素，把返回true的汇集成新的数组
+[undefined, null, NaN, false, true, ''].filter(Boolean)  // [true]
+
+```
+```js
+// Array.isArray 这个直接写在了 Array 的构造器上，而不是 prototype 对象上。
+// Arrya.isArray 会按照你所期待的那样去做 —— 这是根据参数的[[Class]] 内部属性是否是
+// Array 返回 true 或 false
+Array.isArray('str')  // false
+Array.isArray(['yes']) // true
+
+// some(js v1.6) 找到数组中第一个符合要求的值后就不再执行了
+// 用来判断数组中是否存在符合要求的值， 返回 true or false
+[2,344,3].some(function(item){
+    return item > 5
+}) 
+// true
+
+// every(js v1.6) 匹配每一个元素，直到有一个返回false 为止
+[2,344,3].every(function(item){
+    return item > 5
+}) 
+// false
+
+// indexOf(value[, fromIndex]) (js v1.6) 方法可返回某个指定的字符串值在字符串中首次出现的位置。
+// 如果没有找到，返回 -1
+var str="Hello world!"
+document.write(str.indexOf("Hello") + "<br />")
+document.write(str.indexOf("World") + "<br />")
+document.write(str.indexOf("world"))
+// 0
+// -1
+// 6
+// str.lastIndexOf(searchValue[, fromIndex])  (js v1.6) 
+var str="Hello world!"
+console.log(str.lastIndexOf("Hello"))
+console.log(str.lastIndexOf("World"))
+console.log(str.lastIndexOf("world"))
+// 0
+// -1
+// 6
+
+// reduce (js v1.6) 从左到右为每个数组元素执行一次回调函数，并把上次回调函数的返回值放在一个暂存器中传给下次回调函数，并返回最后一次回调函数的返回值。
+// reduceRight (js v1.6)  从右到左为每个数组元素执行一次回调函数，并把上次回调函数的返回值放在一个暂存器中传给下次回调函数，并返回最后一次回调函数的返回值。
+// arr.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])
+var maxCallback = ( acc, cur ) => Math.max( acc.x, cur.x );
+var maxCallback2 = ( max, cur ) => Math.max( max, cur );
+
+// reduce() 没有初始值
+[ { x: 22 }, { x: 42 } ].reduce( maxCallback ); // 42
+[ { x: 22 }            ].reduce( maxCallback ); // { x: 22 }
+[                      ].reduce( maxCallback ); // TypeError
+
+// map/reduce; 这是更好的方案，即使传入空数组或更大数组也可正常执行
+[ { x: 22 }, { x: 42 } ].map( el => el.x )
+                        .reduce( maxCallback2, -Infinity );
+
+
+
+```
+
+在 ES3 中，唯一可靠的确定一个值是数组的方式就是使用 “the Miller Device”，即比对一个数组其内在的 `[[Class]]` 属性。
+
+```js
+Object.prototype.toString.apply(value) === '[object Array]'
 ```
 
 ### TypedArray

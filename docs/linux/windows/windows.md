@@ -25,3 +25,7 @@
 6. 改文件名  
 
 > rename 要改名的文件  新的文件名
+
+## windows 下的Linux 环境软件 [cygwin](http://www.cygwin.com)
+
+- select packages  --> full
