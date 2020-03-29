@@ -20,8 +20,30 @@
 
 ```html
 
-<!-- a网页 http://v1.qiphon.com, b网页 http://v2.qiphon.com, 那么只要设置相同的document.domain 2个网页就可以共享 cookie -->
-<!-- (没有实现。。。经过测试并不能实现) -->
+<!-- // 主页面 rm-dev.xiaositv.com:5500/index.html  -->
+<iframe src="http://dd.dev.xiaositv.com:5500/a.html" frameborder="0"></iframe>
+<script>
+    window.name=1234555
+    document.cookie = 'a=1;'
+    document.domain= 'xiaositv.com'
+    setTimeout(()=>{
+        $('.inspect').append("<div class='hide'>我是后追加进来的元素</div>")
+    }, 2000) 
+</script>
+
+<!-- iframe 页面 -->
+<body>
+    <div class="hide"></div>
+    我是 a
+
+    <script>
+        document.domain= 'xiaositv.com'
+        console.log(window.parent.sessionStorage.getItem('__Anubis'))
+        console.log(window.parent.document.cookie)
+    </script>
+</body>
+</html>
+
 ```
 
 另外，服务器也可以在设置 cookie 的时候指定 cookie 所属的域名为一级域名
@@ -29,7 +51,23 @@
 
 跨域的实现：
 
-- [postmessage (iframe, img)](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage) (postmessage 可以是iframe也可以是当前窗口打开的另一个窗口)
+- [postmessage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage) (postmessage 可以是iframe也可以是当前窗口打开的另一个窗口)
+    ```html
+
+        <!-- 主页面 -->
+        document.body.onclick= function(){
+            window.frames[0].postMessage({a: 1234}, '*')
+        }
+        <!-- // 子页面 -->
+        <script>
+        function receiveMessage(event) {
+            console.log(event.data,2222, event)
+            event.source.postMessage('ok')
+        }
+
+        window.addEventListener("message", receiveMessage, false);
+    </script>
+    ```
 
 - websocket
 
@@ -37,8 +75,9 @@
 
 - iframe
 
-    - 片段识别符 hash ，子窗口通过监听 hashchange 来展示不同内容
-    - window.name 无论是否同源，只要在同一个窗口里，前一个网页设置了这个属性，后一个网页就能获取到它
+- 片段识别符 hash ，子窗口通过监听 hashchange 来展示不同内容
+
+- [window.name](https://www.zhangxinxu.com/wordpress/2019/09/window-name/) 无论是否同源，只要在同一个窗口里，前一个网页设置了这个属性，后一个网页就能获取到它
 
 - script(jsonp) 标签
 
@@ -47,6 +86,9 @@
 - form
 
 - img（不在同源策略中）
+
+- Access-Control-Allow-Origin
+- server proxy
 
 ### html 语义化
 
