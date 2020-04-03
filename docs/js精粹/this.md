@@ -45,6 +45,16 @@ console.log(p.a)
 // prototype 中的属性 a 在原型链上，只有 p 对象属性中没有
 // a 的时候才能访问到原型链上的 a 属性
 
+
+// 一个特别的this
+'use strict'
+function a(){
+    console.log(this)
+}
+a()  // undefined
+
+setTimeout(a, 1)  // window
+
 ```
 
 更多 this 相关内容在练习题中

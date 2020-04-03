@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xss</title>
+    <style>
+        h1 {
+
+            /* IE */
+            /* background-color: expression( alert('123') );  */
+            background: url("javascript:alert('12')")
+        }
+
+        h1::after {
+            content: url( " alert('xss') ");
+        }
+    </style>
+</head>
+
+<body>
+    <h1>xss test</h1>
+</body>
+
+</html>

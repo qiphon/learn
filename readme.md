@@ -1,5 +1,33 @@
 # 我的前端学习笔记
 
+- 基础
+- 前端架构能力
+- 框架原理（webpack/vue2/vue3/react16.8+/ssr/redux/hooks/fiber）
+- 学历 
+- spa 、mpa 、spa + mpa 、 mpa -> spa
+- 前端工程化
+    - webpack gulp rollup tests CI/CD 代码缺陷检测 Linux  JS -> SHELL
+- 性能优化
+- css
+- 前端跨界（nwjs/electron/iot/flutter/reactNative/PWA）
+- C/C++ FOR Node 
+- webkit 原理
+- docker/k8s/deno/rust
+- 数据结构和算法
+- 前端图形学（游戏、数据可视化、3d、webrtc、web二进制）
+- 设计模式&黑客安全（xss、CSRF、web渗透、靶机）
+- 人工智能
+
+    ```js
+    {
+        function init(){}
+        init = 2 
+        console.log(typeof init)   // number
+    }
+    console.log(typeof init)    // function
+
+    ```
+
 - 前端为什么要懂后端
 
     - 对系统来讲，前后端都不是孤立的

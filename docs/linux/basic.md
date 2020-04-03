@@ -22,11 +22,11 @@ lib      |  存放跟文件系统中的程序运行所需要的共享库及内�
 lib64    |  大量以 .so 结尾的动态库
 mnt      |  系统管理员安装临时文件系统的安装点，系统提供这个目录是让用户临时挂载其他文件系统。在很久前，这个目录的用途与 /media 相同，只是有了 /media 之后，这个目录就用来暂时暂时挂载用了
 opt      |  额外安装的可选应用程序包所存放的位置。一般情况下，我们可以把 Tomcat 等都安装到这里（在以前的系统里，习惯放置在 /usr/local 目录下）。
-proc     |  虚拟文件系统目录，是系统内存的映射。可以直接访问这个目录来获取系统信息
+proc     |  虚拟文件系统目录，是系统内存的映射。可以直接访问这个目录来获取系统信息 process id 系统每启动一个进程就会有一个id
 run      |  。。。
 srv      |  srv 可以视为 service的缩写，是一些网络服务启动之后，这些服务所需要启用的资料目录。常见的服务例如 WWW，FTP等等。举例来说， WWW 伺服器需要网页资料就可以放置在 /srv/WWW/ 里面。
 tmp      |  用于存放各种临时文件，是公用的临时文件存储点。这是让一般使用者或者是正在执行的程序暂时放置档案的地方。这个目录是任何人都能够存取的，所以不能放置重要的资料。这里要定时清理下，FHS 甚至建议在开机时清空 /tmp
-var      |  用于存放运行时需要改变数据的文件，也是某些大文件的溢出区，比如各种服务的日志文件（系统启动日志）等
+var      |  用于存放运行时需要改变数据的文件，也是某些大文件的溢出区，比如各种服务的日志文件（系统启动日志 /var/log）等 
 lost+found| 这个目录平时是空的，系统非正常关机而留下的 ”无家可归“ 的文件 。（Windows 下叫 XXX.chk）
 usr      |  用于存放系统应用程序，这是最庞大的目录，要用到的应用程序和文件几乎都是在这个目录。
 usr/local|  本地系统管理员软件安装目录（安装系统级的应用）。
@@ -38,6 +38,58 @@ usr/man  |  帮助文档
 usr/src  |  源代码，Linux内核的源代码就放在 /usr/src/linux 里
 usr/local/bin | 本地增加的命令
 usr/local/lib |  本地增加的库
+
+### etc 配置目录（相当于Windows的注册表）
+
+- init.d  服务的启动脚本
+- rc0.d ~ rcs.d rc.local 系统启动时初始化的文件 （启动从0开始）
+- shadow   用户密码文件
+- passwd   当前操作系统下所有的用户
+- 网络配置路径  /etc/sysconfig/network-scripts
+    
+    - ip addr 命令解释
+    ip后面的 /8 等数字表示子网掩码
+    计算机最小的单位是字节，一个字节（byte）等于 8 bit（位）
+    32位为一个 int 位，
+    /8 表示 二进制的八个1，等于 255
+    /24 表示 二级制 24 个 1，转成10进制 就是 3个 255
+    ```
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    // lo 代表 localhost 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    // ipv4 本地回环地址   /8 表示 255.0.0.0   
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+    // ::1 表示 IPv6     /128 表示 FF::
+       valid_lft forever preferred_lft forever
+    2: enp2s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    // enp2s0  网卡名
+        link/ether b0:25:aa:21:d4:20 brd ff:ff:ff:ff:ff:ff
+    3: wlp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+        link/ether 10:f0:05:92:c2:c8 brd ff:ff:ff:ff:ff:ff
+        inet 192.168.1.10/24 brd 192.168.1.255 scope global noprefixroute dynamic wlp3s0
+        //   /24 表示 255.255.255.0
+           valid_lft 208927sec preferred_lft 208927sec
+        inet6 2409:8a00:3011:c0f0:8248:8c93:ce2b:a46c/64 scope global noprefixroute dynamic 
+           valid_lft 258924sec preferred_lft 172524sec
+        inet6 fe80::1ebb:7218:fdf0:b35d/64 scope link noprefixroute 
+           valid_lft forever preferred_lft forever
+   ```
+   - 网卡配置
+       - ONBOOT=yes  // 开机启动网卡
+       - IPADDR=192.168.9.9  // 自定义的本机网卡地址
+       - PREFIX=24   // 子网掩码
+       - GATEWAY=192.168.9.9   // 网关
+       - DNS=192168.9.9    // DNS 地址
+       - BOOTPROTO=none/dhcp    // 自动获取ip  (none/static 表示静态地址，可以手动设置上面的值)
+       - ifdow   // 关闭网卡
+       - ifup    // 开启网卡
+   - 0.0.0.0  、127.0.0.1 区别
+       - 网络服务必须由 ip:端口 组成 
+       - 0.0.0.0  表示所有网段都能访问计算机
+       - 127.0.0.1 表示只有本地计算机才能访问
+       - 192.168.×.*  表示局域网可以访问
 
 ## 区分登录用户是否是root
 
