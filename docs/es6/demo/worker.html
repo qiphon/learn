@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线程通信</title>
+</head>
+<body>
+    <script>
+        const worker = new Worker('./worker.js')
+        worker.postMessage('hello i am main')
+        worker.onmessage = ev => console.log(ev, ev.data)
+    </script>
+</body>
+</html>
