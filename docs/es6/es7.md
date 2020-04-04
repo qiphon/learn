@@ -240,13 +240,31 @@ onmessage= ev => {
  *  
  */
 // main.js
-const worker = new Worker('./worker.js')
-const sharedMemory = new SharedArrayBuffer(1024)  // 1字节
+const worker = new Worker('./sharedWorker.js')
+// 创建 1kb 内存
+const sharedM = new SharedArrayBuffer(1024)
+// 创建视图
+const intArray = new Int32Array(sharedM)
+for(let i=0; i< intArray.length; i++){
+    intArray[i] = i
+}
+// console.log(intArray, 'intArray')
+worker.postMessage(intArray)
+worker.onmessage = ev => {
+    console.log( ev.data, intArray)
+    console.log(Atomics.load(intArray, 20))
+}
 
-// 建视图
-const initArrayBuffer = new Int32Array(sharedMemory)
-
-worker.postMessage(sharedMemory)
+// worker
+onmessage = ev => {
+    let sharedM = ev.data
+    // let Int32Array = sharedM.Int32Array
+    console.log(  Atomics.load(sharedM, 6) )
+    console.log(  Atomics.add(sharedM,0, 6) )
+    Atomics.store(sharedM, 20, 777)
+    postMessage('change')
+    // console.log(Int32Array, sharedM)
+}
 
 
 ```
