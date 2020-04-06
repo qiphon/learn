@@ -1,0 +1,21 @@
+{
+  "name": "qa",
+  "version": "1.0.0",
+  "description": "qa test",
+  "main": "index.js",
+  "scripts": {
+    "init": "karma init",
+    "unit:start": "karma start",
+    "ui:init": "backstop init",
+    "ui:start": "backstop test"
+  },
+  "author": "qiphon",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-core": "^3.5.0",
+    "karma": "^4.4.1",
+    "karma-coverage": "^2.0.1",
+    "karma-jasmine": "^3.1.1",
+    "karma-phantomjs-launcher": "^1.0.4"
+  }
+}

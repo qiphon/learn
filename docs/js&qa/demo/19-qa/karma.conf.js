@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Wed Jan 08 2020 23:34:44 GMT+0800 (GMT+08:00)
+// Generated on Sun Apr 05 2020 12:39:13 GMT+0800 (GMT+08:00)
 
 module.exports = function(config) {
   config.set({
@@ -16,50 +16,32 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       "./src/**/*.js",
-      "./tests/unit/**/*.spec.js",
+      "./test/unit/**/*.spec.js"
     ],
 
 
     // list of files / patterns to exclude
     exclude: [
+
     ],
 
-
+    // babel / webpack 在这里配置
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "./src/**/*.js": ['webpack', 'coverage'],
-      './tests/unit/**/*.spec.js': ['webpack']
+      './src/**/*.js': ['coverage']
     },
-    // webpack config
-    webpack: {
-      mode: 'development',
-      module: {
-        rules: [
-          {
-            test: '/\.js$/',
-            exclude: /(node_modules|bower_components)/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['@babel/preset-env']
-              }
-            }
-          }
-        ]
-      }
-    },
-    // export coverage repore
-    coverageReporter: {
-      type: 'html',
-      dir: './docs/coverage/'
-    },
+
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['progress', 'coverage'],
-
+    // 到处报告
+    coverageReporter: {
+      type: 'html',
+      dir: './docs/unit/'
+    },
 
     // web server port
     port: 9876,
@@ -80,15 +62,12 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    // browsers: ['PhantomJS'],/
-    // browsers: ['Firefox'],
-    // browsers: ['Puppeteer'],
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous

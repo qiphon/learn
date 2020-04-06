@@ -1,7 +1,7 @@
 const {
     add, 
     // ps
-} = require('../src/index')
+} = require('../../src/index')
 // console.log(add, '========================')
 describe("测试基本函数api", function(){
     it("+1 函数的应用", function(){
