@@ -100,6 +100,9 @@ systemctl restart nginx
 ```sh
 yum install mysql mariadb-server 
 
+# deepin mysql
+apt-get install mysql-server mysql-client 
+
 # 启动数据库，配置开机启动
 systemctl start mariadb.service
 
@@ -119,6 +122,9 @@ mysql_secure_installation
 
 # 登陆 mysql
 mysql -u root -p
+
+# 查看数据库运行端口
+show variables like 'port';
 
 ````
 
@@ -152,3 +158,51 @@ mysql -uroot -p --protocol=socket --socket=/tmp/mysql.sock
 mysql -uroot -p --protocol=tcp --host=127.0.0.1 --port=3306
 
 ```
+
+- Either GD PHP extension with freetype support or imageMagick php extension with png support is required
+
+```sh
+apt-get install php-gd
+
+vi /etc/php/,,,,,,,,php.ini
+# add extension
+extension=gd.so
+
+
+```
+
+
+- Access denied for user 'root'@'localhost'  mysql
+
+解决办法
+
+```bash
+# 方法1
+$ sudo mysql -u root # I had to use "sudo" since is new installation
+
+mysql> USE mysql;
+mysql> UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+mysql> FLUSH PRIVILEGES;
+mysql> exit;
+
+$ service mysql restart
+
+
+# 方法二
+$ sudo mysql -u root # I had to use "sudo" since is new installation
+
+mysql> USE mysql;
+mysql> CREATE USER 'YOUR_SYSTEM_USER'@'localhost' IDENTIFIED BY '';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'YOUR_SYSTEM_USER'@'localhost';
+mysql> UPDATE user SET plugin='auth_socket' WHERE User='YOUR_SYSTEM_USER';
+mysql> FLUSH PRIVILEGES;
+mysql> exit;
+
+$ service mysql restart
+
+```
+
+Remember that if you use option #2 you'll have to connect to mysql as your system username (mysql -u YOUR_SYSTEM_USER)
+
+Note: On some systems (e.g., Debian stretch) 'auth_socket' plugin is called 'unix_socket', so the corresponding SQL command should be: UPDATE user SET plugin='unix_socket' WHERE User='YOUR_SYSTEM_USER';
+[本方法地址](https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost)
