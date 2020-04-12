@@ -101,7 +101,7 @@ systemctl restart nginx
 yum install mysql mariadb-server 
 
 # deepin mysql
-apt-get install mysql-server mysql-client 
+apt-get install mysql-server mysql-client php7.0-mysql
 
 # 启动数据库，配置开机启动
 systemctl start mariadb.service

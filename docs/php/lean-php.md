@@ -5,7 +5,7 @@
 
 1. php 和 js 不同，所有的代码后面的分号必须要有，注释和js相同，流程语句的写法也与js相同
 
-```
+```php
 <?php
  /* 多行註解的第一行
  多行註解的另一行 */
@@ -19,7 +19,7 @@
 
 2. 变量命名
 
-```
+```php
 // 变量命名以 $ 开头
 $abc = 'hello';
 echo $abc;
@@ -70,7 +70,7 @@ show();
 
 3. include 和 require
 
-```
+```php
 // 引用错误的文件 
 // include_once('./11.php');
 require_once('./11.php');
@@ -87,7 +87,7 @@ show2();
 
 4. array
 
-```
+```php
 <?php
     $arr = array(
         "runoob"=>array( // 指定下标数组
@@ -117,7 +117,7 @@ PHP session 解决了这个问题，它通过在服务器上存储用户信息�
 
 Session 的工作机制是：为每个访客创建一个唯一的 id (UID)，并基于这个 UID 来存储变量。UID 存储在 cookie 中，或者通过 URL 进行传导。
 
-```
+```php
 // 第一个页面写入session
 <?php
     // session_start 函数一定要放置在页面的顶部
@@ -189,7 +189,7 @@ Session 的工作机制是：为每个访客创建一个唯一的 id (UID)，并
 
 6. form 的 get / post 请求
 
-```
+```php
 // get / post 表单
  <h2>get</h2>
 <form action="./6.1.php" method='get'>
@@ -226,7 +226,7 @@ echo $_REQUEST['name'];  // get/post 方式传递的数据都能接收
 
 > 类，有成员属性和成员方法。类的格式如下
 
-```
+```php
 // 简单格式
 【修饰符】 class 类名 { // 使用class 关键字加类名
     【成员属性】 // 也叫成员变量
@@ -247,7 +247,7 @@ echo $_REQUEST['name'];  // get/post 方式传递的数据都能接收
 
 注意： 成员属性不可以是带运算符的表达式、变量、方法或函数调用
 
-```
+```php
 //  // 错误格式
 public $var1 = 1+2; 
 
@@ -270,7 +270,7 @@ public $var4 = array(true,false);
 
 - 8.1.2 成员方法 
 
-```
+```php
 [修饰符] function 方法名（参数 ...）{
     [方法体]
     [return 返回值]
@@ -284,7 +284,7 @@ public function say(){
 
 - 8.1.3 类的基本使用
 
-```
+```php
 $变量名 = new 要实例化的类名([参数,...])
 
 $变量名 -> 成员属性 = 赋值；  // 对象的属性赋值
@@ -311,7 +311,7 @@ public function say(){
 
 - 8.2.1 构造方法和析构方法
 
-```
+```php
 // 构造方法格式
 【修饰符】 function __construct([参数]){
     程序体
@@ -599,7 +599,7 @@ echo $female2->age;   // 有get 方法就能取的到
 > PHP与大多数面向对象编程语言一样,不支持多重继承,也就是说每个类只能继承一个父类.
 为解决这个问题,PHP引入了接口,接口的思想是指定了,一个实现了该接口的类必须实现一系列函数
 
-```
+```php
 // 定义格式 
 
 interface 接口名 {
@@ -752,7 +752,7 @@ echo $qiphon-> selfConst() . 'qiphon-> selfConst()';
 静态方法中不可以使用非静态的内容.就是不让使用this
 静态属性是共享的,也就是new 很多对象也是公用一个属性;
 
-```
+```php
 // 类中的静态属性和方法不用实例化(new ) 就可以使用类名访问
 类::静态属性
 类::静态方法
@@ -774,7 +774,7 @@ public function test(){
 
 > const 是一个在类中定义常量的关键字,我们都知道在php中定义常量使用的是 "define()" 这个函数,但是在类里面定义常量使用的是"const" 
 
-```
+```php
 const con = 'const value';  // 定义
 
 echo self::con;   // 类内部访问
@@ -792,7 +792,7 @@ echo className::con; // 类外面访问
 
 - 11.1 系统自带的异常处理
 
-```
+```php
 class Exception {
     protected $message = 'Unknown exception';  // 异常信息
     protected $code = 0;      // 用户自定义异常代码
