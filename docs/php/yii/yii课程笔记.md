@@ -31,7 +31,7 @@ if (YII_ENV_DEV) {
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
-
+// 配置gii安全访问地址
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
@@ -39,6 +39,9 @@ if (YII_ENV_DEV) {
         'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.*', '10.*.*.*', '172.16.*.*'],
     ];
 }
+
+// web/index.php 开启调试
+defined('YII_DEBUG') or define('YII_DEBUG', true);
 
 // config/db.php
 return [
@@ -72,3 +75,7 @@ return [
     - id primary_key auto_increment
 
 4. gii 入口  http://qiphon.cc/index.php?r=gii
+
+gii 会根据数据库生成一个现成的结构
+
+先生成 model -> 生成 grud
