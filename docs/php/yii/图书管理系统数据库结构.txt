@@ -1,0 +1,16 @@
+Yii 2.0 权威指南
+https://www.yiichina.com/doc/guide/2.0
+
+
+建表语句：
+
+CREATE TABLE `t_books` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `name` varchar(100) NOT NULL,
+ `author` varchar(100) NOT NULL,
+ `isbn` varchar(20) DEFAULT NULL,
+ `price` decimal(6,2) NOT NULL DEFAULT '0.00',
+ `memo` varchar(500) NOT NULL,
+ `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='图书'
