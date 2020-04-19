@@ -1,6 +1,24 @@
 # [nginx](http://nginx.org/en/docs/)
+    > nginx 是lgor sysoev 为俄罗斯访问量第二的 rambler.ru 站点设计开发的。从 2004 年到现在凭借开源的力量，已经接近完善。
 
-## 安装
+    > nginx 功能丰富，可作为http 服务器，可以做反向代理服务器，邮件服务器，支持 fastCGI、SSL、Virtual Host、URL Rewrite、Gzip等功能，并且支持很多第三方模块
+
+    > nginx 的稳定性、功能集、示例配置文件和低系统资源消耗让他后来居上，在全球活跃的网站中有 12.18%的使用率，大约为 2220 万个网站
+
+### nginx 常用功能
+
+1. 反向代理， 作为web服务器最常用的功能之一
+    > nginx 在做反向代理时，提供性能稳定，并且能够提供配置灵活的转发功能。nginx可以根据不同的正则匹配，采用不同的转发策略，比如图片文件结尾的，走文件服务器，动态页面走 web 服务器，只要正则写的
+    没问题，又有对应的服务器解决方案，就可以随心所欲的玩。并且 nginx 对返回结果进行错误页跳转，异常判断等。如果被分发的服务器存在异常，它可以重新将请求发给另一个服务器，然后自动去除异常服务器
+2. 负载均衡
+    > nginx 提供负载均衡的策略有2种：内置策略和扩展策略。内置策略为轮询、加权轮询、IP hash。
+    扩展策略就天马行空，只有你想不到的，没有它做不到的，可以参照所有负载均衡的算法，给他一一做出实践
+
+    - IP hash 算法，对客户端请求的IP进行hash操作，然后根据hash结果将同一客户端的请求分配给同一台服务器处理，可以解决 session 不共享问题
+3. web 缓存
+    > nginx 可以对不同文件做不同的缓存处理，配置灵活，并支持fastCGI_Cache， 主要用于对FastCGI的动态程序进行缓存。配合着第三方的 ngx_cache_purge,对定制的URL缓存内容可以进行增删管理
+
+### 安装
 
 - 下载nginx 压缩包 ，解压
 
@@ -59,27 +77,51 @@ ps -ax | grep nginx
 
 ## nginx.conf 基本配置说明
 
+- nginx 文件结构
+- 全局块： 配置影响 nginx 全局的指令。一般有运行nginx服务器的用户组；nginx 进程 pid存放路径；
+日志路径；配置文件引入；允许生成 worker process 数等。
+    - `events {}` 配置影响nginx服务器或与用户的网络连接。每个进程的最大连接数，
+    选取哪种事件驱动模型处理连接请求，是否允许同时接受多个网络连接，开启网络连接序列化等。
+    - `http {}`  可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。
+    如引入文件，mime-type定义；日志定义；是否使用 sendfile传输文件；连接超时时间；单链接请求数等。
+        - `server {}` 配置虚拟主机的相关参数，server可以有多个
+            - `location [pattern] {}` 配置请求的路由，以及各个页面的处理情况
+- nginx 配置文件中的每个指令必须以分号结束，# 号表示注释
+
 ```sh
 
-#运行用户
-user nobody;
+#运行用户、用户组 默认为 nobody
+# user nobody;
+
 #启动进程,通常设置成和cpu的数量相等
+# 允许生成的进程数，默认 1
 worker_processes  1;
  
 #全局错误日志及PID文件
+# 制定日志路径、级别。这个设置可以放入全局块、http块、server块.
+# 级别依次为：debug|info|notice|warn|error|crit|alert|emerg
 #error_log  logs/error.log;
 #error_log  logs/error.log  notice;
 #error_log  logs/error.log  info;
  
+#  指定nginx 运行文件的存放地址
 #pid        logs/nginx.pid;
  
 #工作模式及连接数上限
 events {
+    # 设置网络连接序列化，防止惊群显现发生 默认on
+    # 惊群现象：一个网络连接到来，多个睡眠的进程被同时唤醒，但只有一个进程能获得连接，这样会影响系统性能
+    accept_mutex  on;
+
+    # 设置一个进程是否同时接受多个网络连接 默认 off
+    muti_accept  on;
+
     #epoll是多路复用IO(I/O Multiplexing)中的一种方式,
     #仅用于linux2.6以上内核,可以大大提高nginx的性能
+    # 事件驱动模型 select|poll|kqueue|epoll|resig|/dev/pool|eventport
     use   epoll; 
- 
-    #单个后台worker process进程的最大并发链接数    
+    
+    #单个后台worker process进程的最大并发链接数    默认 512
     worker_connections  1024;
  
     # 并发总数是 worker_processes 和 worker_connections 的乘积
@@ -105,27 +147,45 @@ events {
  
 http {
     #设定mime类型,类型由mime.type文件定义
+    # 文件扩展名与文件类型映射表
     include    mime.types;
+    # 默认文件类型，默认为 text/plain
     default_type  application/octet-stream;
     #设定日志格式
+    # $remote_addr  与 $http_x_forwarded_for 用以记录客户端的IP地址
+    # $remote_user  用以记录客户端用户名
+    # $time_local   用来记录访问时间与时区
+    # $request      用来记录请求的URL与http协议
+    # $status       用来记录请求状态，成功 200
+    # $body_bytes_sent  记录发送给客户端文件主体内容大小
+    # $http_referer 用来记录用户是从哪个页面访问过来的
+    # $http_user_agent  记录客户端浏览器的相关信息
     log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
- 
+    #  服务日志
     access_log  logs/access.log  main;
  
     #sendfile 指令指定 nginx 是否调用 sendfile 函数（zero copy 方式）来输出文件，
-    #对于普通应用，必须设为 on,
+    # 默认off，可以在 http、server、location块下
+    #对于普通应用，必须设为 on
     #如果用来进行下载等应用磁盘IO重负载应用，可设置为 off，
     #以平衡磁盘与网络I/O处理速度，降低系统的uptime.
     sendfile     on;
+    # 每个进程每次调用传输数量不能大于设定值，默认为0，即无上限
+    sendfile_max_chunk  100k;
     #tcp_nopush     on;
  
-    #连接超时时间
-    #keepalive_timeout  0;
+    #连接超时时间，默认 75s,可以在 http、server、location块下
     keepalive_timeout  65;
     tcp_nodelay     on;
  
+    # 
+    upstream  myser {
+        server 127.0.0.1:7878;
+        server 192.168.10.121:3333 backup; # 热备；
+    }
+
     #开启gzip压缩
     gzip  on;
     gzip_disable "MSIE [1-6].";
@@ -133,31 +193,52 @@ http {
     #设定请求缓冲
     client_header_buffer_size    128k;
     large_client_header_buffers  4 128k;
- 
+
+
+    # 引入外部配置文件
+    include /etc/nginx/conf.d/*.conf;
+
+    # 定义错误提示页面
+    error_page   500 502 503 504 /50x.html;
+
+    # 当代理遇到状态码是 404 时，我们把404 页面指向百度
+    # error_page   404 https://www.baidu.com;
+    # 上面的需要配合这个一起用,如果被代理服务器返回状态码为 400或者大于400，设置的error_page起作用
+    proxy_intercept_errors on;
+
+    # 设置允许的请求
+    # proxy_method get;
+
+    # 设置支持的协议版本;nginx 服务器提供代理服务的 http协议版本 1.0， 1.1 默认为1.0
+    proxy_http_version 1.0;
  
     #设定虚拟主机配置
     server {
+        # 单链接请求上限次数
+        keepalive_requests   120;
         #侦听80端口
         listen    80;
-        #定义使用 www.nginx.cn访问
+        # 监听地址 定义使用 www.nginx.cn访问
         server_name  www.nginx.cn;
  
         #定义服务器的默认网站根目录位置
         root html;
- 
-        #设定本虚拟主机的访问日志
-        access_log  logs/nginx.access.log  main;
- 
+
+        # 请求URL 过滤 正则匹配， ～为区分大小写，～*为不区分大小写
+        # location ~*^.+${}
         #默认请求
         location / {
-            
+            # root  html
             #定义首页索引文件的名称
             index index.php index.html index.htm;   
- 
+
+            # 请求被代理到 myser 定义服务器列表
+            # proxy_pass http://myser;
+            # 拒绝的IP/允许的IP
+            # deny 127.0.0.1;
+            # allow  18.122.12.12;
         }
  
-        # 定义错误提示页面
-        error_page   500 502 503 504 /50x.html;
         location = /50x.html {
         }
  
@@ -166,11 +247,17 @@ http {
             
             #过期30天，静态文件不怎么更新，过期可以设大一点，
             #如果频繁更新，则可以设置得小一点。
-            expires 30d;
+            expires 1d;
         }
+
+        # proxy the php scripts to Apache listen on 127.0.0.1:80
+        #
+        # location ~ \.php$ {
+        #   proxy_pass  http://127.0.0.1
+        # }
  
         #PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI默认配置.
-        location ~ .php$ {
+        location ~ \.php$ {
             fastcgi_pass 127.0.0.1:9000;
             fastcgi_index index.php;
             fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
@@ -178,11 +265,64 @@ http {
         }
  
         #禁止访问 .htxxx 文件
-            location ~ /.ht {
+        location ~ /\.ht {
             deny all;
         }
  
     }
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    # server {
+    #   listen    8000;
+    #   listen    servername:8000;
+    #   server_name    servername  alias  another.alias;
+    #   
+    #   location / {
+    #     root    youWebPath;
+    #     index   index.html  index.htm;
+    #   }
+    # }
+
+    # proxy to node test ok
+    #server {
+    #  listen    3000;
+    #  server_name    vi.qiphon.cc;
+    #  location / {
+    #    proxy_pass  http://localhost:3001; 
+    #  }
+    #}
+
+    #
+    # https server
+    # 
+    # server {
+    #   listen    433 ssl;
+    #   server_name    localhost;
+
+    #   ssl_certificate    cert.pem;
+    #   ssl_certificate_key   cert.key;
+    #   
+    #   ssl_session_cache    shared:SSL:1m;
+    #   ssl_session_timeout    5m;
+    #
+    #   ssl_ciphers    HIGH:!aNULL:!MD5;
+    #   ssl_prefer_server_ciphers    on;
+    #
+    #   location / {
+    #     root   webServerPath;
+    #     index   index.html index.htm;
+    #
+    #   }
+    # }
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+
 }
 
 ```
@@ -324,3 +464,6 @@ http {
     --with-zlib=../zlib-1.2.11
 
 ```
+
+### nginx 配置
+

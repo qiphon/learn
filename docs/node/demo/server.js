@@ -7,9 +7,9 @@ http.createServer(function(req, res){
         "Content-Type": 'text/plain'
     })
     // 发送相应数据
-    res.end('hello world\n')
+    res.end('hello world\n server by node')
 })
-.listen(3000)
+.listen(3001)
 
 // 服务运行成功提示
 console.log('server is running...')

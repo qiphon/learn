@@ -148,8 +148,8 @@ BFC 是最常见的问题
 
 下面是会生成BFC 的元素应该有的
 
-1. 根元素
+1. 根元素 
 2. float 属性不为none
 3. position 为 absolute/fixed
-4. display 为 inline-block / table-cell / table-caption / flex / inline-flex
+4. display 为 inline-block / table-cell / table-caption / flex / inline-flex / grid /flow-root
 5. overflow不为visible
