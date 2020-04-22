@@ -9,7 +9,7 @@ http.createServer(function(req, res){
     // 发送相应数据
     res.end('hello world\n server by node')
 })
-.listen(3001)
+.listen(3000)
 
 // 服务运行成功提示
 console.log('server is running...')

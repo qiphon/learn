@@ -297,7 +297,9 @@ http {
     # 
     # server {
     #   listen    433 ssl;
+    #   listen    433 ssl http2;
     #   server_name    localhost;
+        # ssl    on;
 
     #   ssl_certificate    cert.pem;
     #   ssl_certificate_key   cert.key;
@@ -307,6 +309,7 @@ http {
     #
     #   ssl_ciphers    HIGH:!aNULL:!MD5;
     #   ssl_prefer_server_ciphers    on;
+        # ssl_protocols    TLSv1 TLSv1.1 TLSv1.2;
     #
     #   location / {
     #     root   webServerPath;
@@ -315,14 +318,135 @@ http {
     #   }
     # }
     #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
+    # http 直接跳转到https
+    # server {
+        # add cross header 指定跨域头
+        # add_header Access-Control-Allow-Origin *;
+        # add_header Access-Control-Allow-Headers X-Requested-With;
+        # add_header Access-Control-Allow-Methods GET,OPTIONS;
 
+        # listen  80;
+        # server_name  qifeng.site;
+        # 
+        # jump to https
+        # rewrite ^(.*)$  https://$host$1 permanent;
+    # }
+    #  
+    # # 反向代理 & 负载均衡
+    # 
+    # # upstream 可以配置多个同时
+    # 
+    # upstream qiphon_www {
+    #    # 这里写入多个服务器地址，就可以实现负载均衡
+    #    server 127.0.0.1:4000; 
+    #    server 192.168.1.4:4001; 
+    # }
+    # upstream qiphon_study {
+    #    server 127.0.0.1:5000; 
+    # }
+    # upstream qiphon_test {
+    #    server 127.0.0.1:6000; 
+    # }
+    # server {
+        # location / {
+        #     # 请求转向 upstream 声明的 qiphon_www 服务
+        #     proxy_pass    http://qiphon_www;
+        #     proxy_redirect    off;
+
+        #     # 保持原有的请求头，否则拿不到用户的请求头
+        #     proxy_http_version  1.1;
+        #     proxy_set_header    Upgrade  $http_upgrade;
+        #     proxy_set_header    Connection  'upgrade';
+        #     proxy_cache_bypass    $http_upgrade;
+
+        #     # 让服务器拿到用户的真实 IP
+        #     # 只要在浏览器中访问的域名绑定了 vip vip 下面有 RS；则就用 $host; host 就是访问URL中的域名和端口
+        #     proxy_set_header    Host  $host;
+        #     # 把源 IP 【$remote_addr,建立http连接header里面的信息】赋值给 X-Real-IP; 这样在代码中 $X-Real-IP 来获取源IP
+        #     proxy_set_header    X-Real-IP  $remote_addr;
+        #     # 在nginx 作为代理服务器时，设置的IP列表会把经过的机器IP、代理机器IP都记录下来，用 [,]逗号隔开；代码中用 echo $x-forwarded-for | awk -F, '{print $1}'来作为源IP
+        #     proxy_set_header    X-Forwarded-For  $proxy_add_x_forwarded_for;
+        # }
+    # }
+    #
+    # # 热备：如果你有2台服务器，当一台服务器发生故障时，才启用第二台服务器提供服务。
+    # upstream  qifeng_www {
+    #     server    127.0.0.1:8000;
+    #     server    168.192.0.12:8000  backup;
+    # }
+
+    # # 轮询：nginx 默认就是轮询，其权重默认都为 1，服务器的请求顺序 ABABABAB.....
+    # upstream  qifeng_www {
+    #     server    127.0.0.1:8000;
+    #     server    168.192.0.12:8000;
+    # }
+
+    # # 加权轮询：根据配置的权重大小而分给不同服务器不同数量的请求。如果不设置，默认为 1； 下面服务器的请求顺序为：ABBABBABB......
+    # upstream  qifeng_www {
+    #     server    127.0.0.1:8000  weight=1;
+    #     server    168.192.0.12:8000  weight=2;
+    # }
+
+    # # ip_hash: nginx 会让相同的客户端IP请求相同的服务器。
+    # upstream  qifeng_www {
+    #     server    127.0.0.1:8000  weight=1;
+    #     server    168.192.0.12:8000  weight=2;
+        # ip_hash;
+    # }
+
+    # # 关于 nginx 负载均衡配置的的几个状态参数讲解
+    # # # down， 表示当前的server 暂时不参与负载均衡
+    # # # backup，预留的备份机器。当其他所有的非backup机器出现故障或者忙的时候，才会请求 backup 机器，因此这台机器的压力最轻
+    # # # max_fails, 允许请求失败的次数， 默认为 1。当超过最大次数时，返回 proxy_next_upstream 模块定义的错误。
+    # # # fail_timeout, 在经历了 max_fails 次失败后，暂停服务的时间。
+    # upstream  qifeng_www {
+    #     server  127.0.0.1:3000 weight=2 max_fails=2 fail_timeout=2;
+    #     server  192.168.4.1:3000 weight=1 max_fails=3 fail_timeout=1;
+    # }
+    # 
+    # 如果nginx服务器给2台web服务器做代理，负载均衡算法采用轮询，当么当一台机器web程序 IIS 关闭（也就是说web不能访问），那么nginx服务器分发请求还是会给
+    # 这台不能访问的服务器，如果这里的响应连接时间过长，就会导致客户端的页面一直在等待响应
+    # 解决方案：
+    # # nginx 服务器与被代理的服务器之间连接的超时时间， 默认 60s；
+    # proxy_connect_timeout  1;
+    # 
+    # # nginx 服务器向被代理服务器组发出 read 请求后，等待响应的超时时间，默认 60s；
+    # proxy_read_timeout  1;
+    # 
+    # # nginx 向被代理服务器发出 write请求后，等待响应的超时时间 默认 60s；
+    # proxy_serd_timeout  1;
+
+    # # 客户端断网时，nginx 服务器是否中断对被代理服务器的请求，默认为off
+    # proxy_ignore_client_abort  on;
+    # 
+    # # 反向代理 upstream 中设置的服务器组出现故障时，被代理服务器返回的故障值。 error|timeout|invalid_header|http_500|http_502|http_503|http_504|off
+    # proxy_next_upstream  timeout;
+
+}
+
+
+# 参考nginx 配置
+http{
+    include    mime.types;
+    default_type    application/octet-stream;
+
+    log_format   myFormat  ' $remote_addr-$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for';
+    access_log   /var/log/nginx/access.log myFormat; # combined 为日志格式的默认值
+    
+    sendfile    on;
+    sendfile_max_chunk  100k;
+
+    keepalive_timeout  65;
+    proxy_connect_timeout 1;
+    proxy_read_timeout 1;
+    proxy_send_timeout 1;
+    proxy_http_version 1.0;
+    proxy_ignore_client_abort on;
+    proxy_ignore_headers "Expires" "Set-Cookie";  # nginx 不处理设置的http响应头中的头域，可以设置多个，空格隔开
+    proxy_intercept_errors  on; # 如果被代理的服务器返回的状态码大于等于 400，返回错误页 error_page 
+    proxy_headers_hash_max_size  1024;  # 存放http报头的 哈希表容量的大小，默认 64
+    proxy_next_upstream  timeout;  
+    
 }
 
 ```
@@ -464,6 +588,3 @@ http {
     --with-zlib=../zlib-1.2.11
 
 ```
-
-### nginx 配置
-
