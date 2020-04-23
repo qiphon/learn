@@ -940,3 +940,504 @@ x+ y
         });
 
         ```
+
+### nodejs  FS 模块
+
+- 系统和文件常识
+
+```js
+# 权限位  mode
+# 权限分配       文件所有者         文件所属组          其他用户
+                 root               group            other
+
+# 每个用户都有一个权限的表示   r   w   x    -
+                           4   2   1    0
+
+Linux 文件权限表示    drwxrwxrwx 1 qiphon qiphon   4096 12月 14 16:31 .vuepress
+
+第一个标识位 （这里是d），表示文件的类型
+
+d    文件目录
+p    管道文件
+l    链接文件
+s    socket文件
+-    普通文件
+
+# 文件的标志位 flag
+
+r:   只读
+r+   读写
+rs   读写
+w:   写入
+w+   读写
+a:   追加写入
+a+   可读，可追写
+ax:
+wx+:
+rs:
+
+快速记忆方法
+
+r：读取
+w：写入
+s：同步
++：增加相反操作
+x：排他方式
+
+# 文件描述符  
+
+nodejs中分配的是数值描述符，文件描述符从3开始，012被 process.stdin  stdout stderr 占用
+
+通过文件描述符就可以操作文件了
+
+
+# 文件操作
+
+var fs = require('fs')
+// 同步读取
+const buf = fs.readFileSync('data.txt', 'utf-8');
+
+console.log(buf)
+
+// 异步读取
+const data = fs.readFile('data.txt', { encoding: 'utf-8' }, (err, data)=>{
+    console.log(data)
+})
+
+// 文件写入
+fs.writeFile('data.txt', "写入的内容", {encoding: 'utf-8'}, (err)=>{
+    写入失败
+})
+// 同步写入
+fs.writeFileSync("data.txt", "同步写入的内容")
+
+// 追加写入
+fs.appendFileSync('data.txt', "追加写入的内容")
+fs.appendFile('data.txt', "异步追加写入的内容", err=>{})
+
+// 拷贝写入 (如果要写入的文件不存在会生成那个文件)
+fs.copyFileSync('copyFrom.txt', "copyTo.txt")
+fs.copyFile("copyFrom.txt", "copyTo.txt", err=>{})
+
+// 模拟同步拷贝文件
+function copy(file, target){
+    const data = fs.readFileSync(file)
+    fs.writeFileSync(data)
+}
+copy('copyFrom.txt', "copyTo.txt")
+
+// 打开文件
+fs.open('data.txt', 'r', (err, fd)=>{
+    if(!err){
+        console.log(fd)
+    }
+    fs.open('data2.txt', 'r', (err, fd)=>{
+        if(!err) console.log(fd)
+        fs.close(fd, err=>{
+            console.log('关闭成功')
+        })
+    })
+    // 关闭文件
+    fs.close(fd, err=>{
+        console.log('关闭成功')
+    })
+})
+
+
+// 如果文件过大，我们就不能直接使用fs.readFile
+
+const buf = Buffer.alloc(300)   // 300 byte
+
+fs.open('data.txt', 'r', (err, fd)=>{
+    if(!err){
+        // 读取文件内容到内存
+        fs.read(fd, buf, 0, 300, 0, (err, bytesRead, buffer)=>{
+            // fd 文件标识符， 0 写入文件位置 3 读取长度， 0 读取文件位置
+            // bytesRead  实际读取的文件长度 buffer 写入缓存中的对象
+            console.log(bytesRead, buffer)
+
+        })
+    }
+})
+
+// 有文件分片读取，当然也可以分片写入
+
+const buf = Buffer.from('一灯')
+fs.open('data.txt', 'r+', (err, fd)=>{
+    fs.write(fd, buf, 0, 6, 0, (err, bytes, buf)=>{
+        // 0 读取文件位置， 6 读取长度 （长度不能超过文件长度） 0 写入文件位置
+        fs.close(fd, err =>{
+            console.log('文件关闭')
+        })
+    })
+})
+
+
+// 文件目录操作
+
+// 查看文件权限
+try {
+    // 检测文件是否有读写权限，如果没有，会报错
+    fs.accessSync('./data.txt', fs.constants.R_OK | fs.constants.W_OK)
+    console.log('文件可读写')
+}catch{
+    console.log('文件不可访问')
+}
+
+fs.access('dir/a', fs.constants.R_OK | fs.constants.W_OK, (err)=>{
+    if(err){
+        console.log('文件可访问')
+    }else {
+        console.log('文件不可访问')
+    }
+})
+
+// 文件不存在的报错
+[Error: ENOENT: no such file or directory, access './index.htm'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'access',
+  path: './index.htm'
+}
+// 没有权限的报错
+[Error: EACCES: permission denied, access './index.htm'] {
+  errno: -13,
+  code: 'EACCES',
+  syscall: 'access',
+  path: './index.htm'
+}
+
+// 文件可访问性常量
+F_OK    文件是否存在   
+R_OK    文件是否可读
+W_OK    文件是否可写
+X_OK    文件是否可执行
+
+调用方式  fs.constants.W_OK,同时支持多个的时候用 | 竖线隔开
+
+// 获取文件目录的信息
+var file = fs.statSync('data.txt') 
+console.log(file)
+
+Stats {
+  dev: 2065,
+  mode: 33188,
+  nlink: 1,
+  uid: 1000,
+  gid: 1000,
+  rdev: 0,
+  blksize: 4096,
+  ino: 3412222,
+  size: 165,
+  blocks: 8,
+  atimeMs: 1587572268290.046,
+  mtimeMs: 1587572240289.2378,
+  ctimeMs: 1587572240313.2346,
+  birthtimeMs: 1587572240289.2378,
+  atime: 2020-04-22T16:17:48.290Z,
+  mtime: 2020-04-22T16:17:20.289Z,
+  ctime: 2020-04-22T16:17:20.313Z,
+  birthtime: 2020-04-22T16:17:20.289Z
+}
+
+var file = fs.stat('data.js', (err, data)=>{
+    console.log(data)
+})
+
+// 创建目录 （目录a必须存在，不然会报错）
+fs.mkdirSync('a/c')
+fs.mkdir('a/b', (err)=>{})
+
+// 读取文件目录
+fs.readdirSync("a")
+
+// 删除目录
+fs.rmdir('a/b', err=>{})
+
+// 删除文件
+fs.unlink('a/b.x', err=>{})
+
+
+```
+
+fs 都有同步和异步函数，带Sync 为同步方法，我们推荐使用异步方法，结合 promise 、async/await 使用
+
+```js
+
+// 读取 doc 目录下的所有TXT文件
+var fs = require('fs')
+
+var path = require('path')
+
+function getFile(){
+    const filePath = path.resolve(__dirname, './doc')
+    return new Promise((resolve, reject)=>{
+        fs.readdir(filePath, (err, files)=>{
+            if(!err){
+                const fileArr = []
+                files.forEach(filename=> {
+                    fileArr.push("/doc/" + filename)
+                })
+                resolve(fileArr)      
+            }else{
+                reject(err)
+            }
+        })
+
+    })
+}
+
+async function getPath(){
+    const res = await getFile()
+    return res
+}
+
+getPath().then(res => console.log(res))
+
+```
+
+### nodejs  stream  流
+
+流是一种逐段进行文件处理的操作，适合对大文件处理时使用
+
+- 可读流
+    - flowing模式  rs.on('data')   rs.resume()   rs.pipe()
+    - pused 模式   rs.on('readable')   rs.pause()
+
+- 可写流
+    - write()
+
+- Duplex 可读可写，双工流   read   write  net.socket
+
+- transform
+
+- pipe()   保证读写速度，防止数据丢失
+
+```js
+var fs = require('fs')
+// 创建一个数据流
+var rs = fs.createReadStream('data.txt')
+var data = ''
+// 监控流读取
+rs.on('data', chunk=>{
+    // 读取过程中的数据块
+    data += chunk
+})
+
+// 文件读取完毕
+rs.on('end', ()=>{
+    console.log(“读取成功”, data)
+})
+
+
+// 流的读和写
+const rs = fs.createReadStream('demo.mp4')
+const ws = fs.createWriteStream("copy.mp4")
+
+rs.on('data', chunk =>{
+    ws.write(chunk)
+})
+
+rs.on('end', ()=>{
+    ws.end()
+})
+
+
+// 如果读写的速度不一致，可能会造成数据的丢失，所以这时，我们需要改进我们的方法
+// 这是，我们不再监听 读取时Data的函数
+// pipe 是可读流的方法
+rs.pipe(ws)
+rs.on('end', ()=>{
+    console.log('复制完成')
+})
+
+
+```
+
+- 流使用的特点
+    - 内存效率，防止内存占用过大，
+    - 时间效率，速度更快
+
+```js
+// 可读流
+var rs = fs.createReadStream('data.mp3', {
+    encoding: 'utf-8',
+    highWaterMark: 6,  // 单位字节
+})
+
+
+rs.on('open', ()=>{
+    console.log('文件打开')
+})
+// 监听数据传输， 以二进制块形式传输
+// 不停的进行数据读取，触发Data事件
+// 设置一个缓冲区，大小默认 16k  可以通过修改 highWaterMark 来调整
+// 可读流有2种方式：自动模式（flowing）、手动模式（paused/stream.read()）
+// 自动流动触发：rs.on('data')  、 rs.resume() 、rs.pip()
+// 手动方式： rs.on('readable')  、 rs.pause()
+rs.on('data', chunk=>{
+
+})
+
+rs.on('end', ()=>{
+    console.log(’读取完毕‘)
+})
+rs.on('close', ()=>{
+    console.log(’文件关闭‘)
+})
+rs.on('error', ()=>{
+    console.log('读取错误')
+})
+
+
+// 手动流
+var data = ''
+rs.on('readable', ()=>{
+    let chunk
+    while((chunk = rs.read()) ){
+        data += chunk
+    }
+})
+
+// 可写流
+const ws = fs.createWriteStream('cp.txt', {})
+
+ws.on('open', ()=>{
+    console.log('文件被打开')
+})
+
+ws.write('我是 write 写入的内容'， 'utf-8')
+ws.end()
+ws.on('finish', ()=> {
+    console.log('写入完成')
+})
+
+ws.on('error', ()={})
+ws.on('close', ()={})
+
+// 转换流
+const stream = require('stream')
+const transform = stream.Transform({
+    transform(chunk, encoding, cb){
+        this.push(chunk.toString().toLowerCase())
+        cb()
+    }
+})
+transform.write("DDDD")
+console.log("转换成功", transform.read().toString())
+
+
+// 链式流
+const zilb = require('zilb')
+fs.createReadStream('./data.txt')
+    .pipe(zilb.createGzip())
+    .pipe(fs.createWriteStream('data.txt.gz'))
+
+// 按行读取
+const fs = require('fs')
+const path = require("path")
+const readLine = require("readline")
+
+const fileName = path.resolve(__dirname, "log.txt")
+
+const rs = fs.createReadStream(fileName)
+
+let nun =0
+
+const readL = readLine.createInterface({
+    input: readStream
+})
+
+readL.on('line', (data)=>{
+    console.log(data)
+})
+readL.on('close', ()=>{
+    console.log('读取完成')
+})
+
+```
+
+### nodejs net 模块
+
+- http tcp 层，做了比较多的数据封装 
+- net  基于tcp 封装，核心模块
+    - net.server 通过socket 来实现的一个与客户端来通信
+        
+    - net.socket 全双工的 stream 接口
+
+```js
+server             -->  pipe   --->        client
+
+//监听端口8080                               访问端口
+createServer()                              connect("8080")
+socket 通过监听事件 on                        事件监听
+    data 来实现与客户端交互                          data 数据交互
+    connecting  连接成功                            connecting  连接成功
+    listening 当服务绑定后触发                       end    结束连接
+    close 结束服务触发                               timeout  连接超时
+    error 监听异常                                   error   连接错误
+// 方法                                      // 方法
+.close 结束连接                                     connect("8080")
+write('send data')                                 write('send data')
+.listen('8080') 监听端口                            setTimeout  设置超时时间
+.address()  返回绑定地址  失败时返回空对象       // 属性、
+                                                  localPort   本地端口
+                                                  localAddress 本地地址
+                                                  remoteAddress  远程端口
+
+// server
+const net = require('net')
+const server = net.createServer()
+
+server.listen('8000')
+server.on('listening')
+
+server.on('listening', ()=>{
+    console.log('监听成功， 监听的是8000')
+})
+
+// 一个新的连接建立这里就被触发
+server.on('connection', socket =>{
+    console.log('connect')
+    socket.on('data', data=>{
+        console.log(`receive message --> ${data.toString()}`)
+        socket.write('hello i am server')
+        socket.write('now closed')
+    })
+    server.close()
+})
+
+server.on('close', ()=>{
+    console.log("server is closed")
+})
+
+// client
+
+const net = require('net')
+
+
+const netSocket = net.connect('8000')
+
+netSocket.on('error', ()=>{
+    console.log('连接失败')
+})
+
+netSocket.on('connect', ()=>{
+    console.log(`client: connected`)
+    netSocket.write('hello i am client')
+
+    netSocket.on("data", data=> {
+        console.log(`client: received msg  ---> ${data.toString()}`)
+    })
+    netSocket.end()
+
+})
+
+netSocket.on('end', ()=>{
+    console.log('client end')
+})
+
+
+
+```
+
