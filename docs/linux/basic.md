@@ -1005,13 +1005,26 @@ ip addr
 再次查看 ip 地址  ip addr  就能看到网卡的ip 地址了
 
 
-### linux 结构
-
-> 
+### linux 结构 
 
 - .lib 静态库
 - .so 动态库 / .dll (windows 下的动态库) 运行时调用
 
+```
+            Application Tools
+         |              |                |                 |               |
+      process        Memory            Device         file system       Network
+      Management     Management        drivers
+
+
+
+                         几乎完整的Linux架构
+   --------------------------------------------------------------------
+   用户模式     |      应用程序  （sh, vi, OpenOffice.org等）
+               |      
+               |
+               |
+```
 
 ### 进程、线程、协程（为任务而生）
 
