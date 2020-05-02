@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise es6 实现</title>
+</head>
+
+<body>
+    看控制台
+    <script>
+        class myPromise {
+            static resolve(val) {
+                return new myPromise(resolve => resolve(val))
+            }
+            static all(arr) {
+                let len = arr && arr.length
+                let resultArr = []
+                if (len) {
+                    return new myPromise((resolve, reject) => {
+                        function processRes(index, data) {
+                            resultArr[index] = data
+                            resultArr.length === len && resolve(resultArr)
+                        }
+                        for (let i = 0; i < len; i++) {
+                            arr[i]
+                                .then(data => processRes(i, data))
+                            // .catch
+                        }
+                    })
+                }
+            }
+            // promise 3 种状态
+            pendding = 'PENDINNG'
+            fulfilled = 'FULFILLED'
+            rejected = 'REJECTED'
+            constructor(fn) {
+                this.state = this.pendding
+                this.value = undefined;
+                this.resolvedFn = []
+                this.rejectFn = []
+
+                const resolve = val => {
+                    setTimeout(() => {
+                        if (
+                            this.state === this.ful1filled
+                        ) return;
+                        // console.log(this.state, this.resolvedFn, 'resolvefn', resolve, reject)
+                        this.state = this.fulfilled
+                        this.value = val;
+                        if (val && (typeof val.then === 'function')) {
+                            this.dealThenable(this, val, resolve, reject)
+                        } else {
+                            this.resolvedFn.map(fn => fn(val))
+                        }
+                    })
+                }
+                const reject = val => {
+                    setTimeout(() => {debugger
+                        console.log(val, this.rejectFn)
+                        // if(this.state === this.rejected) return;
+                        this.value = val;
+                        this.state = this.rejected
+                        if (this.rejectFn.length) {
+                            this.rejectFn.map(fn => fn(val))
+                        } else {
+                            throw new Error(val)
+                        }
+                    })
+                }
+                fn(resolve, reject)
+            }
+            then(
+                onFulfilled = val => val,
+                onRejected,
+            ) {
+                console.log(this.state, this.value, onFulfilled, 'then')
+                var newP;
+                if (this.state === this.pendding) {
+                    newP = new myPromise((resolve, reject) => {
+                        this.resolvedFn.push((val) => {
+                            const x = onFulfilled(val)
+                            this.dealThenable(newP, x, resolve, reject)
+                        })
+                        if (typeof onRejected === 'function') {
+                            this.rejectFn.push(function (val) {
+                                onRejected(val)
+                                resolve(undefined)
+                            })
+                        }
+                    })
+                }
+                if (this.state === this.fulfilled) {
+                    const x = onFulfilled(this.value)
+                    newP = new myPromise((resolve, reject) => {
+                        // console.log(x, newP, this.state)
+                        x && this.dealThenable(newP, x, resolve, reject)
+                    })
+                }
+                // if(this.state === this.rejected){
+                //     newP = new myPromise((resolve, reject) => {
+                //         const x = onRejected(this.value)
+                //         resolve(x)
+                //     })
+                // }
+                return newP
+            }
+            catch(onRejected) {
+                let newP = new myPromise((resolve, reject) => {
+                    if (typeof onRejected === 'function') {
+                        console.log(this.state, 'catch');debugger
+                        this.rejectFn.push(function (val) {
+                            onRejected(val)
+                            resolve(undefined)
+                        })
+                    }
+                })
+                return newP
+            }
+            /**
+             * @fileoverview 处理thenable 对象
+            */
+            dealThenable(promise2, x, resolve, reject) {
+                if (promise2 === x) {
+                    throw new Error('不能循环引用Promise')
+                }
+                if (x instanceof myPromise) {
+                    // console.log('instanceof', x.state, x.value)
+                    x.state === this.pendding &&
+                        x.then(y => this.dealThenable(promise2, y, resolve, reject))
+                    x.state === this.fulfilled &&
+                        // resolve(x.value)
+                        this.dealThenable(promise2, x.value, resolve, reject)
+                    x.state === this.rejected &&
+                        reject(x.value)
+                } else
+                    if (x && (typeof x.then === 'function')) {
+                        // resolve(x)
+                        x.then(
+                            res => this.dealThenable(promise2, res, resolve, reject),
+                            rej => reject(rej)
+                        )
+                    }
+                    else {
+                        resolve(x)
+                    }
+            }
+        }
+
+
+        // 正常异步调用
+        // var p = new myPromise(function (resolve) {
+        //     setTimeout(() => resolve('f1111'), 1000)
+        // })
+        // // p.then(res => {
+        // //     console.log(res)
+        // // })
+
+
+        // // p.then 可以延迟使用
+        // setTimeout(() => {
+
+        //     p.then(res => {
+        //         console.log(res)
+        //         return 222
+        //     })
+        // }, 5000)
+
+        // 直接使用resolve
+        // var p = new myPromise(resolve => {
+        //     resolve('r2222')
+        // }).then(r => {
+        //     console.log(r, 11)
+        // })
+
+        // 可以直接使用 Promise.resolve
+        // var p = myPromise.resolve('直接返回的结果')
+        // p.then(r => console.log(r))
+        // setTimeout(()=> p.then(r=>(console.log(r))), 2000)
+
+        // 防止同时有多个resolve
+        // var p = new myPromise(resolve => {
+        //     resolve('sss')
+        //     resolve('sss222')
+        // }).then(r => {
+        //     console.log(r, 11)
+        // })
+
+        // // then 可以链式调用
+        // var p = new myPromise(resolve => {
+        //     resolve('sss')
+        //     resolve('sss222')
+        // }).then(r => {
+        //     console.log(r, 11)
+        //     return '第二个 then'
+        // })
+        // .then(r=>{
+        //     console.log('2 then -->', r)
+        // })
+
+        // then 可以链式调用,并且在then还可以有空值的时候
+        // var p = new myPromise(resolve => {
+        //     resolve('sss')
+        //     resolve('sss222')
+        // })
+        // setTimeout(()=>{
+        //     p.then(r => {
+        //         console.log(r, 11)
+        //         return '第二个 then'
+        //     })
+        //     .then()
+        //     .then(r=>{
+        //         console.log('2 then -->', r)
+        //     })
+        // }, 3000)
+
+        // 解决第一个then返回的的对象含有 then属性
+        // var p = new myPromise(resolve => {
+        //     resolve(11)
+        // })
+        // setTimeout(()=>(
+        //     p.then(res => {
+        //         console.log('第一个then的结果', res)
+        //         // return {
+        //         //     then(r, j) {
+        //         //         // return 111  // 下一个then没有打印
+        //         //         // r(222)   // 下一个then 返回 222
+        //         //         // j(333)
+        //         //         // r({
+        //         //         //     then(r){
+        //         //         //         r(4444)    // 下一个then 返回 4444
+        //         //         //     }
+        //         //         // })
+        //         //     }
+        //         // }
+        //         // return new myPromise(r=> setTimeout(()=>r(23333), 3000))
+        //         return myPromise.resolve({
+        //             then(r){
+        //                 r({
+        //                     then(j){
+        //                         j(666)
+        //                     }
+        //                 })
+        //             }
+        //         })
+        //     })
+        //     .then(r => {
+        //         console.log('第二个返回结果', r)
+        //     })
+        // ), 2000)
+
+        // resolve 返回的是Promise 对象
+        // var p = new myPromise(r => {
+        //     r(
+        //         new myPromise(r => r(
+        //             {
+        //                 then(r) {
+        //                     r(333)
+        //                 }
+        //             }
+        //         ))
+        //     )
+        //     // r({
+        //     //     then(r){
+        //     //         r(333)
+        //     //     }
+        //     // })
+        // })
+        //     .then(res => console.log(res))
+
+        // 防止Promise 循环引用
+        // var p = new myPromise(resolve=>{
+        //     resolve("循环引用测试")
+        // })
+
+        // var p2 = p.then(resolve=>{
+        //     console.log(resolve)
+        //     return p2
+        // })
+
+        // promise.all
+        // var arr = Promise.all(
+        //     [
+        //         Promise.resolve(111),
+        //         Promise.resolve(222),
+        //     ]
+        // ).then(res => {
+        //     console.log(res)
+        // })
+
+
+        // 异常处理 catch
+
+        // var arr = Promise.all(
+        //     [
+        //         new Promise((r,j)=>j({
+        //             then(r,j){
+        //                 j(123)
+        //             }
+        //         })),
+        //         Promise.resolve(222),
+        //     ]
+        // ).then(res => {
+        //     console.log(res)
+        // },
+        // err => {
+        //     console.log(err)
+        // })
+        // .catch(err=>{
+        //     console.log(err)
+        // })
+        var p = new myPromise((r, j) => j(123))
+        // setTimeout(()=>{
+        //     // console.log(p)
+        p.then(
+            res => {
+                console.log(res)
+                // return 333;
+            },
+            // err=>console.log(err, 'fisr'),
+        )
+            // .then(
+            //     r=> console.log('222r-->', r),
+            //     er=> console.log('222j-->', er),
+            // )
+            .catch(err => {
+                console.log(err, 22)
+            })
+        // }, 2000)
+
+    </script>
+</body>
+
+</html>
