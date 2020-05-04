@@ -57,6 +57,16 @@
             npm help install
 
             ```
+### 开发阶段，监控文件修改，自动重启node
+
+```
+npm install -g nodemon    //全局安装
+npm install nodemon --save   //局部安装
+
+nodemon app.js
+
+```
+
 
 - 写一个helloworld
 

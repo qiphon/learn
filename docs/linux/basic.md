@@ -625,6 +625,8 @@ echo -e "\e[1;34m hello world \e[0m"
 ```
 
 赋予执行权限，直接运行即可
+- 权限说明
+   - rwx 对应二进制  111  如果只是读权限就是 r-- 二进制 100 十进制 4 ，rw- , 110 , 6; rwx,  
 
 ```sh
 
@@ -737,7 +739,13 @@ ls && echo yes || echo no
 
 ls /etc/ | more
 
-netstat -an | grep ESTABLISHED | wc -l
+# netstat -anp 在查看运行的程序和占用的端口 p 显示 pid
+# 缩写命令  ss -p
+
+netstat -anp | grep ESTABLISHED | wc -l
+
+# 杀掉进程
+kill [pid]
 
 ```
 
@@ -894,6 +902,14 @@ groups qiphon
 finger qiphon
 
 ```
+### 提权、切换用户
+
+```sh
+sudo 命令
+
+su root  # 切换到root
+
+```
 
 ## 附录
 
@@ -961,7 +977,29 @@ finger qiphon
 rpm -qa
 
 ```
+### 查看进程
 
+top 实时查看进程
+ps  查看进程切片（敲下命令那一个时间点运行的程序切片）
+
+```sh
+# 查看进程
+ps -aux
+
+# netstat -anp 在查看运行的程序和占用的端口 p 显示 pid
+netstat -anp | grep ESTABLISHED | wc -l
+
+# 查看进程，和秦东的用户，有 pid
+ss -p
+
+# 杀掉进程
+kill [pid]
+
+# 管理服务
+# start 启动 stop 停止  status 查看状态
+systemctl start|stop|status  [服务名]
+
+```
 ### 连接到远程服务器
 
 ```sh
@@ -978,6 +1016,8 @@ ssh qiphon@192.168.1.2
 
 # 把当前文件夹下的 readme.me 上传到 远程服务器的root 目录下，
 # 注意：ip地址后面有逗号
+# 如果是文件夹 -r
+# 如果是从服务器下载，就把地址切换一下就行
 scp ./readme.md root@192.168.1.12:/root
 
 ```

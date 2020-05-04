@@ -268,3 +268,537 @@ app.listen(8080, ()=>{
         ```
 
 ### express 路由
+
+- 基础路由
+
+```js
+var express = require('express')
+var app = express()
+
+// 基础路由
+app.get('/', function (req, res) {
+  res.send('GET request to the homepage')
+})
+
+// POST method route
+app.post('/', function (req, res) {
+  res.send('POST request to the homepage')
+})
+
+// 使用正则
+app.get(/.*fly$/, function (req, res) {
+    res.send('/.*fly$/')
+})
+
+// 字段匹配
+app.get('/users/:userId/books/:bookId', function (req, res) {
+    res.send(req.params)
+})
+
+// Route path: /users/: userId / books /: bookId
+// Request URL: http://localhost:3000/users/34/books/8989
+// req.params: { "userId": "34", "bookId": "8989" }
+
+app.get('/flights/:from-:to', function (req, res) {
+    res.send(req.params)
+})
+// Route path: /flights/:from-:to
+// Request URL: http://localhost:3000/flights/LAX-SFO
+// req.params: { "from": "LAX", "to": "SFO" }
+
+app.get('/plantae/:genus.:species', function (req, res) {
+    res.send(req.params)
+})
+// Route path: /plantae/:genus.:species
+// Request URL: http://localhost:3000/plantae/Prunus.persica
+// req.params: { "genus": "Prunus", "species": "persica" }
+
+
+// 路由处理
+app.get('/example/b', function (req, res, next) {
+    console.log('the response will be sent by the next function ...')
+    next()
+}, function (req, res) {
+    res.send('Hello from B!')
+})
+var cb0 = function (req, res, next) {
+    console.log('CB0')
+    next()
+}
+
+var cb1 = function (req, res, next) {
+    console.log('CB1')
+    next()
+}
+
+var cb2 = function (req, res) {
+    res.send('Hello from C!')
+}
+
+app.get('/example/c', [cb0, cb1, cb2])
+
+// 也可以这样
+var cb0 = function (req, res, next) {
+    console.log('CB0')
+    next()
+}
+
+var cb1 = function (req, res, next) {
+    console.log('CB1')
+    next()
+}
+
+app.get('/example/d', [cb0, cb1], function (req, res, next) {
+    console.log('the response will be sent by the next function ...')
+    next()
+}, function (req, res) {
+    res.send('Hello from D!')
+})
+
+app.listen(3000)
+```
+
+- 请求返回的函数 Response methods
+
+```
+Method	                描述Description
+res.end()         	    终结响应 End the response process.
+res.json()         	    响应json 数据 Send a JSON response.
+res.jsonp()         	Send a JSON response with JSONP support.
+res.render()         	渲染视图模板 Render a view template.
+res.redirect()         	重定向 Redirect a request.
+res.send()          	发送各种类型的响应 Send a response of various types.
+res.download()         	提示下载文件 Prompt a file to be downloaded.
+res.sendFile()         	以8位字节流形式发送文件 Send a file as an octet stream.
+res.sendStatus()       	设置响应状态码，并将其以字符串形式作为响应体的一部分
+                        Set the response status code and send its string representation as the response body.
+```
+
+- 如果对一个路由有多个请求方法处理
+
+```js
+// 通常的写法 
+
+app.get('/', function (req, res) {
+  res.send('GET request to the homepage')
+})
+// POST method route
+app.post('/', function (req, res) {
+  res.send('POST request to the homepage')
+})
+
+// 简化的写法
+app.route('/book')
+  .get(function (req, res) {
+    res.send('Get a random book')
+  })
+  .post(function (req, res) {
+    res.send('Add a book')
+  })
+  .put(function (req, res) {
+    res.send('Update the book')
+  })
+
+```
+
+- express.router
+
+```js
+
+
+var express = require('express')
+var router = express.Router()
+
+router.use(function timeLog(req, res, next) {
+    console.log('Time1: ', Date.now())
+    next()
+})
+// 相当于
+router.use('*', function timeLog(req, res, next) {
+    console.log('Time2: ', Date.now())
+    next()
+})
+// define the home page route
+router.get('/', function (req, res) {
+    res.send('Birds home page')
+})
+// define the about route
+router.get('/about', function (req, res) {
+    res.send('About birds')
+})
+
+app.use('/bird' ,router)
+
+
+```
+### 错误处理
+
+express 的错误处理函数放在最后面
+
+```js
+    // res.status(500)
+    // s
+    res.send('123')
+    // next(11)
+})
+
+// 后置错误处理中间件
+app.use(logErrors)
+app.use(clientErrorHandler)
+app.use(errorHandler)
+
+function logErrors(err, req, res, next) {
+    console.log('记录日志', err.stack)
+    next(err)
+}
+function clientErrorHandler(err, req, res, next) {
+    console.log('----------------clientErrorHandler=================')
+    if (req.xhr) {
+        res.status(500).send({ error: 'Something failed!' })
+    } else {
+        next(err)
+    }
+}
+function errorHandler(err, req, res, next) {
+    console.log('errorHandler===================')
+    res.status(500)
+    // next(err)
+    res.send('something is wrong')
+}
+
+
+app.listen(8081, ()=>{
+    console.log('===================server start')
+})
+
+```
+### 托管静态文件
+
+为了提供诸如图像、CSS 文件和 JavaScript 文件之类的静态文件，请使用 Express 中的 express.static 内置中间件函数。
+
+此函数特征如下：
+`express.static(root, [options])`
+
+```js
+// 这样静态文件路径就创建了
+app.use(express.static('public'))
+```
+
+### 模板引擎 [swig](http://node-swig.github.io/swig-templates/docs)
+
+swig 是node端的一个优秀简洁的模板引擎，类似Python模板引擎Jinja，目前不仅在node端较为通用，相对于jade、ejs优秀，而且在浏览器端也可以很好地运行。
+
+- 安装引擎
+
+```js
+npm install swig --save
+
+# 配合express 使用
+var app = require('express')(),
+  swig = require('swig'),
+  people;
+
+// This is where all the magic happens!
+app.engine('html', swig.renderFile);
+
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
+
+// Swig will cache templates for you, but you can disable
+// that and use Express's caching instead, if you like:
+app.set('view cache', false);
+// To disable Swig's cache, do the following:
+swig.setDefaults({ cache: false });
+// NOTE: You should always cache templates in a production environment.
+// Don't leave both of these to `false` in production!
+
+app.get('/', function (req, res) {
+    // 可以传递模板使用的变量
+  res.render('index', { /* template locals context */ });
+});
+
+app.listen(1337);
+console.log('Application Started on http://localhost:1337/');
+
+
+# swig api
+
+swig.init({
+    allowErrors: false,
+    autoescape: true,
+    cache: true,
+    encoding: 'utf8',
+    filters: {},
+    root: '/',
+    tags: {},
+    extensions: {},
+    tzOffset: 0
+});
+
+allowErrors: 默认值为 false。将所有模板解析和编译错误直接输出到模板。
+             如果为 true，则将引发错误，抛出到 Node.js 进程中，可能会使您的应用程序崩溃。
+autoescape: 默认true，强烈建议保持。字符转换表请参阅转义过滤器。
+true:       HTML安全转义
+false:     不转义，除非使用转义过滤器或者转义标签
+'js':      js安全转义
+cache:    更改为 false 将重新编译每个请求的模板的文件。
+          正式环境建议保持true。
+encoding: 模板文件编码
+root:     需要搜索模板的目录。如果模板传递给 swig.compileFile 绝对路径(以/开头)，Swig不会在模板root中搜索。       如果传递一个数组，使用第一个匹配成功的数组项。
+tzOffset: 设置默认时区偏移量。此设置会使转换日期过滤器会自动的修正相应时区偏移量。
+filters:  自定义过滤器或者重写默认过滤器，参见自定义过滤器指南。
+tags:     自定义标签或者重写默认标签，参见自定义标签指南。
+extensions: 添加第三方库，可以在编译模板时使用，参见参见自定义标签指南。
+
+
+```
+
+- 变量
+
+```HTML
+{{ foo.bar }}
+{{ foo['bar'] }}
+
+```
+
+- 模板继承
+
+```HTML
+<!-- layout.html -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}My Site{% endblock %}</title>
+    {% block head %}
+        <link rel="stylesheet" href="main.css">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>
+
+<!-- index.html -->
+<!-- 这里是继承 -->
+{% extends 'layout.html' %}
+<!-- 重写模板中的块 -->
+{% block title %}My Page{% endblock %}
+{% block head %}
+{% parent %}
+    <link rel="stylesheet" href="custom.css">
+{% endblock %}
+{% block content %}
+    <p>This is just an awesome page.</p>
+{% endblock %}
+
+```
+
+- 变量过滤器
+
+    - 过滤器的使用
+
+    ```html
+    {{ name|title }} was born on {{ birthday|date('F jS, Y') }}
+    and has {{ bikes|length|default("zero") }} bikes.
+
+    <!-- 也可以使用块处理 -->
+    {% filter upper %}oh hi, paul{% endfilter %}
+
+    ```
+
+    - 内置过滤器
+    
+        - addslashes    反斜杠-转义字符串。
+
+            ```html
+            <p>{{ 'quoted string\"'|addslashes }}</p>
+            // => quoted string\\\"
+
+            ```
+        - capitalize 大写的第一个字母输入，小写的其余。
+
+            ```js
+            {{ "i like Burritos"|capitalize }}
+            // I like burritos
+            ```
+        - date(format, offset, abbr)  设置日期或日期兼容字符串的格式。
+
+            ```js
+            <p>{{ Date.now() |date('Y-m-d') }}</p>
+            // 2020-05-04
+            ```
+        - default  如果输入为“ undefined”、“ null”或“ false” ，则可以指定默认返回值。
+
+            ```js
+            {{ null_value|default('Tacos') }}
+            Tacos
+            ```
+        - escape  强制转义变量的输出。 可以选择使用‘ e’作为快捷筛选器名称。 如果打开自动转义，此筛选器将默认应用。
+
+            ```js
+                <p>{{ "<blah>"|escape }}</p>
+                <p>{{ "<blah>"|e }}</p>
+                <blah>
+                <blah>
+
+                <p>{{ "<blah>"|e('js') }}</p>
+                \u003Cblah\u003E
+            ```
+        - first 返回第一个值
+
+            ```js
+            <p>{{ ['a','my_arr']|first }}</p>
+            a
+            ```
+
+        - groupBy  
+            
+            ```js
+            // [{ age: 23, name: 'Paul' }, { age: 26, name: 'Jane' }, { age: 23, name: 'Jim' }] 
+            <div>
+                {% for agegroup in people|groupBy('age') %}
+                <h2>{{ loop.key }}</h2>
+                <ul>
+                    {% for person in agegroup %}
+                    <li>{{ person.name }}</li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </div>
+
+            // 23
+            //     Paul
+            //     Jim
+            // 26
+            //     Jane
+
+            ```
+        - join  用一个字符串连接输入。
+            
+            ```js
+            {{ ['foo', 'bar', 'baz']|join('-') }}
+            // foo-bar-baz
+            ```
+        - json(indent)  返回 JavaScript 对象的字符串表示形式。
+
+            ```js
+            {{ {val: 123}|json }}
+            {"val":123}
+            ```
+        - last 获取字符串中数组或字符中的最后一项。 所有其他对象将尝试返回最后一个可用的值。
+            ```js
+
+            // my_arr = ['a', 'b', 'c']
+            {{ my_arr|last }}
+            // => c
+            ```
+        - length 获取数组、字符串或对象中的项数。
+
+            ```js
+            // my_arr = ['a', 'b', 'c']
+            {{ my_arr|length }}
+            // => 3
+            ```
+        - lower  返回所有小写字母的输入。
+            ```js
+            {{ "FOOBAR"|lower }}
+            // => foobar
+            ```
+        - raw  为安全起见不赞成使用。
+        - replace(search, replacement, flags) 返回一个新字符串，其中匹配的搜索模式被给定的替换字符串所替换。
+            ```js
+            search 搜索	string  从输入中替换的字符串或模式
+            replacement 置换	string	字符串来替换匹配的模式
+            flags 旗帜	string	正则表达式标志。“ g” : 全局匹配，“ i” : 忽略大小写，“ m” : 多行匹配
+
+             {{'foot' | replace('o', 'e', 'g') }}
+             // feet
+             {{ 'a1b2c3'|replace('\D', '0', 'g') }}
+             // 010203
+            ```
+        - reverse   反向排序输入。这是{{ input | sort (true)}}的别名。
+            ```js
+
+            // val = [1, 2, 3];
+            {{ val|reverse }}
+            // => 3,2,1
+            ```
+        - safe  强制输入不自动转义。 仅在您知道可以安全地呈现在页面上的内容上使用此选项。
+                测试失败！！！
+
+            ```js
+            // 理想的例子
+            // my_var = "<p>Stuff</p>";
+            {{ my_var|safe }}
+            // => <p>Stuff</p>
+            ```
+        - sort(reverse)  
+            - 按升序排序输入。
+            - 如果给定一个对象，将以排序数组的形式返回键。
+            - 如果给定一个字符串，每个字符将被单独排序。
+
+            ```js
+            <p>{{ [4, 6, 2]|sort }}</p>
+            <p>{{ 'afd'|sort }}</p>
+            <p>{{ {c:3, b: 1}|sort }}</p>
+            ```
+        - striptags 去标签
+
+            ```js
+            {{ '<span>foobar</span>'|striptags }}
+            // foobar
+            ```
+        - title  每个给定的单词都首字母大写，其他字母都小写。
+
+            ```js
+            {{ 'this is soMe text'|title }}
+            // This Is Some Text
+             {{ ['hi', 'this', 'is', 'an', 'array'] |title|join(' ') }}
+             // Hi This Is An Array
+            ```
+        - uniq  从数组中删除所有重复项。
+
+            ```js
+            {{ [1, 2, 3, 4, 4, 3, 2, 1]|uniq|join(',') }}
+            // 1,2,3,4
+            ```
+        - upper  将输入转换为所有大写字母。如果提供了一个对象或数组，所有值将使用大写字母
+            
+            ```js
+            // my_arr = ['tacos', 'burritos'];
+            {{ my_arr|upper|join(' & ') }}
+            // => TACOS & BURRITOS
+            ```
+        - url_encode  编码一个字符串。如果一个对象或数组被传递，所有的值将被 url 编码。
+            
+            ```js
+            // my_str = 'param=1&anotherParam=2';
+            {{ my_str|url_encode }}
+            // => param%3D1%26anotherParam%3D2
+            ```
+
+        - url_decode  对字符串进行解码。如果传递了一个对象或数组，所有值都将被解码。
+
+            ```js
+            // my_str = 'param%3D1%26anotherParam%3D2';
+            {{ my_str|url_decode }}
+            // => param=1&anotherParam=2
+            ```
+    - 自定义过滤器
+        
+        ```js
+        // 创建一个 myfilter.js 然后引入到 Swig 的初始化函数中
+        swig.setFilter(
+            "reverseStr",
+            require('./utils/myfilters').myfilter
+        )
+
+        // myfilters.js
+        exports.reverseStr = function (input) {
+            return input.toString().split('').reverse().join('');
+        };
+        // html
+        <h2>{{ title | reverseStr }}</h2>
+
+        ```
