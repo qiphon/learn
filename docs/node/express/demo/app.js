@@ -1,123 +1,65 @@
-var express = require('express')
-var app = express()
+const express = require("express")
 
-// 基础路由
-// app.get('/', function (req, res) {
-//     res.send('GET request to the homepage')
-// })
+const app = express()
+// 设置静态文件目录
+app.use(express.static('public'))
 
-// app.get(/.*fly$/, function (req, res) {
-//     res.send('/.*fly$/')
-// })
-
-// // POST method route
-// app.post('/', function (req, res) {
-//     res.send('POST request to the homepage')
-// })
-
-// // 字段匹配
-// app.get('/users/:userId/books/:bookId', function (req, res) {
-//     res.send(req.params)
-// })
-
-// // Route path: /users/: userId / books /: bookId
-// // Request URL: http://localhost:3000/users/34/books/8989
-// // req.params: { "userId": "34", "bookId": "8989" }
-
-// app.get('/flights/:from-:to', function (req, res) {
-//     res.send(req.params)
-// })
-// // Route path: /flights/:from-:to
-// // Request URL: http://localhost:3000/flights/LAX-SFO
-// // req.params: { "from": "LAX", "to": "SFO" }
-
-// app.get('/plantae/:genus.:species', function (req, res) {
-//     res.send(req.params)
-// })
-// Route path: /plantae/:genus.:species
-// Request URL: http://localhost:3000/plantae/Prunus.persica
-// req.params: { "genus": "Prunus", "species": "persica" }
-
-// 路由处理
-// app.get('/example/b', function (req, res, next) {
-//     console.log('the response will be sent by the next function ...')
-//     next()
-// }, function (req, res) {
-//     res.send('Hello from B!')
-// })
-// var cb0 = function (req, res, next) {
-//     console.log('CB0')
-//     next()
-// }
-
-// var cb1 = function (req, res, next) {
-//     console.log('CB1')
-//     next()
-// }
-
-// var cb2 = function (req, res) {
-//     res.send('Hello from C!')
-// }
-
-// app.get('/example/c', [cb0, cb1, cb2])
-
-// // 也可以这样
-// var cb0 = function (req, res, next) {
-//     console.log('CB0')
-//     next()
-// }
-
-// var cb1 = function (req, res, next) {
-//     console.log('CB1')
-//     next()
-// }
-
-// app.get('/example/d', [cb0, cb1], function (req, res, next) {
-//     console.log('the response will be sent by the next function ...')
-//     next()
-// }, function (req, res) {
-//     res.send('Hello from D!')
-// })
-
-// var router = express.Router()
-
-// router.use(function timeLog(req, res, next) {
-//     console.log('Time1: ', Date.now())
-//     next()
-// })
-// // 相当于
-// router.use('*', function timeLog(req, res, next) {
-//     console.log('Time2: ', Date.now())
-//     next()
-// })
-// // define the home page route
-// router.get('/', function (req, res) {
-//     res.send('Birds home page')
-// })
-// // define the about route
-// router.get('/about', function (req, res) {
-//     res.send('About birds')
-// })
-
-// app.use('/bird' ,router)
+// 设置模板引擎
 const swig = require('swig')
+// 开发时关闭缓存，不然样式改动会看不出来
 swig.setDefaults({ cache: false });
-swig.setFilter(
-    "reverseStr",
-    require('./utils/myfilters').reverseStr
-)
 app.set('view engine', 'html')
 app.engine('html', swig.renderFile)
 
-app.use(express.static('public'))
+// 处理post数据
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extende: true }));
+app.use(bodyParser.json())
 
-app.get('/', (req, res, next)=>{
-    // res.end('123')
-    res.render('index', {
-        title: 'swig home',
-        people: [{ age: 23, name: 'Paul' }, { age: 26, name: 'Jane' }, { age: 23, name: 'Jim' }] ,
-        span: '<span>111</span>'
+app.get('/', (req, res, next) => {
+    // res.end('home')
+    res.render('index')
+})
+
+// 数据操作
+const mysql = require('./model/index')
+// 接收表单请求
+app.post('/', (req, res, next) => {
+    // console.log(req.query)
+    // console.log(req.body, mysql)
+    mysql.setUser(req.body, function (err) {
+        if (err) {
+            console.log(err)
+            res.json({
+                status: 500,
+                msg: '插入失败'
+            })
+        }
+        else {
+            res.json({
+                status: 200,
+                msg: '插入成功'
+            })
+        }
     })
 })
 
-app.listen(3000)
+/**
+ * @fileoverview 未知路由的容错
+ */
+app.use('*', (req, res, next) => {
+    res.status(404)
+    res.end("<h1>404")
+})
+
+// 代码错误的容错处理
+app.use([ErrorHandler])
+
+function ErrorHandler(err, req, res, next) {
+    res.status(500)
+    res.end('server error')
+}
+
+app.listen(3000, () => {
+    console.log('server is start at 3000...')
+})

@@ -1,86 +1,35 @@
 {% extends 'layout.html' %}
-
-{% block title %}index {{title}}{% endblock %}
+{% block title %}
+home
+{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="/styles/index.css">
 {% endblock %}
 
 {% block body %}
-
-<p>
-    {{  'param=1&anotherParam=2'|url_encode }}
-</p>
-
-<p>
-    {{ [1, 2, 3, 4, 4, 3, 2, 1]|uniq|join(',') }}
-</p>
-
-<p>
-    {{ 'this is soMe text'|title }}
-</p>
-<p>
-    {{ ['hi', 'this', 'is', 'an', 'array'] |title|join(' ') }}
-</p>
-
-<p>
-    {{ '<span>foobar</span>'|striptags }}
-</p>
-
-<p>{{ [4, 6, 2]|sort }}</p>
-<p>{{ 'afd'|sort }}</p>
-<p>{{ {c:3, b: 1}|sort }}</p>
-
-<p>
-    {{ span |safe }}
-</p>
-
-<p>
-    {{'foot' | replace('o', 'e', 'g') }}
-    {{ 'a1b2c3'|replace('\D', '0', 'g') }}
-</p>
-
-<p>
-    {{ "FOOBAR"|lower }}
-// => foobar
-</p>
-
-<p>
-    {{ {val: 123}|json(4) }}
-</p>
-
-<h1>index is right</h1>
-<h2>{{ title | reverseStr }}</h2>
-
-<p>{{ 'quoted string\"'|addslashes }}</p>
-
-<p>{{ "i like Burritos"|capitalize }}</p>
-
-<p>{{ Date.now() |date('Y-m-d') }}</p>
-
-<p>{{ null_value|default('Tacos') }}</p>
-
-<p>{{ "<blah>"|escape }}</p>
-<p>{{ "<blah>"|e }}</p>
-<p>{{ "<blah>"|e('js') }}</p>
-
-<p>{{ ['a','my_arr']|first }}</p>
-
-
-<div>
-    {% for agegroup in people|groupBy('age') %}
-    <h2>{{ loop.key }}</h2>
-    <ul>
-        {% for person in agegroup %}
-        <li>{{ person.name }}</li>
-        {% endfor %}
-    </ul>
-    {% endfor %}
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="name" class="form-control user-name" id="exampleInputEmail1" >
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control user-pwd" id="exampleInputPassword1">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+    </form>
 </div>
 
-<div>
-    {{ ['foo', 'bar', 'baz']|join('-') }}
-</div>
+{% endblock %}
 
+{% block script %}
+<script src="/js/index.js"></script>
 
 {% endblock %}
