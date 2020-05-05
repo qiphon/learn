@@ -249,3 +249,195 @@ app.listen(3000)
    - 需要什么功能都要单独引入
    - try / catch 更好的处理异常
    - 新项目、性能要求高推荐使用
+
+## koa 项目搭建
+
+- 基础结构搭建
+    
+    ```js
+    const Koa = require('koa')
+    const app = new Koa()
+    const router = require('koa-simple-router')
+
+    // app.use(ctx=>{
+    //     ctx.body = "hello koa"
+    // })
+
+    app.use(router(_ => {
+        _.get('/', (ctx, next) => {
+            ctx.body = 'home'
+        })
+        _.get('/abc', (ctx, next) => {
+            ctx.body = 'abc'
+        })
+        _.post('/path', (ctx, next) => {
+
+        })
+        _.all('*', (ctx, next)=>{
+            ctx.body= 404
+        })
+    }))
+
+
+
+    app.listen(3000, _ => {
+        console.log('server start at 3000...')
+    })
+
+    ```
+
+- 配置路径别名 module-alias
+
+    ```js
+    const moduleAlias = require('module-alias')
+ 
+    // Or multiple aliases
+    moduleAlias.addAliases({
+        "@root": __dirname, 
+        "@controllers": __dirname + '/controllers', 
+        "@models": __dirname + '/models', 
+    })
+
+    ```
+    配置别名之后 vscode 就不能使用跳转了，vscode 官网提供了一个办法 [jsconfig.json](https://code.visualstudio.com/docs/languages/jsconfig#_jsconfig-options)
+
+- 添加模板引擎 （这里用的 swig）
+    
+    ```js
+
+    const render = require('koa-swig')
+    const co = require('co')
+    app.context.render = co.wrap(render({
+        root: viewDir,
+        autoescape: true,
+        cache: isProd ? 'memory' : false, // disable, set to false
+        ext: 'html',
+        writeBody: false,
+        // varControls: ["[[", "]]"]
+    }));
+
+    // 使用
+    ctx.body = await ctx.render('index')
+
+    ```
+- 设置静态资源目录
+
+    ```js
+
+    const static = require('koa-static')
+    // 所有的静态资源都可以放在这里 根目录下的 public 文件夹内
+    // 使用方法 <link href="/public/index.css" />
+    app.use(static(__dirname + 'public'))
+
+    ```
+
+- 添加容错处理
+
+    ```js
+
+    /**
+    * @fileoverview 未知路由的容错
+    */
+    // 404 页面
+    app.use(async (ctx, next) => {
+        ctx.status = 404
+        ctx.body = '<h1>404'
+    })
+
+    /**
+     * 代码容错处理
+    */
+    app.use( async (ctx, next)=>{
+        try{
+            await next()
+        }catch(err){
+            // console.log(err.stack, '================')
+            ctx.status = 500
+            ctx.body = err.stack
+        }
+    })
+
+    ```
+
+- 处理请求的数据
+    - get请求数据在 `req.query`
+    - post 请求
+        ```js
+
+        // 处理post数据
+        var bodyParser = require('body-parser')
+        app.use(bodyParser.urlencoded({extende:true}));
+        app.use(bodyParser.json())
+
+        // 这个时候数据就在 req.body 里面了
+        
+        ```
+- SPA + MPA 路由实现
+
+    ```js
+    // 添加 API-fallback 防止刷新404
+    // 这个要写在koa的路由上面
+    const { historyApiFallback } = require('koa2-connect-history-api-fallback')
+    app.use(historyApiFallback({
+        index: '/',
+        whiteList:['/books']
+    }))
+
+    ```
+
+- 数据库操作
+    - mysql 包
+    - orm 包
+
+- 生成接口文档
+
+    ```json
+    // package.json
+    "api:docs": "jsdoc ./**/*.js -d ./docs/jsdoc"
+
+    ```
+
+- 配置文件目录
+    
+    ```
+    |- express app
+    |    |
+    |    |--- bin  可执行文件目录
+    |    |
+    |    |--- config  配置文件目录
+    |    |
+    |    |--- docs  生成文档存放目录
+    |    |
+    |    |--- logs  日志目录
+    |    |
+    |    |--- tests  测试文件目录
+    |    |
+    |    |--- components  组件目录
+    |    |
+    |    |--- middlewares  中间件目录
+    |    |
+    |    |--- app.js  入口文件
+    |    |
+    |    |--- views  模板路径
+    |    |
+    |    |--- model  数据处理
+    |    |
+    |    |--- controllers  各个路由控制器目录
+    |    |
+    |    |--- public  静态资源路径
+    |    |    |
+    |    |    |--- js
+    |    |    |
+    |    |    |--- styles
+    |    |    |
+    |    |    |--- images
+    |    |    |
+    |    |    |--- others  其他静态文件
+    |    |
+    |    |--- utils  工具类
+    |    |
+    |    |--- node_modules  包仓库
+    |    |
+    |    |--- package.json  配置文件
+    |    |
+    ```
