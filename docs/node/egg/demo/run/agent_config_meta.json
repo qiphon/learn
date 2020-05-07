@@ -1,0 +1,261 @@
+{
+  "keys": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/config/config.default.js",
+  "session": {
+    "maxAge": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-session/config/config.default.js",
+    "key": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-session/config/config.default.js",
+    "httpOnly": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-session/config/config.default.js",
+    "encrypt": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-session/config/config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+    "protocolWhiteList": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+    "defaultMiddleware": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+    "csrf": {
+      "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "type": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "ignoreJSON": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "useSession": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "cookieName": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "sessionName": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "headerName": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "bodyName": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "queryName": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "refererWhiteList": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+    },
+    "xframe": {
+      "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "value": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+    },
+    "hsts": {
+      "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.local.js",
+      "maxAge": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "includeSubdomains": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+    },
+    "dta": {
+      "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+    },
+    "noopen": {
+      "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+    },
+    "nosniff": {
+      "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "value": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+    },
+    "xssProtection": {
+      "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "value": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+    },
+    "csp": {
+      "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "policy": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js",
+      "checkAddress": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-security/config/config.default.js"
+  },
+  "jsonp": {
+    "limit": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-jsonp/config/config.default.js",
+    "callback": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-jsonp/config/config.default.js",
+    "csrf": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-jsonp/config/config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-onerror/config/config.default.js",
+    "appErrorFilter": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-onerror/config/config.default.js",
+    "templatePath": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-onerror/config/config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-i18n/config/config.default.js",
+    "dirs": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-i18n/config/config.default.js",
+    "queryField": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-i18n/config/config.default.js",
+    "cookieField": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-i18n/config/config.default.js",
+    "cookieDomain": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-i18n/config/config.default.js"
+  },
+  "watcher": {
+    "type": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-watcher/config/config.local.js",
+    "eventSources": {
+      "default": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-watcher/config/config.default.js",
+      "development": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-watcher/config/config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-schedule/config/config.default.js",
+      "file": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-schedule/config/config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-schedule/config/config.default.js"
+  },
+  "multipart": {
+    "mode": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js",
+    "autoFields": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js",
+    "defaultCharset": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js",
+    "fieldNameSize": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js",
+    "fieldSize": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js",
+    "fields": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js",
+    "fileSize": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js",
+    "files": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js",
+    "fileExtensions": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js",
+    "whitelist": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js",
+    "tmpdir": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-multipart/config/config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-development/config/config.default.js",
+    "ignoreDirs": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-development/config/config.default.js",
+    "fastReady": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-development/config/config.default.js",
+    "reloadOnDebug": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-development/config/config.default.js",
+    "overrideDefault": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-development/config/config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-logrotator/config/config.default.js",
+    "hourDelimiter": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-logrotator/config/config.default.js",
+    "filesRotateBySize": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-logrotator/config/config.default.js",
+    "maxFileSize": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-logrotator/config/config.default.js",
+    "maxFiles": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-logrotator/config/config.default.js",
+    "rotateDuration": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-logrotator/config/config.default.js",
+    "maxDays": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-logrotator/config/config.default.js"
+  },
+  "static": {
+    "prefix": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-static/config/config.default.js",
+    "dir": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-static/config/config.default.js",
+    "dynamic": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-static/config/config.default.js",
+    "preload": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-static/config/config.default.js",
+    "buffer": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-static/config/config.default.js",
+    "maxFiles": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-static/config/config.default.js"
+  },
+  "view": {
+    "root": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-view/config/config.default.js",
+    "cache": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-view/config/config.local.js",
+    "defaultExtension": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-view/config/config.default.js",
+    "defaultViewEngine": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-view/config/config.default.js",
+    "mapping": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg-view/config/config.default.js"
+  },
+  "env": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "name": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "cookies": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "proxy": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "maxIpsCount": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "maxProxyCount": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "protocolHeaders": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "ipHeaders": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "hostHeaders": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "pkg": {
+    "name": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "version": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "main": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "license": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "dependencies": {
+      "egg": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+    },
+    "devDependencies": {
+      "egg-bin": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+    },
+    "scripts": {
+      "dev": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+    }
+  },
+  "baseDir": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "HOME": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "rundir": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "dump": {
+    "ignore": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "notFound": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "sitefile": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "middlewares": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "httpClient": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+  },
+  "bodyParser": {
+    "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "encoding": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "formLimit": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "jsonLimit": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "textLimit": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "strict": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "queryString": {
+      "arrayLimit": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+      "depth": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+      "parameterLimit": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+    },
+    "onerror": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+  },
+  "logger": {
+    "dir": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "encoding": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "env": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "level": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "consoleLevel": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "disableConsoleAfterReady": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "outputJSON": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "buffer": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "appLogName": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "coreLogName": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "agentLogName": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "errorLogName": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "coreLogger": {
+      "consoleLevel": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.local.js"
+    },
+    "allowDebugAtProd": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "dnsCacheLookupInterval": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "dnsCacheMaxLength": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "request": {
+      "timeout": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+      "maxSockets": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+      "maxSockets": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "logging": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+  },
+  "coreMiddleware": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "workerStartTimeout": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "serverTimeout": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+      "port": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+      "hostname": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js",
+    "responseTimeout": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+  },
+  "onClientError": "/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/node_modules/egg/config/config.default.js"
+}

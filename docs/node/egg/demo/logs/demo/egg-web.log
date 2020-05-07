@@ -1,0 +1,358 @@
+2020-05-08 00:41:43,125 INFO 23740 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:41:43,151 INFO 23740 [egg-multipart] stream mode enable
+2020-05-08 00:41:43,226 INFO 23740 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:41:43,228 INFO 23740 [egg-security] use csrf middleware
+2020-05-08 00:41:43,229 INFO 23740 [egg-security] use methodnoallow middleware
+2020-05-08 00:41:43,230 INFO 23740 [egg-security] use noopen middleware
+2020-05-08 00:41:43,233 INFO 23740 [egg-security] use nosniff middleware
+2020-05-08 00:41:43,234 INFO 23740 [egg-security] use xssProtection middleware
+2020-05-08 00:41:43,234 INFO 23740 [egg-security] use xframe middleware
+2020-05-08 00:41:43,235 INFO 23740 [egg-security] use dta middleware
+2020-05-08 00:41:43,235 INFO 23740 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:41:43,242 INFO 23740 [egg:core] dump config after load, 4ms
+2020-05-08 00:41:43,251 INFO 23740 [egg-watcher:application] watcher start success
+2020-05-08 00:41:43,257 INFO 23740 [egg:core] dump config after ready, 5ms
+2020-05-08 00:44:54,090 INFO 26535 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:44:54,123 INFO 26535 [egg-multipart] stream mode enable
+2020-05-08 00:44:54,223 INFO 26535 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:44:54,228 INFO 26535 [egg-security] use csrf middleware
+2020-05-08 00:44:54,229 INFO 26535 [egg-security] use methodnoallow middleware
+2020-05-08 00:44:54,230 INFO 26535 [egg-security] use noopen middleware
+2020-05-08 00:44:54,232 INFO 26535 [egg-security] use nosniff middleware
+2020-05-08 00:44:54,233 INFO 26535 [egg-security] use xssProtection middleware
+2020-05-08 00:44:54,233 INFO 26535 [egg-security] use xframe middleware
+2020-05-08 00:44:54,234 INFO 26535 [egg-security] use dta middleware
+2020-05-08 00:44:54,234 INFO 26535 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:44:54,244 INFO 26535 [egg:core] dump config after load, 6ms
+2020-05-08 00:44:54,251 INFO 26535 [egg-watcher:application] watcher start success
+2020-05-08 00:44:54,257 INFO 26535 [egg:core] dump config after ready, 5ms
+2020-05-08 00:45:04,779 INFO 26744 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:45:04,808 INFO 26744 [egg-multipart] stream mode enable
+2020-05-08 00:45:04,890 INFO 26744 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:45:04,893 INFO 26744 [egg-security] use csrf middleware
+2020-05-08 00:45:04,894 INFO 26744 [egg-security] use methodnoallow middleware
+2020-05-08 00:45:04,894 INFO 26744 [egg-security] use noopen middleware
+2020-05-08 00:45:04,896 INFO 26744 [egg-security] use nosniff middleware
+2020-05-08 00:45:04,896 INFO 26744 [egg-security] use xssProtection middleware
+2020-05-08 00:45:04,897 INFO 26744 [egg-security] use xframe middleware
+2020-05-08 00:45:04,898 INFO 26744 [egg-security] use dta middleware
+2020-05-08 00:45:04,898 INFO 26744 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:45:04,905 INFO 26744 [egg:core] dump config after load, 4ms
+2020-05-08 00:45:04,912 INFO 26744 [egg-watcher:application] watcher start success
+2020-05-08 00:45:04,920 INFO 26744 [egg:core] dump config after ready, 6ms
+2020-05-08 00:45:40,546 INFO 27231 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:45:40,572 INFO 27231 [egg-multipart] stream mode enable
+2020-05-08 00:45:40,649 INFO 27231 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:45:40,651 INFO 27231 [egg-security] use csrf middleware
+2020-05-08 00:45:40,653 INFO 27231 [egg-security] use methodnoallow middleware
+2020-05-08 00:45:40,654 INFO 27231 [egg-security] use noopen middleware
+2020-05-08 00:45:40,655 INFO 27231 [egg-security] use nosniff middleware
+2020-05-08 00:45:40,655 INFO 27231 [egg-security] use xssProtection middleware
+2020-05-08 00:45:40,656 INFO 27231 [egg-security] use xframe middleware
+2020-05-08 00:45:40,656 INFO 27231 [egg-security] use dta middleware
+2020-05-08 00:45:40,657 INFO 27231 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:45:40,664 INFO 27231 [egg:core] dump config after load, 4ms
+2020-05-08 00:45:40,671 INFO 27231 [egg-watcher:application] watcher start success
+2020-05-08 00:45:40,677 INFO 27231 [egg:core] dump config after ready, 5ms
+2020-05-08 00:47:28,953 INFO 28759 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:47:28,993 INFO 28759 [egg-multipart] stream mode enable
+2020-05-08 00:47:29,084 INFO 28759 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:47:29,087 INFO 28759 [egg-security] use csrf middleware
+2020-05-08 00:47:29,089 INFO 28759 [egg-security] use methodnoallow middleware
+2020-05-08 00:47:29,090 INFO 28759 [egg-security] use noopen middleware
+2020-05-08 00:47:29,091 INFO 28759 [egg-security] use nosniff middleware
+2020-05-08 00:47:29,092 INFO 28759 [egg-security] use xssProtection middleware
+2020-05-08 00:47:29,092 INFO 28759 [egg-security] use xframe middleware
+2020-05-08 00:47:29,093 INFO 28759 [egg-security] use dta middleware
+2020-05-08 00:47:29,093 INFO 28759 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:47:29,103 INFO 28759 [egg:core] dump config after load, 4ms
+2020-05-08 00:47:29,110 INFO 28759 [egg-watcher:application] watcher start success
+2020-05-08 00:47:29,117 INFO 28759 [egg:core] dump config after ready, 5ms
+2020-05-08 00:48:11,580 INFO 29356 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:48:11,609 INFO 29356 [egg-multipart] stream mode enable
+2020-05-08 00:48:11,695 INFO 29356 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:48:11,698 INFO 29356 [egg-security] use csrf middleware
+2020-05-08 00:48:11,699 INFO 29356 [egg-security] use methodnoallow middleware
+2020-05-08 00:48:11,700 INFO 29356 [egg-security] use noopen middleware
+2020-05-08 00:48:11,701 INFO 29356 [egg-security] use nosniff middleware
+2020-05-08 00:48:11,701 INFO 29356 [egg-security] use xssProtection middleware
+2020-05-08 00:48:11,702 INFO 29356 [egg-security] use xframe middleware
+2020-05-08 00:48:11,703 INFO 29356 [egg-security] use dta middleware
+2020-05-08 00:48:11,703 INFO 29356 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:48:11,712 INFO 29356 [egg:core] dump config after load, 4ms
+2020-05-08 00:48:11,719 INFO 29356 [egg-watcher:application] watcher start success
+2020-05-08 00:48:11,730 INFO 29356 [egg:core] dump config after ready, 9ms
+2020-05-08 00:48:19,433 INFO 29486 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:48:19,471 INFO 29486 [egg-multipart] stream mode enable
+2020-05-08 00:48:19,570 INFO 29486 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:48:19,573 INFO 29486 [egg-security] use csrf middleware
+2020-05-08 00:48:19,575 INFO 29486 [egg-security] use methodnoallow middleware
+2020-05-08 00:48:19,575 INFO 29486 [egg-security] use noopen middleware
+2020-05-08 00:48:19,577 INFO 29486 [egg-security] use nosniff middleware
+2020-05-08 00:48:19,578 INFO 29486 [egg-security] use xssProtection middleware
+2020-05-08 00:48:19,579 INFO 29486 [egg-security] use xframe middleware
+2020-05-08 00:48:19,579 INFO 29486 [egg-security] use dta middleware
+2020-05-08 00:48:19,579 INFO 29486 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:48:19,590 INFO 29486 [egg:core] dump config after load, 5ms
+2020-05-08 00:48:19,598 INFO 29486 [egg-watcher:application] watcher start success
+2020-05-08 00:48:19,606 INFO 29486 [egg:core] dump config after ready, 7ms
+2020-05-08 00:48:28,435 INFO 29486 [egg-view-nunjucks] loading templates from ["/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/view"]
+2020-05-08 00:49:09,226 INFO 30227 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:49:09,272 INFO 30227 [egg-multipart] stream mode enable
+2020-05-08 00:49:09,375 INFO 30227 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:49:09,377 INFO 30227 [egg-security] use csrf middleware
+2020-05-08 00:49:09,378 INFO 30227 [egg-security] use methodnoallow middleware
+2020-05-08 00:49:09,379 INFO 30227 [egg-security] use noopen middleware
+2020-05-08 00:49:09,380 INFO 30227 [egg-security] use nosniff middleware
+2020-05-08 00:49:09,381 INFO 30227 [egg-security] use xssProtection middleware
+2020-05-08 00:49:09,381 INFO 30227 [egg-security] use xframe middleware
+2020-05-08 00:49:09,382 INFO 30227 [egg-security] use dta middleware
+2020-05-08 00:49:09,382 INFO 30227 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:49:09,390 INFO 30227 [egg:core] dump config after load, 3ms
+2020-05-08 00:49:09,397 INFO 30227 [egg-watcher:application] watcher start success
+2020-05-08 00:49:09,403 INFO 30227 [egg:core] dump config after ready, 5ms
+2020-05-08 00:49:14,083 INFO 30316 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:49:14,110 INFO 30316 [egg-multipart] stream mode enable
+2020-05-08 00:49:14,185 INFO 30316 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:49:14,188 INFO 30316 [egg-security] use csrf middleware
+2020-05-08 00:49:14,189 INFO 30316 [egg-security] use methodnoallow middleware
+2020-05-08 00:49:14,190 INFO 30316 [egg-security] use noopen middleware
+2020-05-08 00:49:14,191 INFO 30316 [egg-security] use nosniff middleware
+2020-05-08 00:49:14,191 INFO 30316 [egg-security] use xssProtection middleware
+2020-05-08 00:49:14,192 INFO 30316 [egg-security] use xframe middleware
+2020-05-08 00:49:14,192 INFO 30316 [egg-security] use dta middleware
+2020-05-08 00:49:14,192 INFO 30316 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:49:14,200 INFO 30316 [egg:core] dump config after load, 4ms
+2020-05-08 00:49:14,206 INFO 30316 [egg-watcher:application] watcher start success
+2020-05-08 00:49:14,213 INFO 30316 [egg:core] dump config after ready, 4ms
+2020-05-08 00:52:17,720 INFO 352 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:52:17,749 INFO 352 [egg-multipart] stream mode enable
+2020-05-08 00:52:17,823 INFO 352 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:52:17,825 INFO 352 [egg-security] use csrf middleware
+2020-05-08 00:52:17,826 INFO 352 [egg-security] use methodnoallow middleware
+2020-05-08 00:52:17,827 INFO 352 [egg-security] use noopen middleware
+2020-05-08 00:52:17,828 INFO 352 [egg-security] use nosniff middleware
+2020-05-08 00:52:17,829 INFO 352 [egg-security] use xssProtection middleware
+2020-05-08 00:52:17,829 INFO 352 [egg-security] use xframe middleware
+2020-05-08 00:52:17,830 INFO 352 [egg-security] use dta middleware
+2020-05-08 00:52:17,830 INFO 352 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:52:17,838 INFO 352 [egg:core] dump config after load, 4ms
+2020-05-08 00:52:17,844 INFO 352 [egg-watcher:application] watcher start success
+2020-05-08 00:52:17,851 INFO 352 [egg:core] dump config after ready, 6ms
+2020-05-08 00:55:45,627 INFO 3355 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:55:45,655 INFO 3355 [egg-multipart] stream mode enable
+2020-05-08 00:55:45,730 INFO 3355 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:55:45,732 INFO 3355 [egg-security] use csrf middleware
+2020-05-08 00:55:45,734 INFO 3355 [egg-security] use methodnoallow middleware
+2020-05-08 00:55:45,734 INFO 3355 [egg-security] use noopen middleware
+2020-05-08 00:55:45,735 INFO 3355 [egg-security] use nosniff middleware
+2020-05-08 00:55:45,736 INFO 3355 [egg-security] use xssProtection middleware
+2020-05-08 00:55:45,737 INFO 3355 [egg-security] use xframe middleware
+2020-05-08 00:55:45,737 INFO 3355 [egg-security] use dta middleware
+2020-05-08 00:55:45,737 INFO 3355 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:55:45,745 INFO 3355 [egg:core] dump config after load, 4ms
+2020-05-08 00:55:45,751 INFO 3355 [egg-watcher:application] watcher start success
+2020-05-08 00:55:45,757 INFO 3355 [egg:core] dump config after ready, 5ms
+2020-05-08 00:56:12,168 INFO 3972 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:56:12,196 INFO 3972 [egg-multipart] stream mode enable
+2020-05-08 00:56:12,284 INFO 3972 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:56:12,287 INFO 3972 [egg-security] use csrf middleware
+2020-05-08 00:56:12,288 INFO 3972 [egg-security] use methodnoallow middleware
+2020-05-08 00:56:12,289 INFO 3972 [egg-security] use noopen middleware
+2020-05-08 00:56:12,290 INFO 3972 [egg-security] use nosniff middleware
+2020-05-08 00:56:12,291 INFO 3972 [egg-security] use xssProtection middleware
+2020-05-08 00:56:12,291 INFO 3972 [egg-security] use xframe middleware
+2020-05-08 00:56:12,292 INFO 3972 [egg-security] use dta middleware
+2020-05-08 00:56:12,292 INFO 3972 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:56:12,300 INFO 3972 [egg:core] dump config after load, 4ms
+2020-05-08 00:56:12,307 INFO 3972 [egg-watcher:application] watcher start success
+2020-05-08 00:56:12,313 INFO 3972 [egg:core] dump config after ready, 5ms
+2020-05-08 00:58:46,770 INFO 6354 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:58:46,796 INFO 6354 [egg-multipart] stream mode enable
+2020-05-08 00:58:46,873 INFO 6354 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:58:46,875 INFO 6354 [egg-security] use csrf middleware
+2020-05-08 00:58:46,877 INFO 6354 [egg-security] use methodnoallow middleware
+2020-05-08 00:58:46,877 INFO 6354 [egg-security] use noopen middleware
+2020-05-08 00:58:46,879 INFO 6354 [egg-security] use nosniff middleware
+2020-05-08 00:58:46,879 INFO 6354 [egg-security] use xssProtection middleware
+2020-05-08 00:58:46,880 INFO 6354 [egg-security] use xframe middleware
+2020-05-08 00:58:46,881 INFO 6354 [egg-security] use dta middleware
+2020-05-08 00:58:46,881 INFO 6354 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:58:46,890 INFO 6354 [egg:core] dump config after load, 4ms
+2020-05-08 00:58:46,898 INFO 6354 [egg-watcher:application] watcher start success
+2020-05-08 00:58:46,907 INFO 6354 [egg:core] dump config after ready, 7ms
+2020-05-08 00:58:53,570 INFO 6464 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 00:58:53,603 INFO 6464 [egg-multipart] stream mode enable
+2020-05-08 00:58:53,682 INFO 6464 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 00:58:53,684 INFO 6464 [egg-security] use csrf middleware
+2020-05-08 00:58:53,686 INFO 6464 [egg-security] use methodnoallow middleware
+2020-05-08 00:58:53,686 INFO 6464 [egg-security] use noopen middleware
+2020-05-08 00:58:53,687 INFO 6464 [egg-security] use nosniff middleware
+2020-05-08 00:58:53,688 INFO 6464 [egg-security] use xssProtection middleware
+2020-05-08 00:58:53,689 INFO 6464 [egg-security] use xframe middleware
+2020-05-08 00:58:53,689 INFO 6464 [egg-security] use dta middleware
+2020-05-08 00:58:53,689 INFO 6464 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 00:58:53,698 INFO 6464 [egg:core] dump config after load, 4ms
+2020-05-08 00:58:53,704 INFO 6464 [egg-watcher:application] watcher start success
+2020-05-08 00:58:53,711 INFO 6464 [egg:core] dump config after ready, 6ms
+2020-05-08 01:00:47,924 INFO 8023 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 01:00:47,959 INFO 8023 [egg-multipart] stream mode enable
+2020-05-08 01:00:48,066 INFO 8023 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 01:00:48,070 INFO 8023 [egg-security] use csrf middleware
+2020-05-08 01:00:48,072 INFO 8023 [egg-security] use methodnoallow middleware
+2020-05-08 01:00:48,072 INFO 8023 [egg-security] use noopen middleware
+2020-05-08 01:00:48,073 INFO 8023 [egg-security] use nosniff middleware
+2020-05-08 01:00:48,074 INFO 8023 [egg-security] use xssProtection middleware
+2020-05-08 01:00:48,075 INFO 8023 [egg-security] use xframe middleware
+2020-05-08 01:00:48,077 INFO 8023 [egg-security] use dta middleware
+2020-05-08 01:00:48,077 INFO 8023 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 01:00:48,088 INFO 8023 [egg:core] dump config after load, 6ms
+2020-05-08 01:00:48,100 INFO 8023 [egg-watcher:application] watcher start success
+2020-05-08 01:00:48,108 INFO 8023 [egg:core] dump config after ready, 6ms
+2020-05-08 01:01:22,368 INFO 8023 [egg-view-nunjucks] loading templates from ["/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/view"]
+2020-05-08 01:04:02,655 INFO 10832 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 01:04:02,683 INFO 10832 [egg-multipart] stream mode enable
+2020-05-08 01:04:02,762 INFO 10832 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 01:04:02,764 INFO 10832 [egg-security] use csrf middleware
+2020-05-08 01:04:02,765 INFO 10832 [egg-security] use methodnoallow middleware
+2020-05-08 01:04:02,766 INFO 10832 [egg-security] use noopen middleware
+2020-05-08 01:04:02,767 INFO 10832 [egg-security] use nosniff middleware
+2020-05-08 01:04:02,768 INFO 10832 [egg-security] use xssProtection middleware
+2020-05-08 01:04:02,768 INFO 10832 [egg-security] use xframe middleware
+2020-05-08 01:04:02,769 INFO 10832 [egg-security] use dta middleware
+2020-05-08 01:04:02,769 INFO 10832 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 01:04:02,778 INFO 10832 [egg:core] dump config after load, 5ms
+2020-05-08 01:04:02,784 INFO 10832 [egg-watcher:application] watcher start success
+2020-05-08 01:04:02,792 INFO 10832 [egg:core] dump config after ready, 7ms
+2020-05-08 01:04:08,117 INFO 10832 [egg-view-nunjucks] loading templates from ["/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/view"]
+2020-05-08 01:07:32,329 INFO 13765 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 01:07:32,375 INFO 13765 [egg-multipart] stream mode enable
+2020-05-08 01:07:32,458 INFO 13765 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 01:07:32,461 INFO 13765 [egg-security] use csrf middleware
+2020-05-08 01:07:32,462 INFO 13765 [egg-security] use methodnoallow middleware
+2020-05-08 01:07:32,463 INFO 13765 [egg-security] use noopen middleware
+2020-05-08 01:07:32,464 INFO 13765 [egg-security] use nosniff middleware
+2020-05-08 01:07:32,465 INFO 13765 [egg-security] use xssProtection middleware
+2020-05-08 01:07:32,465 INFO 13765 [egg-security] use xframe middleware
+2020-05-08 01:07:32,466 INFO 13765 [egg-security] use dta middleware
+2020-05-08 01:07:32,466 INFO 13765 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 01:07:32,474 INFO 13765 [egg:core] dump config after load, 3ms
+2020-05-08 01:07:32,482 INFO 13765 [egg-watcher:application] watcher start success
+2020-05-08 01:07:32,488 INFO 13765 [egg:core] dump config after ready, 5ms
+2020-05-08 01:07:36,838 INFO 13853 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 01:07:36,865 INFO 13853 [egg-multipart] stream mode enable
+2020-05-08 01:07:36,940 INFO 13853 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 01:07:36,943 INFO 13853 [egg-security] use csrf middleware
+2020-05-08 01:07:36,944 INFO 13853 [egg-security] use methodnoallow middleware
+2020-05-08 01:07:36,945 INFO 13853 [egg-security] use noopen middleware
+2020-05-08 01:07:36,946 INFO 13853 [egg-security] use nosniff middleware
+2020-05-08 01:07:36,946 INFO 13853 [egg-security] use xssProtection middleware
+2020-05-08 01:07:36,947 INFO 13853 [egg-security] use xframe middleware
+2020-05-08 01:07:36,947 INFO 13853 [egg-security] use dta middleware
+2020-05-08 01:07:36,947 INFO 13853 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 01:07:36,955 INFO 13853 [egg:core] dump config after load, 4ms
+2020-05-08 01:07:36,962 INFO 13853 [egg-watcher:application] watcher start success
+2020-05-08 01:07:36,968 INFO 13853 [egg:core] dump config after ready, 5ms
+2020-05-08 01:08:11,750 INFO 13853 [egg-view-nunjucks] loading templates from ["/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/view"]
+2020-05-08 01:09:48,619 INFO 15743 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 01:09:48,655 INFO 15743 [egg-multipart] stream mode enable
+2020-05-08 01:09:48,780 INFO 15743 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 01:09:48,783 INFO 15743 [egg-security] use csrf middleware
+2020-05-08 01:09:48,784 INFO 15743 [egg-security] use methodnoallow middleware
+2020-05-08 01:09:48,785 INFO 15743 [egg-security] use noopen middleware
+2020-05-08 01:09:48,786 INFO 15743 [egg-security] use nosniff middleware
+2020-05-08 01:09:48,787 INFO 15743 [egg-security] use xssProtection middleware
+2020-05-08 01:09:48,787 INFO 15743 [egg-security] use xframe middleware
+2020-05-08 01:09:48,788 INFO 15743 [egg-security] use dta middleware
+2020-05-08 01:09:48,788 INFO 15743 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 01:09:48,801 INFO 15743 [egg:core] dump config after load, 4ms
+2020-05-08 01:09:48,810 INFO 15743 [egg-watcher:application] watcher start success
+2020-05-08 01:09:48,818 INFO 15743 [egg:core] dump config after ready, 4ms
+2020-05-08 01:09:52,339 INFO 15743 [egg-view-nunjucks] loading templates from ["/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/view"]
+2020-05-08 01:10:29,370 INFO 16481 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 01:10:29,405 INFO 16481 [egg-multipart] stream mode enable
+2020-05-08 01:10:29,516 INFO 16481 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 01:10:29,518 INFO 16481 [egg-security] use csrf middleware
+2020-05-08 01:10:29,520 INFO 16481 [egg-security] use methodnoallow middleware
+2020-05-08 01:10:29,520 INFO 16481 [egg-security] use noopen middleware
+2020-05-08 01:10:29,521 INFO 16481 [egg-security] use nosniff middleware
+2020-05-08 01:10:29,522 INFO 16481 [egg-security] use xssProtection middleware
+2020-05-08 01:10:29,522 INFO 16481 [egg-security] use xframe middleware
+2020-05-08 01:10:29,523 INFO 16481 [egg-security] use dta middleware
+2020-05-08 01:10:29,523 INFO 16481 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 01:10:29,535 INFO 16481 [egg:core] dump config after load, 4ms
+2020-05-08 01:10:29,544 INFO 16481 [egg-watcher:application] watcher start success
+2020-05-08 01:10:29,552 INFO 16481 [egg:core] dump config after ready, 5ms
+2020-05-08 01:10:32,069 INFO 16481 [egg-view-nunjucks] loading templates from ["/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/view"]
+2020-05-08 01:12:45,887 INFO 18393 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 01:12:45,920 INFO 18393 [egg-multipart] stream mode enable
+2020-05-08 01:12:46,027 INFO 18393 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 01:12:46,030 INFO 18393 [egg-security] use csrf middleware
+2020-05-08 01:12:46,032 INFO 18393 [egg-security] use methodnoallow middleware
+2020-05-08 01:12:46,032 INFO 18393 [egg-security] use noopen middleware
+2020-05-08 01:12:46,034 INFO 18393 [egg-security] use nosniff middleware
+2020-05-08 01:12:46,035 INFO 18393 [egg-security] use xssProtection middleware
+2020-05-08 01:12:46,036 INFO 18393 [egg-security] use xframe middleware
+2020-05-08 01:12:46,037 INFO 18393 [egg-security] use dta middleware
+2020-05-08 01:12:46,037 INFO 18393 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 01:12:46,046 INFO 18393 [egg:core] dump config after load, 5ms
+2020-05-08 01:12:46,054 INFO 18393 [egg-watcher:application] watcher start success
+2020-05-08 01:12:46,062 INFO 18393 [egg:core] dump config after ready, 6ms
+2020-05-08 01:12:58,988 INFO 18596 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 01:12:59,033 INFO 18596 [egg-multipart] stream mode enable
+2020-05-08 01:12:59,166 INFO 18596 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 01:12:59,169 INFO 18596 [egg-security] use csrf middleware
+2020-05-08 01:12:59,170 INFO 18596 [egg-security] use methodnoallow middleware
+2020-05-08 01:12:59,170 INFO 18596 [egg-security] use noopen middleware
+2020-05-08 01:12:59,171 INFO 18596 [egg-security] use nosniff middleware
+2020-05-08 01:12:59,172 INFO 18596 [egg-security] use xssProtection middleware
+2020-05-08 01:12:59,172 INFO 18596 [egg-security] use xframe middleware
+2020-05-08 01:12:59,173 INFO 18596 [egg-security] use dta middleware
+2020-05-08 01:12:59,173 INFO 18596 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 01:12:59,185 INFO 18596 [egg:core] dump config after load, 4ms
+2020-05-08 01:12:59,192 INFO 18596 [egg-watcher:application] watcher start success
+2020-05-08 01:12:59,202 INFO 18596 [egg:core] dump config after ready, 8ms
+2020-05-08 01:13:54,835 INFO 18596 [egg-view-nunjucks] loading templates from ["/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/view"]
+2020-05-08 01:17:56,527 INFO 23115 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 01:17:56,563 INFO 23115 [egg-multipart] stream mode enable
+2020-05-08 01:17:56,663 INFO 23115 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 01:17:56,666 INFO 23115 [egg-security] use csrf middleware
+2020-05-08 01:17:56,667 INFO 23115 [egg-security] use methodnoallow middleware
+2020-05-08 01:17:56,668 INFO 23115 [egg-security] use noopen middleware
+2020-05-08 01:17:56,669 INFO 23115 [egg-security] use nosniff middleware
+2020-05-08 01:17:56,671 INFO 23115 [egg-security] use xssProtection middleware
+2020-05-08 01:17:56,673 INFO 23115 [egg-security] use xframe middleware
+2020-05-08 01:17:56,674 INFO 23115 [egg-security] use dta middleware
+2020-05-08 01:17:56,674 INFO 23115 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 01:17:56,683 INFO 23115 [egg:core] dump config after load, 4ms
+2020-05-08 01:17:56,693 INFO 23115 [egg-watcher:application] watcher start success
+2020-05-08 01:17:56,699 INFO 23115 [egg:core] dump config after ready, 5ms
+2020-05-08 01:18:12,261 INFO 23115 [egg-view-nunjucks] loading templates from ["/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/view"]
+2020-05-08 01:19:39,390 INFO 24574 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 01:19:39,431 INFO 24574 [egg-multipart] stream mode enable
+2020-05-08 01:19:39,544 INFO 24574 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 01:19:39,550 INFO 24574 [egg-security] use csrf middleware
+2020-05-08 01:19:39,551 INFO 24574 [egg-security] use methodnoallow middleware
+2020-05-08 01:19:39,552 INFO 24574 [egg-security] use noopen middleware
+2020-05-08 01:19:39,552 INFO 24574 [egg-security] use nosniff middleware
+2020-05-08 01:19:39,553 INFO 24574 [egg-security] use xssProtection middleware
+2020-05-08 01:19:39,554 INFO 24574 [egg-security] use xframe middleware
+2020-05-08 01:19:39,555 INFO 24574 [egg-security] use dta middleware
+2020-05-08 01:19:39,555 INFO 24574 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 01:19:39,568 INFO 24574 [egg:core] dump config after load, 6ms
+2020-05-08 01:19:39,577 INFO 24574 [egg-watcher:application] watcher start success
+2020-05-08 01:19:39,585 INFO 24574 [egg:core] dump config after ready, 6ms
+2020-05-08 01:19:54,552 INFO 24805 [egg:logger] init all loggers with options: {"dir":"/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/logs/demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-05-08 01:19:54,588 INFO 24805 [egg-multipart] stream mode enable
+2020-05-08 01:19:54,703 INFO 24805 [egg-static] starting static serve /public/ -> /media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/egg/demo/app/public
+2020-05-08 01:19:54,707 INFO 24805 [egg-security] use csrf middleware
+2020-05-08 01:19:54,709 INFO 24805 [egg-security] use methodnoallow middleware
+2020-05-08 01:19:54,710 INFO 24805 [egg-security] use noopen middleware
+2020-05-08 01:19:54,711 INFO 24805 [egg-security] use nosniff middleware
+2020-05-08 01:19:54,712 INFO 24805 [egg-security] use xssProtection middleware
+2020-05-08 01:19:54,712 INFO 24805 [egg-security] use xframe middleware
+2020-05-08 01:19:54,713 INFO 24805 [egg-security] use dta middleware
+2020-05-08 01:19:54,713 INFO 24805 [egg-security] compose 7 middlewares into one security middleware
+2020-05-08 01:19:54,727 INFO 24805 [egg:core] dump config after load, 7ms
+2020-05-08 01:19:54,736 INFO 24805 [egg-watcher:application] watcher start success
+2020-05-08 01:19:54,745 INFO 24805 [egg:core] dump config after ready, 8ms

@@ -40,3 +40,26 @@ function PermutationCore(queue, result, temp='', current=''){
         queue.push(temp)
     }
 }
+
+// 记录当前索引，不断交换数组中的元素
+
+function Permutation(str){
+    var result = []
+    if(!str){
+        return result;
+    }
+    var array = str.split('')
+    permutate(array, 0, result)
+    result.sort()
+    return [...new Set(result)]
+}
+function permutate(array, index, result){
+    if(array.length - 1 === index){
+        result.push(array.join(''))
+    }
+    for(let i = index; i<array.length; i++){
+        swap(array, index, i)
+        permutate(array, index + 1, result)
+        swap(array, i, index)
+    }
+}
