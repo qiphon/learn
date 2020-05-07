@@ -58,6 +58,8 @@ statically from the source with nginx by using --with-pcre=<path> option.
 # kill命令
 kill -s QUIT 1234  # (数字是进程的pid)
 
+kill -9 [pid]
+
 ```
 
 - 其他命令 
@@ -71,7 +73,11 @@ kill -s QUIT 1234  # (数字是进程的pid)
 # /usr/local/nginx/sbin/nginx -s reopen
 
 # 为了获取所有正在运行的nginx进程的列表，ps 可以使用该实用程序，例如，通过以下方式使用：
-ps -ax | grep nginx
+ps -aux | grep nginx
+
+# 查看指定端口的服务
+lsof  -i -sTCP:LISTEN
+lsof  -i -sTCP:80
 
 ```
 

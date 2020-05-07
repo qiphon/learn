@@ -414,7 +414,7 @@ app.listen(3000)
     |    |
     |    |--- components  组件目录
     |    |
-    |    |--- middlewares  中间件目录
+    |    |--- middlewares  中间件目录(错误处理、配置、报告、用户信息)
     |    |
     |    |--- app.js  入口文件
     |    |
@@ -422,7 +422,7 @@ app.listen(3000)
     |    |
     |    |--- model  数据处理
     |    |
-    |    |--- controllers  各个路由控制器目录
+    |    |--- controllers  各个路由控制器目录（处理用户请求路径）
     |    |
     |    |--- public  静态资源路径
     |    |    |
@@ -441,3 +441,24 @@ app.listen(3000)
     |    |--- package.json  配置文件
     |    |
     ```
+
+
+- 上线部署 
+
+```
+nagios cpu 监控
+
+
+          pm2  ↹  varnish ↹ java
+       ↗
+nginx                    keepalive (心跳检测)
+       ↘
+          pm2  ↹  stupid ↹  java ↴
+        ↙                         ↓
+    CDN                            ↓
+    CDN                            ↓
+             BACK ↹ WRITE   ↹  DB ↓
+                                   ↓
+             BACK ↹ READ    ↹  DB ↵
+
+```
