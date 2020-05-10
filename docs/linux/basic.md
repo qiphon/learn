@@ -1008,6 +1008,9 @@ systemctl start|stop|status  [服务名]
 
 ssh qiphon@192.168.1.2
 
+# 指定端口号 ssh -p [port]  [user]@[ip]
+ssh -p 22 qiphon@19.12.12.11
+
 ```
 
 ### 上传文件到服务器
@@ -1047,12 +1050,18 @@ ip addr
 
 ### linux 结构 
 
-- .lib 静态库
+- .lib 静态库 （在编译程序的时候，把代码复制到里面去）
 - .so 动态库 / .dll (windows 下的动态库) 运行时调用
 
 ```
-            Application Tools
-         |              |                |                 |               |
+                     linux 系统是一个同心圆结构，由内到外依次是如下内容
+         内       ---------------------------->    外
+      内核 ->  系统调用  ->  shell、公用函数库（.lib/.so 结尾的文件表示，给 c/c++ 使用）、其它交互界面 -> 应用程序
+
+
+                             Linux 体系结构
+                            Application Tools
+         ⇓              ⇓                ⇓                 ⇓               ⇓
       process        Memory            Device         file system       Network
       Management     Management        drivers
 
@@ -1061,7 +1070,13 @@ ip addr
                          几乎完整的Linux架构
    --------------------------------------------------------------------
    用户模式     |      应用程序  （sh, vi, OpenOffice.org等）
-               |      
+               |      复杂函式库（KDE、glib等）
+               |      简单函式库（opendbm、sin等）
+               |      C 函式库（open、fopen、socket、exec、colloc等）
+   --------------------------------------------------------------------
+   内核模式     |      系统中断、呼叫、错误等软硬件讯息
+               |      内核（驱动程式、行程、网络、内存管理等）
+               |      硬件（处理器、内存、各种装置）
                |
                |
 ```
@@ -1086,13 +1101,20 @@ ip addr
 1. 生成秘钥对
    `ssh-keygen -t rsa -C "名字" -f "你自己的名字_rsa"`
 2. 上传配置公钥（对应账号的home路径下的 .ssh）权限 600
-   `ssh-coty-d -i "公钥文件名" 用户名@服务器IP或域名`
+   `ssh-copy-id -i "公钥文件名" 用户名@服务器IP或域名`
 3. 配置本地私钥(权限必须是　600)，放到 指定用户 /home/.ssh 下
 
 4. 免密登录的本地配置文件（权限644）
    编辑自己home目录的 .ssh/路径下的 config 文件
 
 更改端口号：`/etc/ssh/sshd_config`, 注意防火墙开放端口
+
+```sh
+# 如果出现下面的错误，需要安装 openssh-server
+qiphon@qiphon:~/.ssh$ ssh qiphon@192.168.1.12
+ssh: connect to host 192.168.1.12 port 22: Connection refused
+
+```
 
 ###　进程管理实践　ｐｍ２ 源码分析
 

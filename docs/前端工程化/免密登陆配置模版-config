@@ -1,0 +1,40 @@
+# 多主机配置
+Host gateway-produce
+HostName IP或绑定的域名
+Port 22
+Host node-produce
+HostName IP或绑定的域名
+Port 22
+Host java-produce
+HostName IP或绑定的域名
+Port 22
+
+Host *-produce
+User root
+IdentityFile ~/.ssh/produce_key_rsa
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+LogLevel INFO
+
+#单主机配置
+Host evil-cloud
+User root
+HostName IP或绑定的域名
+IdentityFile ~/.ssh/evilboy_rsa
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+LogLevel INFO
+
+#单主机配置
+Host git.yideng.site
+User git
+IdentityFile ~/.ssh/evilboy_rsa
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+LogLevel INFO
