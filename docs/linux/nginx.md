@@ -77,7 +77,7 @@ ps -aux | grep nginx
 
 # 查看指定端口的服务
 lsof  -i -sTCP:LISTEN
-lsof  -i -sTCP:80
+lsof  -i TCP:80
 
 ```
 
