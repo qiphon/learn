@@ -63,4 +63,33 @@ export JAVA_HOME JRE_HOME CLASS_PATH PATH
     - tags 每次代码发布到主干都要打tags
 2. 
 
-### 前端工程化目标
+### 免密登录
+
+1. 生成秘钥对
+   `ssh-keygen -t rsa -C "名字" -f "你自己的名字_rsa"`
+2. 上传配置公钥（对应账号的home路径下的 .ssh）权限 600
+   `ssh-copy-id -i "公钥文件名" 用户名@服务器IP或域名`
+3. 配置本地私钥(权限必须是　600)，放到 指定用户 /home/.ssh 下
+
+4. 免密登录的本地配置文件（权限644）
+   编辑自己home目录的 .ssh/路径下的 config 文件
+
+更改端口号：`/etc/ssh/sshd_config`, 注意防火墙开放端口
+
+```sh
+# 如果出现下面的错误，需要安装 openssh-server
+qiphon@qiphon:~/.ssh$ ssh qiphon@192.168.1.12
+ssh: connect to host 192.168.1.12 port 22: Connection refused
+
+```
+
+###　进程管理实践　ｐｍ２ 源码分析
+
+> pm2 是 node 进程管理工具，可以利用它来简化很多 node 应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单
+
+- [官网](https://pm2.io) 、 [源码下载](https://github.com/Unitech/pm2)
+
+- 要从 pm2 源码中学习到
+   - Linux 进程管理的方法
+   - Linux 创建进程的2种方式：fork、exec
+   - 父子进程的管理机制
