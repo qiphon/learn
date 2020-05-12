@@ -17,6 +17,16 @@
     - IP hash 算法，对客户端请求的IP进行hash操作，然后根据hash结果将同一客户端的请求分配给同一台服务器处理，可以解决 session 不共享问题
 3. web 缓存
     > nginx 可以对不同文件做不同的缓存处理，配置灵活，并支持fastCGI_Cache， 主要用于对FastCGI的动态程序进行缓存。配合着第三方的 ngx_cache_purge,对定制的URL缓存内容可以进行增删管理
+4. 静态资源服务，通过本地文件系统提供服务；
+5. API 服务，OpenResty
+
+### 代理
+
+- 正向代理： 一般的访问流程是客户端直接向目标服务器发送请求并获取内容，使用正向代理后，客户端改为向代理服务器发送请求，并指定目标服务器（原始服务器），然后由代理服务器和原始服务器通信，转交请求并获得的内容，再返回给客户端。正向代理隐藏了真实的客户端，为客户端收发请求，使真实客户端对服务器不可见；
+
+举个具体的例子 🌰，你的浏览器无法直接访问谷哥，这时候可以通过一个代理服务器来帮助你访问谷哥，那么这个服务器就叫正向代理。
+
+- 反向代理： 与一般访问流程相比，使用反向代理后，直接收到请求的服务器是代理服务器，然后将请求转发给内部网络上真正进行处理的服务器，得到的结果返回给客户端。反向代理隐藏了真实的服务器，为服务器收发请求，使真实服务器对客户端不可见。一般在处理跨域请求的时候比较常用。现在基本上所有的大型网站都设置了反向代理。
 
 ### 安装
 
@@ -43,21 +53,27 @@ statically from the source with nginx by using --with-pcre=<path> option.
 
 ```
 
-- 运行 nginx  ```sudo /usr/local/nginx/sbin/nginx```
-
-- 终止 nginx 命令
+- nginx 命令
 
 ```sh
+nginx -s reload  # 向主进程发送信号，重新加载配置文件，热重启
+nginx -s reopen # 重启 Nginx
+nginx -s stop    # 快速关闭
+nginx -s quit    # 等待工作进程处理完成后关闭
+nginx -T         # 查看当前 Nginx 最终的配置
+nginx -t -c <配置路径>    # 检查配置是否有问题，如果已经在配置目录，则不需要-c
 
-# 进程完成当前工作后再停止
-# /usr/local/nginx/sbin/nginx -s quit
-
-# 无论进程是否在工作，都直接停止进程。
-# /usr/local/nginx/sbin/nginx -s stop
+systemctl start nginx    # 启动 Nginx
+systemctl stop nginx     # 停止 Nginx
+systemctl restart nginx  # 重启 Nginx
+systemctl reload nginx   # 重新加载 Nginx，用于修改配置后
+systemctl enable nginx   # 设置开机启动 Nginx
+systemctl disable nginx  # 关闭开机启动 Nginx
+systemctl status nginx   # 查看 Nginx 运行状态
 
 # kill命令
 kill -s QUIT 1234  # (数字是进程的pid)
-
+# 强制杀死该进程
 kill -9 [pid]
 
 ```
@@ -94,7 +110,59 @@ lsof  -i TCP:80
             - `location [pattern] {}` 配置请求的路由，以及各个页面的处理情况
 - nginx 配置文件中的每个指令必须以分号结束，# 号表示注释
 
+### 语法规则
+
+- 配置文件由指令与指令块构成；
+- 每条指令以 ; 分号结尾，指令与参数间以空格符号分隔；
+- 指令块以 {} 大括号将多条指令组织在一起；
+- include 语句允许组合多个配置文件以提升可维护性；
+- 使用 # 符号添加注释，提高可读性；
+- 使用 $ 符号使用变量；
+- 部分指令的参数支持正则表达式；
+
+#### location 说明
+
+```
+= 精确匹配路径，用于不含正则表达式的 uri 前，如果匹配成功，不再进行后续的查找；
+^~ 用于不含正则表达式的 uri 前，表示如果该符号后面的字符是最佳匹配，采用该规则，不再进行后续的查找；
+~ 表示用该符号后面的正则去匹配路径，区分大小写；
+~* 表示用该符号后面的正则去匹配路径，不区分大小写。跟 ~ 优先级都比较低，如有多个location的正则能匹配的话，则使用正则表达式最长的那个；
+
+# 全局变量
+
+全局变量名	      功能
+$host	        请求信息中的 Host，如果请求中没有 Host 行，则等于设置的服务器名，不包含端口
+$request_method	客户端请求类型，如 GET、POST
+$remote_addr	客户端的 IP 地址
+$args	请求中的参数
+$arg_PARAMETER	GET 请求中变量名 PARAMETER 参数的值，例如：$http_user_agent(Uaer-Agent 值), $http_referer...
+$content_length	请求头中的 Content-length 字段
+$http_user_agent	客户端agent信息
+$http_cookie	客户端cookie信息
+$remote_addr	客户端的IP地址
+$remote_port	客户端的端口
+$http_user_agent	客户端agent信息
+$server_protocol	请求使用的协议，如 HTTP/1.0、HTTP/1.1
+$server_addr	服务器地址
+$server_name	服务器名称
+$server_port	服务器的端口号
+$scheme	HTTP    方法（如http，https）
+
+```
+
 ```sh
+
+# main        # 全局配置，对全局生效
+# ├── events  # 配置影响 Nginx 服务器或与用户的网络连接
+# ├── http    # 配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置
+# │   ├── upstream # 配置后端服务器具体地址，负载均衡配置不可或缺的部分
+# │   ├── server   # 配置虚拟主机的相关参数，一个 http 块中可以有多个 server 块
+# │   ├── server
+# │   │   ├── location  # server 块可以包含多个 location 块，location 指令用于匹配 uri
+# │   │   ├── location
+# │   │   └── ...
+# │   └── ...
+# └── ...
 
 #运行用户、用户组 默认为 nobody
 # user nobody;
@@ -592,5 +660,223 @@ http{
     --with-http_ssl_module
     --with-pcre=../pcre-8.43
     --with-zlib=../zlib-1.2.11
+
+```
+
+### 设置跨域头
+
+```
+
+server {
+    listen       80;
+    server_name  be.sherlocked93.club;
+  
+    add_header 'Access-Control-Allow-Origin'$http_origin;   # 全局变量获得当前请求origin，带cookie的请求不支持*
+    add_header 'Access-Control-Allow-Credentials''true';    # 为 true 可带上 cookie
+    add_header 'Access-Control-Allow-Methods''GET, POST, OPTIONS';  # 允许请求方法
+    add_header 'Access-Control-Allow-Headers'$http_access_control_request_headers;  # 允许请求的 header，可以为 *
+    add_header 'Access-Control-Expose-Headers''Content-Length,Content-Range';
+
+    if ($request_method = 'OPTIONS') {
+        add_header 'Access-Control-Max-Age' 1728000;   # OPTIONS 请求的有效期，在有效期内不用发出另一条预检请求
+        add_header 'Content-Type''text/plain; charset=utf-8';
+        add_header 'Content-Length' 0;
+            
+        return 204;                  # 200 也可以
+    }  
+
+```
+
+### Nginx 配置 gzip
+
+使用 gzip 不仅需要 Nginx 配置，浏览器端也需要配合，需要在请求消息头中包含 Accept-Encoding: gzip（IE5 之后所有的浏览器都支持了，是现代浏览器的默认设置）。一般在请求 html 和 css 等静态资源的时候，支持的浏览器在 request 请求静态资源的时候，会加上 Accept-Encoding: gzip 这个 header，表示自己支持 gzip 的压缩方式，Nginx 在拿到这个请求的时候，如果有相应配置，就会返回经过 gzip 压缩过的文件给浏览器，并在 response 相应的时候加上 content-encoding: gzip 来告诉浏览器自己采用的压缩方式（因为浏览器在传给服务器的时候一般还告诉服务器自己支持好几种压缩方式），浏览器拿到压缩的文件后，根据自己的解压方式进行解析。
+
+```
+# /etc/nginx/conf.d/gzip.conf
+
+gzip on; # 默认off，是否开启gzip
+gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+# 上面两个开启基本就能跑起了，下面的愿意折腾就了解一下
+gzip_static on;
+gzip_proxied any;
+gzip_vary on;
+gzip_comp_level 6;
+gzip_buffers 16 8k;
+# gzip_min_length 1k;
+gzip_http_version 1.1;
+
+```
+
+- gzip_types：要采用 gzip 压缩的 MIME 文件类型，其中 text/html 被系统强制启用；
+- gzip_static：默认 off，该模块启用后，Nginx 首先检查是否存在请求静态文件的 gz 结尾的文件，如果有则直接返回该 .gz 文件内容；
+- gzip_proxied：默认 off，nginx做为反向代理时启用，用于设置启用或禁用从代理服务器上收到相应内容 gzip 压缩；
+- gzip_vary：用于在响应消息头中添加 Vary：Accept-Encoding，使代理服务器根据请求头中的 Accept-Encoding 识别是否启用 gzip 压缩；
+- gzip_comp_level：gzip 压缩比，压缩级别是 1-9，1 压缩级别最低，9 最高，级别越高压缩率越大，压缩时间越长，建议 4-6；
+- gzip_buffers：获取多少内存用于缓存压缩结果，16 8k 表示以 8k*16 为单位获得；
+- gzip_min_length：允许压缩的页面最小字节数，页面字节数从header头中的 Content-Length 中进行获取。默认值是 0，不管页面多大都压缩。建议设置成大于 1k 的字节数，小于 1k 可能会越压越大；
+- gzip_http_version：默认 1.1，启用 gzip 所需的 HTTP 最低版本；
+
+
+### 移动设备判读
+
+```
+server {
+    listen 80;
+    server_name fe.sherlocked93.club;
+
+    location / {
+        root  /usr/share/nginx/html/pc;
+            if ($http_user_agent ~* '(Android|webOS|iPhone|iPod|BlackBerry)') {
+                root /usr/share/nginx/html/mobile;
+            }
+            index index.html;
+        }
+    }
+
+```
+
+### 配置 https
+```
+server {
+  listen 443 ssl http2 default_server;   # SSL 访问端口号为 443
+  server_name sherlocked93.club;         # 填写绑定证书的域名
+
+  ssl_certificate /etc/nginx/https/1_sherlocked93.club_bundle.crt;   # 证书文件地址
+  ssl_certificate_key /etc/nginx/https/2_sherlocked93.club.key;      # 私钥文件地址
+  ssl_session_timeout 10m;
+
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;      #请按照以下协议配置
+  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+  ssl_prefer_server_ciphers on;
+  
+  location / {
+    root         /usr/share/nginx/html;
+    index        index.html index.htm;
+  }
+}
+```
+
+### 防盗链
+
+```
+
+server {
+  listen       80;
+  server_name  *.sherlocked93.club;
+  
+  # 图片防盗链
+  location ~* \.(gif|jpg|jpeg|png|bmp|swf)$ {
+    valid_referers none blocked 192.168.0.2;  # 只允许本机 IP 外链引用
+    if ($invalid_referer){
+      return 403;
+    }
+  }
+}
+
+```
+
+### 请求过滤
+
+```
+
+# 非指定请求全返回 403
+if ( $request_method !~ ^(GET|POST|HEAD)$ ) {
+  return 403;
+}
+
+location / {
+  # IP访问限制（只允许IP是 192.168.0.2 机器访问）
+  allow 192.168.0.2;
+  deny all;
+  
+  root   html;
+  index  index.html index.htm;
+}
+
+```
+
+### http 转到 https
+
+```
+
+    listen      80;
+    server_name www.sherlocked93.club;
+
+    # 单域名重定向
+    if ($host = 'www.sherlocked93.club'){
+        return 301 https://www.sherlocked93.club$request_uri;
+    }
+    # 全局非 https 协议时重定向
+    if ($scheme != 'https') {
+        return 301 https://$server_name$request_uri;
+    }
+
+    # 或者全部重定向
+    return 301 https://$server_name$request_uri;
+
+    # 以上配置选择自己需要的即可，不用全部加
+}
+
+```
+
+### spa 配置
+
+```
+server {
+  listen       80;
+  server_name  fe.sherlocked93.club;
+  
+  location / {
+    root       /usr/share/nginx/html/dist;  # vue 打包后的文件夹
+    index      index.html index.htm;
+    try_files  $uri$uri/ /index.html @rewrites;
+    
+    expires -1;                          # 首页一般没有强制缓存
+    add_header Cache-Control no-cache;
+  }
+  
+  # 接口转发，如果需要的话
+  #location ~ ^/api {
+  #  proxy_pass http://be.sherlocked93.club;
+  #}
+  
+  location @rewrites {
+    rewrite ^(.+)$ /index.html break;
+  }
+}
+```
+
+### 泛域名路径分离
+
+```
+test1.doc.sherlocked93.club 自动指向 /usr/share/nginx/html/doc/test1 服务器地址；
+test2.doc.sherlocked93.club 自动指向 /usr/share/nginx/html/doc/test2 服务器地址；
+server {
+    listen       80;
+    server_name  ~^([\w-]+)\.doc\.sherlocked93\.club$;
+
+    root /usr/share/nginx/html/doc/$1;
+}
+
+```
+
+###  泛域名转发
+
+```
+test1.serv.sherlocked93.club/api?name=a 自动转发到 127.0.0.1:8080/test1/api?name=a ；
+test2.serv.sherlocked93.club/api?name=a 自动转发到 127.0.0.1:8080/test2/api?name=a ；
+server {
+    listen       80;
+    server_name ~^([\w-]+)\.serv\.sherlocked93\.club$;
+
+    location / {
+        proxy_set_header        X-Real-IP $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header        Host $http_host;
+        proxy_set_header        X-NginX-Proxy true;
+        proxy_pass              http://127.0.0.1:8080/$1$request_uri;
+    }
+}
 
 ```
