@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>页面</title>
+    <style>
+      body {
+        background: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      1.网页整体渲染过程
+      1-1 获取dom后分割很多层 
+      1-2 对每个层进行样式的计算 Recalculate Style
+      1-3 为每个阶段生成图形和位置 Layout
+      1-4 将每个节点填充到图形中  Paint
+      1-5 图层作为纹理上传到GPU
+      1-6 GPU对 符合多层进行最终的合成屏幕图像 Composite Layers
+      ----------
+      2.Layout Paint、Composite Layers
+      重绘不一定绘重排 但重排一定重绘
+      -------------
+      3.哪些元素绘独立承层 根元素、position、半透明、trasform、滤镜
+      canvas、video、overflow
+      有些层还会让GPU参与进来 CSS3D video、WEBGL(gpujs/gpu.js)、transform、css滤镜
+      4.重排有个坑的地方 读某个属性也会造成重排
+      offset、scroll、client、width、
+    -->
+    <div id="app">Hello 京程一灯</div>
+    <script src="./scripts/4.longtask.js"></script>
+    <script>
+      // for (var i = 0; i < 10000000; i++) {}
+      var h1 = document.getElementById('xx').clientHeight;
+      requestAnimationFrame(function () {
+        document.getElementById('xx2').clientHeight = h1;
+      });
+      var h2 = document.getElementById('xx2').clientHeight;
+    </script>
+  </body>
+</html>

@@ -1,6 +1,20 @@
 # 性能优化 - 网络篇
 
-### 网络处理流程
+### http 流程 简化版
+
+- 输入网址并回车
+- 域名解析
+- 浏览器发送http请求
+- 服务器处理http请求
+- 服务器返回 HTML 响应
+- 浏览器处理 HTML 页面
+- 继续请求其他资源
+
+### 网络处理流程 [navigation timing](https://www.w3.org/TR/navigation-timing/)
+
+> 根据navigation timing 我们可以优化我们的服务
+
+![navigation timing](../imgs/timing-overview.png)
 
 - 浏览器
     - prompt for unload    navigationStart  ->  redirectStart
@@ -62,7 +76,7 @@ client  --------->  dns <-- TLD server (qifeng.com/qifeng.cn)
 
 slip 协议，2位校验码可以查看数据是否被翻转
 
-- TCP 协议 20个字节
+- TCP 协议头 20个字节
     - sourcePort （0/1） 、 destinationPort（2/3）
     - Sequence Number （4-7） 顺序号（请求号+1）
     - Acknowledgement Number （8/12） 应答号
@@ -105,6 +119,9 @@ slip 协议，2位校验码可以查看数据是否被翻转
                    |                            |
                    |          ------------->    |
                         ACK=y+n+2
+
+# 四次挥手： 客户端需要断开时，发送断开指令到服务器。服务器收到断开指令后会立即返回一条收到断开请求的指令。
+#          服务端开始断开连接的收尾工作（处理未完成的业务，释放协议资源）之后发送请求到客户端——> 说可以断开了， 客户端收到之后返回断开连接响应
 
 ```
 

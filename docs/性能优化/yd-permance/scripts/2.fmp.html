@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/demo01.css" />
+    <link rel="stylesheet" href="../styles/demo02.css" />
+    <script>
+      performance.mark('stylesheets');
+    </script>
+    <title>FMP的获取</title>
+  </head>
+  <body>
+    <h1>京程一灯🏮</h1>
+    <h2>老袁</h2>
+    <script>
+      performance.mark('text');
+    </script>
+    <script>
+      const perfEntries = performance.getEntriesByType('mark');
+      for (const entry of perfEntries) {
+        // console.log(entry);
+        console.log('类型🚀', entry.entryType);
+        console.log('具体指标🚀', entry.name);
+        console.log('开始时间⏰', entry.startTime);
+        console.log('duration⌚️', entry.duration);
+        console.log('-----------------------');
+      }
+    </script>
+  </body>
+</html>
