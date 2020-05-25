@@ -41,7 +41,17 @@ h1 {
 
 ```
 
+### [新的css语法](http://preset-env.cssdb.org/features)
 
+- `all: initial;` 重置所有的属性值， 有点像css reset，但是这个更狠！！！，谨慎使用，他会清除浏览器默认的样式，让其不生效
+    ```css
+    /* 
+    * 千万不要这么使用，这样写会使 link、script 标签中的内容显示出来
+    */
+    *{
+        all:initial;
+    }
+    ```
 
 
 

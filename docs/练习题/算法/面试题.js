@@ -45,9 +45,9 @@ var industry_list = [
   }
 }
 */
-let tmp = []
-function formatData(dataArr, obj) {
-    obj = obj || {}
+function formatData(dataArr) {
+    let tmp = []
+    let obj = {}
     dataArr.forEach(item => {
         if (!item.parent_ind) {
             obj[item.name] = {}

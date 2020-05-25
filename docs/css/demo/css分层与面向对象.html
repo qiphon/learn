@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>css分层与面向对象</title>
     <style>
+        *{
+            all:initial;
+        }
         :root {
             --test: ()=>{};
             --mainColor: red;
+            --ydUnit: 16px;
         }
         h1 {
-            --ydUnit: 16px;
+            font-size: var(--ydUnit);
             color: var(--mainColor);
         }
         .hero:matches(main, .main){
@@ -18,15 +22,14 @@
         }
         a {
             font-size:  12px;
-
-            /* &:hover {
-                font-size: 14px;
-            } */
         }
     </style>
 </head>
 <body>
     <h1>css分层与面向对象</h1>
-    <a href="">link</a>
+    <a href="#">link</a>
+    <script>
+        console.log('initial test')
+    </script>
 </body>
 </html>
