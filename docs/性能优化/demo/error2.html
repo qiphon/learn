@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error</title>
+</head>
+<body>
+    <script>
+        window.onerror = function(msg, url, row, col, error){
+            console.log({msg, url, row, col, error})
+            return true
+        }
+        setTimeout(()=>{
+            console.log(arr)
+        })
+    </script>
+</body>
+</html>

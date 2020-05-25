@@ -112,9 +112,32 @@ test();
 - 新生代 64 位是 32 M，32位是 16M （js通过新老生带管理内存）
 `node--max-new-space-size   app.js`
 
-- process.memoryUsage -> rss 、heaptTotal 、heapUsed
+- process.memoryUsage -> 获取node 内存的使用情况 
+    - rss 、所有内存使用情况,包括 堆区 和 栈区
+    - heaptTotal 、堆区占用内存
+    - heapUsed  已使用到的堆部分
+    - external  V8 引擎 C++ 对象占用(GC 动态变化)
+
+    ```js
+    // 跟踪 node 内存使用情况
+    node --trace-gc index.js
+    ```
 - V8 的垃圾回收策略主要基于分代式垃圾回收机制。在自动垃圾回收的演变中，人们发现没有一种垃圾回收算法能够胜任
 所有场景。V8 中内存回收分为新生代和老生带。新生代为存活时间较短对象，老生带中为存活时间较长对象
+
+### 内存泄露分析
+
+```js
+node-inspector
+console.log("server PID ", process.pid)
+
+sudo node --inspect app.js
+
+while true; do curl "http://localhost:3000"; done
+
+top -pid 2322
+
+```
 
 ### scavenge 算法
 

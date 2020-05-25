@@ -52,6 +52,12 @@
 - resolve 配置资源别名/扩展名
 - plugins 插件， 比loader 更强大
 
+### 配置babel
+
+> webpack 默认以 `/src/index.js` 作为默认的配置文件
+
+babel 目前提供了 ` @babel/preset-env` 简化了babel 的配置过程。https://babeljs.io/docs/en/next/babel-preset-env.html 
+
 ### package.json 知识点
 
 - test/pretest
@@ -138,3 +144,8 @@
     # 输出结果 111
 
     ```
+
+### webpack 基本使用
+
+- 下载 webpack webpack-cli @babel/preset-env 
+- 配置

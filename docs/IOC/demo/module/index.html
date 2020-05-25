@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>module 支持情况测试</title>
+    <script type="module" src="./index.js"></script>
+    <script type="module">
+        console.log('module inner is supported too')
+    </script>
+    <script nomodule src="./index-bundle.js"></script>
+    <script>
+        // alert(123)
+        // (function(){
+        //     var script = document.createElement('script')
+        //     var a = 'module' in script
+        //     var b = 'nomodule' in script
+        //     var c = 'onbeforeload' in script
+        //     var d = 'type' in script
+        //     if(!a && !b){
+                
+        //     }
+        //     window.onload= function(){
+        //         var e = ''
+        //         for(var m in script){
+        //             e += '----' + m
+        //         }
+        //         document.body.innerHTML = a + '---' + b + '------' + c + '===' + d + e
+        //     }
+        // })()
+    </script>
+</head>
+<body>
+    <h1>module 测试</h1>
+</body>
+</html>

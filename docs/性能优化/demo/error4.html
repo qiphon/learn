@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('unhandledrejection', e=>{
+            e.preventDefault()
+            console.log(e.reason)
+        })
+
+        Promise.reject('promise错误')
+        // catch throw new Error
+    </script>
+</body>
+</html>

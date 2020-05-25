@@ -1,0 +1,1 @@
+jsdoc ./**/*.js -d ./docs/jsdoc

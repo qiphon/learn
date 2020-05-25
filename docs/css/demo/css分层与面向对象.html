@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css分层与面向对象</title>
+    <style>
+        :root {
+            --test: ()=>{};
+            --mainColor: red;
+        }
+        h1 {
+            --ydUnit: 16px;
+            color: var(--mainColor);
+        }
+        .hero:matches(main, .main){
+            background-image: image-set("image/bg.png" 1x, 'image/2bg.png' 2x);
+        }
+        a {
+            font-size:  12px;
+
+            /* &:hover {
+                font-size: 14px;
+            } */
+        }
+    </style>
+</head>
+<body>
+    <h1>css分层与面向对象</h1>
+    <a href="">link</a>
+</body>
+</html>
