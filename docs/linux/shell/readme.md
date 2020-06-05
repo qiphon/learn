@@ -44,6 +44,11 @@
 [me@linux ~]$ cal   # 这个会显示当前日期
 [me@linux ~]$ df    # 查看磁盘的空间占用情况
 [me@linux ~]$ exit    # 结束会话
+[me@linux ~]$ free    # 显示空闲内存的数量
+
+• pwd —打印出当前工作目录名
+• cd —更改目录
+• ls —列出目录内容ß
 
 ```
 
