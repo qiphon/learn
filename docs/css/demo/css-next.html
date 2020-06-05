@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css next</title>
+    <style>
+        .all-init {
+            all: initial;
+        }
+        :any-link > span {
+            color: #bbb;
+        }
+        h1 {
+            height: 20px;
+        }
+        input:blank {
+            background-color: bisque;
+        }
+        :empty {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="all-init">
+        h1 ---> all: initial
+        <br>
+        A property for defining the reset of all properties of an element
+        <br>
+        display is inline now
+    </h1>
+    <br>
+    <a href="#"
+        class="any-link"
+    >
+        :any-link pseudo-class
+        <span>A pseudo-class for matching anchor elements independent of whether they have been visited</span>
+    </a>
+    <div>
+        <h1></h1>
+        <h1> </h1>
+        <h1><!----></h1>
+        <input type="text">
+        <img src="" alt="img">
+    </div>
+</body>
+</html>
