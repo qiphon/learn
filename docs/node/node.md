@@ -1451,3 +1451,25 @@ netSocket.on('end', ()=>{
 
 ```
 
+### vsocde 下调试 node项目
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "attach",   // 吸附已经启动的node进程
+            "name": "Attach by Process ID",
+            "processId": "${command:PickProcess}",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        }
+
+    ]
+}
+```

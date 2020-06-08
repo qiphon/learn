@@ -1,0 +1,1 @@
+babel './public/scripts/module.js' -o './public/scripts/module-bundle.js'

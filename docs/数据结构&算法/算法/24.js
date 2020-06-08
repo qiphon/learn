@@ -20,19 +20,42 @@
  *  可以假设 s 和 t 具有相同的长度
  */
 
+
+
+/**
+ * 参考答案
+ * 2个字符串同构的含义是字符串 s 可以唯一的映射到 t， 同时 t 也可以唯一的映射到 s
+ * 题目有点像映射到知识，2个字符串为2个集合，然后判断当前映射是否为单射
+ * 
+ * 需要 2个map，一个记录 s 对 t 的对应关系，另一个记录 t 对 s，如果字符没有在 s 中出现，
+ * 加到map，出现过就跟 t 对比，不一致表示 非同构字
+ */
 /**
  * @param {string} s
  * @param {string} t
  * @return {boolean}
  */
 var isIsomorphic = function(s, t) {
-    if(!s || !t) return false;
+    let mapS = {}
+    let mapT = {}
 
-    let len = s.length
-    let i = 0
-    while (i++ < len) {
-        
+    for(var i in s){
+        var valueS = s[i]
+        var valueT = t[i]
+
+        if(!mapS[valueS]){
+            mapS[valueS] = valueT
+        }
+        else if(mapS[valueS] != valueT){
+            return false
+        }
+
+        if(!mapT[valueT]){
+            mapT[valueT] = valueT
+        }
+        else if(mapT[valueT] != valueS){
+            return false
+        }
     }
-
-
+    return true
 };

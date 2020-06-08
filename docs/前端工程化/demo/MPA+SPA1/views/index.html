@@ -1,0 +1,20 @@
+{% extends './layout.html' %}
+
+{%block title%} index {%endblock%}
+
+{%block body%}
+    <main>
+        <h1>hello swig</h1>
+    </main>
+{%endblock%}
+
+{% block head %}
+<link rel="stylesheet" href="/styles/index.css">
+{%endblock%}
+
+{%block scripts%}
+<script>
+    console.log('index.html 页面内的script')
+</script>
+<script src="/scripts/index.js"></script>
+{%endblock%}

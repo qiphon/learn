@@ -1,0 +1,2 @@
+[2020-06-08T21:52:16.674] [ERROR] cheese - ReferenceError: body is not defined
+    at actionIndex (/media/qiphon/新加卷/qiphon/mygit/yd-learn/docs/node/koa/BFF架构/controllers/IndexController.js:10:13)

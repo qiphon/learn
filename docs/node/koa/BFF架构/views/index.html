@@ -1,0 +1,43 @@
+{% extends './layout.html' %}
+
+{%block title%} index {%endblock%}
+
+{%block body%}
+<main>
+    <h1>hello swig</h1>
+</main>
+{%endblock%}
+
+{% block head %}
+<link rel="stylesheet" href="/styles/index.css">
+{%endblock%}
+
+{%block scripts%}
+<script>
+    console.log('index.html 页面内的script')
+</script>
+<script src="/scripts/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.3.2/system.min.js"
+    integrity="sha256-QuHK9eEaimLkaqz6c6V8f+cxpajgf3AbZtMg5Dufmao=" crossorigin="anonymous"></script>
+<!-- <script type="module">
+    // 这里script 标签内无论是否有type=“module” 下面的代码都会生效
+    import('/scripts/module.js').then(res=>{
+        console.log(res, 'es6 module test')
+    })
+</script> -->
+<!-- <script >
+    // 如果是nomodule 直接写 import 就不会生效，需要使用 babel 配合 systemjs
+    console.log(111)
+    System.import('/scripts/module-bundle.js')
+    .then(res=>{
+        console.log(res, 'es6 module test')
+    })
+</script> -->
+<script>
+    // 引入vue之后，再引入上面导出的模块, 这个时候依赖项vue就被传入webpackbundle了
+    System.import('/scripts/module-bundle.js').then((res) => {
+        console.log(res, 'systemjs')
+    })
+</script>
+
+{%endblock%}
