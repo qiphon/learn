@@ -42,6 +42,8 @@
             - 数组重写
             - get 订阅 set 派发
         - observer  数据监听，把数据处理成响应数据 通过 object.defineProperty
+                                            -->array
+                                            --> object
             ```js
             new Observer(data)   --->  是否是数组
                 是 --> 重写数组 
@@ -56,6 +58,8 @@
             ```
 
         - watcher   连接数据和指令
+
+            Dep 收集的是 watcher 而不是指令
 
         - dep    订阅、分发
             ```js
@@ -77,5 +81,16 @@
               {{}}、v-if、v-model ...                                        |----------|
 
             ```
+    ### 初始化过程
+
+    - observer 处理数据
+        - Dep 收集依赖 --> watcher
+    - compile  编译模板
+    - watcher  指令数据连接器
+        - get 获取数据 触发get --> Dep.target --> addSub --> 不同的方法执行，处理视图
+        - set 修改数据 --> notify --> 遍历 watcher --> watcher.update --> get
+        
+- lru 算法
+
 
 ### vue3 数据处理 模板解析 AST

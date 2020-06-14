@@ -149,3 +149,19 @@ babel 目前提供了 ` @babel/preset-env` 简化了babel 的配置过程。http
 
 - 下载 webpack webpack-cli @babel/preset-env 
 - 配置
+
+
+### webpack 开发中的优化
+
+
+
+
+### webpack 技术内幕
+
+- 入口文件
+
+- module
+
+- plugin
+
+- 

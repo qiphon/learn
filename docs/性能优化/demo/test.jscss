@@ -1,0 +1,6 @@
+<!-- /*
+window.onload=function(){
+document.getElementById("h1").innerHTML="传说中滴JS测试者。如果你看到我，那<strong>JS</strong>也生效了";
+}
+<!-- */ 
+<!-- h1 {border:3px #000 solid;padding:5px;color:#123456;background-color:#ccc;} strong{color:red;}
