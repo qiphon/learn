@@ -4,6 +4,8 @@
 
 ### DI （depandence injection）依赖注入
 
+> ”编程是对复杂性的管理“，计算机世界是一个巨大的抽象结构。
+
 - 推荐库 awilix @github
 - awilix-koa 
 - @babel/plugin-proposal-decorators  解释装饰器

@@ -16,7 +16,7 @@ Function.prototype.after = function(fn){
     var __self = this
     return function(){
         var result = __self.apply(__self, arguments)
-        fn()
+        fn.apply(this, arguments)
         console.log(result, 'result')
         return result
     }
@@ -24,11 +24,11 @@ Function.prototype.after = function(fn){
 
 
 test
-    .before(_=>{
-        console.log('before')
+    .before(_=>{ 
+        console.log('before', this)
     })
     .after(_=> {
-        console.log('after')
+        console.log('after', this)
     })(123)
 
 

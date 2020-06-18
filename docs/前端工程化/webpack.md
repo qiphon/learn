@@ -165,3 +165,23 @@ babel 目前提供了 ` @babel/preset-env` 简化了babel 的配置过程。http
 - plugin
 
 - 
+
+### 核心总结
+
+- 文件指纹区别
+
+- 
+
+
+### AST
+
+- loader  执行顺序是从后往前的
+
+    - markdown-loader 真正的东西只有 index.js 
+
+        ```js
+        'use strict';
+
+        const loadUtils = require('loader-utils')
+
+        ```
