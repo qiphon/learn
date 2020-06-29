@@ -1,0 +1,9 @@
+{
+  "name": "vuex",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@vue/cli": "^4.4.6"
+  }
+}
