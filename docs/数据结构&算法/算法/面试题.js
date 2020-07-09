@@ -1,3 +1,5 @@
+// 我做过的面试题
+
 var industry_list = [
     {
         "parent_ind": "女装",
@@ -80,3 +82,42 @@ function arrDeal(objArr, tmp){
     }
 }
 console.log(formatData(industry_list), 'end')
+
+
+// 错的很丢人的题
+
+p = new Promise((r)=>{
+    console.log(new Date(), 'start')
+    var c = new Promise(r=>{
+        setTimeout(()=>{
+            console.log(new Date(), 'c')
+            r(12)
+        }, 5000)
+    })
+    setTimeout(_=>{
+        console.log(new Date(), 'rr')
+        r(c)
+    },2000)
+//     r()
+}).then(r=>{
+    console.log(r, new Date());
+})
+// VM7424:2 Thu Jul 02 2020 16:03:32 GMT+0800 (中国标准时间) "start"
+// Promise {<pending>}
+// VM7424:10 Thu Jul 02 2020 16:03:34 GMT+0800 (中国标准时间) "rr"
+// VM7424:5 Thu Jul 02 2020 16:03:37 GMT+0800 (中国标准时间) "c"
+// VM7424:15 12 Thu Jul 02 2020 16:03:37 GMT+0800 (中国标准时间)
+
+// 另一个很丢人的题
+
+class a {
+    say(){
+        console.log(this)
+    }
+}
+
+// a.prototype
+// {constructor: ƒ, say: ƒ}
+// constructor: class a
+// say: ƒ say()
+// __proto__: Object
