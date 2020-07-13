@@ -1,0 +1,40 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: true,
+            },
+          },
+          'css-loader',
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'src/assets/index.html',
+    }),
+    new MiniCssExtractPlugin(),
+    new GenerateSW({
+      swDest: 'sw.js',
+      skipWaiting: true,
+      clientsClaim: true,
+      // mode: 'production',
+      runtimeCaching: [
+        {
+          handler: 'NetworkFirst',
+          urlPattern: 'api/test',
+        },
+      ],
+    }),
+  ],
+};
