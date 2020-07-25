@@ -92,3 +92,18 @@ mysql_secure_installation
 mysql -u root -p
 
 ````
+
+### apache 文件说明
+
+```
+ports.conf  配置监听端口
+sites-available  存放虚拟主机的配置文件
+        apache 可以在不通端口支持不同的网站，也可以在相同的端口通过配置支持不通的网站
+sites-enabled/  是 sites-available 的符号连接
+apache2.conf  apache配置文件
+
+# apache 开启 ssl
+a2ensite default-ssl   # 添加网站配置
+a2enmod ssl            # 开启ssl 模块
+
+```

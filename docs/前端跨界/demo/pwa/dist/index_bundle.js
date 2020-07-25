@@ -1,2 +1,110 @@
-(()=>{"use strict";var e,t,n,r,o={444:(e,t,n)=>{const r=n.e(281).then(n.bind(n,281));console.log(r,"wasm"),r.then(e=>console.log(e,"ww"))}},a={};function s(e){if(a[e])return a[e].exports;var t=a[e]={id:e,exports:{}};return o[e](t,t.exports,s),t.exports}s.m=o,s.c=a,s.f={},s.e=e=>Promise.all(Object.keys(s.f).reduce((t,n)=>(s.f[n](e,t),t),[])),s.u=e=>e+".index_bundle.js",s.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),e={},s.l=(t,n,r)=>{if(e[t])e[t].push(n);else{var o,a;if(void 0!==r)for(var i=document.getElementsByTagName("script"),u=0;u<i.length;u++){var c=i[u];if(c.getAttribute("src")==t||c.getAttribute("data-webpack")=="webassembly-test:"+r){o=c;break}}o||(a=!0,(o=document.createElement("script")).charset="utf-8",o.timeout=120,s.nc&&o.setAttribute("nonce",s.nc),o.setAttribute("data-webpack","webassembly-test:"+r),o.src=t),e[t]=[n];var l=n=>{l=()=>{},o.onerror=o.onload=null,clearTimeout(f);var r=e[t];delete e[t],o.parentNode&&o.parentNode.removeChild(o),r&&r.forEach(e=>e(n))},f=setTimeout(()=>{l({type:"timeout",target:o})},12e4);o.onerror=o.onload=l,a&&document.head.appendChild(o)}},s.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},s.p="",(()=>{var e={179:0};s.f.j=(t,n)=>{var r=s.o(e,t)?e[t]:void 0;if(0!==r)if(r)n.push(r[2]);else{var o=new Promise((n,o)=>{r=e[t]=[n,o]});n.push(r[2]=o);var a=s.p+s.u(t),i=new Error;s.l(a,n=>{if(s.o(e,t)&&(0!==(r=e[t])&&(e[t]=void 0),r)){var o=n&&("load"===n.type?"missing":n.type),a=n&&n.target&&n.target.src;i.message="Loading chunk "+t+" failed.\n("+o+": "+a+")",i.name="ChunkLoadError",i.type=o,i.request=a,r[1](i)}},"chunk-"+t)}};var t=window.webpackJsonpwebassembly_test=window.webpackJsonpwebassembly_test||[],n=t.push.bind(t);t.push=function(t){for(var n,o,a=t[0],i=t[1],u=t[3],c=0,l=[];c<a.length;c++)o=a[c],s.o(e,o)&&e[o]&&l.push(e[o][0]),e[o]=0;for(n in i)s.o(i,n)&&(s.m[n]=i[n]);for(u&&u(s),r&&r(t);l.length;)l.shift()()};var r=n})(),t={},n={281:function(){return{}}},r={281:[281]},s.w={},s.f.wasm=function(e,o){(r[e]||[]).forEach((function(e){var r=t[e];if(r)o.push(r);else{var a,i=n[e](),u=fetch(s.p+""+{281:"b83c93c0d5e10f14d7af"}[e]+".module.wasm");a=i instanceof Promise&&"function"==typeof WebAssembly.compileStreaming?Promise.all([WebAssembly.compileStreaming(u),i]).then((function(e){return WebAssembly.instantiate(e[0],e[1])})):"function"==typeof WebAssembly.instantiateStreaming?WebAssembly.instantiateStreaming(u,i):u.then((function(e){return e.arrayBuffer()})).then((function(e){return WebAssembly.instantiate(e,i)})),o.push(t[e]=a.then((function(t){return s.w[e]=(t.instance||t).exports})))}}))},s(444)})();
-//# sourceMappingURL=index_bundle.js.map
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is not neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/index.css":
+/*!***********************!*\
+  !*** ./src/index.css ***!
+  \***********************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements:  */
+/***/ (() => {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://webassembly-test/./src/index.css?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! namespace exports */
+/*! exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_0__);\n\n\nif('serviceWorker' in navigator){\n    navigator.serviceWorker.register('service-worker.js')\n        .then(regist => {\n            console.log('serviceworker 注册范围', regist, regist.scope)\n        })\n        .catch(err=>{\n            console.log('注册失败', err)\n        })\n}   \n\n//# sourceURL=webpack://webassembly-test/./src/index.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => module['default'] :
+/******/ 				() => module;
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	// startup
+/******/ 	// Load entry module
+/******/ 	__webpack_require__("./src/index.js");
+/******/ 	// This entry module used 'exports' so it can't be inlined
+/******/ })()
+;

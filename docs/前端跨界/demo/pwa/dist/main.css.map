@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://webassembly-test/./src/index.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA,C","file":"main.css","sourcesContent":["body {\n    background: black;\n}\nh1 {\n    color: aqua;\n}"],"sourceRoot":""}

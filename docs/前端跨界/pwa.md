@@ -28,11 +28,6 @@ progressive web apps 是 Google 提出的前沿 web 技术网页提供 app 般�
 
 - service worker
 
-    他是一个在浏览器后台运行的脚本，与网页不想干，专注于那些不需要网页或用户互动
-    就能完成的功能。主要用于操作离线缓存
-
-    - 属于js worker，不能直接操作dom，通过 postmessage 通信
-
 - pwa 核心技术
 
     - App shell 
@@ -50,7 +45,8 @@ progressive web apps 是 Google 提出的前沿 web 技术网页提供 app 般�
         网页或用户互动就能完成的功能，它主要用于操作离线缓存
 
     - 环境
-
+        
+        关闭服务端的缓存策略，以便在开发时能更好的看到效果
 
 #### workbox
 
@@ -86,4 +82,24 @@ progressive web apps 是 Google 提出的前沿 web 技术网页提供 app 般�
         此时 sw 已经激活并生效，可以控制网站的资源请求了，此时 sw 内的
         fetch和 message 事件已经可以被监听
 
-### AMP 丰富HTML功能
+- offline.js 能够检测用户是否能够上网
+
+- offline-plugin worker-precache-webpack-plugin
+
+#### [workbox](https://developers.google.com/web/tools/workbox/guides/get-started) 
+
+- workbox 这个库和构建工具的集合使用了 serviceworker 的 fetch event 和 cache API，可以很容易
+地在用户设备上本地存储网页文件
+
+- 让网页可以离线访问
+
+- 提高重复访问的负载性能，即使不想完全离线，也可以使用 workbox 在本地存储和提供常用文件，而不是从网络
+中提供
+
+- 迅速集成进 workbox-webpack-plugin
+
+
+- 小工具，创建 icon https://realfavicongenerator.net/
+- 快速生成 manifest  https://tomitm.github.io/appmanifest/
+
+### [AMP](https://amp.dev/) 丰富HTML功能

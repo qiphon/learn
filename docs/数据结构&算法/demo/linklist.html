@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>链表</title>
+</head>
+<body>
+    <script>
+        function Node(el){
+            this.element = el
+            this.next = null
+        }
+
+        function LList(){
+            this.head = new Node('head')
+            this.find = find
+            this.insert = insert
+            this.display = display
+            this.findprev = findprev
+            this.remove = remove
+        }
+
+        function find(item){
+            var currNode = this.head
+            while(currNode && currNode.element !==item){
+                currNode = currNode.next
+            }
+            return currNode
+        }
+
+        function insert(newItem, item){
+            var node = new Node(newItem)
+            var currNode = this.find(item)
+            node.next = currNode.next
+            currNode.next = node
+        }
+
+        /**
+         * @fileoverview 打印链表
+        */
+        function display(){
+            var currNode = this.head
+            while(currNode.next){
+                console.log(currNode.next.element)
+                currNode = currNode.next
+            }
+        }
+
+        // var cities = new LList()
+        // cities.insert("first", 'head')
+        // cities.insert("sec", 'first')
+        // cities.insert("third", 'sec')
+
+        // cities.display()
+        // console.log(cities.find('sec'))
+        
+        function findprev (item){
+            var currNode = this.head
+            while(currNode){
+                if(currNode.next && currNode.next.element === item){
+                    return currNode
+                }
+                currNode = currNode.next
+            }
+            return currNode
+        }
+
+        function remove (item){
+            var prevNode = this.findprev(item)
+            if(prevNode){
+                var currNode = prevNode.next
+                prevNode.next = currNode.next
+                currNode.next = null
+                return true
+            }
+            return false
+        }
+
+        // var cities = new LList()
+        // cities.insert("first", 'head')
+        // cities.insert("sec", 'first')
+        // cities.insert("third", 'sec')
+
+        // cities.display()
+        // console.log(cities.find('sec'))
+        // console.log(cities.remove('sec'))
+        // cities.display()
+
+        /**
+         * @fileoverview 双向链表
+        */
+        function DouNode(el){
+            this.element = el
+            this.next = null
+            this.prev = null
+        }
+        function DouList(){
+            this.head = new DouNode('head')
+            this.findlast = findlast
+            this.displayRes = displayRes
+        }
+
+        function findlast (){
+            let curr = this.head
+            while(curr.next){
+                curr = curr.next
+            }
+            return curr
+        }
+
+        function displayRes(){
+            var last = this.findlast()
+            while(last.prev){
+                console.log(last.element)
+                last = last.prev
+            }
+        }
+
+        DouList.prototype = Object.create(new LList(), {
+            constructor: DouList,
+            insert: {
+                value(newItem, item){
+                    var newNode = new DouNode(newItem)
+                    var currNode = this.find(item)
+                    if(currNode){
+                        newNode.next = currNode.next
+                        newNode.prev = currNode
+                        if(newNode.next){
+                            newNode.next.prev = newNode
+                        }
+                        currNode.next = newNode
+                        return true
+                    }
+                    return false
+                }
+            },
+            remove:{
+                value(item){
+                    var currNode = this.find(item)
+                    if(currNode){
+                        var prev = currNode.prev
+                        prev.next = currNode.next
+                        if(currNode.next){
+                            currNode.next.prev = prev
+                        }
+                        currNode.next = null
+                        currNode.prev = null
+                        return true
+                    }
+                    return false
+                }
+            }
+        })
+
+        var cities = new DouList()
+        console.log(cities, '实例')
+        cities.insert("first", 'head')
+        cities.insert("sec", 'first')
+        cities.insert("third", 'sec')
+
+        cities.display()
+        console.log(cities.find('sec'))
+        console.log(cities.remove('third'))
+        console.log(cities.remove('forth'))
+        cities.display()
+        cities.displayRes()
+
+
+    </script>
+</body>
+</html>
