@@ -1,0 +1,97 @@
+webAssembly
+
+https://huaxue.nobook.com/#/chemical/307afb4a857459ef805af79f0a7198c6?is_resource_show=1
+
+人工自能模型训练
+
+图形学基础
+1.一个像素点展示到屏幕上的一个过程
+    - 人眼 
+    - 显示器 
+        白光经过滤光片-->红绿蓝-->颜色不一样
+        CRT
+        通过电压，来影响液晶排布方式，控制滤光片过滤光。RGB-->像素
+
+        101010二进制（数字型号）-->高低电压-->模拟型号
+
+    - 显卡 
+        数转模
+        GPU
+            计算
+    - 显卡驱动程序 
+    - CPU 
+        处理逻辑
+    - 数据和指令 
+
+
+CPU和GPU区别
+    CPU: 逻辑单元   
+    GPU: 计算单元 /并行运算
+
+webgl-->GPU、canvas2d
+
+webgl是面向GPU编程的接口 
+
+canvas2d-->CPU-->GPU
+
+3d图形能不能使用canvas2d绘制出来？？
+
+webgl!=3d!=GPU 
+
+3d --》数学概念
+
+canvas2d 
+
+echarts  
+在线文档
+数据可视化 antd  
+
+
+canvas2d-->笔式绘图仪
+
+路劲
+
+[ point,point,point,point,point]
+
+beginPath-->[ ] 初始化一个空的数组来存储路劲信息
+moveTo控制路劲的起点
+lineTo 控制绘制点的位置
+colsePath 当前路劲封闭
+
+save restore
+保存绘图信息 栈的形式存在
+
+所有信息，绘制到canvas-->图片 rgb（）
+
+
+canvas拾取
+1. 选中三角形-->选中之后改变颜色，可以拖动 
+    1.几何法-->比较规范的图形
+    2.isPointInPath/isPointInStroke-->构建路劲path-->检查
+        需要重新走一遍绘制流程 -->性能较差
+    3.颜色拾取
+        a-->rgb1
+        b-->rgb2
+        c-->rgb3
+
+canvas2d引擎：
+ 拾取
+ 局部渲染
+ 图形层叠控制
+ 事件封装
+
+
+关于一个图形学大应用的架构 
+
+
+    1.canvas api封装  
+    2.图形封装 状态的管理 
+    3.基本绘图元素的封装（拾取方案）
+    4.绘图层级的控制
+    5.应用层封装调度，舞台
+    6.业务逻辑
+
+
+作业：
+绘制两个三角形，控制选中，选中之后的三角形在上层，选中之后可以移动，同时三角形的点可以选中拖动，形成新的图形
+

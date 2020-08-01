@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+</head>
+<body>
+    <script>
+        var canvas = document.createElement('canvas')
+        document.body.appendChild(canvas)
+        var ctx = canvas.getContext('2d');
+        canvas.width = 500
+        canvas.height = 500
+        ctx.beginPath()
+        ctx.moveTo(100, 100)
+        ctx.lineTo(200, 150)
+        ctx.lineTo(450, 80)
+        ctx.closePath()
+        ctx.stroke()
+    </script>
+</body>
+</html>
