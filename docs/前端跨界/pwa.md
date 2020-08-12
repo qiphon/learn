@@ -103,3 +103,19 @@ progressive web apps 是 Google 提出的前沿 web 技术网页提供 app 般�
 - 快速生成 manifest  https://tomitm.github.io/appmanifest/
 
 ### [AMP](https://amp.dev/) 丰富HTML功能
+
+限制
+
+- 只允许异步脚本
+- 显示制定 UI 样式
+- CSS 只能有一个 inline 的
+- CSS 只能 50K
+- 只允许有限的 css 动画
+- 控制资源加载、动画执行
+
+原则
+
+- 严格控制外部资源
+- 严格控制整个页面的渲染
+- 严格控制 css 动画
+
