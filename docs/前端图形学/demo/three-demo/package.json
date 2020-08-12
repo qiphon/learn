@@ -1,0 +1,14 @@
+{
+  "name": "three-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "obj2gltf": "^3.1.0",
+    "three": "^0.119.1"
+  },
+  "scripts": {
+    "start": "",
+    "gltf": "obj2gltf -i  -t"
+  }
+}
