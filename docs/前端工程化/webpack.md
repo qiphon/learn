@@ -5,7 +5,9 @@
 > 模块化： 是一种将系统分离成独立功能 部分的方法，严格定义 模块接口 、模块间具有 透明 性
 
 - 模块化的发展：
+
     - 无模块化时代
+
         ```js
         function a (){
 
@@ -14,16 +16,21 @@
 
         }
         ```
+
     - 模块化萌芽
+
         ```js
         // IIFE
         (function(w){
             w.jQuery = w.$ = jQuery
         })(window)
         ```
+
     - 模块化时代 
+
         - Commonjs
         - RequireJS(AMD)/SeaJS(cmd)
+
             ```js
             // CMD
             define(function(require, exports, module) {   
@@ -44,8 +51,11 @@
             })
 
             ```
+
         - ES6 Module
+
 ### 主要配置
+
 - entry 配置资源入口
 - output 配置编译之后的资源
 - module 资源处理
@@ -56,7 +66,7 @@
 
 > webpack 默认以 `/src/index.js` 作为默认的配置文件
 
-babel 目前提供了 ` @babel/preset-env` 简化了babel 的配置过程。https://babeljs.io/docs/en/next/babel-preset-env.html 
+babel 目前提供了 `@babel/preset-env` 简化了babel 的配置过程。https://babeljs.io/docs/en/next/babel-preset-env.html 
 
 ### package.json 知识点
 
@@ -100,13 +110,17 @@ babel 目前提供了 ` @babel/preset-env` 简化了babel 的配置过程。http
     # 同样的，并行和串行可以使用 npm-run-all 这个包来实现
 
     ```
+
 - npm run env  可以拿到所有的package.json 中的内容
+
     ```json
     # 拿到包名
     "getpkgname": "echo $npm_package_name"
 
     ```
+
 - scripty 包的使用
+
     ```json
     {
         "name": "demo",
@@ -154,8 +168,6 @@ babel 目前提供了 ` @babel/preset-env` 简化了babel 的配置过程。http
 ### webpack 开发中的优化
 
 
-
-
 ### webpack 技术内幕
 
 - 入口文件
@@ -169,9 +181,6 @@ babel 目前提供了 ` @babel/preset-env` 简化了babel 的配置过程。http
 ### 核心总结
 
 - 文件指纹区别
-
-- 
-
 
 ### AST
 

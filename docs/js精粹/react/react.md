@@ -96,13 +96,20 @@ FiberNode: {
     - 无状态组件 `function Child(){}` 如果后续需要 state了，非常不方便
 
     - hooks 可以让 函数组件 使用 state
-    - 可以模拟大部分生命周期
+    - 可以模拟大部分生命周期 useEffect
+
+        - 容易出现死循环， 解决方案 ref、setCount((count)=> count + 1)
+        - 依赖用到就要加，不然会出现获取不到最新的值
+        - useEffect 不能不写依赖，不然每次渲染都会执行
+
     - 可以让代码更简洁
 
 2. hooks 使用方法
 
     - memo + callback 解决组件整体渲染问题
+
     - useEffect  灵活使用，包含 didmount、willMount、didUpdate(容易出现死循环)、willReceiveProps 
+
         - 死循环的解决方式 
             ```jsx
             useEffect(()=>{
@@ -141,7 +148,7 @@ FiberNode: {
         const [count, setCount] = useState(0)
         const [name, setName] = useState('yideng')
         // 只有依赖变化时，才会重新创建，否则就用之前的
-        // 子组件使用memo 包裹
+        // 子组件使用memo 包裹，防止父组建更新子组建也会同步更新
         const changeCount = useCallback((val){
             setCount(val)
         }, [count])
@@ -155,13 +162,14 @@ FiberNode: {
             // 如果不写依赖，每次都会执行
         })
         useEffect(()=>{
-            // componentWillUnmount
+            // 相当于 componentDidMount
+            //  return 在 componentWillUnmount 时触发
             return () => {
 
             }
         }, [])
         useEffect(()=>{
-
+            // componentDidUpdate
         }, [count])
         // 替代 willreceiveProps
         useEffect(()=>{
@@ -181,8 +189,9 @@ FiberNode: {
 
     })
 
-    // useRef 
-    // const ref = useRef(0)
+    // useRef 设置一个长期存在的值
+    const ref = useRef(0)
+    ref.current = 10
     ```
 3. 源码实现
 
