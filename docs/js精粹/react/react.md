@@ -111,6 +111,7 @@ FiberNode: {
     - useEffect  灵活使用，包含 didmount、willMount、didUpdate(容易出现死循环)、willReceiveProps 
 
         - 死循环的解决方式 
+
             ```jsx
             useEffect(()=>{
                 fetch('xxx').then(res => {
@@ -124,7 +125,9 @@ FiberNode: {
                 })
             }, [])
             ```
+
         - 第二个参数中的依赖用到就要加，不然取不到最新的值
+
     - useCallback 缓存函数、useMemo 缓存值
 
     ```jsx
@@ -193,10 +196,11 @@ FiberNode: {
     const ref = useRef(0)
     ref.current = 10
     ```
+
 3. 源码实现
 
     - useState （1. mountState 2. 执行 dispatch 3. updateState）
-        - MountState<s> 第一次执行函数体时执行
+        - `MountState<s>` 第一次执行函数体时执行
 
             - 默认值是 function 就执行，得到初始 state
             - state 存放在 memorize
@@ -204,7 +208,7 @@ FiberNode: {
             - 把 queue 传给 dispatch
             - 返回默认值 和 dispatch
 
-        - updateState<s> 之后使用的函数 
+        - `updateState<s>` 之后使用的函数 
 
     - useEffect 
         - MountEffect
