@@ -106,7 +106,7 @@ FiberNode: {
 
 2. hooks 使用方法
 
-    - memo + callback 解决组件整体渲染问题
+    - memo + callback 解决组件整体渲染问题（建议非根组件都使用memo包裹）
 
     - useEffect  灵活使用，包含 didmount、willMount、didUpdate(容易出现死循环)、willReceiveProps 
 
@@ -152,7 +152,8 @@ FiberNode: {
         const [name, setName] = useState('yideng')
         // 只有依赖变化时，才会重新创建，否则就用之前的
         // 子组件使用memo 包裹，防止父组建更新子组建也会同步更新
-        const changeCount = useCallback((val){
+        // useCallback 会增加比较大的内存占用，谨慎使用
+        const changeCount = useCallback((val)=>{
             setCount(val)
         }, [count])
 
