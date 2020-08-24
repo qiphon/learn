@@ -5,14 +5,15 @@
 3. 范畴论将世界抽象为对象和对象之间的联系，redux 将所有事件抽象为 action
 4. container 中含有 value 和 map 两个属性，而修改 value 的方式只有 map，在操作玩value 后将新值放回container中
 
-```js
-// 如何操作或修改 value 由 f 给出
-store -> container 
-currentState -> __value
-action -> f
-currentReducer -> map
-middleware -> IO functor (解决异步操作的各种问题)
-```
+    ```js
+    // 如何操作或修改 value 由 f 给出
+    store -> container 
+    currentState -> __value
+    action -> f
+    currentReducer -> map
+    middleware -> IO functor (解决异步操作的各种问题)
+    ```
+    
 5. store 是一个容器含有 state 和 reducer
 
     > reducer 是一个纯函数，它可以查看之前的状态，执行一个action并返回一个新的状态
