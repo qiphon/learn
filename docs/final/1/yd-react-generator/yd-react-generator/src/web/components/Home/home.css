@@ -1,0 +1,5 @@
+.components-home {
+  & h2 {
+    color: yellow;
+  }
+}

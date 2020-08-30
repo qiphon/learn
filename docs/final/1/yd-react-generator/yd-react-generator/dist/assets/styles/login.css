@@ -1,0 +1,14 @@
+
+  .components-login h1 {
+    color: yellowgreen;
+  }
+.components-login span {
+    color: yellow;
+  }
+html,
+body {
+  height: 100%;
+  background-size: cover;
+  background-image: url(/assets/images/bg..jpg) !important;
+}
+
