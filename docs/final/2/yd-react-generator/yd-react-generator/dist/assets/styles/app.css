@@ -1,0 +1,14 @@
+
+  .components-loading span {
+    color: orange;
+  }
+html,
+body {
+  height: 100%;
+  background-size: cover;
+  background-image: url(/images/bg.jpg) !important;
+}
+.components-home h2 {
+    color: orange;
+  }
+
