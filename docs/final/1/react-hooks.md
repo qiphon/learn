@@ -557,11 +557,84 @@ function RefTest() {
 
 ```
 
-useLayoutEffect/useEffect
-
 useImperativeHandle
 
+```jsx
+const ContextComp = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => ({
+    method() {
+      console.log("ref方法执行");
+    }
+  }));
+
+  return <p>子组件</p>;
+});
+
+export default function App() {
+  const ref = useRef();
+  useEffect(() => {
+    console.log("component update");
+    ref.current.method();
+    return () => {
+      console.log("unbind");
+    };
+  }, []);
+  return (
+    <>
+      <ContextComp ref={ref} />
+    </>
+  );
+}
+
+```
+
+useLayoutEffect/useEffect
+
 useCallback  `useCallback will return a memoized version of the callback that only changes if one of the inputs has changed.`
+
+```jsx
+const Counter = memo(props => {
+    console.log("counter 组件渲染", props);
+    return <h1 onClick={ props.click }>click me</h1>;
+});
+
+// 也可以将 click 函数写在组建外面，这样也不会引起
+// 子组件重复渲染
+const click = cb => cb()
+
+function App() {
+    const [count, setCount] = useState(0);
+    const click = useCallback(() => {
+        console.log(count, 'count')
+        return setCount(count + 1)
+    }, []);
+    // useCallback 的依赖项最好不要写，
+    // 不然会引起子组件的重新渲染
+
+    const click = useMemo(() => {
+        console.log(count, 'count')
+        return () => {
+            return setCount(count + 1)
+        }
+    }, [count]);
+    // useCallback 的功能可以用useMemo 来实现，
+    // 但是这样useMemo 的第二个依赖项就必须要写
+    // 并且useMemo 中打印出来的值是处理过后的值
+    // 这种方式下即使子组件用memo包裹，子组件仍会重新渲染
+    console.log('app 渲染')
+    return (
+        <>
+            <span>{ count }</span>
+            <input
+                type="button"
+                onClick={ () => setCount(count + 1) }
+                value="修改count"
+            />
+            <Counter click={ click } />
+        </>
+    );
+}
+```
 
 useMemo `useMemo` will only recompute the memoized value when one of the `deps` has changed.
 
@@ -616,6 +689,36 @@ const Home = () => {
             <MemoCom test={ b } />
         </div>
     )
+}
+
+// ========= 使用 useMemo 缓存一个值，和useState 的功能类似
+// 缓存的值不能单独使用还是要结合 useState
+// 不同的是useMemo 的第二个参数可以是一个依赖的项，
+// 也可以是一个判断条件
+const Counter = memo(props => {
+    console.log("组件渲染");
+    return <h1>{ props.data }</h1>;
+});
+
+function App() {
+    const [count, setCount] = useState(0);
+    const double = useMemo(() => {
+        console.log(count, 'count')
+        return count * 2;
+        // }, [count === 5]);
+    }, [count]);
+    const data = "京程一灯";
+    return (
+        <>
+            <span>{ double }</span>
+            <input
+                type="button"
+                onClick={ () => setCount(count + 1) }
+                value="修改count"
+            />
+            <Counter data={ data } />
+        </>
+    );
 }
 ```
 
