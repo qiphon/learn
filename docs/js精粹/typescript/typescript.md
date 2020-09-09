@@ -409,6 +409,118 @@
     BigInt 字面量类型和字符串字面量类型
 
     ```ts
+    // 字面量类型
+    const a: 123 = 123
+    const b: 0b10 = 2
+    const c: 0o114 = 0b1001100
+    const d: 0x514 = 0x514
+    const e: 0x1919n = 6425n
+    const f: 'qiphon' = 'qiphon'
+    const g: false = false
+
+
+    // const h: 'github' = 'gitee'  // error TS2322: Type '"gitee"' is not assignable to type '"github"'.
+
+    // 当字面量类型与联合类型结合的时候，用处就显现出来了，它可以模拟一个类似枚举的效果
+    type Dir = 'North' | 'West' | 'South' | 'East'
+
+    function move(distance: number, dir: Dir) {
+
+    }
+
+    // 类型字面量
+
+    type Action = {
+        id: number,
+        action: 'delete',
+        info: Info
+    } |
+    {
+        action: 'create',
+        info: Info
+    }
+
+    type Info = {
+        name: string
+    }
+
+    const action: Action = {
+        action: 'create',
+        info: {
+            name: 'qiphon'
+        }
+    }
+    ```
+
+- 类型断言
+
+    ```ts
+    // 类型断言
+    interface Per {
+        name: string,
+        age: number
+    }
+
+    let person = {};
+    // person.age = 123 //  error TS2339: Property 'age' does not exist on type '{}'.
+    (person as Per).age = 34
+
+    // 双重断言
+    // let c = 'qiphon' as Per;  // TS2352: Conversion of type 'string' to type 'Per' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+    let c = 'qiphon' as any as Per; // 这样就不报错
+
+    // 类型守卫
+    class Ani {
+        name: 'dog'
+        color: 'white'
+    }
+
+    class Per {
+        name: 'john'
+        age: 12
+    }
+
+    function w(arg: Per | Ani) {
+        if (arg instanceof Per) {
+            console.log(arg.name)
+            // console.log(arg.color) // error TS2339: Property 'color' does not exist on type 'Per'.
+        }
+    }
+
+    function w2(arg: Per | Ani) {
+        if ('color' in arg) {
+            console.log(arg.name)
+            // console.log(arg.age) // error
+        }
+    }
+    
+    ```
+- 结构类型
+
+    ts 里的类型兼容性是基于「结构类型」的，结构类型是一种只使用其成员来
+    描述类型的方式，其基本规则是，如果 x 要兼容 y，至少 y 具有与 x 相同
+    的属性
+
+    ```ts
+    // 构建一个类 Per，然后声明一个接口 Dog， Dog 的属性 Per 都拥有，
+    // 而且还多了其它的属性，这种情况下 Dog 兼容了 Per
+
+    class Per {
+        constructor(
+            public weight: number,
+            public name: string,
+            public born: string
+        ) { }
+    }
+
+    interface Dog {
+        name: string,
+        weight: number
+    }
+
+    let x: Dog
+
+    x = new Per(12, 'ass', '1999')
     ```
 
 ### 书写方式

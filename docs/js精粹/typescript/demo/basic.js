@@ -165,11 +165,77 @@
 // var c: Tree = {
 //     value: 123
 // }
-var a = 123;
-var b = 2;
-var c = 76;
-var d = 0x514;
-var e = 6425n;
-var f = 'qiphon';
-var g = false;
-var h = 'gitee';
+// 字面量类型
+// const a: 123 = 123
+// const b: 0b10 = 2
+// const c: 0o114 = 0b1001100
+// const d: 0x514 = 0x514
+// const e: 0x1919n = 6425n
+// const f: 'qiphon' = 'qiphon'
+// const g: false = false
+// // const h: 'github' = 'gitee'  // error TS2322: Type '"gitee"' is not assignable to type '"github"'.
+// // 当字面量类型与联合类型结合的时候，用处就显现出来了，它可以模拟一个类似枚举的效果
+// type Dir = 'North' | 'West' | 'South' | 'East'
+// function move(distance: number, dir: Dir) {
+// }
+// // 类型字面量
+// type Action = {
+//     id: number,
+//     action: 'delete',
+//     info: Info
+// } |
+// {
+//     action: 'create',
+//     info: Info
+// }
+// type Info = {
+//     name: string
+// }
+// const action: Action = {
+//     action: 'create',
+//     info: {
+//         name: 'qiphon'
+//     }
+// }
+// // 类型断言
+// interface Per {
+//     name: string,
+//     age: number
+// }
+// let person = {};
+// // person.age = 123 //  error TS2339: Property 'age' does not exist on type '{}'.
+// (person as Per).age = 34
+// // 双重断言
+// // let c = 'qiphon' as Per;  // TS2352: Conversion of type 'string' to type 'Per' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+// let c = 'qiphon' as any as Per; // 这样就不报错
+// 类型守卫 instanceof , in
+// class Ani {
+//     name: 'dog'
+//     color: 'white'
+// }
+// class Per {
+//     name: 'john'
+//     age: 12
+// }
+// function w(arg: Per | Ani) {
+//     if (arg instanceof Per) {
+//         console.log(arg.name)
+//         // console.log(arg.color) // error TS2339: Property 'color' does not exist on type 'Per'.
+//     }
+// }
+// function w2(arg: Per | Ani) {
+//     if ('color' in arg) {
+//         console.log(arg.name)
+//         // console.log(arg.age) // error
+//     }
+// }
+var Per = /** @class */ (function () {
+    function Per(weight, name, born) {
+        this.weight = weight;
+        this.name = name;
+        this.born = born;
+    }
+    return Per;
+}());
+var x;
+x = new Per(12, 'ass', '1999');
