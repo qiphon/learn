@@ -275,19 +275,223 @@
 //     }
 // }
 
-class Per {
-    constructor(
-        public weight: number,
-        public name: string,
-        public born: string
-    ) { }
-}
+// class Per {
+//     constructor(
+//         public weight: number,
+//         public name: string,
+//         public born: string
+//     ) { }
+// }
 
-interface Dog {
-    name: string,
-    weight: number
-}
+// interface Dog {
+//     name: string,
+//     weight: number
+// }
 
-let x: Dog
+// let x: Dog
 
-x = new Per(12, 'ass', '1999')
+// x = new Per(12, 'ass', '1999')
+
+// type hello = (p: string) => string
+// const hello: hello = (p) => {
+//     return p
+// }
+
+// function mixin<T extends object, U extends object>(f: T, s: U): T & U {
+//     const res = <T & U>{};
+//     for (let id in f) {
+//         (<T>res)[id] = f[id]
+//     }
+//     for (let id in s) {
+//         (<U>res)[id] = s[id]
+//     }
+//     return res
+// }
+// const x = mixin({ a: 'hello' }, { b: 123 })
+
+// console.log(x)
+
+// let q = (a: string) => 0
+// let p = (b: string, s: number) => 0
+
+// // p = q
+// // q = p;  // error TS2322: Type '(b: string, s: number) => number' is not assignable to type '(a: string) => number'.
+
+// let foo = (
+//     x: number,
+//     y: number
+// ) => { }
+// let bar = (
+//     x?: number,
+//     y?: number
+// ) => { }
+
+// let bas = (...args: number[]) => { }
+
+// // foo = bar = bas
+// // bas = bar = foo
+
+// let foo2 = (x: number, y: number) => { }
+// let bar2 = (x?: number) => { }
+
+// foo2 = bar2
+// // bar2 = foo2 //  error TS2322: Type '(x: number, y: number) => void' is not assignable to type '(x?: number) => void'.
+
+
+// class
+
+// class Ani {
+//     feet: number;
+//     constructor(name: string, numFeet: number) {
+//         this.feet = numFeet
+//     }
+// }
+
+// class Size {
+//     feet: number
+//     constructor(meters: number) {
+//         this.feet = meters
+//     }
+// }
+
+// let a: Ani = new Ani('a', 2)
+// let b: Size = new Size(13)
+
+// // a = b
+// // b = a
+
+// 泛型
+// interface Per<T> {
+
+// }
+// let x: Per<string>;
+// let y: Per<number>
+
+// // x = y
+// y = x
+// interface Per<T> {
+//     name: T
+// }
+// let x: Per<string>;
+// let y: Per<number>
+
+// x = y  //  error TS2322: Type 'Per<number>' is not assignable to type 'Per<string>'.
+// // Type 'number' is not assignable to type 'string'.
+// // y = x  //  error TS2322: Type 'Per<string>' is not assignable to type 'Per<number>'.
+// // Type 'string' is not assignable to type 'number'.
+
+// is
+// // 如果这个函数没有 写 test is string 下面的 example 函数中
+// // 的 foo.length 就不能使用
+// // function isString(test: any): test is string {
+// //     return typeof test === 'string'
+// // }
+
+// //  error TS2339: Property 'length' does not exist on type 'string | number'.
+// //   Property 'length' does not exist on type 'number'.
+// function isString(test: any) {
+//     return typeof test === 'string'
+// }
+
+// function example(foo: number | string) {
+//     if (isString(foo)) {
+//         console.log('it is string ' + foo)
+//         console.log(foo.length)
+//     } else {
+//         console.log(foo)
+//     }
+// }
+
+// example('hello')
+
+// 可调用类型注解
+// interface ToString {
+//     (): string
+//     new(): string
+// }
+
+// declare const someToString: ToString
+// someToString()
+// new someToString()
+
+// // 索引类型
+// function pick<T, K extends keyof T>(o: T, names: K[]): T[K][] {
+//     return names.map(k => o[k])
+// }
+// // const res = pick(user, ['token', 'id'])
+
+// 映射类型
+
+// interface User {
+//     name: string,
+//     id: number,
+//     token: string,
+//     avatar: string,
+//     role: string
+// }
+// // type Keyof = keyof User
+// type partial<T> = { [K in keyof T]?: T[K] }
+// type partialUser = partial<User>
+// type readonlyUser = Readonly<User>
+
+// declare function f<T extends boolean>(x: T): T extends true ? string : number;
+
+// const x3 = f(Math.random() < 0.5)
+// const y3 = f(false)  // return number
+// const z = f(true)  // return string
+
+// // 联合类型结合条件类型
+
+// // 裸类型参数，没有其它类型包裹
+// type NakedUsage<T> = T extends boolean ? 'yes' : 'no'
+// // 类型参数被包裹在元祖内部
+// type WrappedUsage<T> = [T] extends [boolean] ? 'yes' : 'no'
+
+// type Distributed = NakedUsage<number | boolean>
+// // = NakedUsage<number> | NakedUsage<boolean> = 'yes' | 'no'
+// type NotDistributed = WrappedUsage<number | string> // 'no'
+
+// type Diff<T, U> = T extends U ? never : T
+// type R = Diff<'a' | 'b' | 'c' | 'd', 'a' | 'c' | 'f'> // 'b' | 'd'
+
+// type Filter<T, U> = T extends U ? T : never
+// type R2 = Filter<string | number | (() => void), Function>  // ()=> void
+
+// // 剔除null 和 undefined
+// type NotNullable<T> = Diff<T, null | undefined>
+
+// type R3 = NotNullable<string | number | undefined> // string | number
+
+
+// 条件与映射类型
+// // 现有一个 interface part, 现在需要编写一个工具类型，将 interface 中函数类型
+// // 的名称取出来，写一个工具函数
+
+// interface Part {
+//     id: number
+//     name: string
+//     subparts: Part[]
+//     updatePart: (newName: string) => void
+// }
+
+// /**
+//  * 这种问题我们应该换个思路，比如我们把 interface 看成 js 中的对象，如何才能去除值为
+//  * 函数的那个key
+//  * 
+//  * 1. 假设我们把Part 带入泛型 T， [keyof T] 相当于遍历整个 interface
+//  * 2. 这时 K相当于interface的 key [K in keyof T], T[K] 即为对应的value
+//  * 3. 接下来用条件判断，将值为Function 的转为 key，其它的值为 never
+//  * 4. 得到的interface 如下
+//  * type R = {
+//  *      id: never
+//  *      name: never
+//  *      subparts: never
+//  *      updatePart: 'updatePart'
+//  * }
+//  * 5. 接下来我们就可以用 keyof 取出 所有的key，never 会自动过滤掉
+//  * typeof T = keyof R
+//  */
+// type FunctionPropertyNames<T> = { [K in keyof T]: T[K] extends Function ? K : never }[keyof T]
+
+// type R = FunctionPropertyNames<Part>
+
