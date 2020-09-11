@@ -495,3 +495,124 @@
 
 // type R = FunctionPropertyNames<Part>
 
+// tuple 转 union，比如 [string | number] -> string | number
+
+// type ElementOf<T> = T extends Array<infer E> ? E : never
+
+// type TTuple = [string, number, null]
+// type ToUnion = ElementOf<TTuple>  // string | number
+
+
+// interface User {
+//     id: number
+//     name: string
+//     form?: string
+// }
+
+// type F4 = () => 'qiphon'
+// type Foo = () => User
+// type ReturnType4<T> = T extends () => infer P ? P : any
+
+// type R = ReturnType4<Foo>  // User
+// type R2 = ReturnType<F4>  // 'qiphon'
+// type R22 = ReturnType4<F4>  // 'qiphon'
+
+
+// class Test {
+//     constructor(public name: string, public age: number) { }
+// }
+
+// type GetConstructorParam<T extends new (...args: any[]) => any> = T extends new (...args: infer P) => any ?
+//     P : never
+
+// type C = GetConstructorParam<typeof Test>  //  [name: string, age: number]
+
+// type D = ElementOf<C>  //  string | number
+
+
+// type Exclude2<T, U> = T extends U ? never : T
+// type P = Exclude2<1 | 2, 2 | 3>
+
+// Omit
+// type Omit2<T, K> = Pick<T, Exclude<keyof T, K>>
+// type Foo = Omit2<{ name: string, age: number }, 'name'>
+// type Foo2 = Omit<{ name: string, age: number }, 'name'>
+
+// // {
+// //     age: number;
+// // }
+
+// // Merge
+// // type Merge<T, U> = Computed<A> + Omit<M, N>
+
+// type Computed<T extends any> = T extends Function ?
+//     T :
+//     { [K in keyof T]: T[K] }
+
+// type R = Computed<{ x: 'x' } & { y: 'y' }>
+
+// type Merge<O1 extends object, O2 extends object> = Computed<O1 & Omit<O2, keyof O1>>
+
+// type O1 = {
+//     age: number
+//     type: string
+// }
+
+// type O2 = {
+//     key: number
+//     age: string
+// }
+
+// type C = Merge<O1, O2>
+// // {
+// //     age: number;
+// //     type: string;
+// //     key: number;
+// // }
+
+
+// // Intersection
+
+// type Intersection<T extends object, U extends object> = Pick<T,
+//     Extract<keyof T, keyof U> & Extract<keyof U, keyof T>
+// >
+
+// type Props = { name: string; age: number; visible: boolean }
+// type DefaultProps = { age: number }
+
+// // expect {age:number}
+// type DuplicatedProps = Intersection<Props, DefaultProps>
+
+
+// // Overwrite<T, U> 顾名思义，是用 U 的属性覆盖 T 的相同属性
+// type Computed<T extends any> = T extends Function ?
+//     T :
+//     { [K in keyof T]: T[K] }
+// type Merge<O1 extends object, O2 extends object> = Computed<O1 & Omit<O2, keyof O1>>
+// type Overwrite<
+//     T extends object,
+//     U extends object,
+//     I extends object = Intersection<U, T>
+//     > = Merge<I, T>
+
+// type NewProps = { age: string, other: string }
+
+// // expect { name: string; age: string; visible: boolean; }
+// type ReplaceProps = Overwrite<Props, NewProps>
+
+
+// // Mutable 将 T 的所有属性的 readonly 移除
+// type Mutable<T> = {
+//     -readonly [P in keyof T]: T[P]
+// }
+
+// // Record 允许从 Union 类型中创建新类型， Union类型中的值用作新类型的属性
+// type Car = 'Audi' | 'BMW' | 'Benz'
+// type CarList = Record<Car, { age: number }>
+
+// const cars: CarList = {
+//     Audi: { age: 1 },
+//     BMW: { age: 12 },
+//     Benz: { age: 13 },
+// }
+

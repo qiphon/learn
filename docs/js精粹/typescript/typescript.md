@@ -770,6 +770,162 @@
     type R = FunctionPropertyNames<Part>
     ```
 
+- infer 
+
+    infer 是工具类型和底层库中非常常用的关键字，表示在 extends 条件语句中待推断的类型变量，
+    相对而言也比较难理解，我们不妨从一个 typescript 面试题开始：
+
+    ```ts
+    type ElementOf<T> = T extends Array<infer E> ? E : never
+
+    type TTuple = [string, number, null]
+    type ToUnion = ElementOf<TTuple>  // string | number
+
+
+    interface User {
+        id: number
+        name: string
+        form?: string
+    }
+
+    type F4 = () => 'qiphon'
+    type Foo = () => User
+    type ReturnType4<T> = T extends () => infer P ? P : any
+
+    type R = ReturnType4<Foo>  // User
+    type R2 = ReturnType<F4>  // 'qiphon'
+    type R22 = ReturnType4<F4>  // 'qiphon'
+
+
+    class Test {
+        constructor(public name: string, public age: number) { }
+    }
+
+    type GetConstructorParam<T extends new (...args: any[]) => any> = T extends new (...args: infer P) => any ?
+        P : never
+
+    type C = GetConstructorParam<typeof Test>  //  [name: string, age: number]
+
+    type D = ElementOf<C>  //  string | number
+    ```
+
+- 上面实现的 ReturnType、Partial、ConstructorParameters、Pick 都是官方的内置工具类型
+
+    其它的一些关键字` - ` ,它用来映射类型中给属性添加修饰， 比如 `-？` 表示必选， `-readonly`
+    表示非只读
+
+    ```ts
+    // ts 内置只读工具
+    type Required<T> = {[P in keyof T]-?: T[P] }
+
+    ```
+
+    Omit 这个工具类型在开发过程中非常常见，以至于官方在 3.5 版本正式加入了 Omit 类型，
+
+    ```ts
+    // Exclude 关键字实现
+    type Exclude2<T, U> = T extends U ? never : T
+    type P = Exclude2<1 | 2, 2 | 3>
+
+    // Omit = Exclude + Pick
+    // Omit
+    type Omit2<T, K> = Pick<T, Exclude<keyof T, K>>
+    type Foo = Omit2<{ name: string, age: number }, 'name'>
+    type Foo2 = Omit<{ name: string, age: number }, 'name'>
+
+    // {
+    //     age: number;
+    // }
+    ```
+
+    `Merge<O1, O2>` 的作用是将2个对象的属性合并 
+
+    `Intersection<T, U>` 作用是取 T 的属性，此属性同样也存在于 U
+
+    `Overwrite<T, U>` 顾名思义，是用 U 的属性覆盖 T 的相同属性
+
+    Mutable 将 T 的所有属性的 readonly 移除
+
+    Record 允许从 Union 类型中创建新类型， Union类型中的值用作新类型的属性
+
+    ```ts
+    // Merge
+    // type Merge<T, U> = Computed<A> + Omit<M, N>
+
+    type Computed<T extends any> = T extends Function ?
+        T :
+        { [K in keyof T]: T[K] }
+
+    type R = Computed<{ x: 'x' } & { y: 'y' }>
+
+    type Merge<O1 extends object, O2 extends object> = Computed<O1 & Omit<O2, keyof O1>>
+
+    type O1 = {
+        age: number
+        type: string
+    }
+
+    type O2 = {
+        key: number
+        age: string
+    }
+
+    type C = Merge<O1, O2>
+    // {
+    //     age: number;
+    //     type: string;
+    //     key: number;
+    // }
+
+
+    // Intersection
+
+    type Intersection<T extends object, U extends object> = Pick<T,
+        Extract<keyof T, keyof U> & Extract<keyof U, keyof T>
+    >
+
+    type Props = { name: string; age: number; visible: boolean }
+    type DefaultProps = { age: number }
+
+    // expect {age:number}
+    type DuplicatedProps = Intersection<Props, DefaultProps>
+
+
+    // Overwrite<T, U> 顾名思义，是用 U 的属性覆盖 T 的相同属性
+    type Computed<T extends any> = T extends Function ?
+        T :
+        { [K in keyof T]: T[K] }
+    type Merge<O1 extends object, O2 extends object> = Computed<O1 & Omit<O2, keyof O1>>
+    type Overwrite<
+        T extends object,
+        U extends object,
+        I extends object = Intersection<U, T>
+        > = Merge<I, T>
+
+    type NewProps = { age: string, other: string }
+
+    // expect { name: string; age: string; visible: boolean; }
+    type ReplaceProps = Overwrite<Props, NewProps>
+
+
+    // Mutable 将 T 的所有属性的 readonly 移除
+    type Mutable<T> = {
+        -readonly [P in keyof T]: T[P]
+    }
+
+    // Record 允许从 Union 类型中创建新类型， Union类型中的值用作新类型的属性
+    type Car = 'Audi' | 'BMW' | 'Benz'
+    type CarList = Record<Car, { age: number }>
+
+    const cars: CarList = {
+        Audi: { age: 1 },
+        BMW: { age: 12 },
+        Benz: { age: 13 },
+    }
+    ```
+
+
+
 ### 书写方式
 
 ```typescript
@@ -792,5 +948,158 @@ const hello: hello = (p) => {
     return p
 }
 
+// 巧用类型约束
+// 在 .ts 文件里， 泛型可能会被当作 jsx 标签
+
+const toArray = <T>(element: T) => [element]  // error
+
+// 添加extends 解决
+const toArray = <T extends {}>(element: T) => [element]
 
 ```
+
+## 模块系统
+
+ts 与 ES2015 一样，任何包含顶级 import 或者 export 的文件都被当作一个模块
+
+相反地，如果一个文件不带有顶级 inport 或者 export 声明，那么它的内容被视为全局可见
+
+模块语法
+
+```ts
+export const a = 1
+export type Person = {
+    name: string
+}
+
+// 如果想一次性导出可以
+export {
+    a, person
+}
+import {a, person} from './export'
+
+// 当然，我们也可以重命名导入的模块
+import { Person as P} from './export'
+
+// 把所有导出挂在一个新的变量上
+import * as React from 'react'
+
+// 默认的导入导出
+export default (a=1)
+export default () => 'function'
+
+```
+
+## 命名空间
+
+命名空间一个最明确的目的就是解决命名问题。 ts 中的命名空间使用 namespace 定义
+
+```ts
+namespace Q {
+    export interface Iface {}
+    export class c {}
+}
+```
+
+## ts 编译原理
+
+- scanner 扫描器 
+- Parser 解析器 
+- Binder 绑定器 
+- Emitter 触发器 
+- Checker 检查器
+
+### 编译器的处理 （解析- 转换- 生成）
+
+扫描器通过扫描源代码生成 token 流： 
+
+解析器将 token 流解析成 AST
+
+绑定器将 AST 中声明的节点与相同实体的其它声明相连形成符号（Symbols），符号是语义系统的主要构造块
+
+检查器通过符号和AST来验证源代码语义
+
+最后通过发射器生成js代码
+
+
+## jsx 中的使用
+
+```jsx
+import * as React from 'react'
+interface Greeting {
+    name: string
+    firstName?:string
+    lastName?: string
+}
+
+const Hello = (props: Greeting) => <h1>Hello {props.name}</h1>
+
+// class
+interface HelloState {
+    count: number
+}
+
+// 第一个是props，第二个是 state
+class HelloClass extends React.Component<Greeting, HelloState>{
+    state: HelloState = {
+        count: 0
+    }
+    static defaultProps = {
+        firstName: '',
+        lastName: ''
+    }
+    render() {
+        return <div>{ this.state.count }</div>
+    }
+}
+
+// 高阶组件
+function HelloHOC<P>(WrappedComponent: React.ComponentType<P>) {
+    return class extends React.Component<P & Loading>{
+        render() {
+            const { loading, ...props } = this.props
+            return loading ?
+                <div>loading</div> :
+                <WrappedComponent { ...props as P } />
+        }
+    }
+}
+```
+
+vue 中使用
+
+```vue
+<template>
+<div class="aa"></div>
+</template>
+<script lang="ts">
+import {Vue, Component, Prop} from 'vue-property-decorator'
+@component
+export default class Employee extends Vue {
+    @Prop({type: String, default: ''})
+    name!: string
+    
+    @Prop({type: Number, default: ''})
+    selected!: number
+
+    @Prop({
+        type: Array,
+        default: () => []
+    })
+    department!: {department: string, id: number}[]
+
+    // 不加props 就是data
+    tempName: string = this.name
+    tempSelected: number = this.selected
+
+    query(){
+        this.$emit('query', {
+            name: this.tempName,
+            departId: this.tempSelected
+        })
+    }
+}
+</script>
+
+```
+
