@@ -17,8 +17,14 @@
         input:blank {
             background-color: bisque;
         }
-        :empty {
+        /* :empty {
             background-color: aqua;
+        } */
+        input:blank {
+            background-color: red;
+        }
+        input[blank] {
+            background-color: yellow;
         }
     </style>
 </head>
@@ -31,11 +37,16 @@
         display is inline now
     </h1>
     <br>
+    <form action="/">
+        <input type="text" name="age">
+        <textarea name="desc" id="" cols="30" rows="10"></textarea>
+    </form>
     <a href="#"
         class="any-link"
     >
         :any-link pseudo-class
         <span>A pseudo-class for matching anchor elements independent of whether they have been visited</span>
+        <span>11111</span>
     </a>
     <div>
         <h1></h1>
