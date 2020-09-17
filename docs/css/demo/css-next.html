@@ -1,49 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>css next</title>
-    <style>
-        .all-init {
-            all: initial;
-        }
-        :any-link > span {
-            color: #bbb;
-        }
-        h1 {
-            height: 20px;
-        }
-        input:blank {
-            background-color: bisque;
-        }
-        /* :empty {
-            background-color: aqua;
-        } */
-        input:blank {
-            background-color: red;
-        }
-        input[blank] {
-            background-color: yellow;
-        }
-    </style>
+    <link rel="stylesheet" href="./css-next.css">
 </head>
+
 <body>
     <h1 class="all-init">
         h1 ---> all: initial
-        <br>
-        A property for defining the reset of all properties of an element
-        <br>
-        display is inline now
+        <br> A property for defining the reset of all properties of an element
+        <br> display is inline now
     </h1>
     <br>
     <form action="/">
         <input type="text" name="age">
         <textarea name="desc" id="" cols="30" rows="10"></textarea>
     </form>
-    <a href="#"
-        class="any-link"
-    >
+    <a href="#" class="any-link">
         :any-link pseudo-class
         <span>A pseudo-class for matching anchor elements independent of whether they have been visited</span>
         <span>11111</span>
@@ -51,9 +27,26 @@
     <div>
         <h1></h1>
         <h1> </h1>
-        <h1><!----></h1>
+        <h1>
+            <!---->
+        </h1>
         <input type="text">
         <img src="" alt="img">
     </div>
+    <div class="break a grid">
+        <div dir="rtl">sdfsd1sdfsdfsdfssds谁说的fsfsdfsdfsfwergergergergergegergergsdf</div>
+        <div>sdfs difiicult sdfsdfssdfsfsdfsdfsfwergergergergergegergergsdf2</div>
+        <div>sdfsd1sdfsdfsdfssdfsfsdfsdfsfwergergergergergegergergsdf3</div>
+    </div>
+    <div class="img-set">
+        <h3>focus</h3>
+        <input value="Default styles"><br>
+        <button>Default styles</button><br>
+        <input class="focus-only" value=":focus only"><br>
+        <button class="focus-only">:focus only</button><br>
+        <input class="focus-visible-only" value=":focus-visible only"><br>
+        <button class="focus-visible-only">:focus-visible only</button>
+    </div>
 </body>
+
 </html>

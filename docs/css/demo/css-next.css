@@ -1,0 +1,206 @@
+.all-init {
+    all: initial;
+}
+
+ :any-link>span {
+    color: #bbb;
+}
+
+h1 {
+    height: 20px;
+}
+
+input:blank {
+    background-color: bisque;
+}
+
+
+/* :empty {
+    background-color: aqua;
+} */
+
+input:blank {
+    background-color: red;
+}
+
+input[blank] {
+    background-color: yellow;
+}
+
+.break {
+    break-inside: avoid;
+    break-before: avoid-column;
+    break-after: always;
+}
+
+
+/* [class='break'] {
+    border: 1px solid #000;
+} */
+
+
+/* [class='break a'] div:first-child {
+    border: 1px solid #000;
+} */
+
+
+/* div {
+    background-color: hsl(120deg 100% 25%);
+    box-shadow: 0 0 0 10px hwb(120deg 100% 25% / 80%);
+    color: rgb(0 255 0);
+    border: 1px solid rgb(1, 2, 4)
+} */
+
+@custom-media --narrow-window (max-width: 300px);
+
+/* @media (max-width: 300px) { */
+
+@media (--narrow-window) {
+    body {
+        background-color: aquamarine;
+    }
+}
+
+
+/* :root {
+    --color: red;
+    --head-color: #adf;
+}
+
+div {
+    background: var(--color);
+}
+
+@custom-selector :--heading h1,
+h2,
+h3,
+h4,
+h5,
+h6;
+:--head {
+    border: 1px solid var(--head-color);
+} */
+
+div:dir(ltr) {
+    margin-left: 10px;
+    color: red;
+}
+
+div:dir(rtl) {
+    margin-left: 10px;
+    color: red;
+}
+
+
+/* div {
+    background-image: conic-gradient(yellowgreen 40%, gold 0deg 75%, #f06 0deg);
+} */
+
+form:focus-visible {
+    outline: 5px solid bisque;
+    color: red;
+}
+
+div:focus-within {
+    outline: 5px solid bisque;
+    color: red;
+}
+
+input,
+button {
+    margin: 10px;
+}
+
+.focus-only:focus {
+    outline: 2px solid black;
+}
+
+.focus-visible-only:focus-visible {
+    outline: 4px dashed rgb(26, 20, 13);
+}
+
+div {
+    font-variant: small-caps;
+    /* 
+        discretionary-ligatures 字母横向变小
+        no-contextual  字母连写样式 （默认）
+        no-common-ligatures  没有连写
+    */
+    font-variant-ligatures: unset;
+    /* 
+        small-caps   首字母数字正常大写，其它字母小型大写字母
+        all-small-caps  所有变小
+        unicase   // 数字变小，如下标
+    */
+    font-variant-caps: unset;
+    /* 
+        normal
+        slashed-zero;  数字0中间有一条连接线
+        tabular-nums;  数字变宽
+        oldstyle-nums; 数字纵向变化
+    */
+    font-variant-numeric: unset;
+    /* 
+        对日语和汉语的特别支持
+        simplified   简体
+        traditional  繁体
+        full-width  英文扩大间距
+    */
+    font-variant-east-asian: unset;
+}
+
+.grid {
+    display: grid;
+    border: 1px solid #ccc;
+    /* 控制grid 的间距 */
+    gap: 20px;
+    /* column-gap: 40px;
+    row-gap: 20px; */
+}
+
+div {
+    color: gray(50);
+}
+
+.img-set {
+    background-image: image-set( "./dog.jpg" 1x, "foo-2x.png" 2x, "foo-print.png" 600dpi);
+}
+
+div:matches(.img-set) {
+    margin-top: 1em;
+}
+
+@media (width < 480px) {
+    body {
+        background-color: bisque;
+    }
+}
+
+@media (480px <=width < 768px) {
+    body {
+        background-color: red;
+    }
+}
+
+@media (width >=768px) {
+    body {
+        background-color: adf;
+    }
+}
+
+div {
+    & input {
+        background-color: #333;
+    }
+}
+
+div:not(.img-set, .break) {
+    background-color: red;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #dfdfdf;
+        color: #333;
+    }
+}
