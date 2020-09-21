@@ -11,6 +11,20 @@
             display: grid;
             width: 200px;
             border: 1px solid #ccc;
+            /* grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr; */
+            /* grid-template-columns: 100px auto 1em; */
+            /* grid-template-columns: [c1] 100px [c2] 100px [c3] auto [c4]; */
+            /* grid-template-rows: [r1] 100px [r2] 100px [r3] auto [r4]; */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 50px);
+            /* grid-template-areas: 'a b c' 'd e f' 'g h i'; */
+            grid-template-areas: 'a b c' 'd e f' 'g h h';
+            grid-auto-flow: column;
+        }
+        
+        .grid div {
+            border: 1px solid rebeccapurple;
         }
     </style>
 </head>
@@ -26,6 +40,24 @@
         </div>
         <div>
             <p>3</p>
+        </div>
+        <div>
+            <p>4</p>
+        </div>
+        <div>
+            <p>5</p>
+        </div>
+        <div>
+            <p>6</p>
+        </div>
+        <div>
+            <p>7</p>
+        </div>
+        <div>
+            <p>8</p>
+        </div>
+        <div>
+            <p>9</p>
         </div>
     </div>
     <span>footer</span>
