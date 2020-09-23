@@ -1,0 +1,1 @@
+// d8 xx.js --print-scopes
