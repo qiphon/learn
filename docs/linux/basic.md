@@ -1107,7 +1107,7 @@ ip addr
 4. 免密登录的本地配置文件（权限644）
    编辑自己home目录的 .ssh/路径下的 config 文件
 
-更改端口号：`/etc/ssh/sshd_config`, 注意防火墙开放端口
+更改端口号：`/etc/ssh/sshd_config`, 注意防火墙开放端口, mac 下的文件名为config
 
 ```sh
 # 如果出现下面的错误，需要安装 openssh-server
