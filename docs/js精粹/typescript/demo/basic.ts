@@ -420,26 +420,27 @@
 // }
 // // const res = pick(user, ['token', 'id'])
 
+
 // 映射类型
 
-type User = {
-    name: string,
-    id: number,
-    token: string,
-    avatar: string,
-    role: string
-}
-// type m = keyof User
+// type User = {
+//     name: string,
+//     id: number,
+//     token: string,
+//     avatar: string,
+//     role: string
+// }
+// // type m = keyof User
 
-// // type Keyof = keyof User
-type partial<T> = { [K in keyof T]?: T[K] }
-type partialUser = partial<User>
+// // // type Keyof = keyof User
+// type partial<T> = { [K in keyof T]?: T[K] }
+// type partialUser = partial<User>
 
-type require<T> = { [K in keyof T]-?: T[K] }
-type requireUser = require<partialUser>
+// type require<T> = { [K in keyof T]-?: T[K] }
+// type requireUser = require<partialUser>
 
-type readOnly<T> = { readonly [K in keyof T]: T[K]}
-type readonlyUser = readOnly<partialUser>
+// type readOnly<T> = { readonly [K in keyof T]: T[K]}
+// type readonlyUser = readOnly<partialUser>
 
 // type readonlyUser = Readonly<User>
 
@@ -624,4 +625,61 @@ type readonlyUser = readOnly<partialUser>
 //     BMW: { age: 12 },
 //     Benz: { age: 13 },
 // }
+
+
+// typeof 
+
+// function sum (a: number, b: number): string{
+//     return (a+ b).toFixed(2)
+// }
+
+// type SUM = typeof sum
+// // type SUM = (a: number, b: number) => string
+
+// type Per = {
+//     name: string,
+//     age?: number
+// }
+
+// let p = {
+//     name: 'qiphon',
+//     age: 25
+// }
+
+// type c = typeof p
+
+// type c = {
+//     name: string;
+//     age: number;
+// }
+
+// var x = 123 as const
+// type X = typeof x   // type X = 123
+
+// var b = {a: 12} as const
+// type B = typeof b
+
+// // type B = {
+// //     readonly a: 12;
+// // }
+
+// var y = [1, 2] as const
+// type Y = typeof y
+// // type Y = readonly [1, 2]
+// type N = typeof y[number]
+// // type N = 1 | 2
+
+// const locales = [
+//     {
+//         locale: "zh-CN",
+//         language: "中文"
+//     },
+//     {
+//         locale: "en",
+//         language: "English"
+//     }
+// ] as const;
+
+// type Locale = typeof locales[number]["locale"];
+// // type Locale = "zh-CN" | "en"
 
