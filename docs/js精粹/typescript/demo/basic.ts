@@ -422,16 +422,25 @@
 
 // 映射类型
 
-// interface User {
-//     name: string,
-//     id: number,
-//     token: string,
-//     avatar: string,
-//     role: string
-// }
+type User = {
+    name: string,
+    id: number,
+    token: string,
+    avatar: string,
+    role: string
+}
+// type m = keyof User
+
 // // type Keyof = keyof User
-// type partial<T> = { [K in keyof T]?: T[K] }
-// type partialUser = partial<User>
+type partial<T> = { [K in keyof T]?: T[K] }
+type partialUser = partial<User>
+
+type require<T> = { [K in keyof T]-?: T[K] }
+type requireUser = require<partialUser>
+
+type readOnly<T> = { readonly [K in keyof T]: T[K]}
+type readonlyUser = readOnly<partialUser>
+
 // type readonlyUser = Readonly<User>
 
 // declare function f<T extends boolean>(x: T): T extends true ? string : number;
