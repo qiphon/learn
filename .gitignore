@@ -4,3 +4,5 @@ node_modules
 .vscode
 __MACOSX
 */.DS_Store
+.vscode
+yarn-error.log
