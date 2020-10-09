@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中间页面</title>
+</head>
+
+<body>
+    <h1>我是中间页面</h1>
+    <iframe src="http://a.dev.com:5500/docs/js%E7%B2%BE%E7%B2%B9/demo/cross-origin/iframe-diffrent-origin/b.html"
+        frameborder="0"></iframe>
+    <script>
+        window.onhashchange = function () {
+            let { hash } = window.location
+            console.log(hash, '不同源页面')
+            if (hash) {
+                let iframe = document.querySelector('iframe')
+                let hashIndex = iframe.src.indexOf("#")
+                iframe.src = hashIndex > -1 ? iframe.src.slice(0, hashIndex) + '#' + Math.random()
+                    : iframe.src + '#' + Math.random()
+            }
+        }
+    </script>
+</body>
+
+</html>

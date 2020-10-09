@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe 不同二级域名页面测试</title>
+</head>
+<body>
+    <h1>iframe 不同二级域名</h1>
+    <div class="inspect"></div>
+    <script>
+        window.name=1234555
+        document.cookie = 'a=1;'
+        document.domain= 'dev.com'
+        sessionStorage.setItem('a', '111')
+        setTimeout(()=>{
+            document.querySelector('.inspect').append("<div class='hide'>我是后追加进来的元素</div>")
+        }, 2000)
+    </script>
+    <iframe src="http://b.dev.com:5500/docs/js精粹/demo/cross-origin/iframe-sameorigin/1.html" frameborder="0"></iframe>
+</body>
+</html>

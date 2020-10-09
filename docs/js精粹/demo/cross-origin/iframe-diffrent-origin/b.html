@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>同源的另一个页面</h1>
+    <script>
+        console.log(window.parent.parent)
+        window.onhashchange = function () {
+            let { hash } = window.location
+            console.log(hash, '同源页面')
+            if (hash) {
+                window.parent.parent.hashCallback(hash + '---最终返回去的值--')
+            }
+        }
+    </script>
+</body>
+</html>

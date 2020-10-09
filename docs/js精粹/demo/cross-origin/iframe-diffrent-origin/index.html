@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hash iframe 信息传递</title>
+</head>
+<body>
+    <h1>通过hash传递数据</h1>
+    <iframe src="http://xmind.net:5500/docs/js%E7%B2%BE%E7%B2%B9/demo/cross-origin/iframe-diffrent-origin/a.html" frameborder="0"></iframe>
+    <script>
+        document.querySelector('h1').onclick = function(){
+            let iframe = document.querySelector('iframe')
+            let hashIndex = iframe.src.indexOf("#")
+            iframe.src = hashIndex>-1 ? iframe.src.slice(0, hashIndex) + '#' + Math.random() 
+                : iframe.src + '#' + Math.random()
+        }
+        function hashCallback(msg){
+            console.log(msg, '最终得到的数据')
+        }
+    </script>
+</body>
+</html>
