@@ -27,7 +27,7 @@
 
                 } else if (state === 0) {
                     // 第1次onload(跨域页)成功后，切换到同域代理页面
-                    iframe.contentWindow.location = 'http://a.dev.com/proxy.html';
+                    iframe.contentWindow.location = 'http://a.dev.com:5500/docs/js精粹/demo/cross-origin/iframe-windowName/proxy.html';
                     state = 1;
                 }
             };
@@ -43,7 +43,7 @@
         };
 
         // 请求跨域b页面数据
-        proxy('http://xmind.net/b.html', function (data) {
+        proxy('http://xmind.net:5500/iframe-windowName/b.html', function (data) {
             alert(data);
         });
 
