@@ -30,6 +30,7 @@
                     // iframe.contentWindow.location = 'http://a.dev.com:5500/docs/js%E7%B2%BE%E7%B2%B9/demo/cross-origin/iframe-windowName/proxy.html';
                     // proxy.html 是一个可有可无的页面，只要跳转回来的地址是同源地址就行
                     iframe.contentWindow.location = window.location.href
+                    // 第1次onload(跨域页)成功后，切换到同域代理页面
                     state = 1;
                 }
             };
