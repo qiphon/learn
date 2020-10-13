@@ -9,3 +9,8 @@ export default {
   name: 'App',
 };
 </script>
+<style scoped>
+div {
+  background: red;
+}
+</style>

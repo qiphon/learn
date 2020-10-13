@@ -7,12 +7,16 @@
     <ul :style="{ display: 'block' }" v-if="isOpen">
       下拉菜单
     </ul>
+    <test />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue';
+import {
+  defineComponent, ref, watch,
+} from 'vue';
 import useClickOutside from '@/hooks/useClickOutside';
+import Test from '@/components/test.vue';
 
 export default defineComponent({
   name: 'Dropdown',
@@ -21,6 +25,9 @@ export default defineComponent({
       type: String,
       //   required: true,
     },
+  },
+  components: {
+    Test,
   },
   setup() {
     const isOpen = ref(false);
