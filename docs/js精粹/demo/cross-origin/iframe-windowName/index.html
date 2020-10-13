@@ -26,8 +26,10 @@
                     destoryFrame();
 
                 } else if (state === 0) {
-                    // 第1次onload(跨域页)成功后，切换到同域代理页面
-                    iframe.contentWindow.location = 'http://a.dev.com/proxy.html';
+                    // 第1次onload(跨域页)成功后，切换到同域代理页面  
+                    // iframe.contentWindow.location = 'http://a.dev.com:5500/docs/js%E7%B2%BE%E7%B2%B9/demo/cross-origin/iframe-windowName/proxy.html';
+                    // proxy.html 是一个可有可无的页面，只要跳转回来的地址是同源地址就行
+                    iframe.contentWindow.location = window.location.href
                     state = 1;
                 }
             };
@@ -43,12 +45,12 @@
         };
 
         // 请求跨域b页面数据
-        proxy('http://xmind.net/b.html', function (data) {
-            alert(data);
+        proxy('http://xmind.net:5500/docs/js%E7%B2%BE%E7%B2%B9/demo/cross-origin/iframe-windowName/b.html#我是传递的数据', function (data) {
+            console.log(data, '-------- result')
         });
 
     </script>
-    https://juejin.im/post/6867046322902401032#heading-9
+
 </body>
 
 </html>

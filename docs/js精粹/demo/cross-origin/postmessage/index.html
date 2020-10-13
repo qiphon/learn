@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>postmessage 跨域解决方案</title>
 </head>
+
 <body>
-    <h1>postmessage 适用于和同页面的iframe通信，也适用于和本页面使用js打开的窗口之间通信</h1></h1></h1>
-    <iframe src="" frameborder="0"></iframe>
+    <h1>postmessage 适用于和同页面的iframe通信，也适用于和本页面使用js打开的窗口之间通信</h1>
+
+    <iframe src="http://xmind.net:5500/docs/js%E7%B2%BE%E7%B2%B9/demo/cross-origin/postmessage/b.html"
+        frameborder="0"></iframe>
     <script>
-        document.iframe[0].postMessage()
+        // let openwin = window.open("http://xmind.net:5500/docs/js%E7%B2%BE%E7%B2%B9/demo/cross-origin/postmessage/b.html")
+        window.onload = function () {
+            window.frames[0].postMessage({ test: 123 }, '*')
+            window.addEventListener('message', receiver)
+            function receiver(ev) {
+                console.log("data-->", ev.data, ev)
+            }
+        }
     </script>
 </body>
+
 </html>

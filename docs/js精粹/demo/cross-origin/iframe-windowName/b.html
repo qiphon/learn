@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>我是不同源的页面</h1>
     <script>
-        window.name = '我是不同源的页面'
+        let {
+            hash
+        } = window.location
+        // setTimeout(() => {
+        //     window.name = '我是不同源的页面信息 + search ----》' + search
+        // }, 2000)
+        console.warn(hash.slice(1), '不同源 hash')
+        let scr = document.createElement('script')
+        scr.src = `https://www.easy-mock.com/mock/5f85125729d84206ef0e74a4/qiphon-test/jsonp?msg=${hash.slice(1)}&jsonp_param_name=callback&callback=cb`
+        document.body.appendChild(scr)
+        function cb(msg) {
+            window.name = JSON.stringify(msg)
+        }
     </script>
 </body>
+
 </html>

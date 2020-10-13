@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    postmessage 子页面
+    <script>
+        window.addEventListener('message', receiver)
+        function receiver(ev) {
+            console.log(" iframe页面 data-->", ev.data, ev)
+            ev.source.postMessage('iframe收到消息' + JSON.stringify(ev.data), "http://a.dev.com:5500")
+        }
+    </script>
+</body>
+
+</html>
