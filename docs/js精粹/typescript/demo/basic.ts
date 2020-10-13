@@ -683,11 +683,18 @@
 // type Locale = typeof locales[number]["locale"];
 // // type Locale = "zh-CN" | "en"
 
-interface Person {
-    name: string;
-    age: number;
-}
+// interface Person {
+//     name: string;
+//     age: number;
+// }
 
-type K1 = keyof Person; // "name" | "age"
-type K2 = keyof Person[]; // "length" | "toString" | "pop" | "push" | "concat" | "join" .... (所有数组的方法)
-type K3 = keyof { [x: string]: Person };  // string | number
+// type K1 = keyof Person; // "name" | "age"
+// type K2 = keyof Person[]; // "length" | "toString" | "pop" | "push" | "concat" | "join" .... (所有数组的方法)
+// type K3 = keyof { [x: string]: Person };  // string | number
+
+// let person = {
+//     name: 'qiphon',
+//     age: 30
+// }
+
+// type K4 = keyof typeof person  // type K4 = "name" | "age"
