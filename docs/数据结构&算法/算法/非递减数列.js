@@ -27,27 +27,64 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var checkPossibility = function(nums) {
-    if(nums.length< 3) return true;
-    let times=0
-    let min = 0
-    for(let i=1; i< nums.length -1; i++){
-        if(nums[i] >= nums[min] && nums[i] <= nums[i + 1]){
-            min = i 
-            continue
-        }else {
-            if(){
-                
-            }
-            i++
-            times++
-        }
-        if(times > 1) return false
-    }
-    return true
-};
+// var checkPossibility = function(nums) {
+//     if(nums.length< 3) return true;
+//     let times=0
+//     let min = 0
+//     for(let i=1; i< nums.length ; i++){
+//         if(nums[i] >= nums[min]){
+//             min = i 
+//             continue
+//         }else {
+//             if( min>0 && nums[i]>= nums[min -1]){
+//                 min = i
+//             }
+//             else if(min > 0 && nums[i - 1] >= nums[min - 1]){
+//                 min = i - 1
+//             }
+//             else if( min === 0 && i === 1){
+//                 min = nums[i] > nums[min] ? min : i
+//             }
+//             else{
+//                 return false
+//             }
+//             // i++
+//             times++
+//         }
+//         if(times > 1) return false
+//     }
+//     return true
+// };
 
 // console.log(checkPossibility([4,2,1]))
 // console.log(checkPossibility([4,2,3]))
-console.log(checkPossibility([5,7,1,8]))
+// console.log(checkPossibility([5,7,1,8]))
 // console.log(checkPossibility([3,4,2,3]))
+console.log(checkPossibility([1,4,1,2]))
+
+
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+function checkPossibility(nums) {
+    var flag = 0;
+    // 要么是i太大，要么是i+1
+    for(var i = 0; i < nums.length-1; i++) {
+        // 找到不符合的数字
+        if (nums[i] > nums[i+1]) {
+            // 如果 i-1 和 i+1 是升序排列，此时缩小 i 的值
+            if (i == 0 || nums[i-1] <= nums[i+1]) {
+                nums[i] = nums[i+1];
+            } else if (nums[i-1] > nums[i+1]) {
+                nums[i+1] = nums[i];
+            }
+            flag++;
+            if (flag > 1) {
+                return false;
+            }
+            
+        }
+    }
+    return true;
+};
