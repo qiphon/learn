@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@vue/cli": "^4.5.7"
+    "@vue/cli": "^4.5.7",
+    "highcharts": "^8.2.0"
   }
 }

@@ -1,4 +1,6 @@
-# vue 
+# Vue 
+
+## Vue2
 
 ### 什么是vue？
 
@@ -72,4 +74,8 @@ Rendering       ---->  System      ----> Routing    ---> Management       ---> S
 - destroyed
 
 ### 数据绑定
+
+
+
+## Vue3
 

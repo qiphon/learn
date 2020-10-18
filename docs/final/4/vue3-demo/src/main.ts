@@ -1,7 +1,15 @@
 import { createApp } from 'vue';
-import App from './App.vue';
 import './registerServiceWorker';
-import router from './router';
+import { Button, Layout, Menu } from 'ant-design-vue';
 import store from './store';
+import router from './router';
+import App from './App.vue';
+import './index.css';
 
-createApp(App).use(store).use(router).mount('#app');
+const app = createApp(App);
+const AntComponents = [Button, Layout, Menu];
+AntComponents.map((t) => app.use(t));
+app
+  .use(store)
+  .use(router)
+  .mount('#app');

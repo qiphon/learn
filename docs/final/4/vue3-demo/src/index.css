@@ -1,0 +1,10 @@
+:root {
+    /* --menu-active-color: #1890ff; */
+    --menu-active-color: red;
+    --white: #fff;
+    --gray-opacity-2: rgba(255, 255, 255, 0.2);
+}
+#app {
+    display: flex;
+    height: 100%;
+}
