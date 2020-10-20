@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue3api</title>
+    <style>
+      * {
+        font-size: 60px;
+      }
+      button {
+        width: 200px;
+        height: 90px;
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 现在最新的alpha.11 -->
+    <script src="./vue.global.js"></script>
+    <div id="app"></div>
+    <!-- 预留一块空地，专门用来显示这个容易被遮挡的层 -->
+    <div id="modal-container"></div>
+
+    <!-- <script src="./js/basic.js"></script> -->
+    <!-- <script src="./js/setup.js"></script> -->
+    <!-- <script src="./js/reactive.js"></script> -->
+    <!-- <script src="./js/ref.js"></script> -->
+    <!-- <script src="./js/computed.js"></script> -->
+    <script src="./js/readonly.js"></script>
+    <!-- <script src="./js/watch.js"></script> -->
+    <!-- <script src="./js/watchEffict.js"></script> -->
+    <!-- <script src="./js/lifyStyle.js"></script> -->
+    <!-- <script src="./js/provider&inject.js"></script> -->
+    <!-- <script src="./js/templateRefs.js"></script> -->
+    <!-- <script src="js/defineComponent.js"></script> -->
+    <!-- <script src="js/newFeature.js"></script> -->
+    <script>
+      const { createApp } = Vue;
+      // 最新alpha版本中写法变了
+      createApp(App).mount("#app");
+    </script>
+  </body>
+</html>

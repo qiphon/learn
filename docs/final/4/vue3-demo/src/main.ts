@@ -5,10 +5,11 @@ import store from './store';
 import router from './router';
 import App from './App.vue';
 import './index.css';
+import vueHighcharts from './components/highcharts';
 
 const app = createApp(App);
-const AntComponents = [Button, Layout, Menu];
-AntComponents.map((t) => app.use(t));
+const RegComp = [Button, Layout, Menu, vueHighcharts];
+RegComp.map((t) => app.use(t));
 app
   .use(store)
   .use(router)

@@ -50,12 +50,12 @@ const vueHighcharts = defineComponent({
               newValue,
               props.redrawOnUpdate,
               props.oneToOneUpdate,
-              props.animateOnUpdate
+              props.animateOnUpdate,
             );
             emit('updated');
           }
         },
-        { deep: true }
+        { deep: true },
       );
 
       onMounted(() => {
@@ -64,7 +64,7 @@ const vueHighcharts = defineComponent({
           options.value,
           () => {
             emit('rended');
-          }
+          },
         );
       });
       onUnmounted(() => {
@@ -77,7 +77,7 @@ const vueHighcharts = defineComponent({
       console.warn('the "options" paramter is required');
     } else {
       console.warn(
-        `${props.type} is not a valid highcharts type or has not been imported!`
+        `${props.type} is not a valid highcharts type or has not been imported!`,
       );
     }
 
