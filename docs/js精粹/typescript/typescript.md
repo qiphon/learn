@@ -939,6 +939,7 @@ let animal: Cat | Dog;
   类型谓词
 
   ```ts
+  
   https://mp.weixin.qq.com/s?__biz=MzI2MjcxNTQ0Nw==&mid=2247484142&idx=1&sn=946ba90d10e2625513f09e60a462b3a7&chksm=ea47a3b6dd302aa05af716d0bd70d8d7c682c9f4527a9a0c03cd107635711c394ab155127f9e&scene=21#wechat_redirect
   https://mp.weixin.qq.com/s?__biz=MzI2MjcxNTQ0Nw==&mid=2247484114&idx=1&sn=af33c36580d21c2ffe4e8204f71c10b8&chksm=ea47a38add302a9c01c9bea63f5974554e2a9ab856f1cb3b66620a02452d12d1967fb676dc9f&scene=21#wechat_redirect
   ```
