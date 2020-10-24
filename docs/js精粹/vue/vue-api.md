@@ -39,6 +39,7 @@ Rendering       ---->  System      ----> Routing    ---> Management       ---> S
     ```
 
 - 响应式数据绑定
+
     ```
                         ViewModel
 
@@ -114,7 +115,7 @@ hooks 名称变化
 
 ### setup
 
-- *触发时间*： 它作为在组件内部使用 compositionapi 的入口点。在beforecreated 触发之前调用
+- *触发时间*： 它作为在组件内部使用 compositionapi 的入口点。setup是在一个组件实例被创建时，初始化了 props 之后调用,在beforecreated 触发之前调用
 
 - *使用模板*： 如果 setup 返回一个对象，对象上的属性将被合并到组件模板的渲染上下文中:
 
@@ -160,6 +161,8 @@ export default {
 
 - setup 接收的参数第一个是 props（传递到组件上的参数），不能对这个props使用结构函数，否则props会变成非响应式的
 
+- 第二个参数 context（{attr, slots, emit}）它不是响应式的，可以使用解构
+
 ```js
 export default {
   props: {
@@ -170,6 +173,25 @@ export default {
   }
 }
 
+const App1 = {
+  template: `
+      <div>
+        <div>{{ count }} {{ object.foo }}</div>
+      </div>
+    `,
+  // setup是在一个组件实例被创建时，初始化了 props 之后调用
+  //  相当于vue2的beforeCreate,created
+  setup() {
+    const count = ref(0);
+    const object = reactive({ foo: "bar" });
+    // expose to template
+    // setup返回一个对象，对象中的属性将直接暴露给模板渲染的上下文。
+    return {
+      count,
+      object,
+    };
+  },
+};
 // props 可以是用 watchEffect 或 watch 观察和反应
 // context  第二个参数, 可以得到 attr,slot,emit
 // 如果 setup 返回一个对象，对象上的属性将被合并到组件模板的渲染上下文中
@@ -183,6 +205,9 @@ export default {
     // context.attrs
     // context.slots
     // context.emit
+    // 除此之外，还可以直接通过 watch 方法来观察某个 prop 的变动，这是为什么呢？
+    // props本身在源码中，也是一个被 reactive 包裹后的对象，因此它具有响应性，所以在watch 方法中的回调函数会自动收集依赖，
+    // 当name变动后，会自动调用这些回调逻辑。
     watchEffect(() => {
       console.log(`name is: ` + props.name)
     })
@@ -226,7 +251,445 @@ function setup(props: Data, context: SetupContext): Data
 
 这个包裹的方法是 deep 的，对所有嵌套的属性都生效。
 
-注意： 一般约定 reactive 的参数是一个对象，而下文提到的 ref 的参数是一个基本元素。但如果反过来也是可以的，reactive 其实可以是任意值，比如：reactive(123) 也是可以变成一个代理元素，可以实现双向绑定。
+注意： 一般约定 reactive 的参数是一个对象，而下文提到的 ref 的参数是一个基本元素。
+
+```js
+import { defineComponent, watchEffect, reactive } from 'vue';
+
+const HelloWorld = defineComponent({
+  setup(props, context) {
+    const d = reactive({ msg: 12399 });
+    // const n = reactive(13); // reactive 的参数必须是一个对象
+    console.log(context, 'context');
+    setTimeout(() => {
+      d.msg = 222;
+    }, 3000);
+    watchEffect(() => {
+      console.log(d, 'msg---');
+      return d;
+    });
+    return {
+      d,
+      ab: 'aaa',
+    };
+  },
+});
+
+export default HelloWorld;
+```
+
+### ref、isRef、toRefs
+
+- 被 ref 方法包裹后的 元素 就变成了一个代理对象。一般而言，这里的元素参数指 基本元素 或者称之为 inner value，
+  如：number, string, boolean,null,undefied 等，object 一般不使用 ref，而是使用上文的 reactive。
+  也就是说 ref 一般适用于某个元素的；而 reactive 适用于一个对象。
+  ref 也就相当于把单个元素转换成一个 reactive 对象了，对象默认的键值名是：value。
+
+```js
+import { defineComponent, watchEffect, reactive, ref, Ref } from 'vue';
+
+const HelloWorld = defineComponent({
+// template 中使用 ref 时，不需要再使用 .value
+  template: `
+        <div>{{ n }}</div>
+    `,
+  setup(props, context) {
+    // ts 写法
+    const n: Ref<number | string> = ref(10);
+    // reactive 中使用 ref的值时，也不需要使用 .value 的形式
+    const d = reactive({
+      msg: 12399,
+      num: n,
+    });
+
+    // 如果不是作为对象访问，则需要通过.value进行访问，例如array,map
+    const arr = reactive([ref(0)]);
+    // need .value here
+    console.log(arr[0].value);
+    const map = reactive(new Map([["foo", ref(0)]]));
+    // need .value here
+    console.log(map.get("foo").value);
+
+
+    setTimeout(() => {
+      n.value = 'new value';
+    }, 3000);
+    return {
+      n,
+    };
+  },
+});
+
+export default HelloWorld;
+```
+
+#### isRef 用来判断一个值是不是 ref
+
+```js
+// 用法
+const unwrapped = isRef(foo) ? foo.value : foo;
+
+// typing
+function isRef(value: any): value is Ref<any>
+
+```
+
+#### toRefs 可以将一个reactive 对象打平，变成单个的ref，方便在模板中使用
+
+```js
+const HelloWorld = defineComponent({
+  setup(props, context) {
+    const n: Ref<number | string> = ref(10);
+    const d = reactive({
+      msg: 12399,
+      num: n,
+    });
+    // const n = reactive(13); // reactive 的参数必须是一个对象
+    setTimeout(() => {
+      d.msg = 222;
+      n.value = 'new value';
+    }, 3000);
+    watchEffect(() => {
+      console.log(d, 'msg---');
+      return d;
+    });
+    return {
+      ab: 'aaa',
+      n,
+      // d,
+      ...toRefs(d),
+    };
+  },
+});
+
+export default HelloWorld;
+```
+
+### computed 
+
+- 计算值的行为跟计算属性 (computed property) 一样：只有当依赖变化的时候它才会被重新计算。类型某act的useCallback useMemo 
+- computed() 返回的是一个ref包装对象，它可以和普通的包装对象一样在 setup() 中被返回 ，也一样会在渲染上下文中被自动展开。
+
+```js
+// 直接传一个函数,返回你所依赖的值的计算结果，这个值是个包装对象，默认情况下，如果用户试图去修改一个只读包装对象，会触发警告，
+// 说白了就是你只能get无法set
+setup() {
+    const count = ref(1);
+    // computed() 函数的返回值是一个 ref 的实例
+    // 根据 count 的值，创建一个响应式的计算属性 plusOne
+    // 它会根据依赖的 ref 自动计算并返回一个新的 ref
+    const plusOne = computed(() => count.value + 1);
+    console.log(plusOne); // 打印结果可以看到isRef为true
+    console.log(plusOne.value); // 2
+    plusOne.value++; // 触发警告,默认情况下，如果用户试图去修改一个只读包装对象，会触发警告
+  },
+
+
+// set、get
+
+const HelloWorld = defineComponent({
+  setup(props, context) {
+    const n: Ref<number> = ref(10);
+    const d = reactive({
+      msg: 12399,
+      num: n,
+    });
+    // 如果没有指定set，computed 的值为 readonly
+    // const num2 = computed(() => n.value ** 2);
+    const num2 = computed({
+      get() {
+        return n.value ** 3;
+      },
+      set(val) {
+        n.value = 22;
+      },
+    });
+    // computed 返回的也是一个ref
+    setTimeout(() => {
+      num2.value = 20;
+    }, 1000);
+    return {
+      ab: 'aaa',
+      n,
+      num2,
+      // d,
+      ...toRefs(d),
+    };
+  },
+});
+
+// ts
+function computed<T>(getter: () => T): Readonly<Ref<Readonly<T>>>
+
+// writable
+function computed<T>(options: {
+  get: () => T,
+  set: (value: T) => void
+}): Ref<T> 
+```
+
+### readonly
+
+接收一个ref或者reactive包装对象，返回一个只读的响应式对象。
+
+```js
+const HelloWorld = defineComponent({
+  setup(props, context) {
+    const d = reactive({
+      msg: 12399,
+      num: n,
+    });
+    const num2 = computed({
+      get() {
+        return n.value ** 3;
+      },
+      set(val) {
+        n.value = 22;
+      },
+    });
+    const copy = readonly(num2);
+    setTimeout(() => {
+      num2.value = 20;
+    }, 1000);
+    return {
+      num2,
+      copy,
+    };
+  },
+});
+```
+
+### watchEffect
+
+当响应数据（reactive、ref）变化时，会立即执行的函数
+
+```js
+const HelloWorld = defineComponent({
+  setup(props, context) {
+    const n: Ref<number> = ref(10);
+    const num2 = computed({
+      get() {
+        return n.value ** 3;
+      },
+      set(val) {
+        n.value = 22;
+      },
+    });
+    watchEffect(() => {
+      console.log(num2.value, 'num2');
+    });
+    setTimeout(() => {
+      num2.value = 20;
+    }, 1000);
+    return {
+      n,
+      num2,
+    };
+  },
+});
+```
+
+当在组件的 setup ()函数或生命周期钩子期间调用 watchEffect 时，监视器被链接到组件的生命周期，并且在卸载组件时自动停止。
+
+在其他情况下，它返回一个 stop 句柄，可以调用这个句柄来显式地停止 watchEffect
+
+```js
+setup(props, context) {
+  const n: Ref<number> = ref(10);
+  const d = reactive({
+    msg: 12399,
+    num: n,
+  });
+  // 如果没有指定set，computed 的值为 readonly
+  // const num2 = computed(() => n.value ** 2);
+  // type nums = computed<T>(option: {}): Ref<T>
+  const num2 = computed({
+    get() {
+      return n.value ** 3;
+    },
+    set(val) {
+      n.value = 22;
+    },
+  });
+  const stop = watchEffect(() => {
+    console.log(num2.value, 'num2');
+  });
+  stop();
+  setTimeout(() => {
+    num2.value = 20;
+  }, 1000);
+  return {
+    ab: 'aaa',
+    n,
+    num2,
+    // d,
+    ...toRefs(d),
+  };
+},
+```
+
+当watchEffect 中执行一个异步的副作用时，可能在下一次触发watchEffect 的时候需要重置那个异步的 Effect，这个时候可以使用 onInvalidate
+
+watchEffect 执行的条件： 
+- reactive 数据变化
+- watcher 终止的时候
+
+```js
+watchEffect(onInvalidate => {
+  const token = performAsyncOperation(id.value)
+  onInvalidate(() => {
+    // id has changed or watcher is stopped.
+    // invalidate previously pending async operation
+    token.cancel()
+  })
+})
+
+// 我们通过传入函数注册失效回调，而不是从回调返回，因为返回值对异步错误处理很重要。在执行数据获取时，effect 函数是一个异步函数是很常见的:
+// 异步函数隐式返回一个 Promise，但需要在 Promise 解析之前立即注册清理函数。此外，Vue 依靠返回的 Promise 自动处理 Promise 链中的潜在错误。
+setup() {
+    const data = ref(null);
+    function async() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("async数据");
+        }, 2000);
+      });
+    }
+    watchEffect(async () => {
+      data.value = await async();
+    });
+  },
+
+
+/* ------------------Effect Flush Timing-------------------- */
+/* 
+    Vue's reactivity system buffers invalidated effects and flush them asynchronously 
+    to avoid unnecessary duplicate invocation when there are many state mutations happening in the same "tick". 
+    Internally, a component's update function is also a watched effect. When a user effect is queued, 
+    it is always invoked after all component update effects:
+    
+*/
+
+/* 
+    In this example:
+    // 在这个例子中
+    The count will be logged synchronously on initial run.
+    count将会在初始运行的时候被同步记录
+    When count is mutated, the callback will be called after the component has updated. 
+    更新count时，会在组件更新后触发watchEffect的回调
+*/
+const App4 = {
+  template: `
+        <div>{{count}}<button >点击</button></div>
+    `,
+  setup() {
+    const count = ref(0);
+    watchEffect(() => {
+      console.log(count.value);
+    });
+    return {
+      count,
+    };
+  },
+};
+```
+
+watchEffect 会在组件挂载前触发，如果要在它里面操作 DOM ，需要使用 onMounted 包裹 watchEffect
+
+```js
+const App4_1 = {
+  template: `
+    <div>{{count}}</div>
+`,
+  setup() {
+    const count = ref(0);
+    onMounted(() => {
+      watchEffect(() => {
+        // access the DOM or template refs
+        // 现在组件已经被挂载
+      });
+    });
+    return {
+      count,
+    };
+  },
+};
+```
+
+回调时机
+
+    默认情况下，所有的 watch 回调都会在当前的 renderer flush 之后被调用。这确保了在回调中 DOM 永远都已经被更新完毕。
+    如果你想要让回调在 DOM 更新之前或是被同步触发，可以使用 flush 选项：
+In cases where a watcher effect needs to be re-run synchronously or before component updates, 
+we can pass an additional options object with the flush option (default is 'post'):
+
+控制watch回调调用时机
+
+- 默认情况下，watchEffect会在组件更新之后调用，如果你想在组件更新前调用，你可以传第三个参数，第三个参数是个对象，有几个选项
+    - flush  表示回调调用时机
+          - post 默认值，在组件更新之后
+          - pre 组件更新之前
+          - sync 同步调用
+
+```js
+watchEffect(
+  () => {
+    /* ... */
+  },
+  {
+    flush: 'post'
+  }
+)
+```
+
+WatchEffect Debug 仅在开发模式有效
+
+- `onTrack` will be called when a reactive property or ref is tracked as a dependency 当 reactive 属性或 ref 被跟踪为依赖项时，将调用
+- `onTrigger` will be called when the watcher callback is triggered by the mutation of a dependency 当依赖关系的变异触发观察者回调时，将调用
+
+```js
+watchEffect(
+  () => {
+    /* side effect */
+    console.log(num.value);
+  },
+  {
+    onTrigger(e) {
+      debugger;
+    },
+  }
+);
+
+/* ------------------Typing-------------------- */
+
+/* 
+    function watchEffect(
+    effect: (onInvalidate: InvalidateCbRegistrator) => void,
+    options?: WatchEffectOptions
+    ): StopHandle
+
+    interface WatchEffectOptions {
+    flush?: 'pre' | 'post' | 'sync'
+    onTrack?: (event: DebuggerEvent) => void
+    onTrigger?: (event: DebuggerEvent) => void
+    }
+
+    interface DebuggerEvent {
+    effect: ReactiveEffect
+    target: any
+    type: OperationTypes
+    key: string | symbol | undefined
+    }
+
+    type InvalidateCbRegistrator = (invalidate: () => void) => void
+
+    type StopHandle = () => void
+*/
+```
+
+### watch
+
+
 
 作者：村口蹲一郎
 链接：https://juejin.im/post/6844904110198620167

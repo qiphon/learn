@@ -4,7 +4,7 @@
 
 目前问题比较多
 
-### vue-cli + antd-vue + Vue3 + Vuex + ts + eslint（Airbnb） + unit + e2e
+### vue-cli + antd-vue + Vue3 + Vuex + ts + eslint（Airbnb） + unit + e2e 
 
 - antd-vue
 
