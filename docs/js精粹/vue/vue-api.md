@@ -245,6 +245,22 @@ interface SetupContext {
 function setup(props: Data, context: SetupContext): Data
 ```
 
+### [defineComponent](https://v3.vuejs.org/api/global-api.html#definecomponent) 
+
+这个函数仅仅提供了类型推断，方便在结合 TypeScript 书写代码时，能为 setup() 中的 props 提供完整的类型推断。
+
+```js
+const { defineComponent } = Vue;
+const defineComponent = {
+  props: {
+    name: String,
+  },
+  setup(props) {
+    console.log(props.name);
+  },
+};
+```
+
 ### reactive 参数必须是一个对象
 
 被 reactive 方法包裹后的 对象 就变成了一个代理对象，相当于 Vue2.x 中的 Vue.observable()。也就可以实现页面和数据之间的双向绑定了。
@@ -664,21 +680,21 @@ watchEffect(
 
 /* 
     function watchEffect(
-    effect: (onInvalidate: InvalidateCbRegistrator) => void,
-    options?: WatchEffectOptions
+      effect: (onInvalidate: InvalidateCbRegistrator) => void,
+      options?: WatchEffectOptions
     ): StopHandle
 
     interface WatchEffectOptions {
-    flush?: 'pre' | 'post' | 'sync'
-    onTrack?: (event: DebuggerEvent) => void
-    onTrigger?: (event: DebuggerEvent) => void
+      flush?: 'pre' | 'post' | 'sync'
+      onTrack?: (event: DebuggerEvent) => void
+      onTrigger?: (event: DebuggerEvent) => void
     }
 
     interface DebuggerEvent {
-    effect: ReactiveEffect
-    target: any
-    type: OperationTypes
-    key: string | symbol | undefined
+      effect: ReactiveEffect
+      target: any
+      type: OperationTypes
+      key: string | symbol | undefined
     }
 
     type InvalidateCbRegistrator = (invalidate: () => void) => void
@@ -689,7 +705,187 @@ watchEffect(
 
 ### watch
 
+watch() API 提供了基于观察状态的变化来执行副作用的能力。
+- watch(source,cb,options?)
+- watch() 接收三个参数
+    1. 第一个参数被称作 “数据源”，它可以是：
+        - 一个返回任意值的函数
+        - 一个包装对象
+        - 一个包含上述两种数据源的数组
+        - source：可以是getter函数，值包装器或包含上述两种类型的数组（如果要查看多个源）
 
+    2. 第二个参数是回调函数。回调函数只有当数据源发生变动时才会被触发：
+
+        - callback：是类似于Vue2 watcher处理程序的函数，带有2个参数：newVal，oldVal。
+        每个参数都可以是一个数组(用于观察多个源): [newVal1，newVal2，... newValN]，[oldVal1，oldVal2，... oldValN]
+        - callback 第三个参数 onInvalidate 和 watchEffect 中相同
+
+    3. 第三个可选参数options,
+        - deep 深度监听
+            - 类型: boolean  default :false
+            - 和Vue2.x行为一致，都是对对象的深度监听
+        - Lazy - 和Vue2.x immediate 正好相反
+            - 类型:Boolean, default:false
+
+- 与 watchEffect 一样，同样支持手动停止监听
+- Compared to watchEffect, watch allows us to:
+    - Perform the side effect lazily;
+    - Be more specific about what state should trigger the watcher to re-run;
+    - Access both the previous and current value of the watched state.
+
+```js
+watch(
+  [fooRef, barRef],
+  ([foo, bar], [prevFoo, prevBar], oninvalidate) => {
+  /* ... */
+  },
+  { 
+    // 默认就是lazy,在 watch 被创建的时候，不执行回调函数中的代码
+    // 比如这里设置watch的可选参数options选项，immediate,则在创建的时候会立即执行
+    //源码中： function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = EMPTY_OBJ) {
+    immediate: true,
+    deep: true, 
+  }
+)
+
+/* ----------------Typing----------------- */
+/* 
+// wacthing single source
+function watch<T>(
+  source: WatcherSource<T>,
+  callback: (
+    value: T,
+    oldValue: T,
+    onInvalidate: InvalidateCbRegistrator
+  ) => void,
+  options?: WatchOptions
+): StopHandle
+
+// watching multiple sources
+function watch<T extends WatcherSource<unknown>[]>(
+  sources: T
+  callback: (
+    values: MapSources<T>,
+    oldValues: MapSources<T>,
+    onInvalidate: InvalidateCbRegistrator
+  ) => void,
+  options? : WatchOptions
+): StopHandle
+
+type WatcherSource<T> = Ref<T> | (() => T)
+
+type MapSources<T> = {
+  [K in keyof T]: T[K] extends WatcherSource<infer V> ? V : never
+}
+
+// see `watchEffect` typing for shared options
+interface WatchOptions extends WatchEffectOptions {
+  immediate?: boolean // default: false
+  deep?: boolean
+}
+*/
+```
+
+### nextTick
+
+Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update.
+
+推迟事件到下一个更新周期执行，通常用它来操作数据变动后的dom
+
+```js
+import { createApp, nextTick } from 'vue'
+
+const app = createApp({
+  setup() {
+    const message = ref('Hello!')
+    const changeMessage = async newMessage => {
+      message.value = newMessage
+      await nextTick()
+      console.log('Now DOM is updated')
+    }
+  }
+})
+
+// 也可以在watch 中
+const stop = watch(num2, async (next, pre, oninvalidate) => {
+  console.log(
+    num2,
+    next,
+    pre,
+    111,
+    document.querySelector('#num2')!.innerHTML,
+  ); // "1000 ===== num2"
+  await nextTick();
+  console.log(
+    num2,
+    next,
+    pre,
+    111,
+    'nextTick',
+    document.querySelector('#num2')!.innerHTML,
+  ); // "nextTick" "10648 ===== num2"
+});
+```
+
+### provider 、 inject
+
+/* -----------------provide&inject用法共享普通数据--------------- */
+
+依靠依赖注入，我们可以跨组共享数据
+
+你甚至可以在不依赖VueX的前提下，实现全局状态共享。熟悉React的同学知道，这和React的context类似。
+
+provide接受两个参数，
+
+- 第一个参数是provide唯一名称，最好用Symbol,避免重复。
+- 第二个参数是你要暴露的数据
+
+inject accepts an optional default value as the 2nd argument. 
+If a default value is not provided and the property is not found on the provide context, 
+inject returns undefined.
+
+inject 接收两个参数
+
+- 第一个参数是provide名称，
+- 第二个参数是默认数据
+
+如果provider没有暴露自己的数据，那么使用inject默认数据。
+*/
+
+```js
+/* -----------------Typing-------------------- */
+/* 
+interface InjectionKey<T> extends Symbol {}
+
+function provide<T>(key: InjectionKey<T> | string, value: T): void
+
+// without default value
+function inject<T>(key: InjectionKey<T> | string): T | undefined
+// with default value
+function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
+
+// Vue provides a InjectionKey interface which is a generic type that extends Symbol. 
+// It can be used to sync the type of the injected value between the provider and the consumer:
+import { InjectionKey, provide, inject } from 'vue'
+
+const key: InjectionKey<string> = Symbol()
+
+provide(key, 'foo') // providing non-string value will result in error
+
+const foo = inject(key) // type of foo: string | undefined
+
+// If using string keys or non-typed symbols, the type of the injected value will need to be explicitly declared:
+const foo = inject<string>('foo') // string | undefined
+
+*/
+
+/* -----------------总结------------------ */
+/* 
+    1.provide+inject 取代Vuex
+        类似React的 Context + useReducer 一定程度上可以取代redux一样，效果也非常不错。
+        而Vue项目中，如果你不想引入Vuex,也可以考虑用provide+inject取代它。
+*/
+```
 
 作者：村口蹲一郎
 链接：https://juejin.im/post/6844904110198620167
