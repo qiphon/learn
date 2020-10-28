@@ -1,5 +1,6 @@
 /* @flow */
 
+// 记录依赖一个装有 watcher 的数组
 import Dep from './dep'
 import VNode from '../vdom/vnode'
 import { arrayMethods } from './array'
@@ -43,15 +44,19 @@ export class Observer {
     this.value = value
     this.dep = new Dep()
     this.vmCount = 0
+    // 定义 __ob__ 属性，防止一个数据被重复监听， 下面observe 上使用到了这个
     def(value, '__ob__', this)
+    // 如果是数组进行特殊处理
     if (Array.isArray(value)) {
-      if (hasProto) {
+      // '__proto__' in {}
+      if (hasProto) {  
         protoAugment(value, arrayMethods)
       } else {
         copyAugment(value, arrayMethods, arrayKeys)
       }
       this.observeArray(value)
     } else {
+      // 
       this.walk(value)
     }
   }
@@ -70,6 +75,8 @@ export class Observer {
 
   /**
    * Observe a list of Array items.
+   * 第一次，对数组便利监听
+   * 对push/unshift/split 增加的字段进行监听
    */
   observeArray (items: Array<any>) {
     for (let i = 0, l = items.length; i < l; i++) {

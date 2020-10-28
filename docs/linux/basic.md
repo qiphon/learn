@@ -1099,13 +1099,43 @@ ip addr
 ### 免密登录
 
 1. 生成秘钥对
+
    `ssh-keygen -t rsa -C "名字" -f "你自己的名字_rsa"`
+
 2. 上传配置公钥（对应账号的home路径下的 .ssh）权限 600
+
    `ssh-copy-id -i "公钥文件名" 用户名@服务器IP或域名`
+
+   ```bash
+   # 方法一
+   # 将 serverA ~/.ssh目录中的 id_rsa.pub 这个文件拷贝到你要登录的 serverB 的~/.ssh目录中 
+   scp ~/.ssh/id_rsa.pub 192.168.0.101:~/.ssh/ 
+   # 然后在 serverB 运行以下命令来将公钥导入到~/.ssh/authorized_keys这个文件中 
+   cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys 
+   # 另外要注意请务必要将服务器上 ~/.ssh权限设置为700 
+   ~/.ssh/authorized_keys的权限设置为600 #
+   这是linux的安全要求，如果权限不对，自动登录将不会生效
+   # 方法二
+   ssh-copy-id -i ~/.ssh/id_rsa.pub remote-host
+   ```
+
 3. 配置本地私钥(权限必须是　600)，放到 指定用户 /home/.ssh 下
 
 4. 免密登录的本地配置文件（权限644）
    编辑自己home目录的 .ssh/路径下的 config 文件
+
+   ```bash
+   Host qiphon-mac
+   User qiphon
+   HostName 192.168.1.5
+   Port 22
+   IdentityFile /home/qiphon/.ssh/qiphon_rsa
+   Protocol 2
+   Compression yes
+   ServerAliveInterval 60   # 保持心跳
+   ServerAliveCountMax 20
+   LogLevel INFO
+   ```
 
 更改端口号：`/etc/ssh/sshd_config`, 注意防火墙开放端口, mac 下的文件名为config
 

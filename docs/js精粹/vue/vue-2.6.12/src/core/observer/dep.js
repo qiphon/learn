@@ -2,9 +2,14 @@
 
 import type Watcher from './watcher'
 import { remove } from '../util/index'
-import config from '../config'
+import config from '../config' 
 
 let uid = 0
+
+/**
+ * Dep 收集watcher到数组中，每个dep 都有唯一的id
+ * notify 遍历所有的 watcher，执行他们的 update 方法
+ */
 
 /**
  * A dep is an observable that can have multiple
