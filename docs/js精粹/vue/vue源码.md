@@ -97,7 +97,15 @@ ssr 并发过大，可以将代码放到cdn
 
 
     // 重写会导致数据变化的方法，（防止触发多次 set、get）
+    
 
+    // observer 文件夹说明
+        - index  主要的 Observer 逻辑
+        - array  重写array方法
+        - dep    订阅机制
+        - watcher 指令记录
+        - scheduler 
+        - traverse  递归遍历数据，把dep.id放到set中，没有使用
     ```
 
 - watcher   连接数据和指令
@@ -139,3 +147,4 @@ ssr 并发过大，可以将代码放到cdn
 
 
 ### vue3 数据处理 模板解析 AST
+
