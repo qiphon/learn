@@ -203,7 +203,6 @@
 // const f: 'qiphon' = 'qiphon'
 // const g: false = false
 
-
 // // const h: 'github' = 'gitee'  // error TS2322: Type '"gitee"' is not assignable to type '"github"'.
 
 // // 当字面量类型与联合类型结合的时候，用处就显现出来了，它可以模拟一个类似枚举的效果
@@ -368,7 +367,6 @@
 // foo2 = bar2
 // // bar2 = foo2 //  error TS2322: Type '(x: number, y: number) => void' is not assignable to type '(x?: number) => void'.
 
-
 // class
 
 // class Ani {
@@ -451,7 +449,6 @@
 // }
 // // const res = pick(user, ['token', 'id'])
 
-
 // 映射类型
 
 // type User = {
@@ -503,7 +500,6 @@
 
 // type R3 = NotNullable<string | number | undefined> // string | number
 
-
 // 条件与映射类型
 // // 现有一个 interface part, 现在需要编写一个工具类型，将 interface 中函数类型
 // // 的名称取出来，写一个工具函数
@@ -518,7 +514,7 @@
 // /**
 //  * 这种问题我们应该换个思路，比如我们把 interface 看成 js 中的对象，如何才能去除值为
 //  * 函数的那个key
-//  * 
+//  *
 //  * 1. 假设我们把Part 带入泛型 T， [keyof T] 相当于遍历整个 interface
 //  * 2. 这时 K相当于interface的 key [K in keyof T], T[K] 即为对应的value
 //  * 3. 接下来用条件判断，将值为Function 的转为 key，其它的值为 never
@@ -543,7 +539,6 @@
 // type TTuple = [string, number, null]
 // type ToUnion = ElementOf<TTuple>  // string | number
 
-
 // interface User {
 //     id: number
 //     name: string
@@ -558,7 +553,6 @@
 // type R2 = ReturnType<F4>  // 'qiphon'
 // type R22 = ReturnType4<F4>  // 'qiphon'
 
-
 // class Test {
 //     constructor(public name: string, public age: number) { }
 // }
@@ -569,7 +563,6 @@
 // type C = GetConstructorParam<typeof Test>  //  [name: string, age: number]
 
 // type D = ElementOf<C>  //  string | number
-
 
 // type Exclude2<T, U> = T extends U ? never : T
 // type P = Exclude2<1 | 2, 2 | 3>
@@ -611,7 +604,6 @@
 // //     key: number;
 // // }
 
-
 // // Intersection
 
 // type Intersection<T extends object, U extends object> = Pick<T,
@@ -623,7 +615,6 @@
 
 // // expect {age:number}
 // type DuplicatedProps = Intersection<Props, DefaultProps>
-
 
 // // Overwrite<T, U> 顾名思义，是用 U 的属性覆盖 T 的相同属性
 // type Computed<T extends any> = T extends Function ?
@@ -641,7 +632,6 @@
 // // expect { name: string; age: string; visible: boolean; }
 // type ReplaceProps = Overwrite<Props, NewProps>
 
-
 // // Mutable 将 T 的所有属性的 readonly 移除
 // type Mutable<T> = {
 //     -readonly [P in keyof T]: T[P]
@@ -657,8 +647,7 @@
 //     Benz: { age: 13 },
 // }
 
-
-// typeof 
+// typeof
 
 // function sum (a: number, b: number): string{
 //     return (a+ b).toFixed(2)
@@ -729,3 +718,110 @@
 // }
 
 // type K4 = keyof typeof person  // type K4 = "name" | "age"
+
+// Interface extends interface
+// interface PartialPointX { x: number; }
+// interface Point extends PartialPointX {
+//  y: number;
+// }
+
+// type PartialPointX = { x: number; };
+// type Point = PartialPointX & { y: number; };
+
+// // Interface extends type alias
+// type PartialPointX = { x: number; };
+// interface Point extends PartialPointX { y: number; }
+
+// Type alias extends interface
+// interface PartialPointX { x: number; }
+// type Point = PartialPointX & { y: number; };
+
+// let y: Point = {
+//   y: 1,
+//   x: 2,
+// }
+
+// type Point2 = {
+//   x: number;
+//   y: number;
+// };
+// class SomePoint2 implements Point2 {
+//   x = 1;
+//   y = 2;
+// }
+
+// type PartialPoint = { x: number } | { y: number };
+// // A class can only implement an object type or
+// // intersection of object types with statically known members.
+// // 类只能实现具有静态已知成员的对象类型或对象类型的交集。
+// class SomePartialPoint implements PartialPoint {
+//   // Error
+//   x = 1;
+//   y = 2;
+// }
+
+// class Greeter {
+//   // 静态属性
+//   static cname: string = 'Greeter'; // 成员属性
+//   greeting: string;
+
+//   // 构造函数 - 执行初始化操作
+//   constructor(message: string) {
+//     this.greeting = message;
+//   }
+//   // 静态方法
+//   static getClassName() {
+//     return 'Class name is Greeter';
+//   }
+//   // 成员方法
+//   greet() {
+//     return 'Hello, ' + this.greeting;
+//   }
+// }
+// let greeter = new Greeter('world');
+
+// class Person {
+//   #name: string;
+
+//   constructor(name: string) {
+//     this.#name = name;
+//   }
+//   greet() {
+//     console.log(`Hello, my name is ${this.#name}!`);
+//   }
+// }
+// let semlinker = new Person('Semlinker');
+// semlinker.#name;
+//     ~~~~~
+// Property '#name' is not accessible outside class 'Person'
+// because it has a private identifier.
+
+// function Greeter(greeting: string) {
+//   return function (target: Function) {
+//     target.prototype.greet = function (): void {
+//       console.log(greeting);
+//     };
+//   };
+// }
+// @Greeter('Hello TS!')
+// class Greeting {
+//   constructor() {
+//     // 内部实现
+//   }
+// }
+// let myGreeting = new Greeting();
+// (myGreeting as any).greet(); // console output: 'Hello TS!';
+
+
+
+ 
+interface Person {
+  name: string;
+  age: number;
+  location: string;
+}
+type K1 = keyof Person; // "name" | "age" | "location"
+type K2 = keyof Person[];  // number | "length" | "push" | "concat" | ...
+type K3 = keyof { [x: string]: Person };  // string | number
+
+type K4 = keyof any

@@ -1158,6 +1158,206 @@ let animal: Cat | Dog;
     Benz: { age: 13 },
   };
   ```
+### 其他类型
+
+- extends
+
+    接口和类型别名都能够被扩展，但语法有所不同。此外，接口和类型别名不是互斥的。接口可以扩展类
+型别名，而反过来是不行的。
+
+    ```ts
+    // Interface extends interface
+    interface PartialPointX { x: number; }
+    interface Point extends PartialPointX {
+    y: number; 
+    }
+    let y: Point = {
+      y: 1,
+      x: 2,
+    }
+
+    // ype alias extends type alias
+    type PartialPointX = { x: number; };
+    type Point = PartialPointX & { y: number; };
+
+    // Interface extends type alias
+    type PartialPointX = { x: number; };
+    interface Point extends PartialPointX { y: number; }
+
+    // Type alias extends interface
+    interface PartialPointX { x: number; }
+    type Point = PartialPointX & { y: number; };
+    ```
+  
+  -  Implements
+
+      类可以以相同的方式实现接口或类型别名，但类不能实现使用类型别名定义的联合类型
+
+      ```ts
+      type Point2 = {
+        x: number;
+        y: number;
+      };
+      class SomePoint2 implements Point2 {
+        x = 1;
+        y = 2;
+      }
+
+
+      type PartialPoint = { x: number } | { y: number };
+      // A class can only implement an object type or
+      // intersection of object types with statically known members.
+      // 类只能实现具有静态已知成员的对象类型或对象类型的交集。
+      class SomePartialPoint implements PartialPoint {
+        // Error
+        x = 1;
+        y = 2;
+      }
+      ```
+- Declaration merging
+
+  与类型别名不同，接口可以定义多次，会被自动合并为单个接口。
+
+  ```ts
+   
+  interface Point { x: number; }
+  interface Point { y: number; }
+  const point: Point = { x: 1, y: 2 };
+  ```
+
+- class
+
+  在面向对象语言中，类是一种面向对象计算机编程语言的构造，是创建对象的蓝图，描述了所创建的对
+象共同的属性和方法。
+  在 TypeScript 中，我们可以通过 Class 关键字来定义一个类:
+
+  ```ts
+  class Greeter {
+    // 静态属性
+    static cname: string = 'Greeter'; // 成员属性
+    greeting: string;
+
+    // 构造函数 - 执行初始化操作
+    constructor(message: string) {
+      this.greeting = message;
+    }
+    // 静态方法
+    static getClassName() {
+      return 'Class name is Greeter';
+    }
+    // 成员方法
+    greet() {
+      return 'Hello, ' + this.greeting;
+    }
+  }
+  let greeter = new Greeter('world');
+
+
+  // 编译成es5 之后
+  var Greeter = /** @class */ (function () {
+      // 构造函数 - 执行初始化操作
+      function Greeter(message) {
+          this.greeting = message;
+      }
+      // 静态方法
+      Greeter.getClassName = function () {
+          return 'Class name is Greeter';
+      };
+      // 成员方法
+      Greeter.prototype.greet = function () {
+          return 'Hello, ' + this.greeting;
+      };
+      // 静态属性
+      Greeter.cname = 'Greeter'; // 成员属性
+      return Greeter;
+  }());
+  var greeter = new Greeter('world');
+
+
+  // 在 TypeScript 3.8 版本就开始支持ECMAScript 私有字段，使用方式如下:
+  class Person {
+    #name: string;
+
+    constructor(name: string) {
+      this.#name = name;
+    }
+    greet() {
+      console.log(`Hello, my name is ${this.#name}!`);
+    }
+  }
+  let semlinker = new Person('Semlinker');
+  // semlinker.#name;
+  //           ~~~~~
+  // Property '#name' is not accessible outside class 'Person'
+  // because it has a private identifier.
+  ```
+  > 与常规属性(甚至使用 private 修饰符声明的属性)不同，私有字段要牢记以下规则:
+
+  - 私有字段以 # 字符开头，有时我们称之为私有名称;
+  - 每个私有字段名称都唯一地限定于其包含的类;
+  - 不能在私有字段上使用 TypeScript 可访问性修饰符(如 public 或 private); 
+  - 私有字段不能在包含的类之外访问，甚至不能被检测到。
+
+- 装饰器
+
+  装饰器在编译的时候要 `tsc --target ES5 --experimentalDecorators base.ts` 这样
+
+  ```ts
+  function Greeter(greeting: string) {
+    return function (target: Function) {
+      target.prototype.greet = function (): void {
+        console.log(greeting);
+      };
+    };
+  }
+  @Greeter('Hello TS!')
+  class Greeting {
+    constructor() {
+      // 内部实现
+    }
+  }
+  let myGreeting = new Greeting();
+  (myGreeting as any).greet(); // console output: 'Hello TS!';
+
+
+  // 编译后的代码
+  var __decorate =
+    (this && this.__decorate) ||
+  function(decorators, target, key, desc) {
+    var c = arguments.length,
+      r =
+        c < 3
+          ? target
+          : desc === null
+          ? (desc = Object.getOwnPropertyDescriptor(target, key))
+          : desc,
+      d;
+    if (typeof Reflect === 'object' && typeof Reflect.decorate === 'function')
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if ((d = decorators[i]))
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+
+  function Greeter(greeting) {
+    return function(target) {
+      target.prototype.greet = function() {
+        console.log(greeting);
+      };
+    };
+  }
+  var Greeting = /** @class */ (function() {
+    function Greeting() {
+      // 内部实现
+    }
+    Greeting = __decorate([Greeter('Hello TS!')], Greeting);
+    return Greeting;
+  })();
+  var myGreeting = new Greeting();
+  myGreeting.greet(); // console output: 'Hello TS!';
+  ```
 
 ### 书写方式
 
@@ -1250,7 +1450,7 @@ namespace Q {
 
 最后通过发射器生成 js 代码
 
-## jsx 中的使用
+### jsx 中的使用
 
 ```jsx
 import * as React from 'react'
@@ -1294,7 +1494,7 @@ function HelloHOC<P>(WrappedComponent: React.ComponentType<P>) {
 }
 ```
 
-vue 中使用
+### vue 中使用
 
 ```vue
 <template>
@@ -1366,7 +1566,7 @@ interface WeakMap<K extends object, V> {
 
 ```
 
-二、Object vs object vs {}
+### Object vs object vs {}
 
 也许令人困惑的是，TypeScript 定义了几个类型，它们有相似的名字，但是代表不同的概念：
 
