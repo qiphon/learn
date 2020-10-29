@@ -907,6 +907,38 @@ let animal: Cat | Dog;
   if (padder instanceof SpaceRepeatingPadder) {
     // padder的类型收窄为 'SpaceRepeatingPadder'
   }
+
+
+  // 类型守卫
+  interface Vehicle {
+    move: (distance: number) =>void;
+  }
+
+  class Car implements Vehicle {
+    move = (distance: number) => {
+      // Move car…
+    };
+    turnSteeringWheel = (direction: string) => {
+      // Turn wheel…
+    };
+  }
+  class VehicleController {
+    vehicle: Vehicle;
+    constructor(vehicle: Vehicle) {
+      this.vehicle = vehicle;
+    }
+  }
+
+  const car = new Car();
+  const vehicleController = new VehicleController(car);
+
+  const { vehicle } = vehicleController;
+  // 类型“Vehicle”上不存在属性“turnSteeringWheel”。
+  // vehicle.turnSteeringWheel('left');
+
+  if(vehicle instanceof Car){
+    vehicle.turnSteeringWheel('left')
+  }
   ```
 
 - is 自定义类型保护的类型谓词（type predicate）
@@ -914,15 +946,15 @@ let animal: Cat | Dog;
   ```ts
   // 如果这个函数没有 写 test is string 下面的 example 函数中
   // 的 foo.length 就不能使用
-  // function isString(test: any): test is string {
-  //     return typeof test === 'string'
-  // }
+  function isString(test: any): test is string {
+      return typeof test === 'string'
+  }
 
   //  error TS2339: Property 'length' does not exist on type 'string | number'.
   //   Property 'length' does not exist on type 'number'.
-  function isString(test: any) {
-    return typeof test === "string";
-  }
+  // function isString(test: any) {
+  //  return typeof test === "string";
+  //}
 
   function example(foo: number | string) {
     if (isString(foo)) {
@@ -934,6 +966,14 @@ let animal: Cat | Dog;
   }
 
   example("hello");
+
+  // 定义了一个通用的类型保护函数，你可以在需要的时候使用它来缩窄类型。
+  function isOfType<T>(
+    varToBeChecked: any,
+    propertyToCheckFor: keyof T
+  ): varToBeChecked is T {
+    return (varToBeChecked as T)[propertyToCheckFor] !== undefined;
+  }
   ```
 
   类型谓词

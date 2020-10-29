@@ -251,6 +251,37 @@
 // let c = 'qiphon' as any as Per; // 这样就不报错
 
 // 类型守卫 instanceof , in
+
+// interface Vehicle {
+//   move: (distance: number) =>void;
+// }
+
+// class Car implements Vehicle {
+//   move = (distance: number) => {
+//     // Move car…
+//   };
+//   turnSteeringWheel = (direction: string) => {
+//     // Turn wheel…
+//   };
+// }
+// class VehicleController {
+//   vehicle: Vehicle;
+//   constructor(vehicle: Vehicle) {
+//     this.vehicle = vehicle;
+//   }
+// }
+
+// const car = new Car();
+// const vehicleController = new VehicleController(car);
+
+// const { vehicle } = vehicleController;
+// // 类型“Vehicle”上不存在属性“turnSteeringWheel”。
+// // vehicle.turnSteeringWheel('left');
+
+// if(vehicle instanceof Car){
+//   vehicle.turnSteeringWheel('left')
+// }
+
 // class Ani {
 //     name: 'dog'
 //     color: 'white'
