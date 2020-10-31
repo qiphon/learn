@@ -111,11 +111,12 @@ ssr 并发过大，可以将代码放到cdn
 - watcher   连接数据和指令
 
     Dep 收集的是 watcher 而不是指令
+    watcher 是将模板和 Observer对象链接在一起的纽带。watcher 是订阅者模式中的订阅者。watcher的2个参数： expOrFn 最终会被转化为getter函数，cb是更新时执行的回调，依赖收集的入口就是get函数
 
 - dep    订阅、分发
     ```js
     addsub  添加监听  数组push
-    notify  分发   数组遍历
+    notify  分发   数组遍历，执行更新
     ```
 
 - directive   指令 渲染、执行事件

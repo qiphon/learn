@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["dom", "esnext"],
+        "jsx": "react",
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "typeRoots": ["typings", "./node_modules/@types"],
+        "baseUrl": "./src",
+        "paths": {
+            "@components/*": ["web/components/*"],
+            "@utils/*": ["web/utils/*"],
+            "@assets/*": ["web/assets"],
+            "@models/*": ["web/models/*"],
+            "@routes/*": ["web/routes/*"],
+            "@pages/*": ["web/pages/*"],
+            "@tools/*": ["web/tools/*"]
+        },
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "webpack.config.js", "gulpfile.js"]
+}

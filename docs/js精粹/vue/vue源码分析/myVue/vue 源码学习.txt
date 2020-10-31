@@ -1,0 +1,235 @@
+1. vue2 源码 思想 设计
+2. vue3 数据处理 模板解析 AST 
+
+Vue2
+
+1. 学习
+2. 模仿 
+3. 内化
+4. 输出
+
+学习思想 
+dva（redux）     mobx 
+vue3 Proxy 
+
+
+
+vue 源码结构 ：
+
+
+dist： common 、esm、no  （runtime）
+
+    Runtime only （Vue运行时）==>在执行器中运行的过程中保存的一种状态，
+    mounted()=>{}
+    created()=>{}
+
+
+    Runtime+compiler(在线编译代码)
+
+    ```
+    <teamplate>
+    </teamplate>
+    <script>
+        new Vue
+    </script>
+    <style>....</style>
+    ```
+    ==>js 
+    离线编译 
+   teamplate==> webpack ==> vue-loader==>js ==>html (vue runtime)
+
+
+    new Vue({
+          template:'<div>{{hi}}</div>'
+        });
+
+    在线编译  ==>js ==>with()==>js render()
+
+
+
+flow（一个框架） ：  ts（一门语言 ） ==》规范变量类型 
+
+var a:string='yideng';
+
+
+packages --> https://github.com/lerna/lerna
+
+vue
+
+vue SSR -->vue-server-renderer-->js-->VM  node --> 
+
+CDN -->CSR 
+
+scripts  --》打包脚本
+
+src --》 核心代码
+
+compiler -->
+core -->runtime
+
+ js v8 在线编译 js--> VM
+
+
+ core
+    components --> keep-alive
+    global-api--> 全局api
+    instance-->生命周期
+    obsever-->把数据变成响应式数据 object.defineProperty-->Array\Object 
+    util 
+    vDom
+
+    Object.defineProperty() ??
+    Array 数组？
+
+
+        obsever  -->把数据处理成为响应式数据 --》object.defineProperty
+        watcher  -->连接层 ，负责把数据和视图链接，大爷的电话本Dep收集的是watcher,不是指令
+        dep
+        directive
+
+v-if v-on:click  v-html {{html}}  ->directive
+
+
+
+
+
+{{times}}123  -->  directive
+
+v-if={{times}}  -->directive
+
+{{times}}324   -->directive(渲染、执行事件)--> watcher （链接数据和执行）
+
+
+<span>{{a}}</span>  --> getter--> wtahcer--> dep (并且返回数据渲染){a: wtacher}
+                        setter-->dep-->{a: wtacher}--><span>{{a}}</span> 
+
+
+observer
+      new Observer(data)  --> 是否是数组  
+                    是--> 重写数组
+                        1.arr=[].__proto__=ArrayMethed{}
+                        ArrayMethed==>继承了==>数组方法（拦截  def）
+
+                        arr.push ==>  
+                    否-->this.walk-->object.keys({})-->遍历所有的key(object.defineProperty)
+
+                    object.defineProperty(
+                        get://把对应的依赖收集到电话本Dep.push()
+                        set://分发，把触发所有依赖 遍历Dep电话本
+                    )
+
+
+
+
+
+Dep 
+    addsub 添加依赖
+    [] push 
+    notify 分发
+    遍历
+
+    __ob__ (数据已经是响应式数据了)
+
+
+Array
+Object
+Data
+
+构造函数 --> 模板(原型对象) -->new -->{}
+机器-->模型--> new (开干)-->{}(新对象)
+
+
+==>编译出来的模板代码
+
+var _c=document.createElement;
+
+<div>{{times}}</div>
+
+
+<div>
+  <p>{{name}}</p>
+</div>
+\
+data.name=5
+
+with(data){
+  return _c(
+    'div',
+    [
+      _c(
+        'p',
+        [
+          _v(_s(name))
+        ]
+      )
+    ]
+  );
+}
+
+
+.vue
+
+vue2 -->正则匹配 -->不是正道 
+
+vue3 -->AST-->词法分析-->语法分析
+
+
+function defineReactive(data, key, value) {
+  Object.defineProperty(data, key, {
+    enumerable: true,
+    configurable: true,
+     get: function defineGet() {
+      console.log(`get key: ${key} value: ${value}`)
+      return value
+    },
+     set: function defineSet(newVal) {
+      console.log(`set key: ${key} value: ${newVal}`)
+      value = newVal
+    }
+  })
+}
+
+function observe(data) {
+  Object.keys(data).forEach(function(key) {
+    defineReactive(data, key, data[key])
+  })
+}
+let arr1 = [1, 2, 3]
+observe(arr1);
+
+
+
+new vue({
+  data:{...},
+  ...
+})==>object.defineProperty(observe||get\set)
+
+
+1g 2g 
+
+nodejs  stream 
+
+
+
+1. observe -->处理数据 Object.defineProperty get set 
+  new Dep --> 收集依赖 >？？wacher
+  [watcher？]
+   dep.addSub(Dep.target);
+
+  get  
+  set 
+2. Compile  --> 编译模板 ，（离线编译 -->with -->获取到模板里面使用的对应的变量名称）
+3.Watcher ？？指令和数据的链接器
+  根据不同的指令类型， new watcher（存储这指令对应的操作）
+  get -->获取数据 -->触发get-->Dep.target-->addSub
+  -->不同的执行的方法，处理视图
+  修改数据的时候-->set -->修改数据-->notify -->遍历电话本-->触发watcer的update
+  -->获取get数据，渲染视图
+   
+( LRU ) -最近最久未使用算法选择最近一段时间内最长时间没有被访问过的页面予以淘汰
+
+
+
+
+
+

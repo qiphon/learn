@@ -1,0 +1,4 @@
+{
+    "watch": ["dist","src"],
+    "exec": "yarn server:start"
+}
