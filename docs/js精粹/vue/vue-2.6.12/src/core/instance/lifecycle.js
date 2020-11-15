@@ -191,6 +191,7 @@ export function mountComponent (
     }
   }
 
+  // 每个组件都有一个watcher
   // we set this to vm._watcher inside the watcher's constructor
   // since the watcher's initial patch may call $forceUpdate (e.g. inside child
   // component's mounted hook), which relies on vm._watcher being already defined
@@ -212,7 +213,7 @@ export function mountComponent (
   return vm
 }
 
-export function updateChildComponent (
+export function updateChildComponent ( 
   vm: Component,
   propsData: ?Object,
   listeners: ?Object,

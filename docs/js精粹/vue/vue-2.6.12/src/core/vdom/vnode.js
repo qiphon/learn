@@ -1,29 +1,29 @@
 /* @flow */
 
 export default class VNode {
-  tag: string | void;
-  data: VNodeData | void;
-  children: ?Array<VNode>;
-  text: string | void;
-  elm: Node | void;
-  ns: string | void;
-  context: Component | void; // rendered in this component's scope
-  key: string | number | void;
-  componentOptions: VNodeComponentOptions | void;
-  componentInstance: Component | void; // component instance
-  parent: VNode | void; // component placeholder node
+  tag: string | void;  // 标签名
+  data: VNodeData | void;  // 节点数据
+  children: ?Array<VNode>;  // 子节点
+  text: string | void;      // 节点内容
+  elm: Node | void;         // 对应的 html 节点
+  ns: string | void;        // namespace 针对svg 标签的属性
+  context: Component | void; // rendered in this component's scope  // 当前组件的作用域
+  key: string | number | void;  // 组件唯一key
+  componentOptions: VNodeComponentOptions | void;  // 组件的属性
+  componentInstance: Component | void; // component instance 组件实例
+  parent: VNode | void; // component placeholder node  组件占位符
 
   // strictly internal
-  raw: boolean; // contains raw HTML? (server only)
-  isStatic: boolean; // hoisted static node
-  isRootInsert: boolean; // necessary for enter transition check
-  isComment: boolean; // empty comment placeholder?
-  isCloned: boolean; // is a cloned node?
-  isOnce: boolean; // is a v-once node?
+  raw: boolean; // contains raw HTML? (server only)  是否包含原始HTML
+  isStatic: boolean; // hoisted static node  是不是静态节点
+  isRootInsert: boolean; // necessary for enter transition check 是否插入到根节点
+  isComment: boolean; // empty comment placeholder? 是否注释占位
+  isCloned: boolean; // is a cloned node?  是否是克隆的节点
+  isOnce: boolean; // is a v-once node?   是否使用 v-once
   asyncFactory: Function | void; // async component factory function
   asyncMeta: Object | void;
   isAsyncPlaceholder: boolean;
-  ssrContext: Object | void;
+  ssrContext: Object | void;   // ssr 作用域
   fnContext: Component | void; // real context vm for functional nodes
   fnOptions: ?ComponentOptions; // for SSR caching
   devtoolsMeta: ?Object; // used to store functional render context for devtools

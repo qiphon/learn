@@ -10,6 +10,9 @@ export let isUsingMicroTask = false
 const callbacks = []
 let pending = false
 
+/**
+ * 清空 callbacks ，执行callbacks 中的函数
+ */
 function flushCallbacks () {
   pending = false
   const copies = callbacks.slice(0)
