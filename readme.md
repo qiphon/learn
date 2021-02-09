@@ -7,6 +7,7 @@
 - spa 、mpa 、spa + mpa 、 mpa -> spa
 - 前端工程化
     - webpack gulp rollup tests CI/CD 代码缺陷检测 Linux  JS -> SHELL
+    
 - 性能优化
 - css
 - 前端跨界（nwjs/electron/iot/flutter/reactNative/PWA）
@@ -213,3 +214,14 @@
         - application/x-www-form-urlencoded、multipart/form-data、text/plain
 
 
+## 优秀书籍
+
+1. 你不知道JavaScript 上中下
+2. 学习V8的好地方 https://v8.dev/blog/
+3. HTML5 Canvas核心技术:图形、动画与游戏开发
+4. Webkit技术内幕
+5. 小灰算法之旅 
+6. 大话数据结构 啊哈算法
+7. 3D数学基础 图形与游戏开发
+8. 函数式编程 https://github.com/MostlyAdequate/mostly-adequate-guide
+9. 自制编译器 自制COU系列

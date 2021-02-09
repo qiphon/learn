@@ -1865,4 +1865,3 @@ class StringBuilder implements AddsStrings {
   }
 }
 ```
-
