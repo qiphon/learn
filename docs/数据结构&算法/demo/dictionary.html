@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字典</title>
+</head>
+<body>
+  <script>
+    function Dict (){
+      this.store = new Array()
+    }
+
+    Dict.prototype.add = function(key, val) {
+      return this.store[key] = val
+    }
+
+    Dict.prototype.find = function(key) {
+      return this.store[key]
+    }
+
+    Dict.prototype.remove = function(key) {
+      delete this.store[key]
+    }
+
+    Dict.prototype.clear = function () {
+      Object.keys(this.store).forEach(it => delete this.store[it])
+    }
+
+    Dict.prototype.showAll = function (){
+      Object.keys(this.store).forEach(it => console.log(`key: ${it}, value: ${this.store[it]}`))
+    }
+
+    Dict.prototype.count = function() {
+      return Object.keys(this.store).length
+    }
+
+    var a = new Dict()
+    a.add('nb', 555)
+    a.add('nick', 666)
+    a.add('addidas', 999)
+
+    console.log(a.find('nick'), a)
+    console.log(a.showAll(), 'length')
+    console.log(a.count(), 'count')
+
+  </script>
+</body>
+</html>

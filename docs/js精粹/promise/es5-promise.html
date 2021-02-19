@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES5 promise</title>
+</head>
+<body>
+  <script>  
+    var myPromise = (function(){
+      var PADDING = 'PADDING';
+      var FULFILLED = 'FULFILLED'
+      var REJECTED = 'REJECTED'
+      var MyPromise = function(fn){
+        this.state = PADDING;
+        this.value = undefined;
+        this.resolveFn = []
+        this.rejectFn = []
+
+        var _this = this
+        function resolve(val) {
+          setTimeout(function(){
+            if(_this.state === FULFILLED) return;
+            _this.state = FULFILLED;
+            _this.value = val
+            if(val && typeof val.then === 'function') {
+              // 处理thenable 数据
+              dealThenable(_this, val, resolve, reject)
+            }else {
+              _this.resolveFn.map(fn => fn(val))
+            }
+          })
+          
+        }
+        function reject(val){
+          setTimeout(() => {
+            _this.value = val
+            _this.state = REJECTED
+            if(_this.rejectFn.length){
+              _this.rejectFn.map(fn => fn(val))
+            }else {
+              throw new Error(val)
+            }
+          })
+        }
+        fn(resolve, reject)
+      }
+      function dealThenable(p, val, resolve, reject) {
+        // 防止循环引用
+        if(p === val) {
+          throw new Error('promise 循环引用');
+        }
+        // 执行promise的then
+        if(val instanceof MyPromise) {
+          val.state === PADDING && 
+            val.then(y => dealThenable(p, y, resolve, reject))
+        }
+        else {
+          // 只是一个函数
+          if(val && typeof val.then === 'function'){
+            val.then(
+              res => dealThenable(p, res, resolve, reject),
+              rej => reject(rej)
+            )
+          }else {
+            resolve(val)
+          }
+        }
+      }
+      MyPromise.resolve = function(val){
+        return new MyPromise(function(resolve){
+          resolve(val)
+        })
+      }
+      MyPromise.prototype.then = function(
+        onFulfilled = val => val,
+        onRejected
+      ){
+        // debugger
+        var newP;
+        if(this.state === FULFILLED) {
+          var x = onFulfilled(this.value)
+          newP = new MyPromise((resolve, reject)=>{
+            x && dealThenable(newP, x, resolve, reject)
+          })
+        }
+        if(this.state === PADDING) {
+          newP = new MyPromise((resolve, reject)=>{
+            this.resolveFn.push(val => {
+              const x = onFulfilled(val)
+              dealThenable(newP, x, resolve, reject)
+            })
+            if(typeof onRejected === 'function'){
+              this.rejectFn.push(function rej(val){
+                resolve(val)
+              })
+            }
+          })
+        }
+        return newP
+      }
+      return MyPromise
+    })();
+
+  </script>
+</body>
+</html>
