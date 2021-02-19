@@ -521,6 +521,34 @@ useContext 上面已经有实例
 
 useReducer
 
+```jsx
+import React , {useReducer} from 'react'
+// first params
+const reducer = (state: any, action: any) => {
+  switch (action.type) {
+    case 'add':
+      return { ...state, count: state.count + action.payload }
+    default:
+      return state
+  }
+}
+// second params
+const initState = { count: 1 }
+// third params
+const init = (inits: any) => {
+  return { count: inits.count + 2 }
+}
+
+export default function ReduceTest() {
+  const [state, dispatch] = useReducer(reducer, initState, init)
+  return (
+    <div onClick={() => dispatch({ type: 'add', payload: 9 })}>
+      {state.count}
+    </div>
+  )
+}
+```
+
 [useRef/forwardRef 见文档](https://reactjs.org/docs/hooks-reference.html#useref)
 
 ```jsx
@@ -746,3 +774,10 @@ const LazyComp = lazy(() => import("../notfound/notfound"));
     <LazyComp />
 </Suspense>
 ```
+
+
+### 注意事项
+
+- 只能在 React 函数组件中调用 hook
+- hook 不能写在条件语句和循环中
+- hook 不能嵌套
