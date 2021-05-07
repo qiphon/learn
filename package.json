@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "typescript": "^4.1.0-dev.20201029",
-    "underscore": "^1.10.2",
+    "underscore": "^1.12.1",
     "vue": "2"
   }
 }
