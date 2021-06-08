@@ -1,5 +1,18 @@
 # Typescript 学习资源
 
+ts 一些必看的内容 lib.dom.d.ts 、lib.es5.d.ts 
+
+/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/extensions/node_modules/typescript/lib/lib.dom.d.ts
+
+/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/extensions/node_modules/typescript/lib/lib.es5.d.ts
+
+## 学习阶段
+
+1. 夯实基础 灵活欺骗 学习强类型语言技巧 java、c++
+2. 开发node 相对标准
+3. 原生dom 开发 Vue、react（dom Vue、react）不属于 ts
+4. 开发 SDK 阶段，编译 SDK
+
 ## TS
 
 1. 不可错过的官方 demo

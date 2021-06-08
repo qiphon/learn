@@ -1865,3 +1865,7 @@ class StringBuilder implements AddsStrings {
   }
 }
 ```
+
+## ts 中最好不要使用的类型
+
+1. `{}`、`Object`、`Function`
