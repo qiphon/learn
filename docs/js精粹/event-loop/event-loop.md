@@ -41,15 +41,14 @@ queue    | onClick, onload, setTimeout
 - 浏览器中的任务队列
 
 ```
-        宏任务          |        微任务
-                       |
-        script         |        promise (async)
-        setTimeout     |        MutationObserver
-        setInterval    |
-                       |     
-    requestAnimation   |
-        frame          |
-                       |
+        宏任务                    |        微任务
+                                 |
+        script                   |        promise (async)
+        setTimeout               |        MutationObserver
+        setInterval              |
+                                 |     
+    requestAnimationframe        |
+                                 |
 
 ```
 
@@ -281,6 +280,7 @@ javascript-engine|        os       | ---------------     ↖  ← ← ↙       
 
 
 # 异步队列执行阶段
+
  ----------------------------------------------------------
 ↱    timer  (这个阶段处理定时器)
 ↑----------------------------------------------------------
@@ -300,7 +300,8 @@ javascript-engine|        os       | ---------------     ↖  ← ← ↙       
   nextTick 的优先级高于 Promise
 
 
-                    node 中的任务队列
+# node 中的任务队列
+
     宏任务                       微任务                
  -------------------------|---------------------------------|
     setTimeout            |     Promise                     |
@@ -338,7 +339,7 @@ fs.readFile('./event-loop.md', function(){
     setImmediate(_=>console.log("immediate"))
 })
 // 这次无论执行多少次都是先执行 immediate 
-// 因为 IO 实在 poll 阶段执行的，这个时候注入的 setTimeout 还没有在timer 中，
+// 因为 IO 是在 poll 阶段执行的，这个时候注入的 setTimeout 还没有在timer 中，
 // 所以 setTimeout 只能在下一个时钟周期中执行，而 setImmediate 是在 poll 的下一刻执行
 // 所以在 poll 阶段注入的 immediate 会立即执行
 // immediate
