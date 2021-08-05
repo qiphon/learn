@@ -113,6 +113,8 @@ hooks 名称变化
     }
     ```
 
+- 移除了 filter
+
 ### setup
 
 - *触发时间*： 它作为在组件内部使用 compositionapi 的入口点。setup是在一个组件实例被创建时，初始化了 props 之后调用,在beforecreated 触发之前调用

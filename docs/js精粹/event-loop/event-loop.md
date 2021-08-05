@@ -271,9 +271,9 @@ new Promise((resolve)=>{
                                                             LIBUV
     APPLICATION  |    NODE.JS      |   event queue                            WORKER         
 -----------------|    BINDINGS     | ---------------                          THREADS
-⇧ JAVASCRIPT  ⇩ |   (node api)    |                 -->   → → →     -->  ----------
+⇧ JAVASCRIPT  ⇩  |   (node api)    |                 -->   → → →     -->  ----------
 -----------------|                 | ---------------     ↗  EVENT ↘        ----------
-        V8       | --------------> |                     ↑   LOOP   ↓        ----------
+        V8       | --------------> |                     ↑   LOOP  ↓        ----------
 javascript-engine|        os       | ---------------     ↖  ← ← ↙         ----------
                  |    operation    |                 <--               <--   ----------
                  |  <------------- | ---------------                         ----------
