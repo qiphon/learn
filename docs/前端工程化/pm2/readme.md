@@ -251,6 +251,31 @@ module.exports = {
     
     // post-deploy	post-deploy action	String	
 
+    // 部署示例
+    // "deploy" : {
+    //   "production" : {
+    //     "user" : "toobug",
+    //     "host" : "server.toobug.net",
+    //     "ref"  : "origin/master", //需要部署的分支
+    //     "repo" : "git@github.com:TooBug/xxx.git",
+    //     "path" : "/var/www/xxx", //web目录
+    //     "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
+    //   }
+    // }
   }]
 }
+
 ```
+
+需要注意：
+
+- apps.name和apps.script应该与PM2识别应用有关，后续执行pm2 restart的时候可以对应到进程（未证实）
+- deploy中可以含有多个环境，需要能够通过SSH（公钥认证）登录服务器
+- web目录并不是真正的放版本库文件的目录，PM2会再建立一个source子目录，这个才是真正放代码的目录
+- post-deploy是指代码部署完之后执行的命令，这里以Node.js为例子，执行依赖安装，然后重启PM2中的进程
+
+
+在使用过程中还有几个值得注意的点：
+
+- 在部署过程中，PM2会执行一次git reset --hard，意味着如果你修改了配置文件之类的，会被还原，因此最好使用环境变量或者新建文件（不在管理库中）的方式来指定服务器专用的配置项（比如数据库连接信息等）
+- 执行服务器命令时需要关注环境变量，比如使用nvm来管理node版本的话，有可能导致PM2连接后找不到node（以及npm/pm2）所在路径，解决办法是在脚本最前面加上指定环境变量的脚本，例如source ~/.bashrc
