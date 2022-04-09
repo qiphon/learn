@@ -6,7 +6,7 @@
   "dependencies": {
     "egg": "^2.26.0",
     "egg-view-nunjucks": "^2.2.0",
-    "moment": "^2.25.3"
+    "moment": "^2.29.2"
   },
   "devDependencies": {
     "egg-bin": "^4.14.1"
