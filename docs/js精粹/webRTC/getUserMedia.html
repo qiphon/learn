@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>get user media 拍照</title>
+</head>
+<body>
+  <video id="media" width="300" autoplay controls src=""></video>
+  <canvas id="cvs" width="1300" height="400"></canvas>
+  <button id="shot" disabled>拍照</button>
+ 
+  <script>  
+    const v = document.querySelector('#media')
+    const cvs = document.querySelector('#cvs')
+    const shot = document.querySelector('#shot')
+  
+    const ctx = cvs.getContext('2d')
+    const mediaPromise =    navigator.mediaDevices.getUserMedia({
+      audio: true, video: true
+    })
+
+    let recorder = null
+
+    var SRC_OBJECT = 'srcObject' in v ? "srcObject" :
+                 'mozSrcObject' in v ? "mozSrcObject" :
+                 'webkitSrcObject' in v ? "webkitSrcObject" : "srcObject";
+    mediaPromise.then(stream => {
+      console.log(stream)
+
+      v[SRC_OBJECT] = stream
+      shot.disabled = false
+      // setTimeout(()=> {
+      //   ctx.drawImage(v, 0,0, 300, 300)
+      // },3000)
+    }).catch(err=> {
+      console.log('get media error')
+      console.dir(err)
+      /*
+        code:  0
+        message: "Permission denied"
+          name: "NotAllowedError"
+      */
+    })
+
+    shot.onclick = () => {
+      // v.pause()
+      ctx.drawImage(v, 0,0)
+    }
+
+
+
+  </script>
+</body>
+</html>

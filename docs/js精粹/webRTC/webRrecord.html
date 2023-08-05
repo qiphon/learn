@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>get user media 视频录制</title>
+</head>
+<body>
+  <h3>https://developer.mozilla.org/zh-CN/docs/Web/API/MediaRecorder</h3>
+  <video id="media" width="300" autoplay controls src=""></video>
+  <button id="recorder" disabled>recorder</button>
+  <h1>record video</h1>
+  <video id="media2" width="300" autoplay controls src=""></video>
+  <script>  
+    const v = document.querySelector('#media')
+    // 视频录制按钮
+    const recordBtn = document.querySelector('#recorder')
+    const recordShow = document.querySelector('#media2')
+    const mediaPromise =    navigator.mediaDevices.getUserMedia({
+      audio: true, video: true
+    })
+
+    let recorder = null
+
+    var SRC_OBJECT = 'srcObject' in v ? "srcObject" :
+                 'mozSrcObject' in v ? "mozSrcObject" :
+                 'webkitSrcObject' in v ? "webkitSrcObject" : "srcObject";
+    mediaPromise.then(stream => {
+      console.log(stream)
+
+      v[SRC_OBJECT] = stream
+      recordBtn.disabled = false
+      recorder = new window.MediaRecorder(stream)
+   
+      // setTimeout(()=> {
+      //   ctx.drawImage(v, 0,0, 300, 300)
+      // },3000)
+    }).catch(err=> {
+      console.log('get media error')
+      console.dir(err)
+      /*
+        code:  0
+        message: "Permission denied"
+          name: "NotAllowedError"
+      */
+    })
+    
+    recordBtn.onclick =() => {
+      console.log(recorder)
+      // const data = recorder.requestData()
+      console.log(recorder.state)
+      // console.log(data)
+      if(recorder.state!=='recording' ) {
+        // stop 时才会执行
+        recorder.ondataavailable = e => {
+          console.log(e)
+          // chunks.push(e.data);
+          const url = URL.createObjectURL(e.data);
+          recordShow.src = url
+        }
+        recorder.start()
+        console.log(recorder.state)
+      }else {
+        recorder.stop()
+      }
+    }
+
+
+  </script>
+</body>
+</html>
