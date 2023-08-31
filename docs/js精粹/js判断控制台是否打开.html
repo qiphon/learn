@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js 判断控制台是否打开</title>
+</head>
+
+<body>
+  <script>
+    // uint8Array
+    /**
+     * 控制台打开的时候回调方法
+     */
+    // function consoleOpenCallback() {
+    //   alert("CONSOLE OPEN");
+    //   return "";
+    // }
+
+    // /**
+    //  * 立即运行函数，用来检测控制台是否打开
+    //  */
+    // !function () {
+    //   // 创建一个对象
+    //   let foo = /./;
+    //   // 将其打印到控制台上，实际上是一个指针
+    //   console.log(foo);
+    //   // 要在第一次打印完之后再重写toString方法
+    //   foo.toString = consoleOpenCallback;
+    // }()
+
+    // 方案 1 使用debugger
+    // (function(){
+    //   setInterval(()=> {
+    //     var firstTime = Date.now()
+    //     debugger
+    //     var lastTime = Date.now()
+    //     if(firstTime - lastTime < -10){
+    //       alert('opened')
+    //       console.log(
+    //         'do something here or after'
+    //       )
+    //     }
+    //   }, 500)
+    // }())
+
+    // setInterval(function () {
+    //   check()
+    // }, 1000);
+    // var check = function () {
+    //   function doCheck(a) {
+    //     if (("" + a / a)["length"] !== 1 || a % 20 === 0) {
+    //       (function () { }
+    //       ["constructor"]("debugger")())
+    //     } else {
+    //       (function () { }
+    //       ["constructor"]("debugger")())
+    //     }
+    //     console.log(a)
+    //     window.location.replace('about:blank')
+    //     doCheck(++a)
+    //   }
+    //   try {
+    //     doCheck(0)
+    //   } catch (err) { }
+    // };
+    // check();
+
+
+    // 方案2 监听 浏览器宽高变化，这种方案在devtools和浏览器分离的情况下无法生效
+    // window.addEventListener('devtoolschange', event => {
+    //   console.log(event)
+    //   console.log(event.detail)
+    // });
+    // /*!
+    // devtools-detect
+    // https://github.com/sindresorhus/devtools-detect
+    // By Sindre Sorhus
+    // MIT License
+    // */
+    // const devtools = {
+    //   isOpen: false,
+    //   orientation: undefined,
+    // };
+    // const threshold = 170;
+    // const emitEvent = (isOpen, orientation) => {
+    //   globalThis.dispatchEvent(new globalThis.CustomEvent('devtoolschange', {
+    //     detail: {
+    //       isOpen,
+    //       orientation,
+    //     },
+    //   }));
+    // }
+    // const main = ({ emitEvents = true } = {}) => {
+    //   const widthThreshold = globalThis.outerWidth - globalThis.innerWidth > threshold;
+    //   const heightThreshold = globalThis.outerHeight - globalThis.innerHeight > threshold;
+    //   const orientation = widthThreshold ? 'vertical' : 'horizontal';
+    //   if (!(heightThreshold && widthThreshold) && ((globalThis.Firebug && globalThis.Firebug.chrome && globalThis.Firebug.chrome.isInitialized) || widthThreshold || heightThreshold)) {
+    //     if ((!devtools.isOpen || devtools.orientation !== orientation) && emitEvents) {
+    //       emitEvent(true, orientation);
+    //     }
+    //     devtools.isOpen = true;
+    //     devtools.orientation = orientation;
+    //   } else {
+    //     if (devtools.isOpen && emitEvents) {
+    //       emitEvent(false, undefined);
+    //     }
+    //     devtools.isOpen = false;
+    //     devtools.orientation = undefined;
+    //   }
+    // }
+    //   ;
+    // main();
+    // window.addEventListener('resize', main)
+    // setInterval(main, 500);
+
+
+
+  </script>
+</body>
+
+</html>
