@@ -16,7 +16,8 @@ jest 有个vscode 工具，但是这个工具用在使用pnpm装依赖时会有�
 
 > `npx tsc --init`
 
-```tsconfig.json 
+```json
+// <!-- tsconfig.json  -->
 {
   "compilerOptions": {
     "target": "es2015",
@@ -33,7 +34,8 @@ jest 有个vscode 工具，但是这个工具用在使用pnpm装依赖时会有�
 
 jest.config.js 里添加一行配置 
 
-```jest.config.js 
+```js 
+// jest.config.js 
 module.exports = {
   preset: 'ts-jest',
   // ...
