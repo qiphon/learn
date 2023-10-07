@@ -1,5 +1,11 @@
 # react-hooks
 
+## why hooks
+
+- 组件之间复用逻辑 withRouter withTable (高阶组件嵌套地狱), hook 出现后换成了 useHistory useForm ...
+- 同生命周期，任务拆分
+- this 
+
 ## class 组件
 
 必不可少的内容
@@ -775,9 +781,144 @@ const LazyComp = lazy(() => import("../notfound/notfound"));
 </Suspense>
 ```
 
+### [useDeferredValue (18) 用于处理低优先级的更新，如异步数据](https://react.dev/reference/react/useDeferredValue)
+
+```jsx
+//   export function useDeferredValue<T>(value: T): T;
+import { useState, useDeferredValue } from 'react';
+
+function SearchPage() {
+  const [query, setQuery] = useState('');
+  const deferredQuery = useDeferredValue(query);
+  // ...
+}
+```
+[使用 startTransition 模拟 useDeferredValue](https://codesandbox.io/s/usedeferredvalue-and-suspense-forked-6pm259?file=/App.js:211-226)
+
+### [useTransition (18) 用于防止更新打断用户操作而设计](https://react.dev/reference/react/useTransition)
+
+用于将一个大的任务拆分成多个批处理任务，保证浏览器渲染的流畅
+
+```jsx
+// export function useTransition(): [boolean, TransitionStartFunction];
+const [query, setQuery] = useState("");
+// useTransition 和 startTransition 功能类似，useTransition 多了一个
+// pendding 值方便用户拿到渲染状态
+// 现在在输入框中输入 12222 连续输入
+// 如果不用 startTransition ,当输入到 1222 时会有明细的卡顿
+// 使用 startTransition 输入到 12222 时才会有卡顿（多了一位）
+const [isPending, startTransition] = useTransition();
+const [input, setInput] = useState(1);
+
+return (
+    <div>
+       <Input
+          onInput={(v) => {
+            startTransition(() => {
+              setInput(+v.detail.value);
+            });
+          }}
+        />
+        <div>
+          {new Array(input).fill(1).map((v, i) => (
+            <Text>{i}</Text>
+          ))}
+        </div>
+    </div>
+
+    ）
+```
+
+### [useId](https://github.com/facebook/react/pull/22644)
+
+为了保证SSR 和 CSR 时保持id相同而设计
+
 
 ### 注意事项
 
 - 只能在 React 函数组件中调用 hook
 - hook 不能写在条件语句和循环中
 - hook 不能嵌套
+
+
+## hook 原理
+
+推荐在阅读源码时使用 bookMark 工具，方便查找代码 alefragnani.Bookmarks
+
+```tsx
+// packages/react-reconciler/src/ReactFiberHooks.js
+// fiber.memorizedstate(hook0)->next(hook1)->next(hook2)->next(hook3)(workInProgressHook)
+
+const hook:Hook = {
+    memorizedState: null,
+    next: null
+}
+// packages/react-reconciler/src/ReactFiberHooks.js 881
+export type Hook = {
+  memoizedState: any,
+  baseState: any,
+  baseQueue: Update<any, any> | null,
+  queue: any,
+  next: Hook | null,
+};
+
+// mount 和 update 时使用不同的变量
+const HooksDispatcherOnMount: Dispatcher = {
+  readContext,
+
+  use,
+  useCallback: mountCallback,
+  useContext: readContext,
+  useEffect: mountEffect,
+  useImperativeHandle: mountImperativeHandle,
+  useLayoutEffect: mountLayoutEffect,
+  useInsertionEffect: mountInsertionEffect,
+  useMemo: mountMemo,
+  useReducer: mountReducer,
+  useRef: mountRef,
+  useState: mountState,
+  useDebugValue: mountDebugValue,
+  useDeferredValue: mountDeferredValue,
+  useTransition: mountTransition,
+  useMutableSource: mountMutableSource,
+  useSyncExternalStore: mountSyncExternalStore,
+  useId: mountId,
+};
+
+const HooksDispatcherOnUpdate: Dispatcher = {
+  readContext,
+
+  use,
+  useCallback: updateCallback,
+  useContext: readContext,
+  useEffect: updateEffect,
+  useImperativeHandle: updateImperativeHandle,
+  useInsertionEffect: updateInsertionEffect,
+  useLayoutEffect: updateLayoutEffect,
+  useMemo: updateMemo,
+  useReducer: updateReducer,
+  useRef: updateRef,
+  useState: updateState,
+  useDebugValue: updateDebugValue,
+  useDeferredValue: updateDeferredValue,
+  useTransition: updateTransition,
+  useMutableSource: updateMutableSource,
+  useSyncExternalStore: updateSyncExternalStore,
+  useId: updateId,
+};
+
+// mountReducer  -  packages/react-reconciler/src/ReactFiberHooks.js  1106 
+
+```
+
+- useState / useReducer 在 action 下执行的方法不一致， useState 多一步条件判断，如果前后值相等，直接执行 enqueueConcurrentHookUpdateAndEagerlyBailout ，不再更新组件
+
+由此可以使用 useReducer 实现 forceUpdate 功能
+
+```jsx
+const useForceUpdate = () => {
+    const [state, dispatch] = useReducer(()=>1,1)
+    return dispatch
+}
+
+```
