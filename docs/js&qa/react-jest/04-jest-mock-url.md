@@ -33,7 +33,7 @@ const getSearchObj = () => {
 export default getSearchObj;
 ```
 
-getSearchObj() 只是一个示例方法，如果你想把 查询字符串 转换为 对象，可以用下面更现代且更安全的方法(注意浏览器兼容性)：
+`getSearchObj() `只是一个示例方法，如果你想把 查询字符串 转换为 对象，可以用下面更现代且更安全的方法(注意浏览器兼容性)：
 
 ```ts 
 const getSearchObj = () => {
@@ -135,47 +135,62 @@ module.exports = class JSDOMEnvironmentGlobal extends JSDOMEnvironment {
 ```
 上面这段代码继承了原来的 JSDOMEnvironment 的测试环境，在构造器里把 jsdom 绑定到了全局对象上。
 
-当然，我们不用自己写这段代码，有人已经把它变成了一个 NPM 包了：`npm i -D jest-environment-jsdom-global `
+当然，我们不用自己写这段代码，有人已经把它变成了一个 NPM 包了：`npm install --save-dev jest-environment-jsdom-global jest-environment-jsdom jsdom @types/jsdom` https://www.npmjs.com/package/jest-environment-jsdom-global 
+(这个不能和有跨域的axios共同使用, jest 28 以后不再能这么用了，)
 
 然后在 jest.config.js 里使用这个魔改后的测试环境：
 
 ```js 
 // jest.config.js
 module.exports = {
-  testEnvironment: 'jest-environment-jsdom-global'
+  testEnvironment: 'jest-environment-jsdom-global',
+  setupFilesAfterEnv: ["<rootDir>/tests/addEnv.ts"],
+  // ... 
 };
+```
+需要不从变量到环境中，不然会报 [textencoder-is-not-defined](https://stackoverflow.com/questions/68468203/why-am-i-getting-textencoder-is-not-defined-in-jest)
+
+```ts 
+//  tests/addEnv.ts
+import { TextEncoder, TextDecoder } from 'util';
+
+Object.assign(global, { TextDecoder, TextEncoder });
 ```
 
 修改测试用例
 
 ```ts 
+// jest 29 
 // tests/utils/getSearchObj.test.ts
-import getSearchObj from "utils/getSearchObj";
+import { getSearchObj } from "../utils";
 
-describe("getSearchObj", () => {
-  it("可以获取当前网址的查询参数对象", () => {
-    // 使用全局暴露出来的 jsdom
-    global.jsdom.reconfigure({
-      url: "https://www.baidu.com?a=1&b=2",
-    });
+let windowSpy :jest.SpyInstance
+beforeEach(()=> {
+   windowSpy = jest.spyOn(window, 'window', 'get')
 
-    expect(window.location.search).toEqual("?a=1&b=2");
-    expect(getSearchObj()).toEqual({
-      a: "1",
-      b: "2",
-    });
+})
+
+afterEach(()=> {
+  windowSpy.mockRestore()
+})
+
+describe('分组1 ', () => {
+  test('toBeCloseTo adds 1 + 2 to equal 3', () => {
+    expect(sum(1, 2)).toBeCloseTo(3);
   });
 
-  it("空参数返回空", () => {
-    // 使用全局暴露出来的 jsdom
-    global.jsdom.reconfigure({
-      url: "https://www.baidu.com",
-    });
+  it('get search params ', () => {
+    windowSpy.mockImplementation(()=> ({
+      location: {
+        href: "https://example.com?a=1&b=2",
+        search: '?a=1&b=2'
+      }
+    }))
+    // console.log(window.location.href)
+    expect(getSearchObj()).toEqual({a: '1', b: '2'})
+  })
 
-    expect(window.location.search).toEqual("");
-    expect(getSearchObj()).toEqual({});
-  });
-});
+})
 ```
 由于 global 类型声明中没有声明 jsdom 属性，导致报错 
 
