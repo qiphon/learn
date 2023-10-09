@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qiphon/yd-learn.git"
+    "url": "git+https://github.com/qiphon/learn.git"
   },
   "keywords": [],
   "author": "qiphon",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/qiphon/yd-learn/issues"
+    "url": "https://github.com/qiphon/learn/issues"
   },
-  "homepage": "https://github.com/qiphon/yd-learn#readme",
+  "homepage": "https://github.com/qiphon/learn#readme",
   "dependencies": {
     "underscore": "^1.10.2"
   },

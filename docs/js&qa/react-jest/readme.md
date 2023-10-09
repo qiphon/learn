@@ -38,3 +38,9 @@
 
 - [jest 实践指南](https://github.yanhaixiang.com/jest-tutorial/#%E7%9B%AE%E7%9A%84)
 - [Kent C. Dodds 的 博客](https://testingjavascript.com/)
+
+官方文档
+
+- [testing-library/jest-dom](https://github.com/testing-library/jest-dom#installation)
+- [jest](https://jestjs.io/docs/mock-functions)
+- [vitest](https://cn.vitest.dev/guide/)
