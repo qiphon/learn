@@ -7,8 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "docs:all": "vuepress dev .",
-    "docs:dev": "vuepress dev docs",
+    "start": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
   "repository": {
@@ -22,12 +21,14 @@
     "url": "https://github.com/qiphon/yd-learn/issues"
   },
   "homepage": "https://github.com/qiphon/yd-learn#readme",
-  "devDependencies": {
-    "vuepress": "^1.0.3"
-  },
   "dependencies": {
-    "typescript": "^4.1.0-dev.20201029",
-    "underscore": "^1.10.2",
-    "vue": "2"
+    "underscore": "^1.10.2"
+  },
+  "prettier": "@qiphon/prettier-config",
+  "devDependencies": {
+    "@qiphon/prettier-config": "^1.0.1",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2",
+    "vuepress": "^1.9.10"
   }
 }
