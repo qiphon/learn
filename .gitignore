@@ -6,3 +6,5 @@ __MACOSX
 */.DS_Store
 .vscode
 yarn-error.log
+.cache
+.temp

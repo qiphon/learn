@@ -215,6 +215,6 @@ privilegedInvoker();
 
 ### 两个针对Mozilla开发的警告：
 
-第一，如果你的JavaScript版本在1.7及以上（你的chrome代码或者你正确使用了<script type="">）并且开启了严格模式的话，因为let和yield是最先引入的关键字，所以它们会起作用。但是网络上用<script src="">或者<script>...</script>加载的代码，let或者yield都不会作为关键字起作用；
+第一，如果你的JavaScript版本在1.7及以上（你的chrome代码或者你正确使用了`<script type="">`）并且开启了严格模式的话，因为let和yield是最先引入的关键字，所以它们会起作用。但是网络上用`<script src="">`或者`<script>...</script>`加载的代码，let或者yield都不会作为关键字起作用；
 
 第二，尽管ES5无条件的保留了class, enum, export, extends, import和super关键字，在Firefox 5之前，Mozilla仅仅在严格模式中保留了它们。
