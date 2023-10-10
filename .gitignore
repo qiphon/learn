@@ -11,3 +11,5 @@ yarn-error.log
 .temp
 docs/.vitepress/dist
 docs/.vitepress/cache
+docs/.vitepress/cache/deps
+.vitepress/cache/deps/*
