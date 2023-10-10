@@ -1,4 +1,5 @@
 import { defineConfigWithTheme } from 'vitepress'
+import path from 'path' 
 
 export default defineConfigWithTheme({
   title: '齐枫的博客',
@@ -8,4 +9,5 @@ export default defineConfigWithTheme({
   markdown: {
     lineNumbers: true
   },
+  srcDir: path.resolve(__dirname, '../')
 })
