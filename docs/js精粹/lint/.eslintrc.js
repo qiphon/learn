@@ -1,3 +1,4 @@
+import path from 'path'
 module.exports = {
   env: {
     browser: true,
@@ -74,6 +75,15 @@ module.exports = {
   settings: {
     react: {
       version: 'detect',
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+      alias: {
+        map: [['@', path.join(__dirname, './src')]],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
   },
 }
