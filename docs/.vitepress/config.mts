@@ -9,5 +9,6 @@ export default defineConfigWithTheme({
   markdown: {
     lineNumbers: true
   },
-  srcDir: path.resolve(__dirname, '../')
+  srcDir: path.resolve(__dirname, '../'),
+  ignoreDeadLinks:true
 })

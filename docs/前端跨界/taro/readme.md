@@ -18,7 +18,7 @@ $ NODE_ENV=production taro build --type weapp --watch # Bash
 
 文件目录结构
 
-```
+```sh
 ├── babel.config.js             # Babel 配置
 ├── .eslintrc.js                # ESLint 配置
 ├── config                      # 编译配置目录
@@ -69,7 +69,7 @@ if (process.TARO_ENV === 'iot') {
 
 Taro v3.1+ 开始支持
 
-使用 Taro 插件能支持编译企业微信小程序，插件文档请看 [Github。](https://github.com/NervJS/taro-plugin-platform-weapp-qy)
+使用 Taro 插件能支持编译企业微信小程序，插件文档请看 [Github](https://github.com/NervJS/taro-plugin-platform-weapp-qy)
 
 使用方式 
 

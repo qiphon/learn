@@ -54,7 +54,7 @@ centOS 和 fedora 都是 redhat 的发行版
     - route（网络路由信息）、
     - ss -anp(查看打开的端口)、netstat -an ( | grep  筛选 )
     - 停用服务 kill [pid] 、 systermctl(推荐使用)  一般主进程的pid 会小
-    - 下载命令 curl (很强大) 、 wget [url]( 方便 )
+    - 下载命令 curl (很强大) 、 wget `[url]` 方便 
     - 查看linux 命令的帮助  man [ls] 、ls --help
     - 终端下 ctrl + s（锁住终端）后怎么办
         - ctrl + c 结束正在运行的程序

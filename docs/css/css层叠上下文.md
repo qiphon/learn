@@ -4,7 +4,7 @@
 
 文档中的层叠上下文由满足以下任意一个条件的元素形成：
 
-- 文档根元素（<html>）；
+- 文档根元素（`<html>`）；
 - position 值为 absolute（绝对定位）或 relative（相对定位）且 z-index 值不为 auto 的元素；
 - position 值为 fixed（固定定位）或 sticky（粘滞定位）的元素（沾滞定位适配所有移动设备上的浏览器，但老的桌面浏览器不支持）；
 - flex (flexbox) 容器的子元素，且 z-index 值不为 auto；

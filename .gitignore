@@ -7,4 +7,7 @@ __MACOSX
 .vscode
 yarn-error.log
 .cache
+
 .temp
+docs/.vitepress/dist
+docs/.vitepress/cache
