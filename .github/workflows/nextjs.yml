@@ -20,7 +20,7 @@ concurrency:
   group: 'pages'
   cancel-in-progress: false
 jobs:
-  docs:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,14 +29,6 @@ jobs:
           # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          # 选择要使用的 pnpm 版本
-          version: 8
-          # 使用 pnpm 安装依赖
-          run_install: true
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -44,21 +36,32 @@ jobs:
           node-version: 18
           # 缓存 pnpm 依赖
           cache: pnpm
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
 
       # 运行构建脚本
       - name: Build vitePress site
-        run: pnpm docs:build
+        run: |
+          npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
+          touch docs/.vitepress/dist/.nojekyll
+      
 
-      # 查看 workflow 的文档来获取更多信息
-      # @see https://github.com/crazy-max/ghaction-github-pages
-      - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          # 部署到 gh-pages 分支
-          target_branch: gh-pages
-          # 部署目录为 VitePress 的默认输出目录
-          build_dir: docs/.vitepress/dist
-        env:
-          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
-          GITHUB_TOKEN: ${{ secrets.VUEPRESS_BUILD }}
+          path: docs/.vitepress/dist
+
+  deploy: 
+    environment: 
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+          # GITHUB_TOKEN: ${{ secrets.VUEPRESS_BUILD }}
 
