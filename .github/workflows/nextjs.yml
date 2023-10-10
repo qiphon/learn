@@ -29,14 +29,12 @@ jobs:
           # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
           fetch-depth: 0
 
-      # - name: Setup pnpm
-      #   uses: pnpm/action-setup@v2
-      #   with:
-      #     # 选择要使用的 pnpm 版本
-      #     version: 8
-      #     # 使用 pnpm 安装依赖
-      #     run_install: true
-      - uses: oven-sh/setup-bun@v1
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          # 选择要使用的 pnpm 版本
+          version: 8
+      # - uses: oven-sh/setup-bun@v1
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -47,6 +45,9 @@ jobs:
           cache: pnpm
       - name: Setup Pages
         uses: actions/configure-pages@v3
+
+      - name: Install dependencies
+        run: pnpm install 
 
       # 运行构建脚本
       - name: Build vitePress site
