@@ -47,22 +47,21 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Install dependencies
-        run: pnpm install 
+        run: pnpm install
 
       # 运行构建脚本
       - name: Build vitePress site
         run: |
-          npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
+          npm run build # or pnpm docs:build / yarn docs:build / bun run docs:build
           touch docs/.vitepress/dist/.nojekyll
-      
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: docs/.vitepress/dist
 
-  deploy: 
-    environment: 
+  deploy:
+    environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
@@ -72,6 +71,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses:
+          actions/deploy-pages@v2
           # GITHUB_TOKEN: ${{ secrets.VUEPRESS_BUILD }}
-

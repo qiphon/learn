@@ -13,3 +13,4 @@ docs/.vitepress/dist
 docs/.vitepress/cache
 docs/.vitepress/cache/deps
 .vitepress/cache/deps/*
+doc_build
