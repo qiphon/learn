@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
+    "moduleResolution": "NodeNext",
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "NodeNext",
+    "allowSyntheticDefaultImports": true,
     "lib": ["DOM", "ESNext"],
     "jsx": "react-jsx"
   }

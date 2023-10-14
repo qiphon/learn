@@ -2,17 +2,14 @@
   "name": "yd-learn",
   "version": "1.0.0",
   "description": "qiphon's blog",
-  "main": "index.js",
+  "type": "module",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "dev": "rspress dev",
     "build": "rspress build && echo 'success'",
-    "preview": "rspress preview",
-    "start": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "preview": "rspress preview"
   },
   "repository": {
     "type": "git",
@@ -26,6 +23,10 @@
   },
   "homepage": "https://github.com/qiphon/learn#readme",
   "dependencies": {
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18.2.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "underscore": "^1.10.2"
   },
   "prettier": "@qiphon/prettier-config",
@@ -34,8 +35,6 @@
     "prettier": "^3.0.3",
     "rspress": "^1.0.2",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2",
-    "vitepress": "1.0.0-rc.20",
-    "vue": "^3.3.4"
+    "typescript": "^5.2.2"
   }
 }
