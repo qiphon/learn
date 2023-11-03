@@ -10,9 +10,20 @@
 - eslint-plugin-import
 - eslint-plugin-react
 - eslint-plugin-react-hooks
+- eslint-import-resolver-alias
 - eslint-plugin-jsdoc
 
 for react 
 
 - eslint-plugin-react
 - eslint-plugin-react-hooks
+
+如果是 pnpm 遇到问题需要额外添加 
+
+```
+ "pnpm": {
+    "overrides": {
+      "@typescript-eslint/parser": "6.9.1"
+    }
+  },
+```
