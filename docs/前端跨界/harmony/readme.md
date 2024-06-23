@@ -1,4 +1,4 @@
-c# harmonyOS 开发
+# harmonyOS 开发
 
 - [下载开发工具](https://developer.harmonyos.com/cn/develop/deveco-studio)
 - 配置开发者工具
@@ -93,3 +93,10 @@ c# harmonyOS 开发
 - 模拟器没有热更新，只能用preview
 - FA 模型组件名要小写字母开头
 - FA 模型使用js 时，路由跳转无法在模拟器中实现
+
+## 参考
+
+- [UI资源包 sketch 居多](https://developer.huawei.com/consumer/cn/design/resource/)
+- [视频课程](https://developer.huawei.com/consumer/cn/training/result?type1=101603094347460003&type2=101604560049942008&orderBy=1)
+- [UI框架概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/arkui-overview-0000001532577181-V2)
+- [代码示例](https://developer.huawei.com/consumer/cn/hmos/samples?catalogVersion=V2)
