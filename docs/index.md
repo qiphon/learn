@@ -24,12 +24,24 @@ github 建站步骤
 
 ### 优秀书籍
 
-1. 你不知道JavaScript 上中下
-2. 学习V8的好地方 https://v8.dev/blog/
-3. HTML5 Canvas核心技术:图形、动画与游戏开发
-4. Webkit技术内幕
+1. 你不知道 JavaScript 上中下
+2. 学习 V8 的好地方 https://v8.dev/blog/
+3. HTML5 Canvas 核心技术:图形、动画与游戏开发
+4. Webkit 技术内幕
 5. 小灰算法之旅
 6. 大话数据结构 啊哈算法
-7. 3D数学基础 图形与游戏开发
+7. 3D 数学基础 图形与游戏开发
 8. 函数式编程 https://github.com/MostlyAdequate/mostly-adequate-guide
-9. 自制编译器 自制COU系列
+9. 自制编译器 自制 COU 系列
+
+[免费电子书推荐](https://blog.csdn.net/haoel/article/details/6212491?spm=1001.2014.3001.5501)
+
+### 推荐文章
+
+- [免费的让网站启用 HTTPS](https://coolshell.cn/articles/18094.html)
+- [浏览器的渲染原理简介](https://coolshell.cn/articles/9666.html)
+- [How browsers work](http://taligarsiel.com/Projects/howbrowserswork1.htm)
+- [javascript garden](https://shamansir.github.io/JavaScript-Garden/zh/)
+- [Mozilla 的安全编程规范](https://wiki.mozilla.org/WebAppSec/Secure_Coding_Guidelines)
+- [设计模式](http://www.vincehuston.org/dp/)
+- [What's In A GIF - Bit by Byte](https://matthewflickinger.com/lab/whatsinagif/bits_and_bytes.asp)
