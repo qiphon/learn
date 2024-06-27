@@ -45,3 +45,4 @@ github 建站步骤
 - [Mozilla 的安全编程规范](https://wiki.mozilla.org/WebAppSec/Secure_Coding_Guidelines)
 - [设计模式](http://www.vincehuston.org/dp/)
 - [What's In A GIF - Bit by Byte](https://matthewflickinger.com/lab/whatsinagif/bits_and_bytes.asp)
+- [The Most Important Algorithms](https://www3.risc.jku.at/people/ckoutsch/stuff/e_algorithms.html)
