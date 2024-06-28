@@ -30,7 +30,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup bun
-      - uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v1
         # with:
         # 选择要使用的 pnpm 版本
       #     version: 8
