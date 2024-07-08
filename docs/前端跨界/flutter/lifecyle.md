@@ -23,3 +23,12 @@
 - setState: 改变 state
 - deactivate: widget 被移除时调用
 - dispose: widget 被销毁时调用
+
+### 开发中常用的声明周期
+
+- initState: 初始化 widget
+- didChangeDependencies：初始化会执行一次，当 widget 的依赖项改变时执行
+- didUpdateWidget: canupdateWidget 返回 true 时执行
+- deactivate: 页面退出时执行
+- dispose: 页面销毁时执行(永久性的移除 widget 时执行)
+- reassemble： debugger 模式下，热重载时执行

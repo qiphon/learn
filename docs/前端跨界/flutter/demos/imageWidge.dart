@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        // ios 下没有显示的地方，Android 应用管理面板显示的名字
         title: 'flutter title',
         home: Scaffold(
             appBar: AppBar(

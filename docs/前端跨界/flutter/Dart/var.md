@@ -237,4 +237,8 @@ void main() {
 // Example20 $ interpolation '${s}' or '$s' works.
 ```
 
-## 数组
+## final & const
+
+- final 和 const 都是声明常量的关键字。
+- final 声明一个实例变量，它的引用地址不可改变，是运行时的常量声明时使用的（可以在构造函数中初始化）。
+- const 声明一个常量，它的值在编译时确定。

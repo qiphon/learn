@@ -4,6 +4,7 @@
 
 ```dart
 // 定义路由，带名称的路由
+// 这种路由不能传递参数
 @override
 Widget build(BuildContext context) {
   return MaterialApp(
@@ -13,6 +14,9 @@ Widget build(BuildContext context) {
     },
   );
 }
+
+// 跳转到详情页
+Navigator.pushNamed(context, '/details');
 
 ```
 
