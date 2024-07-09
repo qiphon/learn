@@ -49,6 +49,7 @@ void main() {
 ```dart
 
 void main() {
+  int? num; // 声明一个 int 类型的变量 num, 默认值是 null
   var i = 1 + 320, d = 3.2 + 0.01, f = 1 + 1.2;
   print("Example11 int ${i}");
   print("Example11 double ${d}");
@@ -242,3 +243,57 @@ void main() {
 - final 和 const 都是声明常量的关键字。
 - final 声明一个实例变量，它的引用地址不可改变，是运行时的常量声明时使用的（可以在构造函数中初始化）。
 - const 声明一个常量，它的值在编译时确定。
+
+## 动态类型
+
+Object 、 dynamic 、var
+
+1. var
+
+var 不是一个类型，定义的变量默认类型是 dynamic
+
+2. dynamic
+
+类型绕过：dynamic类型实际上是一个特殊的类型，它告诉Dart编译器在编译时忽略类型检查。这意味着你可以将任何类型的值赋给dynamic类型的变量，并且Dart不会在编译时报告类型错误。
+类型安全：使用dynamic会牺牲类型安全，因为运行时不会进行类型检查。这可能导致运行时错误，如尝试调用未定义的方法或访问不存在的属性。
+性能：虽然dynamic在编译时提供了灵活性，但它可能会导致运行时性能下降，因为Dart运行时无法像处理静态类型那样优化dynamic类型的代码。
+
+3. Object
+
+所有类的根：在Dart中，Object是所有类的超类。任何Dart对象都是Object的实例。
+类型安全：当你声明一个变量为Object类型时，你明确地告诉Dart这个变量可以持有任何类型的对象，但这不是绕过类型检查的方式。你仍然可以在编译时和运行时获得类型安全的好处，只要你正确地处理这些对象。
+灵活性：虽然Object类型提供了很大的灵活性，但它也要求你在处理对象时更加小心，因为你必须手动检查对象的类型或使用运行时类型信息（如is操作符或as操作符）来确保类型安全。
+
+```dart
+var a;
+a = this;
+a = null;
+a = 2;
+a = 'str';
+
+Object a1;
+a1 = this;
+a1 = 1;
+a1 = 'str';
+// a1 = null; // Error: The value 'null' can't be assigned to a variable of type 'Object' because 'Object' is not nullable.
+//  Object? a 相当于 dynamic a
+
+dynamic a2;
+a2 = this;
+a2 = 1;
+a2 = 'str';
+a2 = null;
+
+```
+
+## late
+
+以下 2 种情况下使用 late
+
+- 延迟初始化
+- 定义一个不是 null 的变量，初始化在声明之后
+
+```dart
+// This is the program's only call to readThermometer().
+late String temperature = readThermometer(); // Lazily initialized.
+```
