@@ -54,6 +54,9 @@ jobs:
         run: |
           npm run build
 
+      - name: Move static file
+        run: cp -R docs/static/* ./doc_build/st/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
