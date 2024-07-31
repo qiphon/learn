@@ -6,7 +6,7 @@ android 和 ios 要修改对应的配置文件，可以参考官网
 
 步骤：
 
-1. 添加 http package。`flutter pub add http`
+1. 添加 http package。`flutter pub add http` , 通常使用 [dio](https://pub.dev/packages/dio)
 
 2. 使用 http package 进行网络请求。
 
@@ -83,3 +83,9 @@ android 和 ios 要修改对应的配置文件，可以参考官网
        // ···
    }
    ```
+
+## debugger 网络请求
+
+vscode 打开方式
+
+- `CMD + SHIFT + P` ===> `dart: open devtool ...` ===> 应该就可以看到了

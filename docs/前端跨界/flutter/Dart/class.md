@@ -4,6 +4,20 @@
 
 classBody 中可以包含实例方法和变量，还可以包含类方法和变量。
 
+dart 中没有 tss 中那种 object 类型，定义 object 类型可以直径定义类
+
+```dart
+class TabItem {
+  final String title;
+  final IconData icon;
+
+  const TabItem({
+    required this.title,
+    required this.icon,
+  });
+}
+```
+
 class 不能写在函数中
 
 ```dart
@@ -131,5 +145,36 @@ void main() {
   var o = new Example25(value: "a", anotherValue: "b");
   print("Example25 shortcut for constructor '${o.value}' and "
       "'${o.anotherValue}'");
+}
+```
+
+### 工厂函数
+
+```dart
+class Weather {
+  final String date;
+  final String weather;
+
+  // 主构造函数
+  Weather({
+    required this.date,
+    required this.weather,
+  });
+
+  // 工厂构造函数，用于从 JSON 映射中创建 Weather 实例
+  factory Weather.fromJson(Map<String, String> data) {
+    // 确保所有必需的字段都存在
+    if (!data.containsKey('date') ||
+        !data.containsKey('weather') ||
+       ) {
+      throw ArgumentError('Missing required fields in the JSON data');
+    }
+
+    // 从映射中读取数据
+    return Weather(
+      date: data['date']!,
+      weather: data['weather']!,
+    );
+  }
 }
 ```

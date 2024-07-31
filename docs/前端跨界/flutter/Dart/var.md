@@ -297,3 +297,27 @@ a2 = null;
 // This is the program's only call to readThermometer().
 late String temperature = readThermometer(); // Lazily initialized.
 ```
+
+## List
+
+list 可以使用 map，但是 map 后需要使用 `toList()`
+
+```dart
+// ...
+  List<Widget> _renderTabItemInner() {
+    final List<TabItem> items = widget.tabs;
+    return items.map((item) {
+      return Container(
+        child: widget.tabPosition == TabPosition.top
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Icon(item.icon), _renderText(item.title)],
+              )
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Icon(item.icon), _renderText(item.title)],
+              ),
+      );
+    }).toList();
+  }
+```
