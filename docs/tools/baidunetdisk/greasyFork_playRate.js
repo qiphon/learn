@@ -34,6 +34,7 @@
       { str: "x0.5", rate: 0.5 },
       { str: "x1.0", rate: 1.0 },
       { str: "x1.5", rate: 1.5 },
+      { str: "x1.8", rate: 1.8 },
       { str: "x2.0", rate: 2.0 },
       { str: "加速" },
       { str: "减速" },
