@@ -1,10 +1,19 @@
 # [项目文件及目录说明](https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101667303102887820)
 
+目录中的文件类型
+
+- resource 文件 资源型文件
+- *.json5 配置文件
+- ets arkts 文件
+
+### 文件目录结构
+
 - AppScope > app.json5：应用的全局配置信息。
 - entry：HarmonyOS工程模块，编译构建生成一个HAP包。
-  + src > main > ets：用于存放ArkTS源码。
-  + src > main > ets > entryability：应用/服务的入口。用于当前ability 应用逻辑和生命周期管理
-  + src > main > ets > pages：应用/服务包含的页面。
+  + src > main 
+    - ets：用于存放ArkTS源码。
+      + entryability：应用/服务的入口。用于当前ability 应用逻辑和生命周期管理
+      + pages：应用/服务包含的页面。
   + src > main 
     - resources：用于存放应用/服务所用到的资源文件，如图形、多媒体、字符串、布局文件等。关于资源文件，详见资源分类与访问。
         - base/profile/main_pages.json 文件保存的是页面page的路径配置信息，所有需要进行路由跳转的page页面都要在这里进行配置。
@@ -64,11 +73,100 @@
 - hvigorfile.ts：应用级编译构建任务脚本。
 - oh-package.json5是工程级依赖配置文件，用于记录引入包的配置信息。
 
+### 资源文件 （resource）
+
+放置开发中需要使用的 数字、字体、颜色、图片等文件，同样这里也区分应用级和模块级，应用级文件所有模块都可以使用，模块级文件只能模块使用。
+
 - AppScope
-  - app.json5 是应用的全局配置文件，用于存放应用的公共配置信息
-    - bundleName是包名。
+  + resources 应用级文件目录
+    - base
+      - element  元素资源：颜色、数字、字符串
+      - media 媒体资源
+      - profile  自定义配置文件目录，包含页面配置、卡片配置等
+    - en_US 多语言配置
+    - zh_CN 多语言配置
+    - rawfile 直接被打包进应用，不经过编译，也不会被赋予资源文件id
+
+- entry
+  + `src/main/resources` 模块级文件目录
+
+
+
+### json5 文件说明
+
+- entry
+  + src
+    - oh-package.json5 模块依赖管理配置文件（类似npm 的package.json）
+    - main
+      - module.json5 模块的配置文件
+
+        ```json
+        {
+          "module": { // 模块基础信息
+            "name": "entry",
+            "type": "entry",
+            "description": "$string:module_desc",
+            "mainElement": "EntryAbility",
+            "deviceTypes": [ // 模块支持的设备
+              "phone",
+              "tablet",
+              "2in1",
+              "car"
+            ],
+            "deliveryWithInstall": true,
+            "installationFree": false,
+            "pages": "$profile:main_pages",
+            "abilities": [ /// 模块应用组件信息
+              {
+                "name": "EntryAbility",
+                "srcEntry": "./ets/entryability/EntryAbility.ets",  // 当前模块入口的 UIability 代码路径
+                "description": "$string:EntryAbility_desc",
+                "icon": "$media:layered_image",
+                "label": "$string:EntryAbility_label",
+                "startWindowIcon": "$media:startIcon",
+                "startWindowBackground": "$color:start_window_background",  /// 当前module中UIability 组件的配置信息
+                "exported": true,
+                "skills": [
+                  {
+                    "entities": [
+                      "entity.system.home"
+                    ],
+                    "actions": [
+                      "action.system.home"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "routerMap": "$profie:router_map", // 当前模块的路由表路径
+            "requestPermissions": [  // 模块权限信息
+              {
+                "name": "ohos.permission.INTERNET"  // 网络权限
+              }
+            ],
+            "extensionAbilities": [
+              {
+                "name": "EntryBackupAbility",
+                "srcEntry": "./ets/entrybackupability/EntryBackupAbility.ets",
+                "type": "backup",
+                "exported": false,
+                "metadata": [
+                  {
+                    "name": "ohos.extension.backup",
+                    "resource": "$profile:backup_config"
+                  }
+                ],
+              }
+            ]
+          }
+        }
+        ```
+
+- AppScope
+  - app.json5 应用级配置文件：是应用的全局配置文件，用于存放应用的公共配置信息
+    - bundleName是包名。用于应用的唯一性
     - vendor是应用程序供应商。
     - versionCode是用于区分应用版本。
-    - versionName是版本号。
+    - versionName是版本号。（展示给用户的内容）
     - icon对应于应用的显示图标。
     - label是应用名
