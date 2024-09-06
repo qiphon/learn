@@ -43,6 +43,13 @@ export default defineConfig({
             defer: true,
           },
         },
+        {
+          tag: 'script',
+          attrs: {
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-KHQWTDS5XS',
+            defer: true,
+          },
+        },
       ],
     },
   },

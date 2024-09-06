@@ -24,3 +24,10 @@ document.body.appendChild(nosrp)
 // <!-- Google Tag Manager (noscript) -->
 // <noscript></noscript>
 // <!-- End Google Tag Manager (noscript) -->
+window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'G-KHQWTDS5XS')
