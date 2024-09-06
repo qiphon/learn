@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         百度网盘视频倍速播放
+// @name         视频倍速播放(百度、华为)
 // @description  简单的倍速播放脚本，基于 (https://github.com/vikiboss) 开发
 // @version      1.6.4
 // @author       qiphon (https://github.com/qiphon)
