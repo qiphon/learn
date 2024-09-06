@@ -1,4 +1,5 @@
 import { defineConfig } from 'rspress/config'
+import { Script } from 'vm'
 
 export default defineConfig({
   title: 'qiphon 博客',
@@ -13,6 +14,14 @@ export default defineConfig({
   icon: '/imgs/favorite.ico',
   logo: '/imgs/favorite.ico',
   head: [
+    // [
+    //   'script',
+    //   {
+    //     src: '/st/googleAnalytics/tagManager.js',
+    //     defer: 'true',
+    //     content: '',
+    //   },
+    // ],
     ['meta', { name: 'baidu-site-verification', content: 'code-rVojedTfCY' }],
     ['meta', { name: 'author', content: 'qiphon' }],
     ['meta', { name: 'description', content: 'qiphon 的前端学习笔记' }],
@@ -24,6 +33,19 @@ export default defineConfig({
       },
     ],
   ],
+  builderConfig: {
+    html: {
+      tags: [
+        {
+          tag: 'script',
+          attrs: {
+            src: '/st/googleAnalytics/tagManager.js',
+            defer: true,
+          },
+        },
+      ],
+    },
+  },
   themeConfig: {
     // nav: [
     //   {
