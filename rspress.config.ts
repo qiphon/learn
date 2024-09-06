@@ -12,6 +12,18 @@ export default defineConfig({
   // favorite icon
   icon: '/imgs/favorite.ico',
   logo: '/imgs/favorite.ico',
+  head: [
+    ['meta', { name: 'baidu-site-verification', content: 'code-rVojedTfCY' }],
+    ['meta', { name: 'author', content: 'qiphon' }],
+    ['meta', { name: 'description', content: 'qiphon 的前端学习笔记' }],
+    [
+      'meta',
+      {
+        name: 'keywords',
+        content: '前端,学习,front-end,html,js,ts,vue,react,nginx,canvas',
+      },
+    ],
+  ],
   themeConfig: {
     // nav: [
     //   {
