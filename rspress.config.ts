@@ -1,5 +1,4 @@
 import { defineConfig } from 'rspress/config'
-import { Script } from 'vm'
 
 export default defineConfig({
   title: 'qiphon 博客',
@@ -8,20 +7,21 @@ export default defineConfig({
   root: 'docs',
   base: '/',
   route: {
-    exclude: ['**/demos/**', '**/demo/**', '**/*.js', '**/*.ts', '**/*.tsx'],
+    exclude: [
+      '**/demos/**',
+      '**/demo/**',
+      'demo/**',
+      'demos/**',
+      '**/*.js',
+      '**/*.ts',
+      '**/*.tsx',
+    ],
+    cleanUrls: true,
   },
   // favorite icon
   icon: '/imgs/favorite.ico',
   logo: '/imgs/favorite.ico',
   head: [
-    // [
-    //   'script',
-    //   {
-    //     src: '/st/googleAnalytics/tagManager.js',
-    //     defer: 'true',
-    //     content: '',
-    //   },
-    // ],
     ['meta', { name: 'baidu-site-verification', content: 'code-rVojedTfCY' }],
     ['meta', { name: 'author', content: 'qiphon' }],
     ['meta', { name: 'description', content: 'qiphon 的前端学习笔记' }],
