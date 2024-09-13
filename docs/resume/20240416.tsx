@@ -1,9 +1,18 @@
 /**
  * @file 简历
+ * http://localhost:3000/resume/
  */
 import { styled, createGlobalStyle } from 'styled-components'
+import { useEffect, useRef } from 'react'
 
 export const Resume2024 = () => {
+  const originTitle = useRef<string>()
+  useEffect(() => {
+    originTitle.current = document.title
+    return () => {
+      document.title = originTitle.current
+    }
+  }, [])
   return (
     <Wrapper>
       <GlobalStyle />
@@ -14,8 +23,19 @@ export const Resume2024 = () => {
             <div>工作经验 7 年</div>
           </div>
           <div>
-            <div>博客：https://qiphon.blog.csdn.net/</div>
-            <div>github：https://github.com/qiphon/</div>
+            <div>学历：本科</div>
+            <div>
+              博客：
+              <a target="_blank" href="https://qiphon.blog.csdn.net/">
+                https://qiphon.blog.csdn.net/
+              </a>
+            </div>
+            <div>
+              github：
+              <a target="_blank" href="https://github.com/qiphon/">
+                https://github.com/qiphon/
+              </a>
+            </div>
           </div>
         </BasicInfo>
         <BlockSection>
@@ -41,19 +61,11 @@ export const Resume2024 = () => {
             </li>
             <li>&#10168; 熟悉 Photoshop 、Fireworks 、Sketch</li>
             <li>&#10168; 了解 node 框架 pm2、Koa2 、Express 、hapi</li>
-            <li>&#10168; 了解 PHP 使用过 dedecms、phpcms</li>
+            <li>&#10168; 了解 Python、flutter、PHP 使用过 dedecms、phpcms</li>
             <li>&#10168; 了解 Jenkins 、Travis、github actions、gitlab ci</li>
           </ul>
         </BlockSection>
-        <BlockSection>
-          <h2>教育经历</h2>
-          <ul>
-            <li>
-              2017.09～2020.01 &nbsp;国家开放大学
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(行政管理)
-            </li>
-          </ul>
-        </BlockSection>
+
         <BlockSection>
           <h2>项目经历</h2>
           <div>
@@ -133,16 +145,16 @@ export const Resume2024 = () => {
               快递面单脚本、微信公众号、微信小程序等
             </h4>
             <h3>&#10148;北京四海润元装饰有限公司</h3>
-            职责：负责所有网络相关的事宜，2个官网的维护。前端jQuery、Zepto、Bootstrap、LazyLoadjs、MediaQuery、百度jsApi；后端PHP、MySQL、CentOS
+            职责：负责所有网络相关的事宜，2个官网的维护,开发了移动站。前端jQuery、Zepto、Bootstrap、LazyLoadjs、MediaQuery、百度jsApi；后端PHP、MySQL、CentOS
           </div>
         </BlockSection>
         <BlockSection>
           <h2>个人总结</h2>
-          7年前端开发经验，4年TS经验，掌握
-          nuxtjs、vue3、react、vue2、react-native、uniapp，使用过图形库Echarts、HighCharts、antv
+          7年前端开发经验，3 年组长经验，4年TS经验，掌握
+          nuxtjs、vue3、react、vue2、react-native、uniapp；使用过图形库Echarts、HighCharts、antv
           G2
-          G6、ImageEditor，开发过微信小程序，微信SDK项目，node写过多语言提取脚本，配置过基于gitlab
-          CI 和 nginx 的前端发布流程、githubActions，1年基于fedora linux开发经验
+          G6、ImageEditor，开发过很多微信小程序，微信SDK项目，node写过多语言提取脚本，配置过基于gitlab
+          CI 和 nginx 的前端发布流程、githubActions，1年fedora linux环境开发经验
         </BlockSection>
       </Main>
     </Wrapper>
