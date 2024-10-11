@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":[["main","main 函数说明，生成doc 文件时会看到它"]]};
