@@ -17,9 +17,7 @@ docs/.vitepress/cache/deps
 doc_build
 
 # rust demo 忽略编译后的文件
-**/rust/demo/*
+**/rust/cargo_demo/**/target
+# **/rust/demo/*
 **/rust/demos/*
-**/rust/demo/*cargo*/target
-**/rust/demos/*cargo*/target
-!docs/rust/demo/*.rs
 !docs/rust/demos/*.rs
