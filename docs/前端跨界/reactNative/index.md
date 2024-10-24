@@ -22,7 +22,7 @@ Android 模拟器：按下 Cmd ⌘ + M（macOS）或 Ctrl + M（Windows 和 Linu
 ## debug
 
 - 安装 react-devtools ，然后运行 `npx react-devtools` ，可以查看组件树
-- 接口请求数据拦截可以用 [reactotron](https://docs.infinite.red/reactotron/)
+- 接口请求数据拦截可以用 [reactotron](https://docs.infinite.red/reactotron/) ,也可以看 console
 - console 可以在 xcode、终端中查看
 
 ### 相关资料
