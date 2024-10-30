@@ -1,0 +1,43 @@
+import { RegisterWithTransition } from './demo/houdini/registerProperty_transition.tsx'
+
+# CSS Hoodini
+
+## registerProperty
+
+通过 registerProperty 来注册一个自定义属性，并告诉浏览器这个属性的相关信息：
+
+- name：属性名
+- syntax：属性类型 eg. `syntax: "<color>"`
+- inherits: 自定义属性是否继承其它值
+- initialValue: 自定义属性的默认值
+
+主要写法有 2 种，分别是 js 方式和 css 方式
+
+### js
+
+```js
+window.CSS.registerProperty({
+  name: '--my-prop',
+  syntax: '<color>',
+  inherits: false,
+  initialValue: '#c0ffee',
+})
+```
+
+### css
+
+css 使用 @property 标识。
+
+```css
+@property --my-prop {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #c0ffee;
+}
+```
+
+### registerProperty 使用
+
+可以配合 transition 动画
+
+<RegisterWithTransition />
