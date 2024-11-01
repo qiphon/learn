@@ -1,0 +1,86 @@
+import { RegisterWithTransition } from './demo/houdini/registerProperty_transition.tsx'
+
+# [CSS houdini](https://developer.mozilla.org/zh-CN/docs/Web/API/Houdini_APIs)
+
+css houdini 扩展了 css 的支持，并且效率好于 js 通过 string 模式修改样式的模式。
+
+houdini 主要包括：
+
+- css parser api、
+- [css properties and values api](https://drafts.css-houdini.org/css-properties-values-api/#the-registerproperty-function)、允许开发者显式地定义它们的 CSS 自定义属性，允许设置属性类型检查、默认值以及是否可继承其值。
+  - `CSS.registerProperty` js 方式定义自定义属性
+  - `@property` css 方式定义自定义属性
+- css typed OM、
+- css layout api、
+- css painting api、
+- worklets
+
+## registerProperty
+
+通过 registerProperty 来注册一个自定义属性，并告诉浏览器这个属性的相关信息：
+
+- name：属性名
+- syntax：属性类型 eg. `syntax: "<color>"`
+- inherits: 自定义属性是否继承其它值
+- initialValue: 自定义属性的默认值
+
+#### registerProperty.syntax
+
+syntax 的值可以是一个或多个值，具体信息可以看 [syntax string (A syntax string describes the value types accepted by a registered custom property. Syntax strings consists of syntax component names, that are optionally multiplied and combined.)](https://drafts.css-houdini.org/css-properties-values-api/#syntax-string)
+
+参考值如下：
+
+```js
+// value like "<length>", "<length-percentage>", "<angle>", "<time>", "<resolution>", "<url>"
+// "<integer>", "<number>",  "<percentage>",  "<string>", "<color>",  "<image>", ( "<transform-function>" and "<transform-list>" )
+// For "<custom-ident>", ident, or "*" values, the computed value is as specified.
+```
+
+#### syntax-string 操作符 `+ 或者 #`
+
+（原文）For values with multipliers, the computed value is a list of the computed values of the base type.
+如果是多个值，那么就是这些值对应的类型。
+
+#### syntax-string 操作符 `｜`
+
+使用这个操作符的时候，会以第一个匹配的类型为准。
+
+#### registerProperty.initalValue
+
+可选参数，定义初始值
+
+主要写法有 2 种，分别是 js 方式和 css 方式
+
+### js
+
+```js
+window.CSS.registerProperty({
+  name: '--my-prop',
+  syntax: '<color>',
+  inherits: false,
+  initialValue: '#c0ffee', // optional
+})
+```
+
+### css
+
+css 使用 @property 标识。
+
+```css
+@property --my-prop {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #c0ffee;
+}
+```
+
+### registerProperty 使用
+
+可以配合 transition 动画
+
+<RegisterWithTransition />
+
+
+### 相关资料
+
+- [houdini.how](https://houdini.how/#) 有 npm demo 可以直接使用
