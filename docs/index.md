@@ -46,3 +46,9 @@ github 建站步骤
 - [设计模式](http://www.vincehuston.org/dp/)
 - [What's In A GIF - Bit by Byte](https://matthewflickinger.com/lab/whatsinagif/bits_and_bytes.asp)
 - [The Most Important Algorithms](https://www3.risc.jku.at/people/ckoutsch/stuff/e_algorithms.html)
+
+### github 无法访问
+
+- [github 链接问题官方说明](https://docs.github.com/en/get-started/using-github/troubleshooting-connectivity-problems)
+- 更换 dns [可以参考这里](https://www.landiannews.com/archives/21724.html)
+- 如果 ssh 无法连接，可以将 ssh 改用 https 端口 `ssh -vT -p 443 git@ssh.github.com`, 通常 ssh 改为 443 端口不会失败
