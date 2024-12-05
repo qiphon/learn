@@ -1,16 +1,18 @@
 import { RegisterWithTransition } from './demo/houdini/registerProperty_transition.tsx'
+import {CurvedLine} from './demo/houdini/curvedLine'
 
-# [CSS houdini](https://developer.mozilla.org/zh-CN/docs/Web/API/Houdini_APIs)
+# [CSS houdini](https://developer.mozilla.org/zh-CN/docs/Web/API/Houdini_APIs)、 [w3c css-properties-values-api](https://drafts.css-houdini.org/css-properties-values-api/#intro)
 
 css houdini 扩展了 css 的支持，并且效率好于 js 通过 string 模式修改样式的模式。
 
 houdini 主要包括：
 
-- css parser api、
 - [css properties and values api](https://drafts.css-houdini.org/css-properties-values-api/#the-registerproperty-function)、允许开发者显式地定义它们的 CSS 自定义属性，允许设置属性类型检查、默认值以及是否可继承其值。
+  - 自定义属性可以配合 `css animations` 和 `css transition` 使用
   - `CSS.registerProperty` js 方式定义自定义属性
   - `@property` css 方式定义自定义属性
-- css typed OM、
+- css parser api、这是一个更直接地暴露出 CSS 解析器的 API，能够把任意 CSS 类语言解析成为一种中间类型。 目前还没有该 API 的教程或参考。
+- css typed OM、（CSS Typed Object Model）
 - css layout api、
 - css painting api、
 - worklets
@@ -79,6 +81,10 @@ css 使用 @property 标识。
 可以配合 transition 动画
 
 <RegisterWithTransition />
+
+### worklets paint api
+
+<CurvedLine />
 
 
 ### 相关资料
