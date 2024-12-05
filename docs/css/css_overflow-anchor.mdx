@@ -1,0 +1,14 @@
+# [css 属性 overflow-anchor](https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow-anchor)
+
+属性值：
+
+- `auto` The element becomes a potential anchor when adjusting scroll position.
+    - 当滚动元素高度变化的时候，不会影响当前锚点元素的相对位置
+
+- `none` The element won't be selected as a potential anchor.
+    - 当滚动元素高度变化的时候，锚点元素的位置会随文档流变化
+
+
+import {OverflowAnchor} from './demo/cssOverflowAnchor'
+
+<OverflowAnchor />
