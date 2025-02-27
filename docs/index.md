@@ -52,3 +52,4 @@ github 建站步骤
 - [github 链接问题官方说明](https://docs.github.com/en/get-started/using-github/troubleshooting-connectivity-problems)
 - 更换 dns [可以参考这里](https://www.landiannews.com/archives/21724.html)
 - 如果 ssh 无法连接，可以将 ssh 改用 https 端口 `ssh -vT -p 443 git@ssh.github.com`, 通常 ssh 改为 443 端口不会失败
+  - ssh 443 端口仓库模式 `ssh://git@ssh.github.com:443/YOUR-USERNAME/YOUR-REPOSITORY.git`
