@@ -1,6 +1,6 @@
 /**
  * @file 简历
- * http://localhost:3000/resume/
+ * http://localhost:3000/resume/20240416
  */
 import { styled, createGlobalStyle } from 'styled-components'
 import { useEffect, useRef } from 'react'
@@ -23,6 +23,7 @@ export const Resume2024 = () => {
             <div>工作经验 7 年</div>
           </div>
           <div>
+            <div>生日：1991.09.27</div>
             <div>学历：本科</div>
             <div>
               博客：
@@ -82,8 +83,7 @@ export const Resume2024 = () => {
             react-router v5 开发，项目出海要求UI风格使用 TDS UI，因为 TDS UI
             及项目中的一些其它组件要求 react 版本为 18 ，react-router
             v6。由我来主导将项目中的 umi 去除，改用 webpack
-            编译，同时所有的开发依赖升级到最新。并且补充 e2e
-            测试用例保证代码的健壮。
+            编译，同时所有的开发依赖升级到最新。并且补充单元测试用例保证代码的健壮。
             <h4>直播推流平台</h4>
             <strong>工作及平台介绍：</strong>
             该项目我主要负责，该平台面向公司所有销售，负责销售的直播预定及抖音、视频号、B站平台同时开播实现。
@@ -204,6 +204,7 @@ const BasicInfo = styled.section`
 const Main = styled.main`
   /* 根据生成的 pdf 宽度需要动态调整这里 */
   max-width: 780px;
+  border: none;
 `
 
 const Wrapper = styled.div``
