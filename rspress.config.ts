@@ -79,6 +79,7 @@ export default defineConfig({
     //     position: 'right',
     //   },
     // ],
+    darkMode: false,
     socialLinks: [
       {
         icon: 'github',
