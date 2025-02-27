@@ -58,12 +58,12 @@ jobs:
         run: |
           mkdir -p ./doc_build/st
           cp -R docs/static/* ./doc_build/st/
-      
+
       - name: Move homepage html
         run: cp -R docs/homepagehtml/* ./doc_build/
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: doc_build
 
