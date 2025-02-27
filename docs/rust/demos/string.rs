@@ -4,7 +4,7 @@
 fn main() {
     // 字符串必须使用双引号，单引号不可以
     // println!("{}", 'aaa');
-    println!("{}", "aaa");
+    println!("{} ---", "aaa");
 
     let x: &str = "abc";
 
