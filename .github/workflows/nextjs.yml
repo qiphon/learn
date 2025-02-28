@@ -61,6 +61,7 @@ jobs:
 
       - name: Move homepage html
         run: cp -R docs/homepagehtml/* ./doc_build/
+        run: ls -al ./doc_build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
