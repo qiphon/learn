@@ -9,6 +9,7 @@
   - externals
   - splitChunks
   - 动态引入文件会自动代码分割
+
     ```js
     // 动态引入修改打包后的文件名
     // 需要配合 @babel/plugin-syntax-dynamic-import
@@ -16,7 +17,9 @@
       // do anything
     })
     ```
+
 - 拆分 bundle 文件
+
   ```
   {
       ...,
@@ -52,12 +55,12 @@ import(/* webpackPrefetch: true */ 'lodash').then(({ default: _ }) => {
 
 注入全局变量
 
-```webpack.config.js
+```js
 {
-    plugins: [
-        new webpack.ProvidePlugin({
-            $:'jQuery'
-        })
-    ]
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jQuery',
+    }),
+  ]
 }
 ```

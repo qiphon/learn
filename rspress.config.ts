@@ -1,4 +1,33 @@
-import { defineConfig } from 'rspress/config'
+import { defineConfig } from '@rspress/core'
+
+const disableRoutes = [
+  '**/_demos/*',
+  '**/_demo/*',
+  '**/demo/*',
+  '**/Demo/*',
+  '_demo/*',
+  '_demos/*',
+  'demo/*',
+  'demos/*',
+  '_demo/**/*',
+  '_demos/**/*',
+  'demo/**/*',
+  'demos/**/*',
+  'docs/**/demo/**/*',
+  'docs/**/Demo/**/*',
+  'docs/**/_demo/**/*',
+  'docs/**/_demos/**/*',
+  'docs/**/demos/**/*',
+  '**/*.js',
+  '**/*.ts',
+  '**/*.tsx',
+  '**/*.less',
+  '**/*.css',
+  '**/node_modules/**',
+  '**/dist/**',
+  '**/build/**',
+  '**/.cache/**',
+]
 
 export default defineConfig({
   title: 'qiphon 博客',
@@ -7,18 +36,14 @@ export default defineConfig({
   root: 'docs',
   base: '/',
   route: {
-    exclude: [
-      '**/demos/**',
-      '**/demo/**',
-      'demo/**',
-      'demos/**',
-      '**/*.js',
-      '**/*.ts',
-      '**/*.tsx',
-    ],
+    exclude: disableRoutes,
+    excludeConvention: disableRoutes,
     cleanUrls: true,
   },
-  // favorite icon
+  // ssg: {
+  //   experimentalExcludeRoutePaths: disableRoutes,
+  // },
+  ssg: false,
   icon: '/imgs/favorite.ico',
   logo: '/imgs/favorite.ico',
   head: [
@@ -36,13 +61,13 @@ export default defineConfig({
   builderConfig: {
     html: {
       tags: [
-        {
-          tag: 'script',
-          attrs: {
-            src: '/st/googleAnalytics/tagManager.js',
-            defer: true,
-          },
-        },
+        // {
+        //   tag: 'script',
+        //   attrs: {
+        //     src: '/st/googleAnalytics/tagManager.js',
+        //     defer: true,
+        //   },
+        // },
         {
           tag: 'script',
           attrs: {

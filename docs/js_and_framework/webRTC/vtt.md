@@ -1,4 +1,4 @@
-# [WebVTT](https://w3c.github.io/webvtt/) 
+# [WebVTT](https://w3c.github.io/webvtt/)
 
 - 支持多个字幕
 - 支持修改字母颜色
@@ -16,8 +16,8 @@
     - text-combine-upright
     - ruby-position
   - 除此之外，WebVTT还支持一些HTML标签进行样式控制，常见的有声音`<v>`标签，颜色`<c>`，加粗`<b>`标签，倾斜`<i>`标签，下划线`<u>`标签，还有`<ruby>`和`<lang>`标签等。
-  
-```vtt
+
+```bash
 WEBVTT
 
 00:00:00.001 --> 00:00:01.000

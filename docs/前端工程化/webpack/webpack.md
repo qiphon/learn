@@ -5,7 +5,6 @@
 > 模块化： 是一种将系统分离成独立功能 部分的方法，严格定义 模块接口 、模块间具有 透明 性
 
 - 模块化的发展：
-
   - 无模块化时代
 
     ```js
@@ -23,7 +22,6 @@
     ```
 
   - 模块化时代
-
     - Commonjs
     - RequireJS(AMD)/SeaJS(cmd)
 
@@ -61,7 +59,7 @@
 
 > webpack 默认以 `/src/index.js` 作为默认的配置文件
 
-babel 目前提供了 `@babel/preset-env` 简化了babel 的配置过程。https://babeljs.io/docs/en/next/babel-preset-env.html
+babel 目前提供了 `@babel/preset-env` 简化了babel 的配置过程。<https://babeljs.io/docs/en/next/babel-preset-env.html>
 
 ### package.json 知识点
 
@@ -182,7 +180,6 @@ babel 目前提供了 `@babel/preset-env` 简化了babel 的配置过程。https
 ### AST
 
 - loader 执行顺序是从后往前的
-
   - markdown-loader 真正的东西只有 index.js
 
     ```js
@@ -193,7 +190,7 @@ babel 目前提供了 `@babel/preset-env` 简化了babel 的配置过程。https
 
 ## 执行编译命令传递变量
 
-```package.json
+```json
 {
     "scripts": {
         "build": webpack --env.buildEnv=aaa
@@ -201,16 +198,14 @@ babel 目前提供了 `@babel/preset-env` 简化了babel 的配置过程。https
 }
 ```
 
-```webpack.config.js
-
-module.exports = (env)=> {
-    if(env && env.buildEnv === 'aaa') {
-        // aaa env
-        merge(commonConfig, aaaConfig)
-    }else{
-        // other env
-        merge(commonConfig, devConfig)
-    }
+```js webpack.config.js
+module.exports = env => {
+  if (env && env.buildEnv === 'aaa') {
+    // aaa env
+    merge(commonConfig, aaaConfig)
+  } else {
+    // other env
+    merge(commonConfig, devConfig)
+  }
 }
-
 ```

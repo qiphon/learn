@@ -1,49 +1,49 @@
-1.  请求多 合并一个文件 文件变大 30kb
-    请求少 合并三个文件 请求多 5 个 并发限制的
+1. 请求多 合并一个文件 文件变大 30kb
+   请求少 合并三个文件 请求多 5 个 并发限制的
 
 2.离线缓存
 localStorage 同步读取 5M 2.5M IE 6 7 8
 
-```JavaScript
-<script id="main" src="${_version}"></script>
- const lists = {
-        'main.js': 'main.xx55.js',
-        'common:widget/apiext/custommarker.js':
-          '/mobile/simple/static/common/widget/apiext/custommarker_a64e734.js',
-      };
-      //启动脚本 main.js
-      function addScript(key, src) {
-        if (document.getElementById('main')) {
-          return;
-        } else {
-          //顶部追加 script
-        }
-      }
-      let _version = localStorage['main.js'];
-      //本地是否有缓存
-      if (_version) {
-        // eval + addScript
-        if (lists['main.js'] == _version) {
-          addScript();
-        } else {
-          localStorage.remove(localStorage['main.js']);
-          localStorage.remove(localStorage[lists['main.js']]);
-        }
-      } else {
-        _version = lists['main.js'];
-        //开始执行缓存
-        fetch(_version).then((data) => {
-          localStorage['main.js'] = lists['main.js'];
-          localStorage[lists['main.js']] = data;
-        });
-      }
+```js
+;<script id="main" src="${_version}"></script>
+const lists = {
+  'main.js': 'main.xx55.js',
+  'common:widget/apiext/custommarker.js':
+    '/mobile/simple/static/common/widget/apiext/custommarker_a64e734.js',
+}
+//启动脚本 main.js
+function addScript(key, src) {
+  if (document.getElementById('main')) {
+    return
+  } else {
+    //顶部追加 script
+  }
+}
+let _version = localStorage['main.js']
+//本地是否有缓存
+if (_version) {
+  // eval + addScript
+  if (lists['main.js'] == _version) {
+    addScript()
+  } else {
+    localStorage.remove(localStorage['main.js'])
+    localStorage.remove(localStorage[lists['main.js']])
+  }
+} else {
+  _version = lists['main.js']
+  //开始执行缓存
+  fetch(_version).then(data => {
+    localStorage['main.js'] = lists['main.js']
+    localStorage[lists['main.js']] = data
+  })
+}
 ```
 
-3.  -> 分析模板
-    -> 虚拟 dom
-    -> dom diff
-    -> 操作 dom
-    \$("#xxx").html()
+1. -> 分析模板
+   -> 虚拟 dom
+   -> dom diff
+   -> 操作 dom
+   \$("#xxx").html()
 
 4.分析一下
 CSR Vue

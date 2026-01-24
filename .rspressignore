@@ -1,0 +1,15 @@
+**/_demos/*
+**/_demo/*
+**/demo/*
+**/Demo/*
+_demo/*
+_demos/*
+demo/*
+demos/*
+_demo/**/*
+_demos/**/*
+demo/**/*
+demos/**/*
+**/*.js
+**/*.ts
+**/*.tsx

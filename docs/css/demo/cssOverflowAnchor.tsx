@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { styled } from 'styled-components'
+import styled from '@emotion/styled'
 
 const Head = styled.h3`
   padding: 16px;
@@ -35,16 +35,23 @@ const Wrapper = styled.div<{ anchorValue: string }>`
 
 export const OverflowAnchor = () => {
   const [anchor, setanchor] = useState('none')
+
+  if (typeof window === 'undefined') {
+    return <div>Loading...</div>
+  }
+
   let newBoxesDiv = document.querySelector('#newBoxes')
   function addBox() {
     let newDiv = document.createElement('div')
     newDiv.className = 'greenDiv'
-    newBoxesDiv.appendChild(newDiv)
+    newBoxesDiv?.appendChild(newDiv)
   }
   function cleanup() {
     // debugger
     console.log('remove added')
-    newBoxesDiv.innerHTML = 'empty'
+    if (newBoxesDiv) {
+      newBoxesDiv.innerHTML = 'empty'
+    }
   }
   return (
     <div>
